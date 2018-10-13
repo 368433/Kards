@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // setting up the coordinator to launch our first view controller
         
-        // create the main navigation controller for our app
+        // create the main navigation controller and tabbar controller for our app
         let navController = UINavigationController()
         let tbarController = UITabBarController()
         
