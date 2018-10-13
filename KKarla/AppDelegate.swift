@@ -35,7 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tbarController.addChild(navController)
         window?.makeKeyAndVisible()
         
-        
         return true
     }
 
