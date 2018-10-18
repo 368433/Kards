@@ -7,31 +7,93 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E82E09F42178065A006A4B88 /* SimpleCardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E09F32178065A006A4B88 /* SimpleCardTableViewController.swift */; };
+		E82E09F62178070C006A4B88 /* SimpleCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E09F52178070C006A4B88 /* SimpleCellTableViewCell.swift */; };
+		E82E09F821782FDB006A4B88 /* EowList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E09F721782FDB006A4B88 /* EowList.swift */; };
+		E82E09FA217830C7006A4B88 /* EowDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E09F9217830C7006A4B88 /* EowDetailViewController.swift */; };
+		E82E179E2176A7D400F57761 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E179A2176A7D400F57761 /* Gradients.swift */; };
+		E82E179F2176A7D400F57761 /* Gradients+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E179B2176A7D400F57761 /* Gradients+Extension.swift */; };
+		E82E17A02176A7D400F57761 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E179C2176A7D400F57761 /* Color+Extension.swift */; };
+		E82E17A12176A7D400F57761 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E179D2176A7D400F57761 /* Direction.swift */; };
 		E84114AB217210DC00C5E9D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84114AA217210DC00C5E9D9 /* AppDelegate.swift */; };
 		E84114AD217210DC00C5E9D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84114AC217210DC00C5E9D9 /* ViewController.swift */; };
 		E84114B0217210DC00C5E9D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E84114AE217210DC00C5E9D9 /* Main.storyboard */; };
-		E84114B2217210DE00C5E9D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E84114B1217210DE00C5E9D9 /* Assets.xcassets */; };
 		E84114B5217210DE00C5E9D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E84114B3217210DE00C5E9D9 /* LaunchScreen.storyboard */; };
 		E84114BD2172110000C5E9D9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84114BC2172110000C5E9D9 /* Coordinator.swift */; };
 		E84114BF217211B200C5E9D9 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84114BE217211B200C5E9D9 /* Storyboarded.swift */; };
 		E84114C1217213EF00C5E9D9 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84114C0217213EF00C5E9D9 /* MainCoordinator.swift */; };
 		E84114C621721C8200C5E9D9 /* CardsStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84114C521721C8200C5E9D9 /* CardsStackViewController.swift */; };
-		E84114CA21721D1300C5E9D9 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E84114C921721D1300C5E9D9 /* CardView.xib */; };
+		E84114CE2172215000C5E9D9 /* PatientEOW.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84114CD2172215000C5E9D9 /* PatientEOW.swift */; };
+		E84114D32172285800C5E9D9 /* eowCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84114D12172285800C5E9D9 /* eowCardCell.swift */; };
+		E84114D42172285800C5E9D9 /* eowCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E84114D22172285800C5E9D9 /* eowCardCell.xib */; };
+		E84114FE21758C8D00C5E9D9 /* FoldingTestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84114FD21758C8D00C5E9D9 /* FoldingTestTableViewController.swift */; };
+		E84115002175924000C5E9D9 /* DemoFoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84114FF2175924000C5E9D9 /* DemoFoldingCell.swift */; };
+		E84115022175A1DF00C5E9D9 /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84115012175A1DF00C5E9D9 /* FoldingCell.swift */; };
+		E84115182175A38F00C5E9D9 /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84115042175A38F00C5E9D9 /* DemoCell.swift */; };
+		E84115192175A38F00C5E9D9 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84115052175A38F00C5E9D9 /* MainTableViewController.swift */; };
+		E841151E2175A38F00C5E9D9 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E841150D2175A38F00C5E9D9 /* OpenSans-Semibold.ttf */; };
+		E841151F2175A38F00C5E9D9 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E841150E2175A38F00C5E9D9 /* OpenSans-Light.ttf */; };
+		E84115202175A38F00C5E9D9 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E841150F2175A38F00C5E9D9 /* OpenSans-Italic.ttf */; };
+		E84115212175A38F00C5E9D9 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E84115102175A38F00C5E9D9 /* OpenSans-ExtraBold.ttf */; };
+		E84115222175A38F00C5E9D9 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E84115112175A38F00C5E9D9 /* OpenSans-LightItalic.ttf */; };
+		E84115232175A38F00C5E9D9 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E84115122175A38F00C5E9D9 /* OpenSans-Bold.ttf */; };
+		E84115242175A38F00C5E9D9 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E84115132175A38F00C5E9D9 /* OpenSans-SemiboldItalic.ttf */; };
+		E84115252175A38F00C5E9D9 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E84115142175A38F00C5E9D9 /* OpenSans-ExtraBoldItalic.ttf */; };
+		E84115262175A38F00C5E9D9 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E84115152175A38F00C5E9D9 /* OpenSans-Regular.ttf */; };
+		E84115272175A38F00C5E9D9 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E84115162175A38F00C5E9D9 /* OpenSans-BoldItalic.ttf */; };
+		E841152A2175A4B300C5E9D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E84115292175A4B300C5E9D9 /* Assets.xcassets */; };
+		E8A31F232176827700A562C0 /* ClinicalAct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A31F222176827700A562C0 /* ClinicalAct.swift */; };
+		E8ABF63B2178EE5F00D0C41D /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABF63A2178EE5F00D0C41D /* CardsViewController.swift */; };
+		E8ABF63D2178EE7700D0C41D /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABF63C2178EE7700D0C41D /* AnalyticsViewController.swift */; };
+		E8ABF63F2178EE8000D0C41D /* BillingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABF63E2178EE8000D0C41D /* BillingViewController.swift */; };
+		E8ABF6412178EEA900D0C41D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABF6402178EEA900D0C41D /* SettingsViewController.swift */; };
+		E8C92F492175AEDC00B39CC4 /* fctet2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C92F482175AEDC00B39CC4 /* fctet2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E82E09F32178065A006A4B88 /* SimpleCardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCardTableViewController.swift; sourceTree = "<group>"; };
+		E82E09F52178070C006A4B88 /* SimpleCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCellTableViewCell.swift; sourceTree = "<group>"; };
+		E82E09F721782FDB006A4B88 /* EowList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EowList.swift; sourceTree = "<group>"; };
+		E82E09F9217830C7006A4B88 /* EowDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EowDetailViewController.swift; sourceTree = "<group>"; };
+		E82E179A2176A7D400F57761 /* Gradients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
+		E82E179B2176A7D400F57761 /* Gradients+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Gradients+Extension.swift"; sourceTree = "<group>"; };
+		E82E179C2176A7D400F57761 /* Color+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		E82E179D2176A7D400F57761 /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		E84114A7217210DC00C5E9D9 /* KKarla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KKarla.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E84114AA217210DC00C5E9D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E84114AC217210DC00C5E9D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E84114AF217210DC00C5E9D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E84114B1217210DE00C5E9D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E84114B4217210DE00C5E9D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E84114B6217210DE00C5E9D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E84114BC2172110000C5E9D9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E84114BE217211B200C5E9D9 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		E84114C0217213EF00C5E9D9 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		E84114C521721C8200C5E9D9 /* CardsStackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsStackViewController.swift; sourceTree = "<group>"; };
-		E84114C921721D1300C5E9D9 /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
+		E84114CD2172215000C5E9D9 /* PatientEOW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientEOW.swift; sourceTree = "<group>"; };
+		E84114D12172285800C5E9D9 /* eowCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eowCardCell.swift; sourceTree = "<group>"; };
+		E84114D22172285800C5E9D9 /* eowCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = eowCardCell.xib; sourceTree = "<group>"; };
+		E84114FD21758C8D00C5E9D9 /* FoldingTestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldingTestTableViewController.swift; sourceTree = "<group>"; };
+		E84114FF2175924000C5E9D9 /* DemoFoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoFoldingCell.swift; sourceTree = "<group>"; };
+		E84115012175A1DF00C5E9D9 /* FoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingCell.swift; sourceTree = "<group>"; };
+		E84115042175A38F00C5E9D9 /* DemoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCell.swift; sourceTree = "<group>"; };
+		E84115052175A38F00C5E9D9 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		E841150D2175A38F00C5E9D9 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		E841150E2175A38F00C5E9D9 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		E841150F2175A38F00C5E9D9 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		E84115102175A38F00C5E9D9 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		E84115112175A38F00C5E9D9 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		E84115122175A38F00C5E9D9 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		E84115132175A38F00C5E9D9 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		E84115142175A38F00C5E9D9 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		E84115152175A38F00C5E9D9 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		E84115162175A38F00C5E9D9 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		E84115292175A4B300C5E9D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E8A31F222176827700A562C0 /* ClinicalAct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicalAct.swift; sourceTree = "<group>"; };
+		E8ABF63A2178EE5F00D0C41D /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
+		E8ABF63C2178EE7700D0C41D /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
+		E8ABF63E2178EE8000D0C41D /* BillingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingViewController.swift; sourceTree = "<group>"; };
+		E8ABF6402178EEA900D0C41D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E8C92F482175AEDC00B39CC4 /* fctet2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fctet2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +107,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E82E17992176A7D400F57761 /* Gradients */ = {
+			isa = PBXGroup;
+			children = (
+				E82E179A2176A7D400F57761 /* Gradients.swift */,
+				E82E179B2176A7D400F57761 /* Gradients+Extension.swift */,
+				E82E179C2176A7D400F57761 /* Color+Extension.swift */,
+				E82E179D2176A7D400F57761 /* Direction.swift */,
+			);
+			path = Gradients;
+			sourceTree = "<group>";
+		};
 		E841149E217210DC00C5E9D9 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +144,7 @@
 				E84114C221721C2F00C5E9D9 /* Controllers */,
 				E84114C721721CAB00C5E9D9 /* Models */,
 				E84114C821721CC500C5E9D9 /* Views */,
+				E841152B2175A4B900C5E9D9 /* Demos */,
 				E84114C421721C5600C5E9D9 /* Supporting Files */,
 			);
 			path = KKarla;
@@ -80,7 +154,14 @@
 			isa = PBXGroup;
 			children = (
 				E84114AC217210DC00C5E9D9 /* ViewController.swift */,
+				E8ABF63A2178EE5F00D0C41D /* CardsViewController.swift */,
+				E8ABF63C2178EE7700D0C41D /* AnalyticsViewController.swift */,
+				E8ABF63E2178EE8000D0C41D /* BillingViewController.swift */,
+				E8ABF6402178EEA900D0C41D /* SettingsViewController.swift */,
+				E84115052175A38F00C5E9D9 /* MainTableViewController.swift */,
 				E84114C521721C8200C5E9D9 /* CardsStackViewController.swift */,
+				E82E09F32178065A006A4B88 /* SimpleCardTableViewController.swift */,
+				E82E09F9217830C7006A4B88 /* EowDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -98,7 +179,9 @@
 		E84114C421721C5600C5E9D9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E84114B1217210DE00C5E9D9 /* Assets.xcassets */,
+				E84115292175A4B300C5E9D9 /* Assets.xcassets */,
+				E82E17992176A7D400F57761 /* Gradients */,
+				E84115012175A1DF00C5E9D9 /* FoldingCell.swift */,
 				E84114B3217210DE00C5E9D9 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
@@ -107,6 +190,9 @@
 		E84114C721721CAB00C5E9D9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E84114CD2172215000C5E9D9 /* PatientEOW.swift */,
+				E82E09F721782FDB006A4B88 /* EowList.swift */,
+				E8A31F222176827700A562C0 /* ClinicalAct.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -114,9 +200,40 @@
 		E84114C821721CC500C5E9D9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E84114C921721D1300C5E9D9 /* CardView.xib */,
+				E84115042175A38F00C5E9D9 /* DemoCell.swift */,
+				E82E09F52178070C006A4B88 /* SimpleCellTableViewCell.swift */,
+				E84114D12172285800C5E9D9 /* eowCardCell.swift */,
+				E84114D22172285800C5E9D9 /* eowCardCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E841150C2175A38F00C5E9D9 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E841150D2175A38F00C5E9D9 /* OpenSans-Semibold.ttf */,
+				E841150E2175A38F00C5E9D9 /* OpenSans-Light.ttf */,
+				E841150F2175A38F00C5E9D9 /* OpenSans-Italic.ttf */,
+				E84115102175A38F00C5E9D9 /* OpenSans-ExtraBold.ttf */,
+				E84115112175A38F00C5E9D9 /* OpenSans-LightItalic.ttf */,
+				E84115122175A38F00C5E9D9 /* OpenSans-Bold.ttf */,
+				E84115132175A38F00C5E9D9 /* OpenSans-SemiboldItalic.ttf */,
+				E84115142175A38F00C5E9D9 /* OpenSans-ExtraBoldItalic.ttf */,
+				E84115152175A38F00C5E9D9 /* OpenSans-Regular.ttf */,
+				E84115162175A38F00C5E9D9 /* OpenSans-BoldItalic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		E841152B2175A4B900C5E9D9 /* Demos */ = {
+			isa = PBXGroup;
+			children = (
+				E84114FD21758C8D00C5E9D9 /* FoldingTestTableViewController.swift */,
+				E8C92F482175AEDC00B39CC4 /* fctet2.swift */,
+				E84114FF2175924000C5E9D9 /* DemoFoldingCell.swift */,
+				E841150C2175A38F00C5E9D9 /* Fonts */,
+			);
+			path = Demos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,10 +294,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E84115212175A38F00C5E9D9 /* OpenSans-ExtraBold.ttf in Resources */,
+				E84115222175A38F00C5E9D9 /* OpenSans-LightItalic.ttf in Resources */,
 				E84114B5217210DE00C5E9D9 /* LaunchScreen.storyboard in Resources */,
-				E84114B2217210DE00C5E9D9 /* Assets.xcassets in Resources */,
-				E84114CA21721D1300C5E9D9 /* CardView.xib in Resources */,
+				E84115202175A38F00C5E9D9 /* OpenSans-Italic.ttf in Resources */,
+				E841152A2175A4B300C5E9D9 /* Assets.xcassets in Resources */,
+				E84115262175A38F00C5E9D9 /* OpenSans-Regular.ttf in Resources */,
+				E84115272175A38F00C5E9D9 /* OpenSans-BoldItalic.ttf in Resources */,
 				E84114B0217210DC00C5E9D9 /* Main.storyboard in Resources */,
+				E84115252175A38F00C5E9D9 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				E841151E2175A38F00C5E9D9 /* OpenSans-Semibold.ttf in Resources */,
+				E841151F2175A38F00C5E9D9 /* OpenSans-Light.ttf in Resources */,
+				E84115242175A38F00C5E9D9 /* OpenSans-SemiboldItalic.ttf in Resources */,
+				E84115232175A38F00C5E9D9 /* OpenSans-Bold.ttf in Resources */,
+				E84114D42172285800C5E9D9 /* eowCardCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,12 +318,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8ABF63F2178EE8000D0C41D /* BillingViewController.swift in Sources */,
 				E84114AD217210DC00C5E9D9 /* ViewController.swift in Sources */,
+				E82E17A02176A7D400F57761 /* Color+Extension.swift in Sources */,
+				E8ABF63D2178EE7700D0C41D /* AnalyticsViewController.swift in Sources */,
+				E8C92F492175AEDC00B39CC4 /* fctet2.swift in Sources */,
+				E84115192175A38F00C5E9D9 /* MainTableViewController.swift in Sources */,
+				E84114CE2172215000C5E9D9 /* PatientEOW.swift in Sources */,
+				E82E179F2176A7D400F57761 /* Gradients+Extension.swift in Sources */,
+				E84115182175A38F00C5E9D9 /* DemoCell.swift in Sources */,
+				E84114D32172285800C5E9D9 /* eowCardCell.swift in Sources */,
+				E8ABF63B2178EE5F00D0C41D /* CardsViewController.swift in Sources */,
 				E84114AB217210DC00C5E9D9 /* AppDelegate.swift in Sources */,
+				E82E09F62178070C006A4B88 /* SimpleCellTableViewCell.swift in Sources */,
+				E82E09F42178065A006A4B88 /* SimpleCardTableViewController.swift in Sources */,
 				E84114BD2172110000C5E9D9 /* Coordinator.swift in Sources */,
 				E84114C621721C8200C5E9D9 /* CardsStackViewController.swift in Sources */,
+				E84115002175924000C5E9D9 /* DemoFoldingCell.swift in Sources */,
 				E84114C1217213EF00C5E9D9 /* MainCoordinator.swift in Sources */,
+				E82E09F821782FDB006A4B88 /* EowList.swift in Sources */,
+				E82E17A12176A7D400F57761 /* Direction.swift in Sources */,
+				E82E179E2176A7D400F57761 /* Gradients.swift in Sources */,
 				E84114BF217211B200C5E9D9 /* Storyboarded.swift in Sources */,
+				E82E09FA217830C7006A4B88 /* EowDetailViewController.swift in Sources */,
+				E8A31F232176827700A562C0 /* ClinicalAct.swift in Sources */,
+				E84115022175A1DF00C5E9D9 /* FoldingCell.swift in Sources */,
+				E84114FE21758C8D00C5E9D9 /* FoldingTestTableViewController.swift in Sources */,
+				E8ABF6412178EEA900D0C41D /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

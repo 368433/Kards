@@ -18,13 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // setting up the coordinator to launch our first view controller
-        
         // create the main navigation controller and tabbar controller for our app
-        let navController = UINavigationController()
+        //let navController = UINavigationController()
         let tbarController = UITabBarController()
         
         // Create the main coordinator
-        coordinator = MainCoordinator(navigationController: navController)
+//        coordinator = MainCoordinator(navigationController: navController, tabBarController: tbarController)
+        coordinator = MainCoordinator(tabBarController: tbarController)
         
         // Tell the coordinator to take over control
         coordinator?.start()
@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // create a basic app window and activate it
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = tbarController
-        tbarController.addChild(navController)
+        //tbarController.addChild(navController)
         window?.makeKeyAndVisible()
         
         return true

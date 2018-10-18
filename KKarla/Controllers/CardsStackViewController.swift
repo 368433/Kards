@@ -6,25 +6,43 @@
 //  Copyright © 2018 amir2. All rights reserved.
 //
 
+/*
+ Requirements of a card stack view controller:
+ display the cards in sequential order - sorting criteria to be customizable
+ add/sort/expand view of cards
+ */
+
 import UIKit
 
-class CardsStackViewController: UIViewController {
+class CardsStackViewController: UITableViewController, Storyboarded{
 
+    weak var coordinator: MainCoordinator?
+    var cardStack: [PatientEOW]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Table view data source
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
-    */
-
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return cardStack?.count ?? 0
+        return 10
+    }
+    
+     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     let cell = tableView.dequeueReusableCell(withIdentifier: "eowCard", for: indexPath)
+     
+     // Configure the cell
+     
+     return cell
+     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 250.0
+    }
 }
