@@ -34,14 +34,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-154.40000000000001" y="19.340329835082461"/>
+            <point key="canvasLocation" x="3062" y="-717"/>
         </scene>
         <!--Simple Card Table View Controller-->
         <scene sceneID="txn-VH-CJu">
             <objects>
                 <tableViewController storyboardIdentifier="SimpleCardTableViewController" id="koR-tV-7UY" customClass="SimpleCardTableViewController" customModule="KKarla" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CFn-gf-Bye">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="neV-iA-UF8" userLabel="Header">
@@ -263,10 +263,46 @@
                             <outlet property="delegate" destination="koR-tV-7UY" id="hcZ-Je-BSR"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="4WA-LU-8wq"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BXB-E7-6qh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="514.39999999999998" y="-666.11694152923542"/>
+            <point key="canvasLocation" x="554" y="37"/>
+        </scene>
+        <!--Analytics-->
+        <scene sceneID="CMZ-3J-dkW">
+            <objects>
+                <viewController storyboardIdentifier="AnalyticsViewController" id="KdN-Gh-Ina" customClass="AnalyticsViewController" customModule="KKarla" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0lX-tr-uGW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="hs0-fI-VLO"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Analytics" image="analytics" id="H1N-uo-Cwi"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZLU-Ql-MOh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="562" y="786"/>
+        </scene>
+        <!--BIlling-->
+        <scene sceneID="4jM-FT-Bnu">
+            <objects>
+                <viewController storyboardIdentifier="BillingViewController" id="gke-Pf-d4R" customClass="BillingViewController" customModule="KKarla" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Vd-Mb-NIT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="bSx-Ob-84g"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="BIlling" image="billing" id="kzt-NQ-kHF"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zpX-oU-fTk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="548" y="1515"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="exR-Lj-cbO">
@@ -307,56 +343,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sZI-dD-wb0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1272.8" y="-666.11694152923542"/>
-        </scene>
-        <!--Item 2-->
-        <scene sceneID="Met-Ot-6IK">
-            <objects>
-                <viewController id="Vx2-i9-KrG" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Aqf-un-9cZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="cJ1-iL-6BX"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Jn3-5t-6NC"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fve-j9-BLb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1953" y="-1323"/>
-        </scene>
-        <!--Item 1-->
-        <scene sceneID="zRs-rr-bde">
-            <objects>
-                <viewController id="49O-yS-mJe" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="eP5-Se-hEJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="8Kb-Yf-WVr"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="0Ha-I5-19h"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gOe-CT-inF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1953" y="-1988"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="HQd-Vd-8cP">
-            <objects>
-                <tabBarController storyboardIdentifier="MainTabBar" id="H3c-Mt-8N6" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Zsy-S3-KZ3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="49O-yS-mJe" kind="relationship" relationship="viewControllers" id="bQV-Lf-8tB"/>
-                        <segue destination="Vx2-i9-KrG" kind="relationship" relationship="viewControllers" id="5h9-95-EG3"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GgG-Cg-82n" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="761" y="-1723"/>
         </scene>
         <!--Cards Stack View Controller-->
         <scene sceneID="DB1-Ll-U7t">
@@ -443,7 +429,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3W2-ym-3bK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="605.60000000000002" y="18.440779610194905"/>
+            <point key="canvasLocation" x="2070" y="-666"/>
         </scene>
         <!--Folding Test Table View Controller-->
         <scene sceneID="DyP-Qi-KuK">
@@ -1916,7 +1902,9 @@
     <resources>
         <image name="add" width="409.60000610351562" height="409.60000610351562"/>
         <image name="addcircleicon" width="375" height="375"/>
+        <image name="analytics" width="30" height="30"/>
         <image name="arrow" width="16" height="25"/>
+        <image name="billing" width="30" height="30"/>
         <image name="burger" width="38" height="29"/>
         <image name="doorhanger" width="75" height="75"/>
         <image name="dots" width="14" height="84"/>

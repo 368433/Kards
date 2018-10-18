@@ -24,34 +24,23 @@ class MainCoordinator: Coordinator {
         self.tabBarController.addChild(self.navigationController)
     }
 
-//    func start() {
-//        let vc = ViewController.instantiate()
-//        navigationController.pushViewController(vc, animated: false)
-//    }
     
     func start() {
 
         let simpleVC = SimpleCardTableViewController.instantiate()
-        let simpleVCTabBarItem = UITabBarItem(title: "BOOM", image: nil, selectedImage: nil)
-        let simpleNC = UINavigationController()
-        simpleNC.tabBarItem = simpleVCTabBarItem
-        simpleNC.pushViewController(simpleVC, animated: false)
-        
-        let foldingVC = FoldingTestTableViewController.instantiate()
-        let foldingVCTabBarItem = UITabBarItem(title: "FOLDING", image: nil, selectedImage: nil)
-        foldingVC.tabBarItem = foldingVCTabBarItem
-        
+        let analyticsVC = AnalyticsViewController.instantiate()
+        let billingVC = BillingViewController.instantiate()
         
         // populate the tab bar controller
-//        let cardVC = CardsViewController()
-//        cardVC.title = "Card"
-        tabBarController.viewControllers = [simpleNC, foldingVC]
+        tabBarController.viewControllers = [FitInNavController(simpleVC), analyticsVC, billingVC]
         tabBarController.selectedIndex = 0
-//        let vc = MainTableViewController.instantiate()
-//        let vc = SimpleCardTableViewController.instantiate()
-//        let vc = fctet2.instantiate()
-//        let vc = FoldingTestTableViewController.instantiate()
-//        let vc = CardsStackViewController.instantiate()
-//        navigationController.pushViewController(vc, animated: false)
+
+    }
+    
+    private func FitInNavController(_ viewToFit: UIViewController) -> UINavigationController {
+        let navController = UINavigationController()
+        navController.tabBarItem = viewToFit.tabBarItem
+        navController.pushViewController(viewToFit, animated: false)
+        return navController
     }
 }
