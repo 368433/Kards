@@ -25,7 +25,7 @@ import UIKit
 
 class MainTableViewController: UITableViewController, Storyboarded {
 
-    var coordinator: MainCoordinator?
+weak var coordinator: MainCoordinator?
     
     enum Const {
         static let closeCellHeight: CGFloat = 179

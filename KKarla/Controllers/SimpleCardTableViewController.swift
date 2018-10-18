@@ -9,7 +9,7 @@
 import UIKit
 
 class SimpleCardTableViewController: UITableViewController, Storyboarded {
-
+    
     weak var coordinator: MainCoordinator?
     
     override func viewDidLoad() {

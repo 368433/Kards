@@ -10,7 +10,7 @@ import UIKit
 
 class CardsViewController: UIViewController, Storyboarded {
 
-    weak var coordinator: MainCoordinator?
+weak var coordinator: MainCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()

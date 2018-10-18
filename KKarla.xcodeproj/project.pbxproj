@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D84F2CB1929288333473509 /* Pods_KKarla.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E043F8B2F0E2DF630E4C3B97 /* Pods_KKarla.framework */; };
 		E82E09F42178065A006A4B88 /* SimpleCardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E09F32178065A006A4B88 /* SimpleCardTableViewController.swift */; };
 		E82E09F62178070C006A4B88 /* SimpleCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E09F52178070C006A4B88 /* SimpleCellTableViewCell.swift */; };
 		E82E09F821782FDB006A4B88 /* EowList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E09F721782FDB006A4B88 /* EowList.swift */; };
@@ -42,6 +43,7 @@
 		E84115262175A38F00C5E9D9 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E84115152175A38F00C5E9D9 /* OpenSans-Regular.ttf */; };
 		E84115272175A38F00C5E9D9 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E84115162175A38F00C5E9D9 /* OpenSans-BoldItalic.ttf */; };
 		E841152A2175A4B300C5E9D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E84115292175A4B300C5E9D9 /* Assets.xcassets */; };
+		E88ADE2C21791A1F00C24BE2 /* CardsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88ADE2B21791A1F00C24BE2 /* CardsCoordinator.swift */; };
 		E8A31F232176827700A562C0 /* ClinicalAct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A31F222176827700A562C0 /* ClinicalAct.swift */; };
 		E8ABF63B2178EE5F00D0C41D /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABF63A2178EE5F00D0C41D /* CardsViewController.swift */; };
 		E8ABF63D2178EE7700D0C41D /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABF63C2178EE7700D0C41D /* AnalyticsViewController.swift */; };
@@ -51,6 +53,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0BC7339C681FB2F7F9462DA9 /* Pods-KKarla.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KKarla.release.xcconfig"; path = "Pods/Target Support Files/Pods-KKarla/Pods-KKarla.release.xcconfig"; sourceTree = "<group>"; };
+		46490DF824D37F6FAF1374ED /* Pods-KKarla.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KKarla.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KKarla/Pods-KKarla.debug.xcconfig"; sourceTree = "<group>"; };
+		E043F8B2F0E2DF630E4C3B97 /* Pods_KKarla.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KKarla.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E82E09F32178065A006A4B88 /* SimpleCardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCardTableViewController.swift; sourceTree = "<group>"; };
 		E82E09F52178070C006A4B88 /* SimpleCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCellTableViewCell.swift; sourceTree = "<group>"; };
 		E82E09F721782FDB006A4B88 /* EowList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EowList.swift; sourceTree = "<group>"; };
@@ -88,6 +93,7 @@
 		E84115152175A38F00C5E9D9 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		E84115162175A38F00C5E9D9 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		E84115292175A4B300C5E9D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E88ADE2B21791A1F00C24BE2 /* CardsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCoordinator.swift; sourceTree = "<group>"; };
 		E8A31F222176827700A562C0 /* ClinicalAct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicalAct.swift; sourceTree = "<group>"; };
 		E8ABF63A2178EE5F00D0C41D /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		E8ABF63C2178EE7700D0C41D /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
@@ -101,12 +107,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D84F2CB1929288333473509 /* Pods_KKarla.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01229F4D958CACEC850AA5A9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				46490DF824D37F6FAF1374ED /* Pods-KKarla.debug.xcconfig */,
+				0BC7339C681FB2F7F9462DA9 /* Pods-KKarla.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3C4533EC7C47F593FDC8CA38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E043F8B2F0E2DF630E4C3B97 /* Pods_KKarla.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E82E17992176A7D400F57761 /* Gradients */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +147,8 @@
 			children = (
 				E84114A9217210DC00C5E9D9 /* KKarla */,
 				E84114A8217210DC00C5E9D9 /* Products */,
+				01229F4D958CACEC850AA5A9 /* Pods */,
+				3C4533EC7C47F593FDC8CA38 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,13 +180,13 @@
 			isa = PBXGroup;
 			children = (
 				E84114AC217210DC00C5E9D9 /* ViewController.swift */,
-				E8ABF63A2178EE5F00D0C41D /* CardsViewController.swift */,
+				E82E09F32178065A006A4B88 /* SimpleCardTableViewController.swift */,
 				E8ABF63C2178EE7700D0C41D /* AnalyticsViewController.swift */,
 				E8ABF63E2178EE8000D0C41D /* BillingViewController.swift */,
 				E8ABF6402178EEA900D0C41D /* SettingsViewController.swift */,
+				E8ABF63A2178EE5F00D0C41D /* CardsViewController.swift */,
 				E84115052175A38F00C5E9D9 /* MainTableViewController.swift */,
 				E84114C521721C8200C5E9D9 /* CardsStackViewController.swift */,
-				E82E09F32178065A006A4B88 /* SimpleCardTableViewController.swift */,
 				E82E09F9217830C7006A4B88 /* EowDetailViewController.swift */,
 			);
 			path = Controllers;
@@ -171,6 +197,7 @@
 			children = (
 				E84114BC2172110000C5E9D9 /* Coordinator.swift */,
 				E84114C0217213EF00C5E9D9 /* MainCoordinator.swift */,
+				E88ADE2B21791A1F00C24BE2 /* CardsCoordinator.swift */,
 				E84114BE217211B200C5E9D9 /* Storyboarded.swift */,
 			);
 			path = Coordinators;
@@ -243,9 +270,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E84114B9217210DE00C5E9D9 /* Build configuration list for PBXNativeTarget "KKarla" */;
 			buildPhases = (
+				1492CCC3AFF887D556B5449D /* [CP] Check Pods Manifest.lock */,
 				E84114A3217210DC00C5E9D9 /* Sources */,
 				E84114A4217210DC00C5E9D9 /* Frameworks */,
 				E84114A5217210DC00C5E9D9 /* Resources */,
+				4CD43CAC5605FD9B468CC9BD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -313,6 +342,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1492CCC3AFF887D556B5449D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KKarla-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4CD43CAC5605FD9B468CC9BD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-KKarla/Pods-KKarla-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KKarla/Pods-KKarla-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E84114A3217210DC00C5E9D9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -328,6 +404,7 @@
 				E82E179F2176A7D400F57761 /* Gradients+Extension.swift in Sources */,
 				E84115182175A38F00C5E9D9 /* DemoCell.swift in Sources */,
 				E84114D32172285800C5E9D9 /* eowCardCell.swift in Sources */,
+				E88ADE2C21791A1F00C24BE2 /* CardsCoordinator.swift in Sources */,
 				E8ABF63B2178EE5F00D0C41D /* CardsViewController.swift in Sources */,
 				E84114AB217210DC00C5E9D9 /* AppDelegate.swift in Sources */,
 				E82E09F62178070C006A4B88 /* SimpleCellTableViewCell.swift in Sources */,
@@ -488,6 +565,7 @@
 		};
 		E84114BA217210DE00C5E9D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46490DF824D37F6FAF1374ED /* Pods-KKarla.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -506,6 +584,7 @@
 		};
 		E84114BB217210DE00C5E9D9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BC7339C681FB2F7F9462DA9 /* Pods-KKarla.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

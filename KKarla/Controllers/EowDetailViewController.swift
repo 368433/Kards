@@ -10,6 +10,8 @@ import UIKit
 
 class EowDetailViewController: UIViewController, Storyboarded {
 
+    weak var coordinator: MainCoordinator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

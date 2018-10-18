@@ -36,7 +36,7 @@
             </objects>
             <point key="canvasLocation" x="3062" y="-717"/>
         </scene>
-        <!--Simple Card Table View Controller-->
+        <!--Patients-->
         <scene sceneID="txn-VH-CJu">
             <objects>
                 <tableViewController storyboardIdentifier="SimpleCardTableViewController" id="koR-tV-7UY" customClass="SimpleCardTableViewController" customModule="KKarla" customModuleProvider="target" sceneMemberID="viewController">
@@ -263,7 +263,7 @@
                             <outlet property="delegate" destination="koR-tV-7UY" id="hcZ-Je-BSR"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="4WA-LU-8wq"/>
+                    <tabBarItem key="tabBarItem" title="Patients" image="hospital-3" id="4WA-LU-8wq"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BXB-E7-6qh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -303,6 +303,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zpX-oU-fTk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="548" y="1515"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="DmI-l2-lQ1">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="Hwj-52-Se8" customClass="SettingsViewController" customModule="KKarla" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TY4-xh-OHm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="oIT-J3-9JQ"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="3HO-2g-3Ug"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ued-YW-Lyf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="548" y="2255"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="exR-Lj-cbO">
@@ -1908,13 +1925,14 @@
         <image name="burger" width="38" height="29"/>
         <image name="doorhanger" width="75" height="75"/>
         <image name="dots" width="14" height="84"/>
+        <image name="hospital-3" width="45" height="45"/>
         <image name="idima" width="375" height="375"/>
         <image name="image" width="681" height="330"/>
         <image name="overview" width="75" height="75"/>
         <image name="photo" width="98" height="98"/>
         <image name="placeholder512" width="384" height="384"/>
         <image name="pnse" width="1306" height="838"/>
-        <image name="settings" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="settings" width="30" height="30"/>
         <image name="stars" width="97" height="17"/>
         <image name="usericon" width="75" height="75"/>
     </resources>

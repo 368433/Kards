@@ -17,6 +17,7 @@ import UIKit
 class CardsStackViewController: UITableViewController, Storyboarded{
 
     weak var coordinator: MainCoordinator?
+    
     var cardStack: [PatientEOW]?
     
     override func viewDidLoad() {
