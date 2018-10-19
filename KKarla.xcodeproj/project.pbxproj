@@ -46,9 +46,9 @@
 		E88ADE2C21791A1F00C24BE2 /* CardsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88ADE2B21791A1F00C24BE2 /* CardsCoordinator.swift */; };
 		E8A31F232176827700A562C0 /* ClinicalAct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A31F222176827700A562C0 /* ClinicalAct.swift */; };
 		E8ABF63B2178EE5F00D0C41D /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABF63A2178EE5F00D0C41D /* CardsViewController.swift */; };
-		E8ABF63D2178EE7700D0C41D /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABF63C2178EE7700D0C41D /* AnalyticsViewController.swift */; };
 		E8ABF63F2178EE8000D0C41D /* BillingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABF63E2178EE8000D0C41D /* BillingViewController.swift */; };
 		E8ABF6412178EEA900D0C41D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABF6402178EEA900D0C41D /* SettingsViewController.swift */; };
+		E8C2A9AA217A03CE0032EED5 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C2A9A9217A03CE0032EED5 /* AnalyticsViewController.swift */; };
 		E8C92F492175AEDC00B39CC4 /* fctet2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C92F482175AEDC00B39CC4 /* fctet2.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,9 +96,9 @@
 		E88ADE2B21791A1F00C24BE2 /* CardsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCoordinator.swift; sourceTree = "<group>"; };
 		E8A31F222176827700A562C0 /* ClinicalAct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicalAct.swift; sourceTree = "<group>"; };
 		E8ABF63A2178EE5F00D0C41D /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
-		E8ABF63C2178EE7700D0C41D /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		E8ABF63E2178EE8000D0C41D /* BillingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingViewController.swift; sourceTree = "<group>"; };
 		E8ABF6402178EEA900D0C41D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E8C2A9A9217A03CE0032EED5 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		E8C92F482175AEDC00B39CC4 /* fctet2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fctet2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,7 +181,7 @@
 			children = (
 				E84114AC217210DC00C5E9D9 /* ViewController.swift */,
 				E82E09F32178065A006A4B88 /* SimpleCardTableViewController.swift */,
-				E8ABF63C2178EE7700D0C41D /* AnalyticsViewController.swift */,
+				E8C2A9A8217A03B90032EED5 /* To Develop */,
 				E8ABF63E2178EE8000D0C41D /* BillingViewController.swift */,
 				E8ABF6402178EEA900D0C41D /* SettingsViewController.swift */,
 				E8ABF63A2178EE5F00D0C41D /* CardsViewController.swift */,
@@ -261,6 +261,14 @@
 				E841150C2175A38F00C5E9D9 /* Fonts */,
 			);
 			path = Demos;
+			sourceTree = "<group>";
+		};
+		E8C2A9A8217A03B90032EED5 /* To Develop */ = {
+			isa = PBXGroup;
+			children = (
+				E8C2A9A9217A03CE0032EED5 /* AnalyticsViewController.swift */,
+			);
+			path = "To Develop";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,7 +405,6 @@
 				E8ABF63F2178EE8000D0C41D /* BillingViewController.swift in Sources */,
 				E84114AD217210DC00C5E9D9 /* ViewController.swift in Sources */,
 				E82E17A02176A7D400F57761 /* Color+Extension.swift in Sources */,
-				E8ABF63D2178EE7700D0C41D /* AnalyticsViewController.swift in Sources */,
 				E8C92F492175AEDC00B39CC4 /* fctet2.swift in Sources */,
 				E84115192175A38F00C5E9D9 /* MainTableViewController.swift in Sources */,
 				E84114CE2172215000C5E9D9 /* PatientEOW.swift in Sources */,
@@ -418,6 +425,7 @@
 				E82E179E2176A7D400F57761 /* Gradients.swift in Sources */,
 				E84114BF217211B200C5E9D9 /* Storyboarded.swift in Sources */,
 				E82E09FA217830C7006A4B88 /* EowDetailViewController.swift in Sources */,
+				E8C2A9AA217A03CE0032EED5 /* AnalyticsViewController.swift in Sources */,
 				E8A31F232176827700A562C0 /* ClinicalAct.swift in Sources */,
 				E84115022175A1DF00C5E9D9 /* FoldingCell.swift in Sources */,
 				E84114FE21758C8D00C5E9D9 /* FoldingTestTableViewController.swift in Sources */,
