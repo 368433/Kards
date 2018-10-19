@@ -44,6 +44,7 @@
 		E841152A2175A4B300C5E9D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E84115292175A4B300C5E9D9 /* Assets.xcassets */; };
 		E8782418217A8C9B001258C5 /* TagStackList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8782416217A8C9A001258C5 /* TagStackList.swift */; };
 		E8782419217A8C9B001258C5 /* LabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8782417217A8C9B001258C5 /* LabelType.swift */; };
+		E878241B217A8D43001258C5 /* NRLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E878241A217A8D43001258C5 /* NRLabel.swift */; };
 		E88ADE2C21791A1F00C24BE2 /* CardsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88ADE2B21791A1F00C24BE2 /* CardsCoordinator.swift */; };
 		E8A31F232176827700A562C0 /* ClinicalAct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A31F222176827700A562C0 /* ClinicalAct.swift */; };
 		E8ABF63B2178EE5F00D0C41D /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABF63A2178EE5F00D0C41D /* CardsViewController.swift */; };
@@ -95,6 +96,7 @@
 		E84115292175A4B300C5E9D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8782416217A8C9A001258C5 /* TagStackList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagStackList.swift; sourceTree = "<group>"; };
 		E8782417217A8C9B001258C5 /* LabelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelType.swift; sourceTree = "<group>"; };
+		E878241A217A8D43001258C5 /* NRLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NRLabel.swift; sourceTree = "<group>"; };
 		E88ADE2B21791A1F00C24BE2 /* CardsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCoordinator.swift; sourceTree = "<group>"; };
 		E8A31F222176827700A562C0 /* ClinicalAct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicalAct.swift; sourceTree = "<group>"; };
 		E8ABF63A2178EE5F00D0C41D /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				E84115292175A4B300C5E9D9 /* Assets.xcassets */,
 				E82E17992176A7D400F57761 /* Gradients */,
 				E84115012175A1DF00C5E9D9 /* FoldingCell.swift */,
+				E878241A217A8D43001258C5 /* NRLabel.swift */,
 				E8782417217A8C9B001258C5 /* LabelType.swift */,
 				E8782416217A8C9A001258C5 /* TagStackList.swift */,
 				E84114B3217210DE00C5E9D9 /* LaunchScreen.storyboard */,
@@ -386,14 +389,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-KKarla/Pods-KKarla-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
-				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -409,6 +410,7 @@
 			files = (
 				E8ABF63F2178EE8000D0C41D /* BillingViewController.swift in Sources */,
 				E82E17A02176A7D400F57761 /* Color+Extension.swift in Sources */,
+				E878241B217A8D43001258C5 /* NRLabel.swift in Sources */,
 				E8C92F492175AEDC00B39CC4 /* fctet2.swift in Sources */,
 				E84115192175A38F00C5E9D9 /* MainTableViewController.swift in Sources */,
 				E84114CE2172215000C5E9D9 /* PatientEOW.swift in Sources */,

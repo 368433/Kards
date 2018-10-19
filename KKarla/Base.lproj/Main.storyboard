@@ -44,14 +44,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="neV-iA-UF8" userLabel="Header">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SimpleCell" rowHeight="242" id="cYH-cE-vi9" customClass="SimpleCellTableViewCell" customModule="KKarla" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="242"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="242"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cYH-cE-vi9" id="hP6-kP-F5q">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="242"/>
@@ -149,7 +144,7 @@
                                                     <rect key="frame" x="20" y="106.5" width="172" height="53.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Lt6-hI-xxk">
-                                                            <rect key="frame" x="0.0" y="0.0" width="172" height="42"/>
+                                                            <rect key="frame" x="20" y="0.0" width="152" height="42"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Vm-sc-ZKd" userLabel="add act button">
                                                                     <rect key="frame" x="0.0" y="10" width="22" height="22"/>
@@ -167,7 +162,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JwA-pd-NSO">
-                                                                    <rect key="frame" x="46" y="14.5" width="126" height="13.5"/>
+                                                                    <rect key="frame" x="46" y="14.5" width="106" height="13.5"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -178,8 +173,9 @@
                                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstItem="Lt6-hI-xxk" firstAttribute="top" secondItem="yW6-FF-wbZ" secondAttribute="top" id="7Qd-AX-bJ3"/>
+                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Lt6-hI-xxk" secondAttribute="bottom" id="b9B-26-WWM"/>
                                                         <constraint firstAttribute="trailing" secondItem="Lt6-hI-xxk" secondAttribute="trailing" id="ed0-y9-0dX"/>
-                                                        <constraint firstItem="Lt6-hI-xxk" firstAttribute="leading" secondItem="yW6-FF-wbZ" secondAttribute="leading" id="llz-OR-nrC"/>
+                                                        <constraint firstItem="Lt6-hI-xxk" firstAttribute="leading" secondItem="yW6-FF-wbZ" secondAttribute="leading" constant="20" symbolic="YES" id="llz-OR-nrC"/>
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WQd-mR-kwl" userLabel="dates">
