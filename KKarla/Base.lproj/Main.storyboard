@@ -141,41 +141,41 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yW6-FF-wbZ" userLabel="actListView">
-                                                    <rect key="frame" x="20" y="103.5" width="222" height="56.5"/>
+                                                    <rect key="frame" x="20" y="103.5" width="295" height="71.5"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Lt6-hI-xxk">
-                                                            <rect key="frame" x="0.0" y="0.0" width="222" height="42"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Vm-sc-ZKd" userLabel="add act button">
-                                                                    <rect key="frame" x="0.0" y="8.5" width="25" height="25"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="25" id="KgU-Xq-2iL"/>
-                                                                        <constraint firstAttribute="width" secondItem="8Vm-sc-ZKd" secondAttribute="height" multiplier="1:1" id="fvh-AW-ObR"/>
-                                                                    </constraints>
-                                                                    <state key="normal" image="add-new"/>
-                                                                </button>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dots" translatesAutoresizingMaskIntoConstraints="NO" id="Wpa-Fp-LQT">
-                                                                    <rect key="frame" x="33" y="0.0" width="8" height="42"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="8" id="Clp-M6-Z9G"/>
-                                                                        <constraint firstAttribute="height" constant="42" id="oL1-Bf-zoq"/>
-                                                                    </constraints>
-                                                                </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JwA-pd-NSO">
-                                                                    <rect key="frame" x="49" y="14" width="173" height="14.5"/>
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                        </stackView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Vm-sc-ZKd" userLabel="add act button">
+                                                            <rect key="frame" x="20" y="23.5" width="25" height="25"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="25" id="KgU-Xq-2iL"/>
+                                                                <constraint firstAttribute="width" secondItem="8Vm-sc-ZKd" secondAttribute="height" multiplier="1:1" id="fvh-AW-ObR"/>
+                                                            </constraints>
+                                                            <state key="normal" image="add-new"/>
+                                                        </button>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dots" translatesAutoresizingMaskIntoConstraints="NO" id="Wpa-Fp-LQT">
+                                                            <rect key="frame" x="48" y="15" width="8" height="42"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="8" id="Clp-M6-Z9G"/>
+                                                                <constraint firstAttribute="height" constant="42" id="oL1-Bf-zoq"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do dfasdfasdfasdfa" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aR0-2q-vjG">
+                                                            <rect key="frame" x="64" y="0.0" width="211" height="71.5"/>
+                                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="Lt6-hI-xxk" firstAttribute="top" secondItem="yW6-FF-wbZ" secondAttribute="top" id="7Qd-AX-bJ3"/>
-                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Lt6-hI-xxk" secondAttribute="bottom" id="b9B-26-WWM"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Lt6-hI-xxk" secondAttribute="trailing" id="ed0-y9-0dX"/>
-                                                        <constraint firstItem="Lt6-hI-xxk" firstAttribute="leading" secondItem="yW6-FF-wbZ" secondAttribute="leading" id="llz-OR-nrC"/>
+                                                        <constraint firstAttribute="bottom" secondItem="aR0-2q-vjG" secondAttribute="bottom" id="0xf-sl-knU"/>
+                                                        <constraint firstItem="Wpa-Fp-LQT" firstAttribute="leading" secondItem="8Vm-sc-ZKd" secondAttribute="trailing" constant="3" id="4Tq-zu-uPX"/>
+                                                        <constraint firstItem="aR0-2q-vjG" firstAttribute="centerY" secondItem="yW6-FF-wbZ" secondAttribute="centerY" id="6kG-nS-UIw"/>
+                                                        <constraint firstAttribute="trailing" secondItem="aR0-2q-vjG" secondAttribute="trailing" constant="20" symbolic="YES" id="Iug-0o-vWS"/>
+                                                        <constraint firstItem="Wpa-Fp-LQT" firstAttribute="centerY" secondItem="yW6-FF-wbZ" secondAttribute="centerY" id="XGE-cZ-bA9"/>
+                                                        <constraint firstItem="8Vm-sc-ZKd" firstAttribute="leading" secondItem="yW6-FF-wbZ" secondAttribute="leading" constant="20" symbolic="YES" id="Xzm-0Y-VqX"/>
+                                                        <constraint firstItem="8Vm-sc-ZKd" firstAttribute="centerY" secondItem="yW6-FF-wbZ" secondAttribute="centerY" id="skq-MQ-KGP"/>
+                                                        <constraint firstItem="aR0-2q-vjG" firstAttribute="leading" secondItem="Wpa-Fp-LQT" secondAttribute="trailing" constant="8" symbolic="YES" id="vZA-7q-5x9"/>
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WQd-mR-kwl" userLabel="dates">
@@ -212,9 +212,9 @@
                                                 <constraint firstAttribute="trailing" secondItem="ZZa-D5-Yxn" secondAttribute="trailing" constant="20" symbolic="YES" id="Dti-v4-pyI"/>
                                                 <constraint firstItem="ZZa-D5-Yxn" firstAttribute="leading" secondItem="qSl-EC-3lf" secondAttribute="leading" constant="20" symbolic="YES" id="HKB-tD-GMx"/>
                                                 <constraint firstAttribute="height" constant="180" id="KRt-bZ-jNh"/>
-                                                <constraint firstAttribute="bottom" secondItem="yW6-FF-wbZ" secondAttribute="bottom" constant="20" symbolic="YES" id="OdS-Ck-vNR"/>
+                                                <constraint firstAttribute="bottom" secondItem="yW6-FF-wbZ" secondAttribute="bottom" constant="5" id="OdS-Ck-vNR"/>
                                                 <constraint firstItem="IKo-Ra-HCa" firstAttribute="top" secondItem="ZZa-D5-Yxn" secondAttribute="bottom" id="OkB-pA-tfT"/>
-                                                <constraint firstItem="WQd-mR-kwl" firstAttribute="leading" secondItem="yW6-FF-wbZ" secondAttribute="trailing" constant="8" symbolic="YES" id="Rfv-Du-hHu"/>
+                                                <constraint firstAttribute="trailing" secondItem="yW6-FF-wbZ" secondAttribute="trailing" constant="20" symbolic="YES" id="Rfv-Du-hHu"/>
                                                 <constraint firstItem="yW6-FF-wbZ" firstAttribute="leading" secondItem="ZZa-D5-Yxn" secondAttribute="leading" id="Tm3-F3-qpI"/>
                                                 <constraint firstItem="ZZa-D5-Yxn" firstAttribute="top" secondItem="qSl-EC-3lf" secondAttribute="top" constant="10" id="age-HT-Dow"/>
                                                 <constraint firstItem="yW6-FF-wbZ" firstAttribute="top" secondItem="IKo-Ra-HCa" secondAttribute="bottom" constant="3" id="nhP-42-3zm"/>
@@ -229,7 +229,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="actList" destination="JwA-pd-NSO" id="3EI-bK-tew"/>
+                                    <outlet property="actList" destination="aR0-2q-vjG" id="Yip-E8-Po3"/>
                                     <outlet property="cardView" destination="qSl-EC-3lf" id="gKq-q7-teJ"/>
                                 </connections>
                             </tableViewCell>
