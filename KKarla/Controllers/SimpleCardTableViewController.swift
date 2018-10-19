@@ -11,10 +11,12 @@ import UIKit
 class SimpleCardTableViewController: UITableViewController, Storyboarded {
     
     weak var coordinator: MainCoordinator?
+    var listOfEOW: [PatientEOW]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "oriental"))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
     }
     
     // MARK: - Table view data source
@@ -28,8 +30,9 @@ class SimpleCardTableViewController: UITableViewController, Storyboarded {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SimpleCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SimpleCell", for: indexPath) as! SimpleCellTableViewCell
         cell.backgroundColor = .clear
+        cell.actList.text = "fasdfasdfasd \nafdasfadsfasd \nfasdfasdfa \nafsdafsdfasd\nasfasdfasfd\n"
         return cell
     }
     
