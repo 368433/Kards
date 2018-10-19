@@ -42,6 +42,8 @@
 		E84115262175A38F00C5E9D9 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E84115152175A38F00C5E9D9 /* OpenSans-Regular.ttf */; };
 		E84115272175A38F00C5E9D9 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E84115162175A38F00C5E9D9 /* OpenSans-BoldItalic.ttf */; };
 		E841152A2175A4B300C5E9D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E84115292175A4B300C5E9D9 /* Assets.xcassets */; };
+		E8782418217A8C9B001258C5 /* TagStackList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8782416217A8C9A001258C5 /* TagStackList.swift */; };
+		E8782419217A8C9B001258C5 /* LabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8782417217A8C9B001258C5 /* LabelType.swift */; };
 		E88ADE2C21791A1F00C24BE2 /* CardsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88ADE2B21791A1F00C24BE2 /* CardsCoordinator.swift */; };
 		E8A31F232176827700A562C0 /* ClinicalAct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A31F222176827700A562C0 /* ClinicalAct.swift */; };
 		E8ABF63B2178EE5F00D0C41D /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABF63A2178EE5F00D0C41D /* CardsViewController.swift */; };
@@ -91,6 +93,8 @@
 		E84115152175A38F00C5E9D9 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		E84115162175A38F00C5E9D9 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		E84115292175A4B300C5E9D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E8782416217A8C9A001258C5 /* TagStackList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagStackList.swift; sourceTree = "<group>"; };
+		E8782417217A8C9B001258C5 /* LabelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelType.swift; sourceTree = "<group>"; };
 		E88ADE2B21791A1F00C24BE2 /* CardsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCoordinator.swift; sourceTree = "<group>"; };
 		E8A31F222176827700A562C0 /* ClinicalAct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicalAct.swift; sourceTree = "<group>"; };
 		E8ABF63A2178EE5F00D0C41D /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +208,8 @@
 				E84115292175A4B300C5E9D9 /* Assets.xcassets */,
 				E82E17992176A7D400F57761 /* Gradients */,
 				E84115012175A1DF00C5E9D9 /* FoldingCell.swift */,
+				E8782417217A8C9B001258C5 /* LabelType.swift */,
+				E8782416217A8C9A001258C5 /* TagStackList.swift */,
 				E84114B3217210DE00C5E9D9 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
@@ -380,12 +386,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-KKarla/Pods-KKarla-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -418,8 +426,10 @@
 				E84114C1217213EF00C5E9D9 /* MainCoordinator.swift in Sources */,
 				E82E09F821782FDB006A4B88 /* EowList.swift in Sources */,
 				E82E17A12176A7D400F57761 /* Direction.swift in Sources */,
+				E8782418217A8C9B001258C5 /* TagStackList.swift in Sources */,
 				E82E179E2176A7D400F57761 /* Gradients.swift in Sources */,
 				E84114BF217211B200C5E9D9 /* Storyboarded.swift in Sources */,
+				E8782419217A8C9B001258C5 /* LabelType.swift in Sources */,
 				E82E09FA217830C7006A4B88 /* EowDetailViewController.swift in Sources */,
 				E8C2A9AA217A03CE0032EED5 /* AnalyticsViewController.swift in Sources */,
 				E8A31F232176827700A562C0 /* ClinicalAct.swift in Sources */,
