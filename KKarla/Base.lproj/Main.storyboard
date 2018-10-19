@@ -203,20 +203,18 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yW6-FF-wbZ" userLabel="actListView">
                                                     <rect key="frame" x="50" y="68" width="195" height="77"/>
                                                     <subviews>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="12/0ct/2018 - C clin externe" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y81-Gm-UKU" userLabel="Act List">
-                                                            <rect key="frame" x="0.0" y="0.0" width="195" height="77"/>
-                                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JwA-pd-NSO">
+                                                            <rect key="frame" x="0.0" y="0.0" width="28.5" height="13.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="Y81-Gm-UKU" firstAttribute="leading" secondItem="yW6-FF-wbZ" secondAttribute="leading" id="Ydn-hE-qBc"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Y81-Gm-UKU" secondAttribute="bottom" id="cWR-Xd-qEu"/>
-                                                        <constraint firstItem="Y81-Gm-UKU" firstAttribute="top" secondItem="yW6-FF-wbZ" secondAttribute="top" id="hKn-EF-2lB"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Y81-Gm-UKU" secondAttribute="trailing" id="oxG-rl-CMg"/>
+                                                        <constraint firstItem="JwA-pd-NSO" firstAttribute="top" secondItem="yW6-FF-wbZ" secondAttribute="top" id="ox1-iD-VCM"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JwA-pd-NSO" secondAttribute="trailing" id="s2C-dK-Mqg"/>
+                                                        <constraint firstItem="JwA-pd-NSO" firstAttribute="leading" secondItem="yW6-FF-wbZ" secondAttribute="leading" id="s84-kF-MDK"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xHz-AS-TYH" userLabel="BottomView">
@@ -283,7 +281,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="actList" destination="Y81-Gm-UKU" id="T1Q-YH-YLk"/>
+                                    <outlet property="actList" destination="JwA-pd-NSO" id="3EI-bK-tew"/>
                                     <outlet property="cardView" destination="qSl-EC-3lf" id="gKq-q7-teJ"/>
                                 </connections>
                             </tableViewCell>
