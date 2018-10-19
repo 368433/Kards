@@ -32,7 +32,7 @@ class SimpleCardTableViewController: UITableViewController, Storyboarded {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SimpleCell", for: indexPath) as! SimpleCellTableViewCell
         cell.backgroundColor = .clear
-        cell.actList.text = "fasdfasdfasd \nafdasfadsfasd \nfasdfasdfa \nafsdafsdfasd\nasfasdfasfd\n"
+        cell.actList.text = "fasdfasdfashjhkjhjkhkhkhkjd \nafdasfadsfasd"
         return cell
     }
     
