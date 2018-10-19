@@ -11,7 +11,7 @@ import UIKit
 class SimpleCellTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var actList: UILabel!
+    @IBOutlet weak var actList: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
