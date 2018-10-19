@@ -15,7 +15,7 @@ class SimpleCardTableViewController: UITableViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "oriental"))
+//        tableView.backgroundColor = UIColor.blue
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
     }
     
@@ -32,7 +32,7 @@ class SimpleCardTableViewController: UITableViewController, Storyboarded {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SimpleCell", for: indexPath) as! SimpleCellTableViewCell
         cell.backgroundColor = .clear
-        cell.actList.text = "fasdfasdfashjhkjhjkhkhkhkjd \nafdasfadsfasd"
+        cell.actList.text = "fasdfasdfashjhkjhjkhkhkhkjd \nafdasfadsfasd \nafdasfadsfasd \nafdasfadsfasd"
         return cell
     }
     
