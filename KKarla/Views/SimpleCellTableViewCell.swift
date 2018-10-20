@@ -16,8 +16,8 @@ class SimpleCellTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        cardView.layer.cornerRadius = 10
-        cardView.layer.masksToBounds = true
+//        cardView.layer.cornerRadius = 10
+//        cardView.layer.masksToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
