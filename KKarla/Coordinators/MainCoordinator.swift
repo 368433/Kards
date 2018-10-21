@@ -21,8 +21,6 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-//        let simpleVC = SimpleCardTableViewController.instantiate()
-//        simpleVC.coordinator = self
         let landingCardVC = LandingCardViewController.instantiate()
         landingCardVC.coordinator = self
         let analyticsVC = AnalyticsViewController.instantiate()
@@ -39,17 +37,26 @@ class MainCoordinator: Coordinator {
         tabBarController.selectedIndex = 0
     }
     
-//    private func FitInNavController(_ viewToFit: UIViewController) -> UIViewController {
-//        let navController = UINavigationController()
-//        navController.tabBarItem = viewToFit.tabBarItem
-//        navController.pushViewController(viewToFit, animated: false)
-//        return navController
-//    }
-    
     func showPatientList(for activeList: Int, from parent: UIViewController) {
         let simpleVC = SimpleCardTableViewController.instantiate()
         simpleVC.coordinator = self
         //MUST HANDLE NIL VALUE OF NAVIGATION CONTROLLER
         parent.navigationController?.pushViewController(simpleVC, animated: true)
+    }
+    
+    func showNewListForm(from parent: UIViewController){
+        let newListFormVC = CreateListeViewController.instantiate()
+        newListFormVC.coordinator = self
+        let nc = UINavigationController()
+        nc.pushViewController(newListFormVC, animated: false)
+        parent.navigationController?.present(nc, animated: true, completion: nil)
+    }
+    
+    func addNewPatient(from parent: UIViewController){
+        let newListFormVC = CreateListeViewController.instantiate()
+        newListFormVC.coordinator = self
+        let nc = UINavigationController()
+        nc.pushViewController(newListFormVC, animated: false)
+        parent.navigationController?.present(nc, animated: true, completion: nil)
     }
 }

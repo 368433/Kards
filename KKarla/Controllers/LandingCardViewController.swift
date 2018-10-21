@@ -18,11 +18,11 @@ class LandingCardViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
 
         // Adding Title and large font:
-        self.title = "Patients"
+        self.title = "Patients Lists"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
         // Adding the plus sign in navigation Controller
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(createList))
         self.tabBarItem.title = "Patients"
         self.eowTable.tableFooterView = UIView(frame: CGRect.zero)
         
@@ -30,17 +30,10 @@ class LandingCardViewController: UIViewController, Storyboarded {
         eowTable.delegate = self
         eowTable.dataSource = self
     }
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func createList(){
+        coordinator?.showNewListForm(from: self)
     }
-    */
-
 }
 
 // MARK: Implementation of TableView Deleagte and data source protocols
@@ -66,6 +59,4 @@ extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
         self.eowTable.cellForRow(at: indexPath)?.isSelected = false
         
     }
-    
-    
 }

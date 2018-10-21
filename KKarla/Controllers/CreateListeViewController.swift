@@ -9,21 +9,30 @@
 import UIKit
 import Eureka
 
-class CreateListeViewController: FormViewController, Storyboarded {
+class CreateListeViewController: KarlaForm, Storyboarded {
     
     weak var coordinator: MainCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        form +++ Section("Section1")
+        
+        self.tableView?.backgroundColor = .white
+        
+        self.title = "Create New List"
+        
+        form +++ Section("Name")
             <<< TextRow(){ row in
-                row.title = "Text Row"
+                row.title = "List title"
                 row.placeholder = "Enter text here"
             }
-            <<< PhoneRow(){
-                $0.title = "Phone Row"
-                $0.placeholder = "And numbers here"
+            <<< TextRow(){ row in
+                row.title = "List subtitle"
+                row.placeholder = "Enter text here"
             }
+//            <<< PhoneRow(){
+//                $0.title = "Phone Row"
+//                $0.placeholder = "And numbers here"
+//            }
             +++ Section("Section2")
             <<< DateRow(){
                 $0.title = "Date Row"

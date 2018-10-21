@@ -12,11 +12,16 @@ class SimpleCardTableViewController: UITableViewController, Storyboarded {
     
     weak var coordinator: MainCoordinator?
     var listOfEOW: [PatientEOW]?
+    var listName: String = "List"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        tableView.backgroundColor = UIColor.blue
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPatient))
+    }
+    
+    @objc func addNewPatient(){
+        coordinator?.addNewPatient(from:self)
     }
     
     // MARK: - Table view data source
@@ -32,7 +37,6 @@ class SimpleCardTableViewController: UITableViewController, Storyboarded {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SimpleCell", for: indexPath) as! SimpleCellTableViewCell
         cell.backgroundColor = .clear
-//        cell.actList.text = "12/23/1020 - Consultation urgence \n23/45/5653 - VP etage \n12/12/12 - VC ICU \nafdasfadsfasd\nafdasfadsfasd\nafdasfadsfasd"
         cell.setupTags()
         return cell
     }
