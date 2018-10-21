@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6D84F2CB1929288333473509 /* Pods_KKarla.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E043F8B2F0E2DF630E4C3B97 /* Pods_KKarla.framework */; };
+		E822210C217CF73000CEE16C /* CreateListeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822210B217CF73000CEE16C /* CreateListeViewController.swift */; };
 		E82E09F42178065A006A4B88 /* SimpleCardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E09F32178065A006A4B88 /* SimpleCardTableViewController.swift */; };
 		E82E09F62178070C006A4B88 /* SimpleCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E09F52178070C006A4B88 /* SimpleCellTableViewCell.swift */; };
 		E82E09F821782FDB006A4B88 /* EowList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E09F721782FDB006A4B88 /* EowList.swift */; };
@@ -24,8 +25,6 @@
 		E84114C1217213EF00C5E9D9 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84114C0217213EF00C5E9D9 /* MainCoordinator.swift */; };
 		E84114C621721C8200C5E9D9 /* CardsStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84114C521721C8200C5E9D9 /* CardsStackViewController.swift */; };
 		E84114CE2172215000C5E9D9 /* PatientEOW.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84114CD2172215000C5E9D9 /* PatientEOW.swift */; };
-		E84114D32172285800C5E9D9 /* eowCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84114D12172285800C5E9D9 /* eowCardCell.swift */; };
-		E84114D42172285800C5E9D9 /* eowCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E84114D22172285800C5E9D9 /* eowCardCell.xib */; };
 		E84114FE21758C8D00C5E9D9 /* FoldingTestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84114FD21758C8D00C5E9D9 /* FoldingTestTableViewController.swift */; };
 		E84115002175924000C5E9D9 /* DemoFoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84114FF2175924000C5E9D9 /* DemoFoldingCell.swift */; };
 		E84115022175A1DF00C5E9D9 /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84115012175A1DF00C5E9D9 /* FoldingCell.swift */; };
@@ -45,7 +44,7 @@
 		E8782418217A8C9B001258C5 /* TagStackList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8782416217A8C9A001258C5 /* TagStackList.swift */; };
 		E8782419217A8C9B001258C5 /* LabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8782417217A8C9B001258C5 /* LabelType.swift */; };
 		E878241B217A8D43001258C5 /* NRLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E878241A217A8D43001258C5 /* NRLabel.swift */; };
-		E88ADE2C21791A1F00C24BE2 /* CardsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88ADE2B21791A1F00C24BE2 /* CardsCoordinator.swift */; };
+		E88920A6217BD50C004216F1 /* LandingCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88920A5217BD50C004216F1 /* LandingCardViewController.swift */; };
 		E8A31F232176827700A562C0 /* ClinicalAct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A31F222176827700A562C0 /* ClinicalAct.swift */; };
 		E8ABF63B2178EE5F00D0C41D /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABF63A2178EE5F00D0C41D /* CardsViewController.swift */; };
 		E8ABF63F2178EE8000D0C41D /* BillingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABF63E2178EE8000D0C41D /* BillingViewController.swift */; };
@@ -58,6 +57,7 @@
 		0BC7339C681FB2F7F9462DA9 /* Pods-KKarla.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KKarla.release.xcconfig"; path = "Pods/Target Support Files/Pods-KKarla/Pods-KKarla.release.xcconfig"; sourceTree = "<group>"; };
 		46490DF824D37F6FAF1374ED /* Pods-KKarla.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KKarla.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KKarla/Pods-KKarla.debug.xcconfig"; sourceTree = "<group>"; };
 		E043F8B2F0E2DF630E4C3B97 /* Pods_KKarla.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KKarla.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E822210B217CF73000CEE16C /* CreateListeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateListeViewController.swift; sourceTree = "<group>"; };
 		E82E09F32178065A006A4B88 /* SimpleCardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCardTableViewController.swift; sourceTree = "<group>"; };
 		E82E09F52178070C006A4B88 /* SimpleCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCellTableViewCell.swift; sourceTree = "<group>"; };
 		E82E09F721782FDB006A4B88 /* EowList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EowList.swift; sourceTree = "<group>"; };
@@ -76,8 +76,6 @@
 		E84114C0217213EF00C5E9D9 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		E84114C521721C8200C5E9D9 /* CardsStackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsStackViewController.swift; sourceTree = "<group>"; };
 		E84114CD2172215000C5E9D9 /* PatientEOW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientEOW.swift; sourceTree = "<group>"; };
-		E84114D12172285800C5E9D9 /* eowCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eowCardCell.swift; sourceTree = "<group>"; };
-		E84114D22172285800C5E9D9 /* eowCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = eowCardCell.xib; sourceTree = "<group>"; };
 		E84114FD21758C8D00C5E9D9 /* FoldingTestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldingTestTableViewController.swift; sourceTree = "<group>"; };
 		E84114FF2175924000C5E9D9 /* DemoFoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoFoldingCell.swift; sourceTree = "<group>"; };
 		E84115012175A1DF00C5E9D9 /* FoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingCell.swift; sourceTree = "<group>"; };
@@ -97,7 +95,7 @@
 		E8782416217A8C9A001258C5 /* TagStackList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagStackList.swift; sourceTree = "<group>"; };
 		E8782417217A8C9B001258C5 /* LabelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelType.swift; sourceTree = "<group>"; };
 		E878241A217A8D43001258C5 /* NRLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NRLabel.swift; sourceTree = "<group>"; };
-		E88ADE2B21791A1F00C24BE2 /* CardsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCoordinator.swift; sourceTree = "<group>"; };
+		E88920A5217BD50C004216F1 /* LandingCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingCardViewController.swift; sourceTree = "<group>"; };
 		E8A31F222176827700A562C0 /* ClinicalAct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicalAct.swift; sourceTree = "<group>"; };
 		E8ABF63A2178EE5F00D0C41D /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		E8ABF63E2178EE8000D0C41D /* BillingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +181,8 @@
 		E84114C221721C2F00C5E9D9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E822210B217CF73000CEE16C /* CreateListeViewController.swift */,
+				E88920A5217BD50C004216F1 /* LandingCardViewController.swift */,
 				E82E09F32178065A006A4B88 /* SimpleCardTableViewController.swift */,
 				E82E09F9217830C7006A4B88 /* EowDetailViewController.swift */,
 				E8C2A9A8217A03B90032EED5 /* To Develop */,
@@ -198,7 +198,6 @@
 			children = (
 				E84114BC2172110000C5E9D9 /* Coordinator.swift */,
 				E84114C0217213EF00C5E9D9 /* MainCoordinator.swift */,
-				E88ADE2B21791A1F00C24BE2 /* CardsCoordinator.swift */,
 				E84114BE217211B200C5E9D9 /* Storyboarded.swift */,
 			);
 			path = Coordinators;
@@ -233,8 +232,6 @@
 			children = (
 				E84115042175A38F00C5E9D9 /* DemoCell.swift */,
 				E82E09F52178070C006A4B88 /* SimpleCellTableViewCell.swift */,
-				E84114D12172285800C5E9D9 /* eowCardCell.swift */,
-				E84114D22172285800C5E9D9 /* eowCardCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -350,7 +347,6 @@
 				E841151F2175A38F00C5E9D9 /* OpenSans-Light.ttf in Resources */,
 				E84115242175A38F00C5E9D9 /* OpenSans-SemiboldItalic.ttf in Resources */,
 				E84115232175A38F00C5E9D9 /* OpenSans-Bold.ttf in Resources */,
-				E84114D42172285800C5E9D9 /* eowCardCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E822210C217CF73000CEE16C /* CreateListeViewController.swift in Sources */,
 				E8ABF63F2178EE8000D0C41D /* BillingViewController.swift in Sources */,
 				E82E17A02176A7D400F57761 /* Color+Extension.swift in Sources */,
 				E878241B217A8D43001258C5 /* NRLabel.swift in Sources */,
@@ -416,8 +413,6 @@
 				E84114CE2172215000C5E9D9 /* PatientEOW.swift in Sources */,
 				E82E179F2176A7D400F57761 /* Gradients+Extension.swift in Sources */,
 				E84115182175A38F00C5E9D9 /* DemoCell.swift in Sources */,
-				E84114D32172285800C5E9D9 /* eowCardCell.swift in Sources */,
-				E88ADE2C21791A1F00C24BE2 /* CardsCoordinator.swift in Sources */,
 				E8ABF63B2178EE5F00D0C41D /* CardsViewController.swift in Sources */,
 				E84114AB217210DC00C5E9D9 /* AppDelegate.swift in Sources */,
 				E82E09F62178070C006A4B88 /* SimpleCellTableViewCell.swift in Sources */,
@@ -434,6 +429,7 @@
 				E8782419217A8C9B001258C5 /* LabelType.swift in Sources */,
 				E82E09FA217830C7006A4B88 /* EowDetailViewController.swift in Sources */,
 				E8C2A9AA217A03CE0032EED5 /* AnalyticsViewController.swift in Sources */,
+				E88920A6217BD50C004216F1 /* LandingCardViewController.swift in Sources */,
 				E8A31F232176827700A562C0 /* ClinicalAct.swift in Sources */,
 				E84115022175A1DF00C5E9D9 /* FoldingCell.swift in Sources */,
 				E84114FE21758C8D00C5E9D9 /* FoldingTestTableViewController.swift in Sources */,

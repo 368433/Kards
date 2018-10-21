@@ -15,3 +15,12 @@ protocol Coordinator {
     var navigationController: UINavigationController {get set}
     func start()
 }
+
+extension Coordinator {
+    func FitInNavController(_ viewToFit: UIViewController) -> UIViewController {
+    let navController = UINavigationController()
+    navController.tabBarItem = viewToFit.tabBarItem
+    navController.pushViewController(viewToFit, animated: false)
+    return navController
+    }
+}

@@ -27,6 +27,7 @@ extension TagStackList {
         let labelsArray: [UILabel] = labels.map {
             let l = NRLabel()
             l.font = font
+            l.textAlignment = .center
             l.textColor = $0.type.colorForLabel
             l.text = $0.labelText
             l.layer.borderColor = $0.type.labelCALayer.borderColor
@@ -39,7 +40,7 @@ extension TagStackList {
 //            case .tagLabel:
 //                l.textInsets = UIEdgeInsets(top: 5, left: 8, bottom: 5, right: 8)
             default:
-                l.textInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
+                l.textInsets = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
             }
             
             l.clipsToBounds = true

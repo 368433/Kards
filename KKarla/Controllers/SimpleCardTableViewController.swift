@@ -33,6 +33,7 @@ class SimpleCardTableViewController: UITableViewController, Storyboarded {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SimpleCell", for: indexPath) as! SimpleCellTableViewCell
         cell.backgroundColor = .clear
 //        cell.actList.text = "12/23/1020 - Consultation urgence \n23/45/5653 - VP etage \n12/12/12 - VC ICU \nafdasfadsfasd\nafdasfadsfasd\nafdasfadsfasd"
+        cell.setupTags()
         return cell
     }
     
