@@ -9,16 +9,18 @@
 import Foundation
 import UIKit
 import Eureka
+import CoreData
 
 class MainCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     var tabBarController: UITabBarController
+    var coreDataContainer: NSPersistentContainer?
     
-    init(tabBarController: UITabBarController) {
+    init(tabBarController: UITabBarController, container: NSPersistentContainer) {
         self.tabBarController = tabBarController
         self.navigationController = UINavigationController()
-//        self.tabBarController.addChild(self.navigationController)
+        self.coreDataContainer = container
     }
     
     func start() {
@@ -34,7 +36,6 @@ class MainCoordinator: Coordinator {
         let settingsVC = SettingsViewController.instantiate()
         settingsVC.coordinator = self
         
-//        let viewControllersList = [FitInNavController(simpleVC), analyticsVC, billingVC, settingsVC]
         let viewControllersList = [self.FitInNavController(landingCardVC), analyticsVC, billingVC, settingsVC]
         // populate the tab bar controller
         tabBarController.viewControllers = viewControllersList
