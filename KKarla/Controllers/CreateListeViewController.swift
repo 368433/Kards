@@ -11,7 +11,7 @@ import Eureka
 
 class CreateListeViewController: KarlaForm, Storyboarded {
     
-    weak var coordinator: MainCoordinator?
+    var formDelegate: KarlaFormDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,24 +20,22 @@ class CreateListeViewController: KarlaForm, Storyboarded {
         
         self.title = "Create New List"
         
-        form +++ Section("Name")
+        form +++ Section("")
             <<< TextRow(){ row in
                 row.title = "List title"
                 row.placeholder = "Enter text here"
+                row.tag = "title"
             }
             <<< TextRow(){ row in
                 row.title = "List subtitle"
                 row.placeholder = "Enter text here"
+                row.tag = "subtitle"
             }
-//            <<< PhoneRow(){
-//                $0.title = "Phone Row"
-//                $0.placeholder = "And numbers here"
-//            }
-            +++ Section("Section2")
-            <<< DateRow(){
-                $0.title = "Date Row"
-                $0.value = Date(timeIntervalSinceReferenceDate: 0)
-        }
+    }
+    
+    override func saveEntries() {
+        formDelegate?.processFormValues(with: self.form)
+        dismissForm()
     }
     
 }

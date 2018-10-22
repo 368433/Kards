@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Eureka
 
 class MainCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
@@ -21,8 +22,11 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
+        // SETTING UP THE FIRST TAB
         let landingCardVC = LandingCardViewController.instantiate()
         landingCardVC.coordinator = self
+        
+        // CODE FOR THE OTHER TABS
         let analyticsVC = AnalyticsViewController.instantiate()
         analyticsVC.coordinator = self
         let billingVC = BillingViewController.instantiate()
@@ -44,17 +48,17 @@ class MainCoordinator: Coordinator {
         parent.navigationController?.pushViewController(simpleVC, animated: true)
     }
     
-    func showNewListForm(from parent: UIViewController){
+    func showNewListForm(from parent: UIViewController, to delegate: KarlaFormDelegate){
         let newListFormVC = CreateListeViewController.instantiate()
-        newListFormVC.coordinator = self
         let nc = UINavigationController()
+        newListFormVC.formDelegate = delegate
         nc.pushViewController(newListFormVC, animated: false)
         parent.navigationController?.present(nc, animated: true, completion: nil)
     }
+
     
     func addNewPatient(from parent: UIViewController){
         let newListFormVC = CreateListeViewController.instantiate()
-        newListFormVC.coordinator = self
         let nc = UINavigationController()
         nc.pushViewController(newListFormVC, animated: false)
         parent.navigationController?.present(nc, animated: true, completion: nil)

@@ -13,4 +13,11 @@ struct PatientsList {
     var subtitle: String?
     var listStatus: ActivityStatus
     var patients: [Patient]?
+    
+    init(title: String, subtitle: String?, listStatus: ActivityStatus, patients: [Patient]?) {
+        self.title = title
+        self.subtitle = subtitle
+        self.listStatus = listStatus
+        self.patients = patients
+    }
 }
