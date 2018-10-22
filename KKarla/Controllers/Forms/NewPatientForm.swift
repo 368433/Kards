@@ -1,41 +1,35 @@
 //
-//  CreateListeViewController.swift
+//  NewPatientForm.swift
 //  KKarla
 //
 //  Created by amir2 on 2018-10-21.
 //  Copyright © 2018 amir2. All rights reserved.
 //
 
+
 import UIKit
 import Eureka
 
-class CreateListeViewController: KarlaForm, Storyboarded {
-    
-    var formDelegate: KarlaFormDelegate?
+class NewPatientForm: KarlaForm, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView?.backgroundColor = .white
         
-        self.title = "Create New List"
+        self.title = "New Patient"
         
         form +++ Section("")
             <<< TextRow(){ row in
-                row.title = "List title"
+                row.title = "Name"
                 row.placeholder = "Enter text here"
-                row.tag = "title"
+                row.tag = "nickname"
             }
             <<< TextRow(){ row in
-                row.title = "List subtitle"
+                row.title = "NAM"
                 row.placeholder = "Enter text here"
-                row.tag = "subtitle"
-            }
-    }
-    
-    override func saveEntries() {
-        formDelegate?.processFormValues(with: self.form)
-        dismissForm()
+                row.tag = "nam"
+        }
     }
     
 }

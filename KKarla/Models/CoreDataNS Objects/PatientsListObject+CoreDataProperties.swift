@@ -17,8 +17,25 @@ extension PatientsListObject {
         return NSFetchRequest<PatientsListObject>(entityName: "PatientsListObject")
     }
 
-    @NSManaged public var subtitle: String
-    @NSManaged public var title: String
-    // add relationship to patients for a [patients] attribute
+    @NSManaged public var subtitle: String?
+    @NSManaged public var title: String?
+    @NSManaged public var patients: NSSet?
+
+}
+
+// MARK: Generated accessors for patients
+extension PatientsListObject {
+
+    @objc(addPatientsObject:)
+    @NSManaged public func addToPatients(_ value: Patient)
+
+    @objc(removePatientsObject:)
+    @NSManaged public func removeFromPatients(_ value: Patient)
+
+    @objc(addPatients:)
+    @NSManaged public func addToPatients(_ values: NSSet)
+
+    @objc(removePatients:)
+    @NSManaged public func removeFromPatients(_ values: NSSet)
 
 }

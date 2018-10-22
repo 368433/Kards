@@ -485,6 +485,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cardView" destination="qSl-EC-3lf" id="gKq-q7-teJ"/>
+                                    <outlet property="nameTag" destination="9Ti-q4-wn8" id="BGv-Ys-yzt"/>
                                     <outlet property="statusTagStack" destination="6cV-kr-f4R" id="19w-bk-Dqh"/>
                                 </connections>
                             </tableViewCell>
@@ -514,6 +515,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lsp-tq-6xV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2270" y="313"/>
+        </scene>
+        <!--New Patient Form-->
+        <scene sceneID="GBD-TM-BXh">
+            <objects>
+                <viewController storyboardIdentifier="NewPatientForm" id="ZgN-mq-2nQ" customClass="NewPatientForm" customModule="KKarla" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UTW-Wp-Nsb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="YkU-k6-82C"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6ov-BS-tcC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3052" y="306"/>
         </scene>
         <!--Analytics-->
         <scene sceneID="CMZ-3J-dkW">

@@ -11,11 +11,10 @@ import Eureka
 
 class LandingCardViewController: UIViewController, Storyboarded, KarlaFormDelegate {
 
-    weak var coordinator: MainCoordinator?
+    weak var coordinator: PatientsCoordinator?
     @IBOutlet weak var eowTable: UITableView!
-    var activeLists = [PatientsListObject]()
+    var model = [PatientsListObject]()
     var requestedValues: Form?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +43,7 @@ class LandingCardViewController: UIViewController, Storyboarded, KarlaFormDelega
         request.sortDescriptors = [sort]
         
         do {
-            activeLists = try coordinator!.coreDataContainer.viewContext.fetch(request)
+            model = try coordinator!.coreDataContainer.viewContext.fetch(request)
             eowTable.reloadData()
         } catch {
             print("Fetch failed")
@@ -52,15 +51,15 @@ class LandingCardViewController: UIViewController, Storyboarded, KarlaFormDelega
     }
 
     @objc func createList(){
-        coordinator?.showNewListForm(from: self, to: self)        
+        coordinator?.showNewListForm(to: self)        
     }
     
     func processFormValues(with form: Form) {
         // MARK: need to catch error here - cannot save form if no value in title section
         let cdNewList = PatientsListObject(context: coordinator!.coreDataContainer.viewContext)
-        cdNewList.title = form.rowBy(tag: "title")?.baseValue as! String
+        cdNewList.title = form.rowBy(tag: "title")?.baseValue as? String
         cdNewList.subtitle = form.rowBy(tag: "subtitle")?.baseValue as? String ?? ""
-        activeLists.append(cdNewList)
+        model.append(cdNewList)
         coordinator?.saveContext()
         eowTable.reloadData()
     }
@@ -73,19 +72,19 @@ extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return activeLists.count
+        return model.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = eowTable.dequeueReusableCell(withIdentifier: "activeListCell", for: indexPath)
-        cell.textLabel?.text = activeLists[indexPath.row].title
-        cell.detailTextLabel?.text = activeLists[indexPath.row].subtitle
+        cell.textLabel?.text = model[indexPath.row].title
+        cell.detailTextLabel?.text = model[indexPath.row].subtitle
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        coordinator?.showPatientList(for: activeLists?[indexPath.row]  ?? 0, from: self)
+        coordinator?.showPatientList(for: model[indexPath.row])
         self.eowTable.cellForRow(at: indexPath)?.isSelected = false
         
     }

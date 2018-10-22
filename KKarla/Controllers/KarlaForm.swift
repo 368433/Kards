@@ -16,6 +16,7 @@ class KarlaForm: FormViewController, UIImagePickerControllerDelegate , UINavigat
 //    let dataHandler = DataHandler()
 //    let imageService = ImageService()
     var saveButton: UIBarButtonItem!
+    var formDelegate: KarlaFormDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,8 @@ class KarlaForm: FormViewController, UIImagePickerControllerDelegate , UINavigat
     }
     
     @objc func saveEntries(){
+        formDelegate?.processFormValues(with: self.form)
+        dismissForm()
     }
     
     @objc func dismissForm(){

@@ -13,6 +13,7 @@ class SimpleCellTableViewCell: UITableViewCell {
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var actList: UITextView!
     @IBOutlet weak var statusTagStack: UIStackView!
+    @IBOutlet weak var nameTag: UILabel!
     var statusTag: TagStackList?
     
     override func awakeFromNib() {

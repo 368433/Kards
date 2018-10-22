@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Patient{
+struct Patientman{
     var nickname: String
     var nam: String
     var idPhotoURL: String

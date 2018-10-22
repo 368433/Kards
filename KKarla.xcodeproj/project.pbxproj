@@ -11,7 +11,7 @@
 		E822210C217CF73000CEE16C /* CreateListeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822210B217CF73000CEE16C /* CreateListeViewController.swift */; };
 		E822210E217CFB0700CEE16C /* KarlaForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822210D217CFB0700CEE16C /* KarlaForm.swift */; };
 		E8222114217D0BF700CEE16C /* ActivityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8222113217D0BF700CEE16C /* ActivityStatus.swift */; };
-		E8222116217D0C5E00CEE16C /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8222115217D0C5E00CEE16C /* Patient.swift */; };
+		E8222116217D0C5E00CEE16C /* Patientman.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8222115217D0C5E00CEE16C /* Patientman.swift */; };
 		E822211E217D418000CEE16C /* KarlaFormDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822211D217D418000CEE16C /* KarlaFormDelegate.swift */; };
 		E8222121217D525D00CEE16C /* KKarlaDatabase1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E822211F217D525D00CEE16C /* KKarlaDatabase1.xcdatamodeld */; };
 		E82E09F42178065A006A4B88 /* SimpleCardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E09F32178065A006A4B88 /* SimpleCardTableViewController.swift */; };
@@ -57,6 +57,9 @@
 		E8D9865D217D621C00EFE369 /* PatientsListObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9865B217D621C00EFE369 /* PatientsListObject+CoreDataClass.swift */; };
 		E8D9865E217D621C00EFE369 /* PatientsListObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9865C217D621C00EFE369 /* PatientsListObject+CoreDataProperties.swift */; };
 		E8D98660217D69CC00EFE369 /* PatientsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9865F217D69CC00EFE369 /* PatientsCoordinator.swift */; };
+		E8D98663217D79B200EFE369 /* Patient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D98661217D79B200EFE369 /* Patient+CoreDataClass.swift */; };
+		E8D98664217D79B200EFE369 /* Patient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D98662217D79B200EFE369 /* Patient+CoreDataProperties.swift */; };
+		E8D98667217D7DF900EFE369 /* NewPatientForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D98666217D7DF900EFE369 /* NewPatientForm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,7 +69,7 @@
 		E822210B217CF73000CEE16C /* CreateListeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateListeViewController.swift; sourceTree = "<group>"; };
 		E822210D217CFB0700CEE16C /* KarlaForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarlaForm.swift; sourceTree = "<group>"; };
 		E8222113217D0BF700CEE16C /* ActivityStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatus.swift; sourceTree = "<group>"; };
-		E8222115217D0C5E00CEE16C /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
+		E8222115217D0C5E00CEE16C /* Patientman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patientman.swift; sourceTree = "<group>"; };
 		E822211D217D418000CEE16C /* KarlaFormDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarlaFormDelegate.swift; sourceTree = "<group>"; };
 		E8222120217D525D00CEE16C /* KKarlaDatabase1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KKarlaDatabase1.xcdatamodel; sourceTree = "<group>"; };
 		E82E09F32178065A006A4B88 /* SimpleCardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCardTableViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +117,9 @@
 		E8D9865B217D621C00EFE369 /* PatientsListObject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PatientsListObject+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E8D9865C217D621C00EFE369 /* PatientsListObject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PatientsListObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E8D9865F217D69CC00EFE369 /* PatientsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsCoordinator.swift; sourceTree = "<group>"; };
+		E8D98661217D79B200EFE369 /* Patient+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Patient+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E8D98662217D79B200EFE369 /* Patient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Patient+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E8D98666217D7DF900EFE369 /* NewPatientForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPatientForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +154,8 @@
 		E813A6C4217D5DE4005E6F81 /* CoreDataNS Objects */ = {
 			isa = PBXGroup;
 			children = (
+				E8D98661217D79B200EFE369 /* Patient+CoreDataClass.swift */,
+				E8D98662217D79B200EFE369 /* Patient+CoreDataProperties.swift */,
 				E8D9865B217D621C00EFE369 /* PatientsListObject+CoreDataClass.swift */,
 				E8D9865C217D621C00EFE369 /* PatientsListObject+CoreDataProperties.swift */,
 			);
@@ -203,7 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				E822210D217CFB0700CEE16C /* KarlaForm.swift */,
-				E822210B217CF73000CEE16C /* CreateListeViewController.swift */,
+				E8D98665217D7DE400EFE369 /* Forms */,
 				E88920A5217BD50C004216F1 /* LandingCardViewController.swift */,
 				E82E09F32178065A006A4B88 /* SimpleCardTableViewController.swift */,
 				E8C2A9A8217A03B90032EED5 /* To Develop */,
@@ -243,7 +251,7 @@
 				E813A6C4217D5DE4005E6F81 /* CoreDataNS Objects */,
 				E822211F217D525D00CEE16C /* KKarlaDatabase1.xcdatamodeld */,
 				E84114CD2172215000C5E9D9 /* PatientEOW.swift */,
-				E8222115217D0C5E00CEE16C /* Patient.swift */,
+				E8222115217D0C5E00CEE16C /* Patientman.swift */,
 				E8222113217D0BF700CEE16C /* ActivityStatus.swift */,
 				E8A31F222176827700A562C0 /* ClinicalAct.swift */,
 			);
@@ -298,6 +306,15 @@
 				E8C2A9A9217A03CE0032EED5 /* AnalyticsViewController.swift */,
 			);
 			path = "To Develop";
+			sourceTree = "<group>";
+		};
+		E8D98665217D7DE400EFE369 /* Forms */ = {
+			isa = PBXGroup;
+			children = (
+				E822210B217CF73000CEE16C /* CreateListeViewController.swift */,
+				E8D98666217D7DF900EFE369 /* NewPatientForm.swift */,
+			);
+			path = Forms;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,13 +450,14 @@
 				E822210C217CF73000CEE16C /* CreateListeViewController.swift in Sources */,
 				E8ABF63F2178EE8000D0C41D /* BillingViewController.swift in Sources */,
 				E82E17A02176A7D400F57761 /* Color+Extension.swift in Sources */,
-				E8222116217D0C5E00CEE16C /* Patient.swift in Sources */,
+				E8222116217D0C5E00CEE16C /* Patientman.swift in Sources */,
 				E878241B217A8D43001258C5 /* NRLabel.swift in Sources */,
 				E822211E217D418000CEE16C /* KarlaFormDelegate.swift in Sources */,
 				E8C92F492175AEDC00B39CC4 /* fctet2.swift in Sources */,
 				E84115192175A38F00C5E9D9 /* MainTableViewController.swift in Sources */,
 				E84114CE2172215000C5E9D9 /* PatientEOW.swift in Sources */,
 				E82E179F2176A7D400F57761 /* Gradients+Extension.swift in Sources */,
+				E8D98664217D79B200EFE369 /* Patient+CoreDataProperties.swift in Sources */,
 				E84115182175A38F00C5E9D9 /* DemoCell.swift in Sources */,
 				E8222114217D0BF700CEE16C /* ActivityStatus.swift in Sources */,
 				E84114AB217210DC00C5E9D9 /* AppDelegate.swift in Sources */,
@@ -464,6 +482,8 @@
 				E8A31F232176827700A562C0 /* ClinicalAct.swift in Sources */,
 				E84115022175A1DF00C5E9D9 /* FoldingCell.swift in Sources */,
 				E84114FE21758C8D00C5E9D9 /* FoldingTestTableViewController.swift in Sources */,
+				E8D98663217D79B200EFE369 /* Patient+CoreDataClass.swift in Sources */,
+				E8D98667217D7DF900EFE369 /* NewPatientForm.swift in Sources */,
 				E8ABF6412178EEA900D0C41D /* SettingsViewController.swift in Sources */,
 				E8D9865D217D621C00EFE369 /* PatientsListObject+CoreDataClass.swift in Sources */,
 			);

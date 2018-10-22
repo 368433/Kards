@@ -25,8 +25,9 @@ class MainCoordinator: Coordinator {
     
     func start() {
         // SETTING UP THE FIRST TAB
-        let landingCardVC = LandingCardViewController.instantiate()
-        landingCardVC.coordinator = self
+        let ptCoordinator = PatientsCoordinator(dataContainer: coreDataContainer)
+        ptCoordinator.start()
+        childCoordinators.append(ptCoordinator)
         
         // CODE FOR THE OTHER TABS
         let analyticsVC = AnalyticsViewController.instantiate()
@@ -36,45 +37,8 @@ class MainCoordinator: Coordinator {
         let settingsVC = SettingsViewController.instantiate()
         settingsVC.coordinator = self
         
-        let viewControllersList = [self.FitInNavController(landingCardVC), analyticsVC, billingVC, settingsVC]
         // populate the tab bar controller
-        tabBarController.viewControllers = viewControllersList
+        tabBarController.viewControllers = [ptCoordinator.navigationController, analyticsVC, billingVC, settingsVC]
         tabBarController.selectedIndex = 0
-    }
-    
-    func showPatientList(for activeList: Int, from parent: UIViewController) {
-        let simpleVC = SimpleCardTableViewController.instantiate()
-        simpleVC.coordinator = self
-        //MUST HANDLE NIL VALUE OF NAVIGATION CONTROLLER
-        parent.navigationController?.pushViewController(simpleVC, animated: true)
-    }
-    
-    func showNewListForm(from parent: UIViewController, to delegate: KarlaFormDelegate){
-        let newListFormVC = CreateListeViewController.instantiate()
-        let nc = UINavigationController()
-        newListFormVC.formDelegate = delegate
-        nc.pushViewController(newListFormVC, animated: false)
-        parent.navigationController?.present(nc, animated: true, completion: nil)
-    }
-
-    
-    func addNewPatient(from parent: UIViewController){
-        let newListFormVC = CreateListeViewController.instantiate()
-        let nc = UINavigationController()
-        nc.pushViewController(newListFormVC, animated: false)
-        parent.navigationController?.present(nc, animated: true, completion: nil)
-    }
-    
-    func saveContext () {
-        let context = coreDataContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
     }
 }
