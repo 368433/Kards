@@ -15,7 +15,7 @@ class MainCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     var tabBarController: UITabBarController
-    var coreDataContainer: NSPersistentContainer?
+    var coreDataContainer: NSPersistentContainer
     
     init(tabBarController: UITabBarController, container: NSPersistentContainer) {
         self.tabBarController = tabBarController
@@ -63,5 +63,18 @@ class MainCoordinator: Coordinator {
         let nc = UINavigationController()
         nc.pushViewController(newListFormVC, animated: false)
         parent.navigationController?.present(nc, animated: true, completion: nil)
+    }
+    
+    func saveContext () {
+        let context = coreDataContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
     }
 }

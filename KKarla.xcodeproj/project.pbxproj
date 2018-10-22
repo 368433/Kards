@@ -55,6 +55,8 @@
 		E8ABF6412178EEA900D0C41D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABF6402178EEA900D0C41D /* SettingsViewController.swift */; };
 		E8C2A9AA217A03CE0032EED5 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C2A9A9217A03CE0032EED5 /* AnalyticsViewController.swift */; };
 		E8C92F492175AEDC00B39CC4 /* fctet2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C92F482175AEDC00B39CC4 /* fctet2.swift */; };
+		E8D9865D217D621C00EFE369 /* PatientsListObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9865B217D621C00EFE369 /* PatientsListObject+CoreDataClass.swift */; };
+		E8D9865E217D621C00EFE369 /* PatientsListObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9865C217D621C00EFE369 /* PatientsListObject+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +112,8 @@
 		E8ABF6402178EEA900D0C41D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E8C2A9A9217A03CE0032EED5 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		E8C92F482175AEDC00B39CC4 /* fctet2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fctet2.swift; sourceTree = "<group>"; };
+		E8D9865B217D621C00EFE369 /* PatientsListObject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PatientsListObject+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E8D9865C217D621C00EFE369 /* PatientsListObject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PatientsListObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,8 @@
 		E813A6C4217D5DE4005E6F81 /* CoreDataNS Objects */ = {
 			isa = PBXGroup;
 			children = (
+				E8D9865B217D621C00EFE369 /* PatientsListObject+CoreDataClass.swift */,
+				E8D9865C217D621C00EFE369 /* PatientsListObject+CoreDataProperties.swift */,
 			);
 			path = "CoreDataNS Objects";
 			sourceTree = "<group>";
@@ -448,6 +454,7 @@
 				E82E17A12176A7D400F57761 /* Direction.swift in Sources */,
 				E8782418217A8C9B001258C5 /* TagStackList.swift in Sources */,
 				E82E179E2176A7D400F57761 /* Gradients.swift in Sources */,
+				E8D9865E217D621C00EFE369 /* PatientsListObject+CoreDataProperties.swift in Sources */,
 				E84114BF217211B200C5E9D9 /* Storyboarded.swift in Sources */,
 				E8782419217A8C9B001258C5 /* LabelType.swift in Sources */,
 				E82E09FA217830C7006A4B88 /* EowDetailViewController.swift in Sources */,
@@ -458,6 +465,7 @@
 				E84115022175A1DF00C5E9D9 /* FoldingCell.swift in Sources */,
 				E84114FE21758C8D00C5E9D9 /* FoldingTestTableViewController.swift in Sources */,
 				E8ABF6412178EEA900D0C41D /* SettingsViewController.swift in Sources */,
+				E8D9865D217D621C00EFE369 /* PatientsListObject+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

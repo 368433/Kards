@@ -13,7 +13,7 @@ class LandingCardViewController: UIViewController, Storyboarded, KarlaFormDelega
 
     weak var coordinator: MainCoordinator?
     @IBOutlet weak var eowTable: UITableView!
-    var activeLists: [PatientsList]?
+    var activeLists = [PatientsListObject]()
     var requestedValues: Form?
     
     
@@ -33,6 +33,22 @@ class LandingCardViewController: UIViewController, Storyboarded, KarlaFormDelega
         eowTable.delegate = self
         eowTable.dataSource = self
         
+        // load data from database
+        loadSavedData()
+        
+    }
+    
+    func loadSavedData() {
+        let request = PatientsListObject.createFetchRequest()
+        let sort = NSSortDescriptor(key: "title", ascending: false)
+        request.sortDescriptors = [sort]
+        
+        do {
+            activeLists = try coordinator!.coreDataContainer.viewContext.fetch(request)
+            eowTable.reloadData()
+        } catch {
+            print("Fetch failed")
+        }
     }
 
     @objc func createList(){
@@ -41,14 +57,20 @@ class LandingCardViewController: UIViewController, Storyboarded, KarlaFormDelega
     
     func processFormValues(with form: Form) {
         // MARK: need to catch error here - cannot save form if no value in title section
-        let title = form.rowBy(tag: "title")?.baseValue as! String
-        let subtitle = form.rowBy(tag: "subtitle")?.baseValue as? String ?? ""
-        let newList = PatientsList(title: title, subtitle: subtitle, listStatus: .active, patients: nil)
-        if activeLists != nil {
-            activeLists!.append(newList)
-        } else {
-            activeLists = [newList]
-        }
+//        let title = form.rowBy(tag: "title")?.baseValue as! String
+//        let subtitle = form.rowBy(tag: "subtitle")?.baseValue as? String ?? ""
+//        let newList = PatientsList(title: title, subtitle: subtitle, listStatus: .active, patients: nil)
+        let cdNewList = PatientsListObject(context: coordinator!.coreDataContainer.viewContext)
+        cdNewList.title = form.rowBy(tag: "title")?.baseValue as! String
+        cdNewList.subtitle = form.rowBy(tag: "subtitle")?.baseValue as? String ?? ""
+        activeLists.append(cdNewList)
+
+        coordinator?.saveContext()
+//        if activeLists != nil {
+//            activeLists!.append(newList)
+//        } else {
+//            activeLists = [newList]
+//        }
         eowTable.reloadData()
     }
 }
@@ -60,13 +82,13 @@ extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return activeLists?.count ?? 0
+        return activeLists.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = eowTable.dequeueReusableCell(withIdentifier: "activeListCell", for: indexPath)
-        cell.textLabel?.text = activeLists?[indexPath.row].title
-        cell.detailTextLabel?.text = activeLists?[indexPath.row].subtitle
+        cell.textLabel?.text = activeLists[indexPath.row].title
+        cell.detailTextLabel?.text = activeLists[indexPath.row].subtitle
         
         return cell
     }
