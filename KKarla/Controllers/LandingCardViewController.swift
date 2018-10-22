@@ -57,20 +57,11 @@ class LandingCardViewController: UIViewController, Storyboarded, KarlaFormDelega
     
     func processFormValues(with form: Form) {
         // MARK: need to catch error here - cannot save form if no value in title section
-//        let title = form.rowBy(tag: "title")?.baseValue as! String
-//        let subtitle = form.rowBy(tag: "subtitle")?.baseValue as? String ?? ""
-//        let newList = PatientsList(title: title, subtitle: subtitle, listStatus: .active, patients: nil)
         let cdNewList = PatientsListObject(context: coordinator!.coreDataContainer.viewContext)
         cdNewList.title = form.rowBy(tag: "title")?.baseValue as! String
         cdNewList.subtitle = form.rowBy(tag: "subtitle")?.baseValue as? String ?? ""
         activeLists.append(cdNewList)
-
         coordinator?.saveContext()
-//        if activeLists != nil {
-//            activeLists!.append(newList)
-//        } else {
-//            activeLists = [newList]
-//        }
         eowTable.reloadData()
     }
 }

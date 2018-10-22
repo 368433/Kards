@@ -10,7 +10,6 @@
 		6D84F2CB1929288333473509 /* Pods_KKarla.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E043F8B2F0E2DF630E4C3B97 /* Pods_KKarla.framework */; };
 		E822210C217CF73000CEE16C /* CreateListeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822210B217CF73000CEE16C /* CreateListeViewController.swift */; };
 		E822210E217CFB0700CEE16C /* KarlaForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822210D217CFB0700CEE16C /* KarlaForm.swift */; };
-		E8222112217D0BBF00CEE16C /* PatientsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8222111217D0BBF00CEE16C /* PatientsList.swift */; };
 		E8222114217D0BF700CEE16C /* ActivityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8222113217D0BF700CEE16C /* ActivityStatus.swift */; };
 		E8222116217D0C5E00CEE16C /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8222115217D0C5E00CEE16C /* Patient.swift */; };
 		E822211E217D418000CEE16C /* KarlaFormDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822211D217D418000CEE16C /* KarlaFormDelegate.swift */; };
@@ -57,6 +56,7 @@
 		E8C92F492175AEDC00B39CC4 /* fctet2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C92F482175AEDC00B39CC4 /* fctet2.swift */; };
 		E8D9865D217D621C00EFE369 /* PatientsListObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9865B217D621C00EFE369 /* PatientsListObject+CoreDataClass.swift */; };
 		E8D9865E217D621C00EFE369 /* PatientsListObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9865C217D621C00EFE369 /* PatientsListObject+CoreDataProperties.swift */; };
+		E8D98660217D69CC00EFE369 /* PatientsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9865F217D69CC00EFE369 /* PatientsCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,7 +65,6 @@
 		E043F8B2F0E2DF630E4C3B97 /* Pods_KKarla.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KKarla.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E822210B217CF73000CEE16C /* CreateListeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateListeViewController.swift; sourceTree = "<group>"; };
 		E822210D217CFB0700CEE16C /* KarlaForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarlaForm.swift; sourceTree = "<group>"; };
-		E8222111217D0BBF00CEE16C /* PatientsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsList.swift; sourceTree = "<group>"; };
 		E8222113217D0BF700CEE16C /* ActivityStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatus.swift; sourceTree = "<group>"; };
 		E8222115217D0C5E00CEE16C /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		E822211D217D418000CEE16C /* KarlaFormDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarlaFormDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +113,7 @@
 		E8C92F482175AEDC00B39CC4 /* fctet2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fctet2.swift; sourceTree = "<group>"; };
 		E8D9865B217D621C00EFE369 /* PatientsListObject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PatientsListObject+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E8D9865C217D621C00EFE369 /* PatientsListObject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PatientsListObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E8D9865F217D69CC00EFE369 /* PatientsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +216,7 @@
 			children = (
 				E84114BC2172110000C5E9D9 /* Coordinator.swift */,
 				E84114C0217213EF00C5E9D9 /* MainCoordinator.swift */,
+				E8D9865F217D69CC00EFE369 /* PatientsCoordinator.swift */,
 				E822211D217D418000CEE16C /* KarlaFormDelegate.swift */,
 				E84114BE217211B200C5E9D9 /* Storyboarded.swift */,
 			);
@@ -242,7 +243,6 @@
 				E813A6C4217D5DE4005E6F81 /* CoreDataNS Objects */,
 				E822211F217D525D00CEE16C /* KKarlaDatabase1.xcdatamodeld */,
 				E84114CD2172215000C5E9D9 /* PatientEOW.swift */,
-				E8222111217D0BBF00CEE16C /* PatientsList.swift */,
 				E8222115217D0C5E00CEE16C /* Patient.swift */,
 				E8222113217D0BF700CEE16C /* ActivityStatus.swift */,
 				E8A31F222176827700A562C0 /* ClinicalAct.swift */,
@@ -439,7 +439,6 @@
 				E8C92F492175AEDC00B39CC4 /* fctet2.swift in Sources */,
 				E84115192175A38F00C5E9D9 /* MainTableViewController.swift in Sources */,
 				E84114CE2172215000C5E9D9 /* PatientEOW.swift in Sources */,
-				E8222112217D0BBF00CEE16C /* PatientsList.swift in Sources */,
 				E82E179F2176A7D400F57761 /* Gradients+Extension.swift in Sources */,
 				E84115182175A38F00C5E9D9 /* DemoCell.swift in Sources */,
 				E8222114217D0BF700CEE16C /* ActivityStatus.swift in Sources */,
@@ -459,6 +458,7 @@
 				E8782419217A8C9B001258C5 /* LabelType.swift in Sources */,
 				E82E09FA217830C7006A4B88 /* EowDetailViewController.swift in Sources */,
 				E8C2A9AA217A03CE0032EED5 /* AnalyticsViewController.swift in Sources */,
+				E8D98660217D69CC00EFE369 /* PatientsCoordinator.swift in Sources */,
 				E8222121217D525D00CEE16C /* KKarlaDatabase1.xcdatamodeld in Sources */,
 				E88920A6217BD50C004216F1 /* LandingCardViewController.swift in Sources */,
 				E8A31F232176827700A562C0 /* ClinicalAct.swift in Sources */,

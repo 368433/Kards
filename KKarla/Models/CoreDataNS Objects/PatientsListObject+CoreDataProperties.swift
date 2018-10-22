@@ -19,5 +19,6 @@ extension PatientsListObject {
 
     @NSManaged public var subtitle: String
     @NSManaged public var title: String
+    // add relationship to patients for a [patients] attribute
 
 }
