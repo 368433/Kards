@@ -22,13 +22,17 @@ class NewPatientForm: KarlaForm, Storyboarded {
         form +++ Section("")
             <<< TextRow(){ row in
                 row.title = "Name"
-                row.placeholder = "Enter text here"
+                row.placeholder = "Nom, prenom, ou nickname"
                 row.tag = "nickname"
             }
             <<< TextRow(){ row in
                 row.title = "NAM"
-                row.placeholder = "Enter text here"
+                row.placeholder = "Numero d'assurance maladie"
                 row.tag = "nam"
+        }
+            <<< DateRow(){ row in
+                row.title = "Date of Birth"
+                row.tag = "DOB"
         }
     }
     

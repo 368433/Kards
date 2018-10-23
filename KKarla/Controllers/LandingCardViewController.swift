@@ -8,17 +8,32 @@
 
 import UIKit
 import Eureka
+import CoreData
 
-class LandingCardViewController: UIViewController, Storyboarded, KarlaFormDelegate {
-
+class LandingCardViewController: UIViewController, Storyboarded, KarlaFormDelegate, NSFetchedResultsControllerDelegate {
+    
     weak var coordinator: PatientsCoordinator?
     @IBOutlet weak var eowTable: UITableView!
-    var model = [PatientsListObject]()
+    @IBOutlet weak var workListLabel: UILabel!
+    
+    var model = [PatientsListObject]() {
+        didSet {
+            if model.count == 1 {
+                workListLabel.text = "Work List"
+            } else if model.count > 1 {
+                workListLabel.text = "Work Lists: \(model.count)"
+            } else {
+                workListLabel.text = "No active work lists"
+            }
+        }
+    }
+    
     var requestedValues: Form?
+    var fetchedResultsController: NSFetchedResultsController<PatientsListObject>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Adding Title and large font:
         self.title = "Patients Lists"
         self.tabBarItem.title = "Patients"
@@ -49,7 +64,7 @@ class LandingCardViewController: UIViewController, Storyboarded, KarlaFormDelega
             print("Fetch failed")
         }
     }
-
+    
     @objc func createList(){
         coordinator?.showNewListForm(to: self)        
     }
@@ -88,4 +103,24 @@ extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
         self.eowTable.cellForRow(at: indexPath)?.isSelected = false
         
     }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            model.remove(at: indexPath.row)
+            print(model.count)
+            print(indexPath.row)
+            let itemToRemove = model[indexPath.row-1]
+            coordinator?.coreDataContainer.viewContext.delete(itemToRemove)
+            coordinator?.saveContext()
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
 }

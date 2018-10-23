@@ -1,26 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="18A391" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Act" representedClassName="Act" syncable="YES" codeGenerationType="class">
-        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bedsideLocation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="codeRAMQ" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="facilityLocation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="patientList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PatientsListObject" inverseName="acts" inverseEntity="PatientsListObject" syncable="YES"/>
+        <relationship name="patient" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Patient" inverseName="acts" inverseEntity="Patient" syncable="YES"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="act" inverseEntity="Tag" syncable="YES"/>
     </entity>
     <entity name="Patient" representedClassName="Patient" syncable="YES">
         <attribute name="nam" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nickname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photoID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="summaryBlurb" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="acts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Act" inverseName="patient" inverseEntity="Act" syncable="YES"/>
         <relationship name="patientLists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PatientsListObject" inverseName="patients" inverseEntity="PatientsListObject" syncable="YES"/>
+        <relationship name="tags" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tag" inverseName="patient" inverseEntity="Tag" syncable="YES"/>
     </entity>
     <entity name="PatientsListObject" representedClassName="PatientsListObject" syncable="YES">
         <attribute name="subtitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="acts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Act" inverseName="patientList" inverseEntity="Act" syncable="YES"/>
         <relationship name="patients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Patient" inverseName="patientLists" inverseEntity="Patient" syncable="YES"/>
     </entity>
+    <entity name="Tag" representedClassName="Tag" syncable="YES" codeGenerationType="class">
+        <attribute name="tagName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="act" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Act" inverseName="tags" inverseEntity="Act" syncable="YES"/>
+        <relationship name="patient" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Patient" inverseName="tags" inverseEntity="Patient" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="PatientsListObject" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="Patient" positionX="-63" positionY="0" width="128" height="105"/>
-        <element name="Act" positionX="-45" positionY="36" width="128" height="105"/>
+        <element name="PatientsListObject" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Patient" positionX="-63" positionY="0" width="128" height="150"/>
+        <element name="Act" positionX="-45" positionY="36" width="128" height="165"/>
+        <element name="Tag" positionX="-36" positionY="81" width="128" height="90"/>
     </elements>
 </model>

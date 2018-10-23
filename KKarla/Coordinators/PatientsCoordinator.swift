@@ -49,4 +49,5 @@ class PatientsCoordinator: Coordinator {
         nc.pushViewController(newPatientForm, animated: false)
         navigationController.present(nc, animated: true, completion: nil)
     }
+
 }

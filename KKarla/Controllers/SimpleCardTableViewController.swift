@@ -15,27 +15,15 @@ class SimpleCardTableViewController: UITableViewController, Storyboarded, KarlaF
     var patientList: PatientsListObject?
     var model = [Patient]()
     var listName: String = "List"
+    let cardCellHeight: CGFloat = 90
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableView.backgroundColor = UIColor.blue
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPatient))
         
+        self.title = patientList?.title
         model = patientList?.patients?.allObjects as! [Patient]
     }
-    
-//    func loadSavedData() {
-//        let request = Patient.createFetchRequest()
-//        let sort = NSSortDescriptor(key: "nickname", ascending: false)
-//        request.sortDescriptors = [sort]
-//
-//        do {
-//            model = try coordinator!.coreDataContainer.viewContext.fetch(request)
-//            self.tableView.reloadData()
-//        } catch {
-//            print("Fetch failed")
-//        }
-//    }
     
     @objc func addNewPatient(){
         coordinator?.addNewPatient(to: self)
@@ -53,14 +41,17 @@ class SimpleCardTableViewController: UITableViewController, Storyboarded, KarlaF
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SimpleCell", for: indexPath) as! SimpleCellTableViewCell
-        cell.backgroundColor = .clear
         cell.setupTags()
         cell.nameTag.text = model[indexPath.row].nickname ?? "NIL"
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130.0
+        return cardCellHeight
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = .clear
     }
 
     func processFormValues(with form: Form) {
