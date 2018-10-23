@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="18A391" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Act" representedClassName="Act" syncable="YES" codeGenerationType="class">
+    <entity name="Act" representedClassName="Act" syncable="YES">
         <attribute name="bedsideLocation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="codeRAMQ" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endDate" optional="YES" attributeType="String" syncable="YES"/>
@@ -24,7 +24,7 @@
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="patients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Patient" inverseName="patientsList" inverseEntity="Patient" syncable="YES"/>
     </entity>
-    <entity name="Tag" representedClassName="Tag" syncable="YES" codeGenerationType="class">
+    <entity name="Tag" representedClassName="Tag" syncable="YES">
         <attribute name="tagName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="act" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Act" inverseName="tags" inverseEntity="Act" syncable="YES"/>
         <relationship name="patient" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Patient" inverseName="tags" inverseEntity="Patient" syncable="YES"/>

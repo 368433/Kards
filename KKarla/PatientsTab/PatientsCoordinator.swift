@@ -47,25 +47,8 @@ class PatientsCoordinator: Coordinator {
         let newPatientForm = NewPatientForm.instantiate()
         let nc = UINavigationController()
         newPatientForm.formDelegate = delegate
-        
         nc.pushViewController(newPatientForm, animated: false)
         navigationController.present(nc, animated: true, completion: nil)
     }
-    
-//    func addNewObject(parentObject: NSManagedObject?, delegateObject: KarlaFormDelegate, formType: FormType ){
-//        var formToDisplay: KarlaForm
-//        switch formType {
-//        case .newPatient:
-//            formToDisplay = NewPatientForm.instantiate()
-//        case .newWorkList:
-//            formToDisplay = CreateListeViewController.instantiate()
-//        }
-//        let nc = UINavigationController()
-//        formToDisplay.formDelegate = delegateObject
-//        
-//        delegateObject.objectToLink = parentObject
-//        nc.pushViewController(formToDisplay, animated: false)
-//        navigationController.present(nc, animated: true, completion: nil)
-//    }
 
 }

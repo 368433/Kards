@@ -13,7 +13,7 @@ import CoreData
 
 extension PatientsListObject {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<PatientsListObject> {
+    @nonobjc public class func createFetchRequest() -> NSFetchRequest<PatientsListObject> {
         return NSFetchRequest<PatientsListObject>(entityName: "PatientsListObject")
     }
 

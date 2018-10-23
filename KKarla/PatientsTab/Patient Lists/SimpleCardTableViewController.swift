@@ -19,7 +19,7 @@ class SimpleCardTableViewController: UITableViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let predicate = NSPredicate(format: "ANY patientList == %@", patientList)
+        let predicate = NSPredicate(format: "ANY patientsList == %@", patientList)
         model = PatientListModel(modelOutputView: self.tableView, predicate: predicate)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPatient))
         self.title = patientList?.title
@@ -56,15 +56,4 @@ class SimpleCardTableViewController: UITableViewController, Storyboarded {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = .clear
     }
-
-//    func processFormValues(with form: Form) {
-//        let newPatient = Patient(context: coordinator!.coreDataContainer.viewContext)
-//        newPatient.nickname = form.rowBy(tag: "nickname")?.baseValue as? String
-//        if let list = patientList {
-//            newPatient.addToPatientLists(list)
-//        }
-//        model.append(newPatient)
-//        coordinator?.saveContext()
-//        self.tableView.reloadData()
-//    }
 }
