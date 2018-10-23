@@ -14,16 +14,14 @@ import Eureka
 class LandingCardModel{
     
     var resultController: NSFetchedResultsController<PatientsListObject>!
-    var dataCoordinator: DataCoordinator
+    var dataCoordinator = AppDelegate.dataCoordinator
     var searchPredicate: NSCompoundPredicate?
-    var descriptionTitle: String?
     var modelOutputView: UITableView
     var resultControllerDelegate = TableViewFetchResultAdapter()
+    let listSortingCriteria = NSSortDescriptor(key: "title", ascending: true)
     
     init(modelOutputView: UITableView){
         self.modelOutputView = modelOutputView
-        self.descriptionTitle = "Work Lists"
-        self.dataCoordinator = AppDelegate.dataCoordinator
         self.resultController = getFetchedResultsController()
         resultController.delegate = resultControllerDelegate
         resultControllerDelegate.fetchResultsAdatptedTableView = self.modelOutputView
@@ -38,21 +36,18 @@ class LandingCardModel{
         } catch {
             print("Fetch failed")
         }
-//        resultController.delegate = resultControllerDelegate
-//        resultControllerDelegate.fetchResultsAdatptedTableView = modelOutputView
     }
     
     private func getFetchedResultsController() -> NSFetchedResultsController<PatientsListObject> {
         let request = PatientsListObject.createFetchRequest()
-        let sort = NSSortDescriptor(key: "title", ascending: true)
+//        let sort = NSSortDescriptor(key: "title", ascending: true)
         
-        request.sortDescriptors = [sort]
+        request.sortDescriptors = [listSortingCriteria]
         request.fetchBatchSize = 20
         return NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataCoordinator.persistentContainer.viewContext, sectionNameKeyPath: "title", cacheName: nil)
     }
 }
 extension LandingCardModel: KarlaFormDelegate {
-    
     func processFormValues(with form: Form) {
         let cdNewList = PatientsListObject(context: dataCoordinator.persistentContainer.viewContext)
         cdNewList.title = form.rowBy(tag: "title")?.baseValue as? String
