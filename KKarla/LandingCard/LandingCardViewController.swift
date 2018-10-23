@@ -15,21 +15,24 @@ class LandingCardViewController: UIViewController, Storyboarded, KarlaFormDelega
     weak var coordinator: PatientsCoordinator?
     @IBOutlet weak var eowTable: UITableView!
     @IBOutlet weak var workListLabel: UILabel!
-    
-    var model = [PatientsListObject]() {
-        didSet {
-            if model.count == 1 {
-                workListLabel.text = "Work List"
-            } else if model.count > 1 {
-                workListLabel.text = "Work Lists: \(model.count)"
-            } else {
-                workListLabel.text = "No active work lists"
-            }
-        }
-    }
-    
+    let tableAdapter = TableViewFetchResultAdapter()
     var requestedValues: Form?
     var fetchedResultsController: NSFetchedResultsController<PatientsListObject>!
+    let model = LandingCardModel()
+    
+//    var model = [PatientsListObject]() {
+//        didSet {
+//            if model.count == 1 {
+//                workListLabel.text = "Work List"
+//            } else if model.count > 1 {
+//                workListLabel.text = "Work Lists: \(model.count)"
+//            } else {
+//                workListLabel.text = "No active work lists"
+//            }
+//        }
+//    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,24 +49,25 @@ class LandingCardViewController: UIViewController, Storyboarded, KarlaFormDelega
         // Setting up the table
         eowTable.delegate = self
         eowTable.dataSource = self
+        tableAdapter.fetchResultsAdatptedTableView = eowTable
         
         // load data from database
-        loadSavedData()
+//        loadSavedData()
         
     }
     
-    func loadSavedData() {
-        let request = PatientsListObject.createFetchRequest()
-        let sort = NSSortDescriptor(key: "title", ascending: false)
-        request.sortDescriptors = [sort]
-        
-        do {
-            model = try coordinator!.coreDataContainer.viewContext.fetch(request)
-            eowTable.reloadData()
-        } catch {
-            print("Fetch failed")
-        }
-    }
+//    func loadSavedData() {
+//        let request = PatientsListObject.createFetchRequest()
+//        let sort = NSSortDescriptor(key: "title", ascending: false)
+//        request.sortDescriptors = [sort]
+//
+//        do {
+//            model = try coordinator!.coreDataContainer.viewContext.fetch(request)
+//            eowTable.reloadData()
+//        } catch {
+//            print("Fetch failed")
+//        }
+//    }
     
     @objc func createList(){
         coordinator?.showNewListForm(to: self)        
@@ -74,9 +78,10 @@ class LandingCardViewController: UIViewController, Storyboarded, KarlaFormDelega
         let cdNewList = PatientsListObject(context: coordinator!.coreDataContainer.viewContext)
         cdNewList.title = form.rowBy(tag: "title")?.baseValue as? String
         cdNewList.subtitle = form.rowBy(tag: "subtitle")?.baseValue as? String ?? ""
-        model.append(cdNewList)
-        coordinator?.saveContext()
-        eowTable.reloadData()
+        model.resultController.managedObjectContext.insert(cdNewList)
+//        model.append(cdNewList)
+//        coordinator?.saveContext()
+//        eowTable.reloadData()
     }
 }
 
@@ -87,19 +92,19 @@ extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.count
+        return model.resultController.sections![section].numberOfObjects
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = eowTable.dequeueReusableCell(withIdentifier: "activeListCell", for: indexPath)
-        cell.textLabel?.text = model[indexPath.row].title
-        cell.detailTextLabel?.text = model[indexPath.row].subtitle
+        cell.textLabel?.text = model.resultController.object(at: indexPath).title
+        cell.detailTextLabel?.text = model.resultController.object(at: indexPath).subtitle
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinator?.showPatientList(for: model[indexPath.row])
+//        coordinator?.showPatientList(for: model[indexPath.row])
         self.eowTable.cellForRow(at: indexPath)?.isSelected = false
         
     }
@@ -108,19 +113,19 @@ extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
         return true
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            model.remove(at: indexPath.row)
-            print(model.count)
-            print(indexPath.row)
-            let itemToRemove = model[indexPath.row-1]
-            coordinator?.coreDataContainer.viewContext.delete(itemToRemove)
-            coordinator?.saveContext()
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.reloadData()
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-    }
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            model.remove(at: indexPath.row)
+//            print(model.count)
+//            print(indexPath.row)
+//            let itemToRemove = model[indexPath.row-1]
+//            coordinator?.coreDataContainer.viewContext.delete(itemToRemove)
+//            coordinator?.saveContext()
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//            tableView.reloadData()
+//        } else if editingStyle == .insert {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }
+//    }
     
 }
