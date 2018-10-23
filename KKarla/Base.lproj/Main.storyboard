@@ -307,6 +307,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="eowTable" destination="Dvr-D6-NZR" id="Fup-b8-FIc"/>
+                        <outlet property="showAllPatientsButton" destination="djb-Rg-hQk" id="Xir-Uj-EHp"/>
                         <outlet property="workListLabel" destination="LWW-eZ-Gnp" id="nRU-s9-92e"/>
                     </connections>
                 </viewController>
@@ -344,16 +345,16 @@
             </objects>
             <point key="canvasLocation" x="2270" y="-427"/>
         </scene>
-        <!--Simple Card Table View Controller-->
+        <!--Patient List Table View Controller-->
         <scene sceneID="txn-VH-CJu">
             <objects>
-                <tableViewController storyboardIdentifier="SimpleCardTableViewController" id="koR-tV-7UY" customClass="SimpleCardTableViewController" customModule="KKarla" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PatientListTableViewController" id="koR-tV-7UY" customClass="PatientListTableViewController" customModule="KKarla" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CFn-gf-Bye">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="PWl-ki-gSU">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ain-df-ZeD">
@@ -374,7 +375,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SimpleCell" rowHeight="92" id="cYH-cE-vi9" customClass="SimpleCellTableViewCell" customModule="KKarla" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="93" width="375" height="92"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="92"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cYH-cE-vi9" id="hP6-kP-F5q">
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="91.5"/>

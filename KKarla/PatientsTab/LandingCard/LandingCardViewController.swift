@@ -15,11 +15,13 @@ class LandingCardViewController: UIViewController, Storyboarded {
     weak var coordinator: PatientsCoordinator?
     @IBOutlet weak var eowTable: UITableView!
     @IBOutlet weak var workListLabel: UILabel!
+    @IBOutlet weak var showAllPatientsButton: UIButton!
     var model: LandingCardModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         model = LandingCardModel(modelOutputView: eowTable)
+        showAllPatientsButton.addTarget(self, action: #selector(showAllPatients), for: .touchUpInside)
         setupViews()
     }
     
@@ -34,6 +36,10 @@ class LandingCardViewController: UIViewController, Storyboarded {
     
     @objc func createList(){
         coordinator?.showNewListForm(to: model)        
+    }
+    
+    @objc func showAllPatients(){
+        coordinator?.showPatientList(for: nil)
     }
 }
 

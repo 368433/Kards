@@ -9,25 +9,28 @@
 import UIKit
 import Eureka
 
-class SimpleCardTableViewController: UITableViewController, Storyboarded {
+class PatientListTableViewController: UITableViewController, Storyboarded {
     
     weak var coordinator: PatientsCoordinator?
-    var patientList: PatientsListObject!
-//    var model = [Patient]()
+    var patientList: PatientsListObject?
     var model: PatientListModel?
-    var listName: String = "List"
+    var predicate: NSPredicate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let predicate = NSPredicate(format: "ANY patientsList == %@", patientList)
-        model = PatientListModel(modelOutputView: self.tableView, predicate: predicate)
+
+        if patientList != nil{
+            predicate = NSPredicate(format: "ANY patientsList == %@", patientList!)
+        }
+        model = PatientListModel(modelOutputView: self.tableView, searchPredicate: predicate)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPatient))
         self.title = patientList?.title
 //        model = patientList?.patients?.allObjects as! [Patient]
     }
     
     @objc func addNewPatient(){
-        coordinator?.addNewPatient(to: patientList, delegate: model!)
+        // MARK : Should make a separate view controller for all patients view and not allow addition of patient to the database directly
+        coordinator?.addNewPatient(to: patientList!, delegate: model!)
         model?.objectToLink = patientList
     }
     

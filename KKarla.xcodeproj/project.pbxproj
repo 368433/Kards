@@ -12,7 +12,7 @@
 		E822210E217CFB0700CEE16C /* KarlaForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822210D217CFB0700CEE16C /* KarlaForm.swift */; };
 		E822211E217D418000CEE16C /* KarlaFormDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822211D217D418000CEE16C /* KarlaFormDelegate.swift */; };
 		E8222121217D525D00CEE16C /* KKarlaDatabase1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E822211F217D525D00CEE16C /* KKarlaDatabase1.xcdatamodeld */; };
-		E82E09F42178065A006A4B88 /* SimpleCardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E09F32178065A006A4B88 /* SimpleCardTableViewController.swift */; };
+		E82E09F42178065A006A4B88 /* PatientListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E09F32178065A006A4B88 /* PatientListTableViewController.swift */; };
 		E82E09F62178070C006A4B88 /* SimpleCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E09F52178070C006A4B88 /* SimpleCellTableViewCell.swift */; };
 		E82E09FA217830C7006A4B88 /* EowDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E09F9217830C7006A4B88 /* EowDetailViewController.swift */; };
 		E82E179E2176A7D400F57761 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E179A2176A7D400F57761 /* Gradients.swift */; };
@@ -63,6 +63,7 @@
 		E8C84C95217FC46F00D77649 /* Act+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C84C91217FC46F00D77649 /* Act+CoreDataProperties.swift */; };
 		E8C84C96217FC46F00D77649 /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C84C92217FC46F00D77649 /* Tag+CoreDataClass.swift */; };
 		E8C84C97217FC46F00D77649 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C84C93217FC46F00D77649 /* Tag+CoreDataProperties.swift */; };
+		E8C84C9C217FCCC600D77649 /* WorkListPatients.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C84C9B217FCCC600D77649 /* WorkListPatients.swift */; };
 		E8C92F492175AEDC00B39CC4 /* fctet2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C92F482175AEDC00B39CC4 /* fctet2.swift */; };
 		E8D98660217D69CC00EFE369 /* PatientsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9865F217D69CC00EFE369 /* PatientsCoordinator.swift */; };
 		E8D98667217D7DF900EFE369 /* NewPatientForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D98666217D7DF900EFE369 /* NewPatientForm.swift */; };
@@ -76,7 +77,7 @@
 		E822210D217CFB0700CEE16C /* KarlaForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarlaForm.swift; sourceTree = "<group>"; };
 		E822211D217D418000CEE16C /* KarlaFormDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarlaFormDelegate.swift; sourceTree = "<group>"; };
 		E8222120217D525D00CEE16C /* KKarlaDatabase1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KKarlaDatabase1.xcdatamodel; sourceTree = "<group>"; };
-		E82E09F32178065A006A4B88 /* SimpleCardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCardTableViewController.swift; sourceTree = "<group>"; };
+		E82E09F32178065A006A4B88 /* PatientListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientListTableViewController.swift; sourceTree = "<group>"; };
 		E82E09F52178070C006A4B88 /* SimpleCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCellTableViewCell.swift; sourceTree = "<group>"; };
 		E82E09F9217830C7006A4B88 /* EowDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EowDetailViewController.swift; sourceTree = "<group>"; };
 		E82E179A2176A7D400F57761 /* Gradients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
@@ -129,6 +130,7 @@
 		E8C84C91217FC46F00D77649 /* Act+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Act+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E8C84C92217FC46F00D77649 /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E8C84C93217FC46F00D77649 /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E8C84C9B217FCCC600D77649 /* WorkListPatients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkListPatients.swift; sourceTree = "<group>"; };
 		E8C92F482175AEDC00B39CC4 /* fctet2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fctet2.swift; sourceTree = "<group>"; };
 		E8D9865F217D69CC00EFE369 /* PatientsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsCoordinator.swift; sourceTree = "<group>"; };
 		E8D98666217D7DF900EFE369 /* NewPatientForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPatientForm.swift; sourceTree = "<group>"; };
@@ -307,7 +309,8 @@
 		E8861736217F8F0E0098D3EE /* Patient Lists */ = {
 			isa = PBXGroup;
 			children = (
-				E82E09F32178065A006A4B88 /* SimpleCardTableViewController.swift */,
+				E82E09F32178065A006A4B88 /* PatientListTableViewController.swift */,
+				E8C84C9B217FCCC600D77649 /* WorkListPatients.swift */,
 				E8861737217F90920098D3EE /* PatientListModel.swift */,
 				E8D98666217D7DF900EFE369 /* NewPatientForm.swift */,
 				E82E09F52178070C006A4B88 /* SimpleCellTableViewCell.swift */,
@@ -504,7 +507,7 @@
 				E84115182175A38F00C5E9D9 /* DemoCell.swift in Sources */,
 				E84114AB217210DC00C5E9D9 /* AppDelegate.swift in Sources */,
 				E82E09F62178070C006A4B88 /* SimpleCellTableViewCell.swift in Sources */,
-				E82E09F42178065A006A4B88 /* SimpleCardTableViewController.swift in Sources */,
+				E82E09F42178065A006A4B88 /* PatientListTableViewController.swift in Sources */,
 				E8861735217F55E70098D3EE /* TableViewResultAdapter.swift in Sources */,
 				E84114BD2172110000C5E9D9 /* Coordinator.swift in Sources */,
 				E8861731217F50E40098D3EE /* LandingCardModel.swift in Sources */,
@@ -519,6 +522,7 @@
 				E886173A217F90DA0098D3EE /* KarlaListModel.swift in Sources */,
 				E82E179E2176A7D400F57761 /* Gradients.swift in Sources */,
 				E84114BF217211B200C5E9D9 /* Storyboarded.swift in Sources */,
+				E8C84C9C217FCCC600D77649 /* WorkListPatients.swift in Sources */,
 				E8C84C7F217FBF6300D77649 /* Patient+CoreDataProperties.swift in Sources */,
 				E8C84C95217FC46F00D77649 /* Act+CoreDataProperties.swift in Sources */,
 				E886173C217F98CC0098D3EE /* FormType.swift in Sources */,

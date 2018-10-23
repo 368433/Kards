@@ -11,7 +11,6 @@ import UIKit
 import CoreData
 
 class PatientsCoordinator: Coordinator {
-//    var coreDataContainer: NSPersistentContainer
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     
@@ -26,12 +25,11 @@ class PatientsCoordinator: Coordinator {
     }
     
     func showPatientList(for workList: PatientsListObject?) {
-        let simpleVC = SimpleCardTableViewController.instantiate()
-        simpleVC.coordinator = self
-        guard workList != nil else { fatalError("the worklist was nil")}
-        simpleVC.patientList = workList
-        //MUST HANDLE NIL VALUE OF NAVIGATION CONTROLLER
-        navigationController.pushViewController(simpleVC, animated: true)
+        let patientListVC = PatientListTableViewController.instantiate()
+        patientListVC.coordinator = self
+//        guard workList != nil else { fatalError("the worklist was nil")}
+        patientListVC.patientList = workList
+        navigationController.pushViewController(patientListVC, animated: true)
     }
     
     func showNewListForm(to delegate: KarlaFormDelegate?){
