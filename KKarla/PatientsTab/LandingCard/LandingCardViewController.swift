@@ -70,4 +70,13 @@ extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
         return true
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            if let itemToDelete = model?.resultController.object(at: indexPath) {
+                model?.dataCoordinator.persistentContainer.viewContext.delete(itemToDelete)
+                model?.dataCoordinator.saveContext()
+            }
+        }
+    }
+    
 }

@@ -49,7 +49,6 @@
 		E8861733217F522C0098D3EE /* DataCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8861732217F522C0098D3EE /* DataCoordinator.swift */; };
 		E8861735217F55E70098D3EE /* TableViewResultAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8861734217F55E70098D3EE /* TableViewResultAdapter.swift */; };
 		E8861738217F90920098D3EE /* PatientListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8861737217F90920098D3EE /* PatientListModel.swift */; };
-		E886173A217F90DA0098D3EE /* KarlaListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8861739217F90DA0098D3EE /* KarlaListModel.swift */; };
 		E886173C217F98CC0098D3EE /* FormType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E886173B217F98CC0098D3EE /* FormType.swift */; };
 		E88920A6217BD50C004216F1 /* LandingCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88920A5217BD50C004216F1 /* LandingCardViewController.swift */; };
 		E8ABF63F2178EE8000D0C41D /* BillingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABF63E2178EE8000D0C41D /* BillingViewController.swift */; };
@@ -117,7 +116,6 @@
 		E8861732217F522C0098D3EE /* DataCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCoordinator.swift; sourceTree = "<group>"; };
 		E8861734217F55E70098D3EE /* TableViewResultAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewResultAdapter.swift; sourceTree = "<group>"; };
 		E8861737217F90920098D3EE /* PatientListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientListModel.swift; sourceTree = "<group>"; };
-		E8861739217F90DA0098D3EE /* KarlaListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarlaListModel.swift; sourceTree = "<group>"; };
 		E886173B217F98CC0098D3EE /* FormType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormType.swift; sourceTree = "<group>"; };
 		E88920A5217BD50C004216F1 /* LandingCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingCardViewController.swift; sourceTree = "<group>"; };
 		E8ABF63E2178EE8000D0C41D /* BillingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingViewController.swift; sourceTree = "<group>"; };
@@ -302,8 +300,6 @@
 				E88920A5217BD50C004216F1 /* LandingCardViewController.swift */,
 				E8861730217F50E40098D3EE /* LandingCardModel.swift */,
 				E822210B217CF73000CEE16C /* CreateListeViewController.swift */,
-				E8861739217F90DA0098D3EE /* KarlaListModel.swift */,
-				E8861734217F55E70098D3EE /* TableViewResultAdapter.swift */,
 			);
 			path = LandingCard;
 			sourceTree = "<group>";
@@ -336,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				E8C84C9A217FC54B00D77649 /* Labels */,
+				E8861734217F55E70098D3EE /* TableViewResultAdapter.swift */,
 				E8861732217F522C0098D3EE /* DataCoordinator.swift */,
 				E822211D217D418000CEE16C /* KarlaFormDelegate.swift */,
 				E822210D217CFB0700CEE16C /* KarlaForm.swift */,
@@ -523,7 +520,6 @@
 				E82E17A12176A7D400F57761 /* Direction.swift in Sources */,
 				E8782418217A8C9B001258C5 /* TagStackList.swift in Sources */,
 				E8C84C7A217FBF6300D77649 /* PatientsListObject+CoreDataClass.swift in Sources */,
-				E886173A217F90DA0098D3EE /* KarlaListModel.swift in Sources */,
 				E82E179E2176A7D400F57761 /* Gradients.swift in Sources */,
 				E84114BF217211B200C5E9D9 /* Storyboarded.swift in Sources */,
 				E8C84C9C217FCCC600D77649 /* WorkListPatients.swift in Sources */,

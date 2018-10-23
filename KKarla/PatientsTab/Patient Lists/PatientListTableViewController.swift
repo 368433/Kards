@@ -53,4 +53,13 @@ class PatientListTableViewController: UITableViewController, Storyboarded {
         // Return false if you do not want the specified item to be editable.
         return true
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            if let itemToDelete = model?.resultController.object(at: indexPath) {
+                model?.dataCoordinator.persistentContainer.viewContext.delete(itemToDelete)
+                model?.dataCoordinator.saveContext()
+            }
+        }
+    }
 }
