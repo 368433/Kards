@@ -1,5 +1,5 @@
 //
-//  PatientsListObject+CoreDataClass.swift
+//  Tag+CoreDataClass.swift
 //  KKarla
 //
 //  Created by amir2 on 2018-10-23.
@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-@objc(PatientsListObject)
-public class PatientsListObject: NSManagedObject {
+@objc(Tag)
+public class Tag: NSManagedObject {
 
 }

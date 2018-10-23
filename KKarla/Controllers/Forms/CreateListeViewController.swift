@@ -9,7 +9,7 @@
 import UIKit
 import Eureka
 
-class CreateListeViewController: KarlaForm, Storyboarded {
+class CreateListeViewController: KarlaForm {
     
     override func viewDidLoad() {
         super.viewDidLoad()

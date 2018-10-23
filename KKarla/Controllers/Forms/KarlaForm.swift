@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Eureka
 
-class KarlaForm: FormViewController, UIImagePickerControllerDelegate , UINavigationControllerDelegate {
+class KarlaForm: FormViewController, Storyboarded, UIImagePickerControllerDelegate , UINavigationControllerDelegate {
     
 //    let populator = Populator()
 //    let dataHandler = DataHandler()

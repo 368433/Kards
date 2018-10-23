@@ -2,7 +2,7 @@
 //  PatientsListObject+CoreDataProperties.swift
 //  KKarla
 //
-//  Created by amir2 on 2018-10-21.
+//  Created by amir2 on 2018-10-23.
 //  Copyright © 2018 amir2. All rights reserved.
 //
 //
@@ -13,7 +13,7 @@ import CoreData
 
 extension PatientsListObject {
 
-    @nonobjc public class func createFetchRequest() -> NSFetchRequest<PatientsListObject> {
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<PatientsListObject> {
         return NSFetchRequest<PatientsListObject>(entityName: "PatientsListObject")
     }
 

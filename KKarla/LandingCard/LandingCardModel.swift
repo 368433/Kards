@@ -19,6 +19,7 @@ class LandingCardModel{
     var modelOutputView: UITableView
     var resultControllerDelegate = TableViewFetchResultAdapter()
     let listSortingCriteria = NSSortDescriptor(key: "title", ascending: true)
+    var objectToLink: NSManagedObject?
     
     init(modelOutputView: UITableView){
         self.modelOutputView = modelOutputView
@@ -48,6 +49,7 @@ class LandingCardModel{
     }
 }
 extension LandingCardModel: KarlaFormDelegate {
+    
     func processFormValues(with form: Form) {
         let cdNewList = PatientsListObject(context: dataCoordinator.persistentContainer.viewContext)
         cdNewList.title = form.rowBy(tag: "title")?.baseValue as? String

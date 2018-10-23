@@ -10,8 +10,6 @@
 		6D84F2CB1929288333473509 /* Pods_KKarla.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E043F8B2F0E2DF630E4C3B97 /* Pods_KKarla.framework */; };
 		E822210C217CF73000CEE16C /* CreateListeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822210B217CF73000CEE16C /* CreateListeViewController.swift */; };
 		E822210E217CFB0700CEE16C /* KarlaForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822210D217CFB0700CEE16C /* KarlaForm.swift */; };
-		E8222114217D0BF700CEE16C /* ActivityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8222113217D0BF700CEE16C /* ActivityStatus.swift */; };
-		E8222116217D0C5E00CEE16C /* Patientman.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8222115217D0C5E00CEE16C /* Patientman.swift */; };
 		E822211E217D418000CEE16C /* KarlaFormDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822211D217D418000CEE16C /* KarlaFormDelegate.swift */; };
 		E8222121217D525D00CEE16C /* KKarlaDatabase1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E822211F217D525D00CEE16C /* KKarlaDatabase1.xcdatamodeld */; };
 		E82E09F42178065A006A4B88 /* SimpleCardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E09F32178065A006A4B88 /* SimpleCardTableViewController.swift */; };
@@ -28,7 +26,6 @@
 		E84114BF217211B200C5E9D9 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84114BE217211B200C5E9D9 /* Storyboarded.swift */; };
 		E84114C1217213EF00C5E9D9 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84114C0217213EF00C5E9D9 /* MainCoordinator.swift */; };
 		E84114C621721C8200C5E9D9 /* CardsStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84114C521721C8200C5E9D9 /* CardsStackViewController.swift */; };
-		E84114CE2172215000C5E9D9 /* PatientEOW.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84114CD2172215000C5E9D9 /* PatientEOW.swift */; };
 		E84114FE21758C8D00C5E9D9 /* FoldingTestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84114FD21758C8D00C5E9D9 /* FoldingTestTableViewController.swift */; };
 		E84115002175924000C5E9D9 /* DemoFoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84114FF2175924000C5E9D9 /* DemoFoldingCell.swift */; };
 		E84115022175A1DF00C5E9D9 /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84115012175A1DF00C5E9D9 /* FoldingCell.swift */; };
@@ -51,17 +48,23 @@
 		E8861731217F50E40098D3EE /* LandingCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8861730217F50E40098D3EE /* LandingCardModel.swift */; };
 		E8861733217F522C0098D3EE /* DataCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8861732217F522C0098D3EE /* DataCoordinator.swift */; };
 		E8861735217F55E70098D3EE /* TableViewResultAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8861734217F55E70098D3EE /* TableViewResultAdapter.swift */; };
+		E8861738217F90920098D3EE /* PatientListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8861737217F90920098D3EE /* PatientListModel.swift */; };
+		E886173A217F90DA0098D3EE /* KarlaListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8861739217F90DA0098D3EE /* KarlaListModel.swift */; };
+		E886173C217F98CC0098D3EE /* FormType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E886173B217F98CC0098D3EE /* FormType.swift */; };
 		E88920A6217BD50C004216F1 /* LandingCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88920A5217BD50C004216F1 /* LandingCardViewController.swift */; };
-		E8A31F232176827700A562C0 /* ClinicalAct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A31F222176827700A562C0 /* ClinicalAct.swift */; };
 		E8ABF63F2178EE8000D0C41D /* BillingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABF63E2178EE8000D0C41D /* BillingViewController.swift */; };
 		E8ABF6412178EEA900D0C41D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABF6402178EEA900D0C41D /* SettingsViewController.swift */; };
 		E8C2A9AA217A03CE0032EED5 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C2A9A9217A03CE0032EED5 /* AnalyticsViewController.swift */; };
+		E8C84C78217FBF6300D77649 /* Act+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C84C70217FBF6300D77649 /* Act+CoreDataClass.swift */; };
+		E8C84C79217FBF6300D77649 /* Act+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C84C71217FBF6300D77649 /* Act+CoreDataProperties.swift */; };
+		E8C84C7A217FBF6300D77649 /* PatientsListObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C84C72217FBF6300D77649 /* PatientsListObject+CoreDataClass.swift */; };
+		E8C84C7B217FBF6300D77649 /* PatientsListObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C84C73217FBF6300D77649 /* PatientsListObject+CoreDataProperties.swift */; };
+		E8C84C7C217FBF6300D77649 /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C84C74217FBF6300D77649 /* Tag+CoreDataClass.swift */; };
+		E8C84C7D217FBF6300D77649 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C84C75217FBF6300D77649 /* Tag+CoreDataProperties.swift */; };
+		E8C84C7E217FBF6300D77649 /* Patient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C84C76217FBF6300D77649 /* Patient+CoreDataClass.swift */; };
+		E8C84C7F217FBF6300D77649 /* Patient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C84C77217FBF6300D77649 /* Patient+CoreDataProperties.swift */; };
 		E8C92F492175AEDC00B39CC4 /* fctet2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C92F482175AEDC00B39CC4 /* fctet2.swift */; };
-		E8D9865D217D621C00EFE369 /* PatientsListObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9865B217D621C00EFE369 /* PatientsListObject+CoreDataClass.swift */; };
-		E8D9865E217D621C00EFE369 /* PatientsListObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9865C217D621C00EFE369 /* PatientsListObject+CoreDataProperties.swift */; };
 		E8D98660217D69CC00EFE369 /* PatientsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9865F217D69CC00EFE369 /* PatientsCoordinator.swift */; };
-		E8D98663217D79B200EFE369 /* Patient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D98661217D79B200EFE369 /* Patient+CoreDataClass.swift */; };
-		E8D98664217D79B200EFE369 /* Patient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D98662217D79B200EFE369 /* Patient+CoreDataProperties.swift */; };
 		E8D98667217D7DF900EFE369 /* NewPatientForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D98666217D7DF900EFE369 /* NewPatientForm.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,8 +74,6 @@
 		E043F8B2F0E2DF630E4C3B97 /* Pods_KKarla.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KKarla.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E822210B217CF73000CEE16C /* CreateListeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateListeViewController.swift; sourceTree = "<group>"; };
 		E822210D217CFB0700CEE16C /* KarlaForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarlaForm.swift; sourceTree = "<group>"; };
-		E8222113217D0BF700CEE16C /* ActivityStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatus.swift; sourceTree = "<group>"; };
-		E8222115217D0C5E00CEE16C /* Patientman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patientman.swift; sourceTree = "<group>"; };
 		E822211D217D418000CEE16C /* KarlaFormDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarlaFormDelegate.swift; sourceTree = "<group>"; };
 		E8222120217D525D00CEE16C /* KKarlaDatabase1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KKarlaDatabase1.xcdatamodel; sourceTree = "<group>"; };
 		E82E09F32178065A006A4B88 /* SimpleCardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCardTableViewController.swift; sourceTree = "<group>"; };
@@ -91,7 +92,6 @@
 		E84114BE217211B200C5E9D9 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		E84114C0217213EF00C5E9D9 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		E84114C521721C8200C5E9D9 /* CardsStackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsStackViewController.swift; sourceTree = "<group>"; };
-		E84114CD2172215000C5E9D9 /* PatientEOW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientEOW.swift; sourceTree = "<group>"; };
 		E84114FD21758C8D00C5E9D9 /* FoldingTestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldingTestTableViewController.swift; sourceTree = "<group>"; };
 		E84114FF2175924000C5E9D9 /* DemoFoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoFoldingCell.swift; sourceTree = "<group>"; };
 		E84115012175A1DF00C5E9D9 /* FoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingCell.swift; sourceTree = "<group>"; };
@@ -114,17 +114,23 @@
 		E8861730217F50E40098D3EE /* LandingCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingCardModel.swift; sourceTree = "<group>"; };
 		E8861732217F522C0098D3EE /* DataCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCoordinator.swift; sourceTree = "<group>"; };
 		E8861734217F55E70098D3EE /* TableViewResultAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewResultAdapter.swift; sourceTree = "<group>"; };
+		E8861737217F90920098D3EE /* PatientListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientListModel.swift; sourceTree = "<group>"; };
+		E8861739217F90DA0098D3EE /* KarlaListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarlaListModel.swift; sourceTree = "<group>"; };
+		E886173B217F98CC0098D3EE /* FormType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormType.swift; sourceTree = "<group>"; };
 		E88920A5217BD50C004216F1 /* LandingCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingCardViewController.swift; sourceTree = "<group>"; };
-		E8A31F222176827700A562C0 /* ClinicalAct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicalAct.swift; sourceTree = "<group>"; };
 		E8ABF63E2178EE8000D0C41D /* BillingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingViewController.swift; sourceTree = "<group>"; };
 		E8ABF6402178EEA900D0C41D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E8C2A9A9217A03CE0032EED5 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
+		E8C84C70217FBF6300D77649 /* Act+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Act+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E8C84C71217FBF6300D77649 /* Act+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Act+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E8C84C72217FBF6300D77649 /* PatientsListObject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PatientsListObject+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E8C84C73217FBF6300D77649 /* PatientsListObject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PatientsListObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E8C84C74217FBF6300D77649 /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E8C84C75217FBF6300D77649 /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E8C84C76217FBF6300D77649 /* Patient+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Patient+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E8C84C77217FBF6300D77649 /* Patient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Patient+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E8C92F482175AEDC00B39CC4 /* fctet2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fctet2.swift; sourceTree = "<group>"; };
-		E8D9865B217D621C00EFE369 /* PatientsListObject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PatientsListObject+CoreDataClass.swift"; sourceTree = "<group>"; };
-		E8D9865C217D621C00EFE369 /* PatientsListObject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PatientsListObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E8D9865F217D69CC00EFE369 /* PatientsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsCoordinator.swift; sourceTree = "<group>"; };
-		E8D98661217D79B200EFE369 /* Patient+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Patient+CoreDataClass.swift"; sourceTree = "<group>"; };
-		E8D98662217D79B200EFE369 /* Patient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Patient+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E8D98666217D7DF900EFE369 /* NewPatientForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPatientForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,10 +166,14 @@
 		E813A6C4217D5DE4005E6F81 /* CoreDataNS Objects */ = {
 			isa = PBXGroup;
 			children = (
-				E8D98661217D79B200EFE369 /* Patient+CoreDataClass.swift */,
-				E8D98662217D79B200EFE369 /* Patient+CoreDataProperties.swift */,
-				E8D9865B217D621C00EFE369 /* PatientsListObject+CoreDataClass.swift */,
-				E8D9865C217D621C00EFE369 /* PatientsListObject+CoreDataProperties.swift */,
+				E8C84C70217FBF6300D77649 /* Act+CoreDataClass.swift */,
+				E8C84C71217FBF6300D77649 /* Act+CoreDataProperties.swift */,
+				E8C84C72217FBF6300D77649 /* PatientsListObject+CoreDataClass.swift */,
+				E8C84C73217FBF6300D77649 /* PatientsListObject+CoreDataProperties.swift */,
+				E8C84C74217FBF6300D77649 /* Tag+CoreDataClass.swift */,
+				E8C84C75217FBF6300D77649 /* Tag+CoreDataProperties.swift */,
+				E8C84C76217FBF6300D77649 /* Patient+CoreDataClass.swift */,
+				E8C84C77217FBF6300D77649 /* Patient+CoreDataProperties.swift */,
 			);
 			path = "CoreDataNS Objects";
 			sourceTree = "<group>";
@@ -204,10 +214,10 @@
 				E84114AA217210DC00C5E9D9 /* AppDelegate.swift */,
 				E84114AE217210DC00C5E9D9 /* Main.storyboard */,
 				E886172F217F50AB0098D3EE /* LandingCard */,
+				E8861736217F8F0E0098D3EE /* Patient Lists */,
 				E84114C321721C3900C5E9D9 /* Coordinators */,
 				E84114C221721C2F00C5E9D9 /* Controllers */,
 				E84114C721721CAB00C5E9D9 /* Models */,
-				E84114C821721CC500C5E9D9 /* Views */,
 				E841152B2175A4B900C5E9D9 /* Demos */,
 				E84114C421721C5600C5E9D9 /* Supporting Files */,
 			);
@@ -217,9 +227,8 @@
 		E84114C221721C2F00C5E9D9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E8C2A9A8217A03B90032EED5 /* To Develop */,
 				E8D98665217D7DE400EFE369 /* Forms */,
-				E82E09F32178065A006A4B88 /* SimpleCardTableViewController.swift */,
+				E8C2A9A8217A03B90032EED5 /* To Develop */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -227,6 +236,7 @@
 		E84114C321721C3900C5E9D9 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				E8D9865F217D69CC00EFE369 /* PatientsCoordinator.swift */,
 				E84114BC2172110000C5E9D9 /* Coordinator.swift */,
 				E8861732217F522C0098D3EE /* DataCoordinator.swift */,
 				E84114C0217213EF00C5E9D9 /* MainCoordinator.swift */,
@@ -255,10 +265,6 @@
 			children = (
 				E813A6C4217D5DE4005E6F81 /* CoreDataNS Objects */,
 				E822211F217D525D00CEE16C /* KKarlaDatabase1.xcdatamodeld */,
-				E84114CD2172215000C5E9D9 /* PatientEOW.swift */,
-				E8222115217D0C5E00CEE16C /* Patientman.swift */,
-				E8222113217D0BF700CEE16C /* ActivityStatus.swift */,
-				E8A31F222176827700A562C0 /* ClinicalAct.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -266,8 +272,6 @@
 		E84114C821721CC500C5E9D9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E84115042175A38F00C5E9D9 /* DemoCell.swift */,
-				E82E09F52178070C006A4B88 /* SimpleCellTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -292,6 +296,8 @@
 		E841152B2175A4B900C5E9D9 /* Demos */ = {
 			isa = PBXGroup;
 			children = (
+				E84114C821721CC500C5E9D9 /* Views */,
+				E84115042175A38F00C5E9D9 /* DemoCell.swift */,
 				E84114C521721C8200C5E9D9 /* CardsStackViewController.swift */,
 				E84115052175A38F00C5E9D9 /* MainTableViewController.swift */,
 				E84114FD21758C8D00C5E9D9 /* FoldingTestTableViewController.swift */,
@@ -305,12 +311,22 @@
 		E886172F217F50AB0098D3EE /* LandingCard */ = {
 			isa = PBXGroup;
 			children = (
-				E8D9865F217D69CC00EFE369 /* PatientsCoordinator.swift */,
 				E88920A5217BD50C004216F1 /* LandingCardViewController.swift */,
 				E8861730217F50E40098D3EE /* LandingCardModel.swift */,
+				E8861739217F90DA0098D3EE /* KarlaListModel.swift */,
 				E8861734217F55E70098D3EE /* TableViewResultAdapter.swift */,
 			);
 			path = LandingCard;
+			sourceTree = "<group>";
+		};
+		E8861736217F8F0E0098D3EE /* Patient Lists */ = {
+			isa = PBXGroup;
+			children = (
+				E82E09F32178065A006A4B88 /* SimpleCardTableViewController.swift */,
+				E8861737217F90920098D3EE /* PatientListModel.swift */,
+				E82E09F52178070C006A4B88 /* SimpleCellTableViewCell.swift */,
+			);
+			path = "Patient Lists";
 			sourceTree = "<group>";
 		};
 		E8C2A9A8217A03B90032EED5 /* To Develop */ = {
@@ -328,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				E822210D217CFB0700CEE16C /* KarlaForm.swift */,
+				E886173B217F98CC0098D3EE /* FormType.swift */,
 				E822210B217CF73000CEE16C /* CreateListeViewController.swift */,
 				E8D98666217D7DF900EFE369 /* NewPatientForm.swift */,
 			);
@@ -464,20 +481,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8C84C79217FBF6300D77649 /* Act+CoreDataProperties.swift in Sources */,
 				E822210C217CF73000CEE16C /* CreateListeViewController.swift in Sources */,
 				E8ABF63F2178EE8000D0C41D /* BillingViewController.swift in Sources */,
 				E82E17A02176A7D400F57761 /* Color+Extension.swift in Sources */,
-				E8222116217D0C5E00CEE16C /* Patientman.swift in Sources */,
 				E878241B217A8D43001258C5 /* NRLabel.swift in Sources */,
 				E822211E217D418000CEE16C /* KarlaFormDelegate.swift in Sources */,
 				E8C92F492175AEDC00B39CC4 /* fctet2.swift in Sources */,
+				E8C84C7E217FBF6300D77649 /* Patient+CoreDataClass.swift in Sources */,
+				E8C84C7B217FBF6300D77649 /* PatientsListObject+CoreDataProperties.swift in Sources */,
 				E84115192175A38F00C5E9D9 /* MainTableViewController.swift in Sources */,
 				E8861733217F522C0098D3EE /* DataCoordinator.swift in Sources */,
-				E84114CE2172215000C5E9D9 /* PatientEOW.swift in Sources */,
 				E82E179F2176A7D400F57761 /* Gradients+Extension.swift in Sources */,
-				E8D98664217D79B200EFE369 /* Patient+CoreDataProperties.swift in Sources */,
 				E84115182175A38F00C5E9D9 /* DemoCell.swift in Sources */,
-				E8222114217D0BF700CEE16C /* ActivityStatus.swift in Sources */,
+				E8C84C78217FBF6300D77649 /* Act+CoreDataClass.swift in Sources */,
 				E84114AB217210DC00C5E9D9 /* AppDelegate.swift in Sources */,
 				E82E09F62178070C006A4B88 /* SimpleCellTableViewCell.swift in Sources */,
 				E82E09F42178065A006A4B88 /* SimpleCardTableViewController.swift in Sources */,
@@ -490,22 +507,25 @@
 				E84114C1217213EF00C5E9D9 /* MainCoordinator.swift in Sources */,
 				E82E17A12176A7D400F57761 /* Direction.swift in Sources */,
 				E8782418217A8C9B001258C5 /* TagStackList.swift in Sources */,
+				E8C84C7A217FBF6300D77649 /* PatientsListObject+CoreDataClass.swift in Sources */,
+				E886173A217F90DA0098D3EE /* KarlaListModel.swift in Sources */,
 				E82E179E2176A7D400F57761 /* Gradients.swift in Sources */,
-				E8D9865E217D621C00EFE369 /* PatientsListObject+CoreDataProperties.swift in Sources */,
+				E8C84C7D217FBF6300D77649 /* Tag+CoreDataProperties.swift in Sources */,
 				E84114BF217211B200C5E9D9 /* Storyboarded.swift in Sources */,
+				E8C84C7F217FBF6300D77649 /* Patient+CoreDataProperties.swift in Sources */,
+				E886173C217F98CC0098D3EE /* FormType.swift in Sources */,
 				E8782419217A8C9B001258C5 /* LabelType.swift in Sources */,
 				E82E09FA217830C7006A4B88 /* EowDetailViewController.swift in Sources */,
 				E8C2A9AA217A03CE0032EED5 /* AnalyticsViewController.swift in Sources */,
 				E8D98660217D69CC00EFE369 /* PatientsCoordinator.swift in Sources */,
+				E8C84C7C217FBF6300D77649 /* Tag+CoreDataClass.swift in Sources */,
 				E8222121217D525D00CEE16C /* KKarlaDatabase1.xcdatamodeld in Sources */,
 				E88920A6217BD50C004216F1 /* LandingCardViewController.swift in Sources */,
-				E8A31F232176827700A562C0 /* ClinicalAct.swift in Sources */,
 				E84115022175A1DF00C5E9D9 /* FoldingCell.swift in Sources */,
 				E84114FE21758C8D00C5E9D9 /* FoldingTestTableViewController.swift in Sources */,
-				E8D98663217D79B200EFE369 /* Patient+CoreDataClass.swift in Sources */,
 				E8D98667217D7DF900EFE369 /* NewPatientForm.swift in Sources */,
+				E8861738217F90920098D3EE /* PatientListModel.swift in Sources */,
 				E8ABF6412178EEA900D0C41D /* SettingsViewController.swift in Sources */,
-				E8D9865D217D621C00EFE369 /* PatientsListObject+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

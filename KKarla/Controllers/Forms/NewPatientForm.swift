@@ -10,7 +10,7 @@
 import UIKit
 import Eureka
 
-class NewPatientForm: KarlaForm, Storyboarded {
+class NewPatientForm: KarlaForm {
     
     override func viewDidLoad() {
         super.viewDidLoad()

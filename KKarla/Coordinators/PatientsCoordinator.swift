@@ -25,9 +25,10 @@ class PatientsCoordinator: Coordinator {
         navigationController.pushViewController(landingCardVC, animated: false)
     }
     
-    func showPatientList(for workList: PatientsListObject) {
+    func showPatientList(for workList: PatientsListObject?) {
         let simpleVC = SimpleCardTableViewController.instantiate()
         simpleVC.coordinator = self
+        guard workList != nil else { fatalError("the worklist was nil")}
         simpleVC.patientList = workList
         //MUST HANDLE NIL VALUE OF NAVIGATION CONTROLLER
         navigationController.pushViewController(simpleVC, animated: true)
@@ -42,12 +43,29 @@ class PatientsCoordinator: Coordinator {
         navigationController.present(nc, animated: true, completion: nil)
     }
     
-    func addNewPatient(to delegate: KarlaFormDelegate){
+    func addNewPatient(to list: PatientsListObject, delegate: KarlaFormDelegate){
         let newPatientForm = NewPatientForm.instantiate()
         let nc = UINavigationController()
         newPatientForm.formDelegate = delegate
+        
         nc.pushViewController(newPatientForm, animated: false)
         navigationController.present(nc, animated: true, completion: nil)
     }
+    
+//    func addNewObject(parentObject: NSManagedObject?, delegateObject: KarlaFormDelegate, formType: FormType ){
+//        var formToDisplay: KarlaForm
+//        switch formType {
+//        case .newPatient:
+//            formToDisplay = NewPatientForm.instantiate()
+//        case .newWorkList:
+//            formToDisplay = CreateListeViewController.instantiate()
+//        }
+//        let nc = UINavigationController()
+//        formToDisplay.formDelegate = delegateObject
+//        
+//        delegateObject.objectToLink = parentObject
+//        nc.pushViewController(formToDisplay, animated: false)
+//        navigationController.present(nc, animated: true, completion: nil)
+//    }
 
 }

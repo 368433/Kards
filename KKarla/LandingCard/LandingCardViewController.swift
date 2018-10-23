@@ -19,18 +19,15 @@ class LandingCardViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         model = LandingCardModel(modelOutputView: eowTable)
-        
-        // Adding Title and large font:
+        setupViews()
+    }
+    
+    private func setupViews(){
         self.title = "Patients Lists"
         self.tabBarItem.title = "Patients"
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
-        // Adding the plus sign in navigation Controller
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(createList))
-        
-        // Setting up the table
         eowTable.delegate = self
         eowTable.dataSource = self
     }
@@ -40,7 +37,6 @@ class LandingCardViewController: UIViewController, Storyboarded {
     }
 }
 
-// MARK: Implementation of TableView Deleagte and data source protocols
 extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return model?.resultController.sections?.count ?? 0
@@ -59,7 +55,7 @@ extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        coordinator?.showPatientList(for: model[indexPath.row])
+        coordinator?.showPatientList(for: model?.resultController.object(at: indexPath))
         self.eowTable.cellForRow(at: indexPath)?.isSelected = false
         
     }

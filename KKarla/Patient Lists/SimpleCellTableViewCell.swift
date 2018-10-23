@@ -15,6 +15,7 @@ class SimpleCellTableViewCell: UITableViewCell {
     @IBOutlet weak var statusTagStack: UIStackView!
     @IBOutlet weak var nameTag: UILabel!
     var statusTag: TagStackList?
+    static let cardCellHeight: CGFloat = 90
     
     override func awakeFromNib() {
         super.awakeFromNib()

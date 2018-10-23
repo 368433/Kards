@@ -8,7 +8,9 @@
 
 import Foundation
 import Eureka
+import CoreData
 
 protocol KarlaFormDelegate {
     func processFormValues(with form: Form)
+    var objectToLink: NSManagedObject? {get set}
 }
