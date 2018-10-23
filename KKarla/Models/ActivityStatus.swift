@@ -11,4 +11,5 @@ import Foundation
 enum ActivityStatus {
     case active
     case archived
+    case handoverListed
 }

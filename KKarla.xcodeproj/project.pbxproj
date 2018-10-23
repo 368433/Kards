@@ -60,7 +60,6 @@
 		E8D98663217D79B200EFE369 /* Patient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D98661217D79B200EFE369 /* Patient+CoreDataClass.swift */; };
 		E8D98664217D79B200EFE369 /* Patient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D98662217D79B200EFE369 /* Patient+CoreDataProperties.swift */; };
 		E8D98667217D7DF900EFE369 /* NewPatientForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D98666217D7DF900EFE369 /* NewPatientForm.swift */; };
-		E8D9866B217EC61A00EFE369 /* PatientDisposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9866A217EC61A00EFE369 /* PatientDisposition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,7 +120,6 @@
 		E8D98661217D79B200EFE369 /* Patient+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Patient+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E8D98662217D79B200EFE369 /* Patient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Patient+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E8D98666217D7DF900EFE369 /* NewPatientForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPatientForm.swift; sourceTree = "<group>"; };
-		E8D9866A217EC61A00EFE369 /* PatientDisposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientDisposition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,11 +210,10 @@
 		E84114C221721C2F00C5E9D9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E822210D217CFB0700CEE16C /* KarlaForm.swift */,
+				E8C2A9A8217A03B90032EED5 /* To Develop */,
 				E8D98665217D7DE400EFE369 /* Forms */,
 				E88920A5217BD50C004216F1 /* LandingCardViewController.swift */,
 				E82E09F32178065A006A4B88 /* SimpleCardTableViewController.swift */,
-				E8C2A9A8217A03B90032EED5 /* To Develop */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -256,7 +253,6 @@
 				E8222115217D0C5E00CEE16C /* Patientman.swift */,
 				E8222113217D0BF700CEE16C /* ActivityStatus.swift */,
 				E8A31F222176827700A562C0 /* ClinicalAct.swift */,
-				E8D9866A217EC61A00EFE369 /* PatientDisposition.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -314,6 +310,7 @@
 		E8D98665217D7DE400EFE369 /* Forms */ = {
 			isa = PBXGroup;
 			children = (
+				E822210D217CFB0700CEE16C /* KarlaForm.swift */,
 				E822210B217CF73000CEE16C /* CreateListeViewController.swift */,
 				E8D98666217D7DF900EFE369 /* NewPatientForm.swift */,
 			);
@@ -489,7 +486,6 @@
 				E8D98667217D7DF900EFE369 /* NewPatientForm.swift in Sources */,
 				E8ABF6412178EEA900D0C41D /* SettingsViewController.swift in Sources */,
 				E8D9865D217D621C00EFE369 /* PatientsListObject+CoreDataClass.swift in Sources */,
-				E8D9866B217EC61A00EFE369 /* PatientDisposition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
