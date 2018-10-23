@@ -12,26 +12,15 @@ import Eureka
 class PatientListTableViewController: UITableViewController, Storyboarded {
     
     weak var coordinator: PatientsCoordinator?
-    var patientList: PatientsListObject?
     var model: PatientListModel?
     var predicate: NSPredicate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if patientList != nil{
-            predicate = NSPredicate(format: "ANY patientsList == %@", patientList!)
-        }
-        model = PatientListModel(modelOutputView: self.tableView, searchPredicate: predicate)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPatient))
-        self.title = patientList?.title
-//        model = patientList?.patients?.allObjects as! [Patient]
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNew))
     }
     
-    @objc func addNewPatient(){
-        // MARK : Should make a separate view controller for all patients view and not allow addition of patient to the database directly
-        coordinator?.addNewPatient(to: patientList!, delegate: model!)
-        model?.objectToLink = patientList
+    @objc func addNew(){
     }
     
     // MARK: - Table view data source
@@ -58,5 +47,10 @@ class PatientListTableViewController: UITableViewController, Storyboarded {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = .clear
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
     }
 }

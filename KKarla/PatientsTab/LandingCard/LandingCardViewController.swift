@@ -39,7 +39,7 @@ class LandingCardViewController: UIViewController, Storyboarded {
     }
     
     @objc func showAllPatients(){
-        coordinator?.showPatientList(for: nil)
+        coordinator?.showAllPatientsList()
     }
 }
 
@@ -61,7 +61,7 @@ extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinator?.showPatientList(for: model?.resultController.object(at: indexPath))
+        coordinator?.showWorkListPatients(for: model?.resultController.object(at: indexPath))
         self.eowTable.cellForRow(at: indexPath)?.isSelected = false
         
     }

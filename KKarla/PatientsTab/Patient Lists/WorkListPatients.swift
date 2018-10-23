@@ -11,11 +11,18 @@ import UIKit
 
 class WorkListPatients: PatientListTableViewController {
     
-    var patientList1: PatientsListObject!
+    var patientList: PatientsListObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        predicate = NSPredicate(format: "ANY patientsList == %@", patientList1)
-        
+        predicate = NSPredicate(format: "ANY patientsList == %@", patientList)
+        model = PatientListModel(modelOutputView: self.tableView, searchPredicate: predicate)
+        self.title = patientList?.title
     }
+    
+    override func addNew(){
+        coordinator?.addNewPatient(to: patientList!, delegate: model!)
+        model?.objectToLink = patientList
+    }
+    
 }

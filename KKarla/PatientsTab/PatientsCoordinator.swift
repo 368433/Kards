@@ -24,11 +24,16 @@ class PatientsCoordinator: Coordinator {
         navigationController.pushViewController(landingCardVC, animated: false)
     }
     
-    func showPatientList(for workList: PatientsListObject?) {
-        let patientListVC = PatientListTableViewController.instantiate()
+    func showWorkListPatients(for workList: PatientsListObject?) {
+        let patientListVC = WorkListPatients.instantiate()
         patientListVC.coordinator = self
-//        guard workList != nil else { fatalError("the worklist was nil")}
         patientListVC.patientList = workList
+        navigationController.pushViewController(patientListVC, animated: true)
+    }
+    
+    func showAllPatientsList() {
+        let patientListVC = AllPatientsList.instantiate()
+        patientListVC.coordinator = self
         navigationController.pushViewController(patientListVC, animated: true)
     }
     
