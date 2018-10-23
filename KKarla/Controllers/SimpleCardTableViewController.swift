@@ -9,7 +9,7 @@
 import UIKit
 import Eureka
 
-class SimpleCardTableViewController: UITableViewController, Storyboarded, KarlaFormDelegate {
+class SimpleCardTableViewController: UITableViewController, Storyboarded {
     
     weak var coordinator: PatientsCoordinator?
     var patientList: PatientsListObject?
@@ -26,7 +26,7 @@ class SimpleCardTableViewController: UITableViewController, Storyboarded, KarlaF
     }
     
     @objc func addNewPatient(){
-        coordinator?.addNewPatient(to: self)
+//        coordinator?.addNewPatient(to: self)
     }
     
     // MARK: - Table view data source
@@ -54,14 +54,14 @@ class SimpleCardTableViewController: UITableViewController, Storyboarded, KarlaF
         cell.backgroundColor = .clear
     }
 
-    func processFormValues(with form: Form) {
-        let newPatient = Patient(context: coordinator!.coreDataContainer.viewContext)
-        newPatient.nickname = form.rowBy(tag: "nickname")?.baseValue as? String
-        if let list = patientList {
-            newPatient.addToPatientLists(list)
-        }
-        model.append(newPatient)
-        coordinator?.saveContext()
-        self.tableView.reloadData()
-    }
+//    func processFormValues(with form: Form) {
+//        let newPatient = Patient(context: coordinator!.coreDataContainer.viewContext)
+//        newPatient.nickname = form.rowBy(tag: "nickname")?.baseValue as? String
+//        if let list = patientList {
+//            newPatient.addToPatientLists(list)
+//        }
+//        model.append(newPatient)
+//        coordinator?.saveContext()
+//        self.tableView.reloadData()
+//    }
 }

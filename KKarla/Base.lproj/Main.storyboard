@@ -254,6 +254,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dvr-D6-NZR">
                                 <rect key="frame" x="0.0" y="281.5" width="375" height="336.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="tQW-Km-1XU">
+                                    <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="activeListCell" textLabel="88V-wR-vq1" detailTextLabel="b9v-WX-Tvu" style="IBUITableViewCellStyleValue1" id="VlS-uf-LRF">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -352,7 +357,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ain-df-ZeD">
-                                    <rect key="frame" x="14" y="18" width="347" height="28"/>
+                                    <rect key="frame" x="14" y="18" width="347" height="29"/>
                                     <segments>
                                         <segment title="To see"/>
                                         <segment title="Seen Today"/>
@@ -363,7 +368,6 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="Ain-df-ZeD" secondAttribute="bottom" constant="20" id="1iP-Zt-QyG"/>
                                 <constraint firstItem="Ain-df-ZeD" firstAttribute="centerX" secondItem="PWl-ki-gSU" secondAttribute="centerX" id="MDK-5g-VHa"/>
                                 <constraint firstItem="Ain-df-ZeD" firstAttribute="top" secondItem="PWl-ki-gSU" secondAttribute="top" constant="18" id="cHL-wN-mgM"/>
                             </constraints>

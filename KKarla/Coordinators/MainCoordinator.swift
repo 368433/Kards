@@ -15,17 +15,17 @@ class MainCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     var tabBarController: UITabBarController
-    var coreDataContainer: NSPersistentContainer
+//    var coreDataContainer: NSPersistentContainer
     
-    init(tabBarController: UITabBarController, container: NSPersistentContainer) {
+    init(tabBarController: UITabBarController) {
         self.tabBarController = tabBarController
         self.navigationController = UINavigationController()
-        self.coreDataContainer = container
+//        self.coreDataContainer = container
     }
     
     func start() {
         // SETTING UP THE FIRST TAB
-        let ptCoordinator = PatientsCoordinator(dataContainer: coreDataContainer)
+        let ptCoordinator = PatientsCoordinator()
         ptCoordinator.start()
         childCoordinators.append(ptCoordinator)
         

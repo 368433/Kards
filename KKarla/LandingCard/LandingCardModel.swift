@@ -9,16 +9,24 @@
 import Foundation
 import UIKit
 import CoreData
+import Eureka
 
-class LandingCardModel {
-    var resultController: NSFetchedResultsController<PatientsListObject>!
-    var dataCoordinator = DataCoordinator()
-    var searchPredicate: NSCompoundPredicate?
-    var descriptionTitle: String
+class LandingCardModel{
     
-    init(){
-        searchPredicate = nil
-        descriptionTitle = "Work Lists"
+    var resultController: NSFetchedResultsController<PatientsListObject>!
+    var dataCoordinator: DataCoordinator
+    var searchPredicate: NSCompoundPredicate?
+    var descriptionTitle: String?
+    var modelOutputView: UITableView
+    var resultControllerDelegate = TableViewFetchResultAdapter()
+    
+    init(modelOutputView: UITableView){
+        self.modelOutputView = modelOutputView
+        self.descriptionTitle = "Work Lists"
+        self.dataCoordinator = AppDelegate.dataCoordinator
+        self.resultController = getFetchedResultsController()
+        resultController.delegate = resultControllerDelegate
+        resultControllerDelegate.fetchResultsAdatptedTableView = self.modelOutputView
         loadObjectList()
     }
     
@@ -30,6 +38,8 @@ class LandingCardModel {
         } catch {
             print("Fetch failed")
         }
+//        resultController.delegate = resultControllerDelegate
+//        resultControllerDelegate.fetchResultsAdatptedTableView = modelOutputView
     }
     
     private func getFetchedResultsController() -> NSFetchedResultsController<PatientsListObject> {
@@ -40,6 +50,14 @@ class LandingCardModel {
         request.fetchBatchSize = 20
         return NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataCoordinator.persistentContainer.viewContext, sectionNameKeyPath: "title", cacheName: nil)
     }
+}
+extension LandingCardModel: KarlaFormDelegate {
     
-    
+    func processFormValues(with form: Form) {
+        let cdNewList = PatientsListObject(context: dataCoordinator.persistentContainer.viewContext)
+        cdNewList.title = form.rowBy(tag: "title")?.baseValue as? String
+        cdNewList.subtitle = form.rowBy(tag: "subtitle")?.baseValue as? String ?? ""
+        dataCoordinator.persistentContainer.viewContext.insert(cdNewList)
+        dataCoordinator.saveContext()
+    }
 }
