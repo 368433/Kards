@@ -55,7 +55,9 @@ extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = eowTable.dequeueReusableCell(withIdentifier: "activeListCell", for: indexPath)
         cell.textLabel?.text = model?.resultController.object(at: indexPath).title
-        cell.detailTextLabel?.text = model?.resultController.object(at: indexPath).subtitle
+        let numberOfPatients = String(model?.resultController.object(at: indexPath).patients?.count ?? 0)
+        let cellSubtitle = model?.resultController.object(at: indexPath).subtitle ?? " "
+        cell.detailTextLabel?.text = cellSubtitle + " - (\(numberOfPatients))"
         
         return cell
     }
@@ -77,6 +79,20 @@ extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
                 model?.dataCoordinator.saveContext()
             }
         }
+    }
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            // delete item at indexPath
+            print("test delete")
+        }
+        
+        let archive = UITableViewRowAction(style: .default, title: "Archive") { (action, indexPath) in
+            // share item at indexPath
+            print("I want to share: atest")
+        }
+        archive.backgroundColor = UIColor.magenta
+        return [delete, archive]
     }
     
 }

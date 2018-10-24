@@ -53,5 +53,12 @@ class PatientsCoordinator: Coordinator {
         nc.pushViewController(newPatientForm, animated: false)
         navigationController.present(nc, animated: true, completion: nil)
     }
+    
+    func showAddActForm(){
+        let actForm = AddActFormViewController.instantiate()
+        let nc = UINavigationController()
+        nc.pushViewController(actForm, animated: false)
+        navigationController.present(nc, animated: true, completion: nil)
+    }
 
 }

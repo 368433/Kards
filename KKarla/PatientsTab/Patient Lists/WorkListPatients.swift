@@ -25,4 +25,12 @@ class WorkListPatients: PatientListTableViewController {
         model?.objectToLink = patientList
     }
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SimpleCell", for: indexPath) as! SimpleCellTableViewCell
+        cell.setupTags()
+        cell.nameTag.text = model?.resultController.object(at: indexPath).nickname ?? "NIL"
+        cell.addActButton.addTarget(self, action: #selector(showAddActForm), for: .touchUpInside)
+        return cell
+    }
+    
 }

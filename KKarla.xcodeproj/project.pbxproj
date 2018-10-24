@@ -64,6 +64,7 @@
 		E8C84C97217FC46F00D77649 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C84C93217FC46F00D77649 /* Tag+CoreDataProperties.swift */; };
 		E8C84C9C217FCCC600D77649 /* WorkListPatients.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C84C9B217FCCC600D77649 /* WorkListPatients.swift */; };
 		E8C84C9E217FCFD800D77649 /* AllPatientsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C84C9D217FCFD800D77649 /* AllPatientsList.swift */; };
+		E8C84CA221800F4500D77649 /* AddActFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C84CA121800F4500D77649 /* AddActFormViewController.swift */; };
 		E8C92F492175AEDC00B39CC4 /* fctet2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C92F482175AEDC00B39CC4 /* fctet2.swift */; };
 		E8D98660217D69CC00EFE369 /* PatientsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9865F217D69CC00EFE369 /* PatientsCoordinator.swift */; };
 		E8D98667217D7DF900EFE369 /* NewPatientForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D98666217D7DF900EFE369 /* NewPatientForm.swift */; };
@@ -131,6 +132,7 @@
 		E8C84C93217FC46F00D77649 /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E8C84C9B217FCCC600D77649 /* WorkListPatients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkListPatients.swift; sourceTree = "<group>"; };
 		E8C84C9D217FCFD800D77649 /* AllPatientsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPatientsList.swift; sourceTree = "<group>"; };
+		E8C84CA121800F4500D77649 /* AddActFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActFormViewController.swift; sourceTree = "<group>"; };
 		E8C92F482175AEDC00B39CC4 /* fctet2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fctet2.swift; sourceTree = "<group>"; };
 		E8D9865F217D69CC00EFE369 /* PatientsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsCoordinator.swift; sourceTree = "<group>"; };
 		E8D98666217D7DF900EFE369 /* NewPatientForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPatientForm.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 			children = (
 				E82E09F32178065A006A4B88 /* PatientListTableViewController.swift */,
 				E8C84C9B217FCCC600D77649 /* WorkListPatients.swift */,
+				E8C84CA121800F4500D77649 /* AddActFormViewController.swift */,
 				E8C84C9D217FCFD800D77649 /* AllPatientsList.swift */,
 				E8861737217F90920098D3EE /* PatientListModel.swift */,
 				E8D98666217D7DF900EFE369 /* NewPatientForm.swift */,
@@ -538,6 +541,7 @@
 				E8D98667217D7DF900EFE369 /* NewPatientForm.swift in Sources */,
 				E8861738217F90920098D3EE /* PatientListModel.swift in Sources */,
 				E8ABF6412178EEA900D0C41D /* SettingsViewController.swift in Sources */,
+				E8C84CA221800F4500D77649 /* AddActFormViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

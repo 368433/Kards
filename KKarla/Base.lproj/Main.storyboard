@@ -384,8 +384,8 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qSl-EC-3lf" userLabel="CardView">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="90"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uai-OJ-OyW" userLabel="SideStack">
-                                                    <rect key="frame" x="5" y="15" width="35" height="35"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="uai-OJ-OyW" userLabel="SideStack">
+                                                    <rect key="frame" x="5" y="5" width="35" height="72"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Up-Hb-xCN">
                                                             <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
@@ -394,6 +394,10 @@
                                                                 <constraint firstAttribute="width" secondItem="5Up-Hb-xCN" secondAttribute="height" multiplier="1:1" id="yOf-no-SiS"/>
                                                             </constraints>
                                                             <state key="normal" image="icons8-male-user"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W54-bP-RNP" userLabel="AddActButton">
+                                                            <rect key="frame" x="0.0" y="37" width="35" height="35"/>
+                                                            <state key="normal" title="AddAct" image="add-new"/>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
@@ -431,13 +435,13 @@
                                                 <constraint firstItem="9Ti-q4-wn8" firstAttribute="top" secondItem="qSl-EC-3lf" secondAttribute="top" constant="15" id="3Ry-EO-yr5"/>
                                                 <constraint firstItem="xxH-P5-rBM" firstAttribute="top" secondItem="9Ti-q4-wn8" secondAttribute="bottom" constant="3" id="7DI-4b-MEe"/>
                                                 <constraint firstItem="Gm7-Yf-S5V" firstAttribute="top" secondItem="xxH-P5-rBM" secondAttribute="bottom" constant="3" id="A1n-b7-egO"/>
-                                                <constraint firstItem="6cV-kr-f4R" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xxH-P5-rBM" secondAttribute="trailing" symbolic="YES" id="GgD-Z9-jfe"/>
+                                                <constraint firstItem="6cV-kr-f4R" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xxH-P5-rBM" secondAttribute="trailing" constant="8" symbolic="YES" id="GgD-Z9-jfe"/>
                                                 <constraint firstItem="6cV-kr-f4R" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9Ti-q4-wn8" secondAttribute="trailing" constant="8" symbolic="YES" id="H1p-KT-rRX"/>
                                                 <constraint firstItem="6cV-kr-f4R" firstAttribute="top" secondItem="qSl-EC-3lf" secondAttribute="top" constant="14" id="ILp-Lt-6Ps"/>
                                                 <constraint firstAttribute="height" constant="90" id="KRt-bZ-jNh"/>
-                                                <constraint firstItem="9Ti-q4-wn8" firstAttribute="top" secondItem="uai-OJ-OyW" secondAttribute="top" id="LI9-ah-h94"/>
+                                                <constraint firstItem="9Ti-q4-wn8" firstAttribute="top" secondItem="uai-OJ-OyW" secondAttribute="top" constant="10" id="LI9-ah-h94"/>
                                                 <constraint firstAttribute="trailing" secondItem="6cV-kr-f4R" secondAttribute="trailing" constant="20" symbolic="YES" id="UHC-kH-ccv"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="uai-OJ-OyW" secondAttribute="bottom" constant="20" symbolic="YES" id="cVG-CQ-IDI"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="uai-OJ-OyW" secondAttribute="bottom" constant="2" id="cVG-CQ-IDI"/>
                                                 <constraint firstItem="Gm7-Yf-S5V" firstAttribute="leading" secondItem="xxH-P5-rBM" secondAttribute="leading" id="d7N-iZ-jhp"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Gm7-Yf-S5V" secondAttribute="trailing" constant="20" symbolic="YES" id="gYU-EU-aE6"/>
                                                 <constraint firstItem="xxH-P5-rBM" firstAttribute="leading" secondItem="9Ti-q4-wn8" secondAttribute="leading" id="ope-fy-LLk"/>
@@ -452,6 +456,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="addActButton" destination="W54-bP-RNP" id="o2j-3k-RiK"/>
                                     <outlet property="cardView" destination="qSl-EC-3lf" id="gKq-q7-teJ"/>
                                     <outlet property="nameTag" destination="9Ti-q4-wn8" id="BGv-Ys-yzt"/>
                                     <outlet property="statusTagStack" destination="6cV-kr-f4R" id="19w-bk-Dqh"/>
@@ -568,6 +573,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ov-BS-tcC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3052" y="306"/>
+        </scene>
+        <!--Add Act Form View Controller-->
+        <scene sceneID="Dw2-gH-XnF">
+            <objects>
+                <viewController storyboardIdentifier="AddActFormViewController" id="q5x-A4-SJb" customClass="AddActFormViewController" customModule="KKarla" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="U2v-bX-zfd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cGR-h3-m59">
+                                <rect key="frame" x="0.0" y="180" width="375" height="486.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD ACT FORM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqk-qd-2OE">
+                                        <rect key="frame" x="0.0" y="0.0" width="222" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3ui-dD-XYh">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="442.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="3ui-dD-XYh" firstAttribute="top" secondItem="cGR-h3-m59" secondAttribute="top" constant="44" id="AOc-bT-iow"/>
+                                    <constraint firstAttribute="trailing" secondItem="3ui-dD-XYh" secondAttribute="trailing" id="CFQ-vM-tEp"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="3ui-dD-XYh" secondAttribute="bottom" id="Yc1-7w-KF4"/>
+                                    <constraint firstItem="3ui-dD-XYh" firstAttribute="leading" secondItem="cGR-h3-m59" secondAttribute="leading" id="elz-tI-Ga3"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cGR-h3-m59" firstAttribute="leading" secondItem="U9f-H1-DbH" secondAttribute="leading" id="GE1-Hc-Z4n"/>
+                            <constraint firstItem="U9f-H1-DbH" firstAttribute="bottom" secondItem="cGR-h3-m59" secondAttribute="bottom" constant="0.5" id="gFj-RD-xJz"/>
+                            <constraint firstItem="U9f-H1-DbH" firstAttribute="trailing" secondItem="cGR-h3-m59" secondAttribute="trailing" id="mN1-1P-5WR"/>
+                            <constraint firstItem="cGR-h3-m59" firstAttribute="top" secondItem="U9f-H1-DbH" secondAttribute="top" constant="160" id="tET-bc-Kaf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="U9f-H1-DbH"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="3ui-dD-XYh" id="RrG-Kf-rjc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b23-YU-JSW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3853.5999999999999" y="304.4977511244378"/>
         </scene>
         <!--Analytics-->
         <scene sceneID="CMZ-3J-dkW">
@@ -2496,11 +2548,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zpy-31-mTQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3052" y="-1138"/>
+            <point key="canvasLocation" x="3052" y="-1138.3808095952024"/>
         </scene>
     </scenes>
     <resources>
         <image name="add" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="add-new" width="45" height="45"/>
         <image name="analytics" width="30" height="30"/>
         <image name="arrow" width="16" height="25"/>
         <image name="billing" width="30" height="30"/>

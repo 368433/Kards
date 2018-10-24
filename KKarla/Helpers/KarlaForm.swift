@@ -20,6 +20,7 @@ class KarlaForm: FormViewController, Storyboarded, UIImagePickerControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView?.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true
         saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveEntries))
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissForm))

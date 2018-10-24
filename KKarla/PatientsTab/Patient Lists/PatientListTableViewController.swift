@@ -23,6 +23,10 @@ class PatientListTableViewController: UITableViewController, Storyboarded {
     @objc func addNew(){
     }
     
+    @objc func showAddActForm(){
+        coordinator?.showAddActForm()
+    }
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
