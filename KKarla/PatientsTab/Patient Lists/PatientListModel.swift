@@ -56,7 +56,8 @@ extension PatientListModel: KarlaFormDelegate {
     func processFormValues(with form: Form) {
         let cdNewPatient = Patient(context: dataCoordinator.persistentContainer.viewContext)
         cdNewPatient.nickname = form.rowBy(tag: "nickname")?.baseValue as? String
-        cdNewPatient.addToPatientsList(objectToLink as! PatientsListObject)
+//        cdNewPatient.addToPatientsList(objectToLink as! PatientsListObject)
+        cdNewPatient.addToActiveWorkLists(objectToLink as! PatientsListObject)
 
         dataCoordinator.persistentContainer.viewContext.insert(cdNewPatient)
         dataCoordinator.saveContext()

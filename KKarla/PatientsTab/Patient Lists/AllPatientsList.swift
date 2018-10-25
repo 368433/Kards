@@ -34,9 +34,7 @@ extension AllPatientsList: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
 //        let searchBar = searchController.searchBar
 //        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
-//        would update the model's search predicate to a new predicate which includes the searchcontroller text as well as the scope button text as modifier
-        // then reload the model object list
-        // then reload the tableview
+//        the scope variable now contains the value of the tab selected and can be used in predicate
         if searchController.searchBar.text! == ""{
             model?.searchPredicate = nil
         } else {
