@@ -19,61 +19,43 @@ extension PatientsListObject {
 
     @NSManaged public var subtitle: String?
     @NSManaged public var title: String?
-    @NSManaged public var patients: NSSet?
-    @NSManaged public var transfertWorkList: NSSet?
-    @NSManaged public var dischargedWorkList: NSSet?
+    @NSManaged public var transferWorkList: NSSet?
+    @NSManaged public var signedOffWorkList: NSSet?
     @NSManaged public var activeWorkList: NSSet?
 
 }
 
-// MARK: Generated accessors for patients
+// MARK: Generated accessors for transferWorkList
 extension PatientsListObject {
 
-    @objc(addPatientsObject:)
-    @NSManaged public func addToPatients(_ value: Patient)
+    @objc(addTransferWorkListObject:)
+    @NSManaged public func addToTransferWorkList(_ value: Patient)
 
-    @objc(removePatientsObject:)
-    @NSManaged public func removeFromPatients(_ value: Patient)
+    @objc(removeTransferWorkListObject:)
+    @NSManaged public func removeFromTransferWorkList(_ value: Patient)
 
-    @objc(addPatients:)
-    @NSManaged public func addToPatients(_ values: NSSet)
+    @objc(addTransferWorkList:)
+    @NSManaged public func addToTransferWorkList(_ values: NSSet)
 
-    @objc(removePatients:)
-    @NSManaged public func removeFromPatients(_ values: NSSet)
+    @objc(removeTransferWorkList:)
+    @NSManaged public func removeFromTransferWorkList(_ values: NSSet)
 
 }
 
-// MARK: Generated accessors for transfertWorkList
+// MARK: Generated accessors for signedOffWorkList
 extension PatientsListObject {
 
-    @objc(addTransfertWorkListObject:)
-    @NSManaged public func addToTransfertWorkList(_ value: Patient)
+    @objc(addSignedOffWorkListObject:)
+    @NSManaged public func addToSignedOffWorkList(_ value: Patient)
 
-    @objc(removeTransfertWorkListObject:)
-    @NSManaged public func removeFromTransfertWorkList(_ value: Patient)
+    @objc(removeSignedOffWorkListObject:)
+    @NSManaged public func removeFromSignedOffWorkList(_ value: Patient)
 
-    @objc(addTransfertWorkList:)
-    @NSManaged public func addToTransfertWorkList(_ values: NSSet)
+    @objc(addSignedOffWorkList:)
+    @NSManaged public func addToSignedOffWorkList(_ values: NSSet)
 
-    @objc(removeTransfertWorkList:)
-    @NSManaged public func removeFromTransfertWorkList(_ values: NSSet)
-
-}
-
-// MARK: Generated accessors for dischargedWorkList
-extension PatientsListObject {
-
-    @objc(addDischargedWorkListObject:)
-    @NSManaged public func addToDischargedWorkList(_ value: Patient)
-
-    @objc(removeDischargedWorkListObject:)
-    @NSManaged public func removeFromDischargedWorkList(_ value: Patient)
-
-    @objc(addDischargedWorkList:)
-    @NSManaged public func addToDischargedWorkList(_ values: NSSet)
-
-    @objc(removeDischargedWorkList:)
-    @NSManaged public func removeFromDischargedWorkList(_ values: NSSet)
+    @objc(removeSignedOffWorkList:)
+    @NSManaged public func removeFromSignedOffWorkList(_ values: NSSet)
 
 }
 

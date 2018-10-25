@@ -2,7 +2,7 @@
 //  Act+CoreDataProperties.swift
 //  KKarla
 //
-//  Created by amir2 on 2018-10-23.
+//  Created by amir2 on 2018-10-25.
 //  Copyright © 2018 amir2. All rights reserved.
 //
 //
@@ -13,7 +13,7 @@ import CoreData
 
 extension Act {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Act> {
+    @nonobjc public class func createFetchRequest() -> NSFetchRequest<Act> {
         return NSFetchRequest<Act>(entityName: "Act")
     }
 

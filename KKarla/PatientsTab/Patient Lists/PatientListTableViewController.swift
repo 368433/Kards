@@ -14,6 +14,7 @@ class PatientListTableViewController: UITableViewController, Storyboarded {
     weak var coordinator: PatientsCoordinator?
     var model: PatientListModel?
     var predicate: NSPredicate?
+    var dataCoordinator = AppDelegate.dataCoordinator
     
     override func viewDidLoad() {
         super.viewDidLoad()

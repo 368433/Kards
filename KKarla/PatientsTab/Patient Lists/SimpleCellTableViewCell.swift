@@ -14,7 +14,6 @@ class SimpleCellTableViewCell: UITableViewCell {
     @IBOutlet weak var actList: UITextView!
     @IBOutlet weak var statusTagStack: UIStackView!
     @IBOutlet weak var nameTag: UILabel!
-    @IBOutlet weak var addActButton: UIButton!
     
     var statusTag: TagStackList?
     var coordinator = PatientsCoordinator()

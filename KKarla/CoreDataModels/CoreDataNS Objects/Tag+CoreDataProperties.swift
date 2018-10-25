@@ -2,7 +2,7 @@
 //  Tag+CoreDataProperties.swift
 //  KKarla
 //
-//  Created by amir2 on 2018-10-23.
+//  Created by amir2 on 2018-10-25.
 //  Copyright © 2018 amir2. All rights reserved.
 //
 //
@@ -13,46 +13,46 @@ import CoreData
 
 extension Tag {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Tag> {
+    @nonobjc public class func createFetchRequest() -> NSFetchRequest<Tag> {
         return NSFetchRequest<Tag>(entityName: "Tag")
     }
 
     @NSManaged public var tagName: String?
-    @NSManaged public var act: NSSet?
-    @NSManaged public var patient: NSSet?
+    @NSManaged public var acts: NSSet?
+    @NSManaged public var patients: NSSet?
 
 }
 
-// MARK: Generated accessors for act
+// MARK: Generated accessors for acts
 extension Tag {
 
-    @objc(addActObject:)
-    @NSManaged public func addToAct(_ value: Act)
+    @objc(addActsObject:)
+    @NSManaged public func addToActs(_ value: Act)
 
-    @objc(removeActObject:)
-    @NSManaged public func removeFromAct(_ value: Act)
+    @objc(removeActsObject:)
+    @NSManaged public func removeFromActs(_ value: Act)
 
-    @objc(addAct:)
-    @NSManaged public func addToAct(_ values: NSSet)
+    @objc(addActs:)
+    @NSManaged public func addToActs(_ values: NSSet)
 
-    @objc(removeAct:)
-    @NSManaged public func removeFromAct(_ values: NSSet)
+    @objc(removeActs:)
+    @NSManaged public func removeFromActs(_ values: NSSet)
 
 }
 
-// MARK: Generated accessors for patient
+// MARK: Generated accessors for patients
 extension Tag {
 
-    @objc(addPatientObject:)
-    @NSManaged public func addToPatient(_ value: Patient)
+    @objc(addPatientsObject:)
+    @NSManaged public func addToPatients(_ value: Patient)
 
-    @objc(removePatientObject:)
-    @NSManaged public func removeFromPatient(_ value: Patient)
+    @objc(removePatientsObject:)
+    @NSManaged public func removeFromPatients(_ value: Patient)
 
-    @objc(addPatient:)
-    @NSManaged public func addToPatient(_ values: NSSet)
+    @objc(addPatients:)
+    @NSManaged public func addToPatients(_ values: NSSet)
 
-    @objc(removePatient:)
-    @NSManaged public func removeFromPatient(_ values: NSSet)
+    @objc(removePatients:)
+    @NSManaged public func removeFromPatients(_ values: NSSet)
 
 }

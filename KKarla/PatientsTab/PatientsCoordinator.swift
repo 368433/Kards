@@ -46,10 +46,10 @@ class PatientsCoordinator: Coordinator {
         navigationController.present(nc, animated: true, completion: nil)
     }
     
-    func addNewPatient(to list: PatientsListObject, delegate: KarlaFormDelegate){
+    func addNewPatient(to delegate: NewPatientFormDelegate){
         let newPatientForm = NewPatientForm.instantiate()
         let nc = UINavigationController()
-        newPatientForm.formDelegate = delegate
+        newPatientForm.delegate = delegate
         nc.pushViewController(newPatientForm, animated: false)
         navigationController.present(nc, animated: true, completion: nil)
     }

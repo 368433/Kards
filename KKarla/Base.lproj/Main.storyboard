@@ -469,6 +469,9 @@
                         </connections>
                     </tableView>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <connections>
+                        <outlet property="segmentedSubList" destination="Ain-df-ZeD" id="tLr-QA-rkX"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BXB-E7-6qh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

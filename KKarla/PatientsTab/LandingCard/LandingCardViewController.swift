@@ -55,7 +55,7 @@ extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = eowTable.dequeueReusableCell(withIdentifier: "activeListCell", for: indexPath)
         cell.textLabel?.text = model?.resultController.object(at: indexPath).title
-        let numberOfPatients = String(model?.resultController.object(at: indexPath).patients?.count ?? 0)
+        let numberOfPatients = String(model?.resultController.object(at: indexPath).activeWorkList?.count ?? 0)
         let cellSubtitle = model?.resultController.object(at: indexPath).subtitle ?? " "
         cell.detailTextLabel?.text = cellSubtitle + " - (\(numberOfPatients))"
         

@@ -12,6 +12,8 @@ import Eureka
 
 class NewPatientForm: KarlaForm {
     
+    var delegate: NewPatientFormDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +36,11 @@ class NewPatientForm: KarlaForm {
                 row.title = "Date of Birth"
                 row.tag = "DOB"
         }
+    }
+    
+    @objc override func saveEntries(){
+        delegate?.addToActiveWorkList(from: form)
+        dismissForm()
     }
     
 }

@@ -1,0 +1,12 @@
+Todo:
+complete the add patient form interface
+complete the add act form interface
+improve the patient display cell
+create a full patient display view
+clean up unneeded files
+implement inline search from text field
+implement full search including diagnosis, hospital
+
+later:
+encrypt patient NAM
+optimize database
