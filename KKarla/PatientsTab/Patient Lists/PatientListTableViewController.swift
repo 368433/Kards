@@ -18,6 +18,7 @@ class PatientListTableViewController: UITableViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNew))
+        self.tableView.tableFooterView = UIView(frame: .zero)
     }
     
     @objc func addNew(){

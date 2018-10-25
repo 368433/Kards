@@ -39,6 +39,10 @@ class PatientListModel{
         }
     }
     
+    func reloadObjectList(){
+        loadObjectList()
+    }
+    
     private func getFetchedResultsController() -> NSFetchedResultsController<Patient> {
         let request = Patient.createFetchRequest()
         let sort = NSSortDescriptor(key: "nickname", ascending: true)

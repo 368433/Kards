@@ -21,6 +21,7 @@ class AddActFormViewController: KarlaForm {
         super.viewDidLoad()
         
         self.title = "New Act"
+        self.tableView.rowHeight = 44
         
         form +++ Section("Act Form")
             <<< SegmentedRow<String>(){ row in

@@ -18,7 +18,7 @@ class SimpleCellTableViewCell: UITableViewCell {
     
     var statusTag: TagStackList?
     var coordinator = PatientsCoordinator()
-    static let cardCellHeight: CGFloat = 90
+    static let cardCellHeight: CGFloat = 80
     
     override func awakeFromNib() {
         super.awakeFromNib()
