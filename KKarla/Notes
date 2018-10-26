@@ -7,6 +7,10 @@ clean up unneeded files
 implement inline search from text field
 implement full search including diagnosis, hospital
 
+capture reduced size image for patient card
+capture precropped reduced size image for  patient card
+
+
 later:
 encrypt patient NAM
 optimize database

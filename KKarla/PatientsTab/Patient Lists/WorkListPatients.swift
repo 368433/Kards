@@ -102,13 +102,17 @@ class WorkListPatients: PatientListTableViewController, NewPatientFormDelegate {
         
         let moreOptions = UITableViewRowAction(style: .default, title: "More") { (action, indexPath) in
             
-            let ac = UIAlertController(title: "More actions", message: nil, preferredStyle: .actionSheet)
-            ac.addAction(UIAlertAction(title: "Sign off", style: .default) { _ in
+            let ac = UIAlertController(title: "Move to list", message: nil, preferredStyle: .actionSheet)
+            ac.addAction(UIAlertAction(title: "Sign off list", style: .default) { _ in
                 self.patientList.addToSignedOffWorkList(thisPatient)
                 removeFromCurrentList()
             })
-            ac.addAction(UIAlertAction(title: "Transfer to colleague", style: .default) { _ in
+            ac.addAction(UIAlertAction(title: "Transfer list", style: .default) { _ in
                 self.patientList.addToTransferWorkList(thisPatient)
+                removeFromCurrentList()
+            })
+            ac.addAction(UIAlertAction(title: "Active worklist", style: .default) { _ in
+                self.patientList.addToActiveWorkList(thisPatient)
                 removeFromCurrentList()
             })
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))

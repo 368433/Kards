@@ -8,7 +8,9 @@
 
 
 import UIKit
+
 import Eureka
+
 
 class NewPatientForm: KarlaForm {
     
@@ -17,11 +19,16 @@ class NewPatientForm: KarlaForm {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView?.backgroundColor = .white
+        self.tableView.tableFooterView = UIView(frame: .zero)
         
-        self.title = "New Patient"
+//        self.title = "New Patient"
         
         form +++ Section("")
+            <<< ImageRow(){ row in
+                row.title = "I'd rather drink"
+                row.sourceTypes = [.PhotoLibrary, .Camera]
+                row.clearAction = .yes(style: UIAlertAction.Style.destructive)
+            }
             <<< TextRow(){ row in
                 row.title = "Name"
                 row.placeholder = "Nom, prenom, ou nickname"
@@ -35,6 +42,11 @@ class NewPatientForm: KarlaForm {
             <<< DateRow(){ row in
                 row.title = "Date of Birth"
                 row.tag = "DOB"
+        }
+            <<< TextAreaRow() { row in
+                row.title = "Blurb"
+                row.placeholder = "Enter patient note. Using dictation speeds up entry"
+                row.tag = "patientNote"
         }
     }
     

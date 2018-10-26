@@ -66,6 +66,7 @@ class AddActFormViewController: KarlaForm {
             }
             <<< TextRow() { row in
                 row.title = "Bedside Location"
+                row.placeholder = "Bed number"
 //                row.value = existingClinicalVisit?.actBedsideLocation
                 row.tag = "actBedsideLocation"
                 }.onChange{ [unowned self] row in
@@ -75,6 +76,11 @@ class AddActFormViewController: KarlaForm {
                         dxPbBedsideLocation.reload()
 
                     }
+        }
+            <<< TextAreaRow() { row in
+                row.title = "Blurb"
+                row.placeholder = "Enter act note. Using dictation speeds up entry"
+                row.tag = "actNote"
         }
         
     }

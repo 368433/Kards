@@ -28,7 +28,7 @@ class LandingCardViewController: UIViewController, Storyboarded {
     private func setupViews(){
         self.title = "Patients Lists"
         self.tabBarItem.title = "Patients"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(createList))
         eowTable.delegate = self
         eowTable.dataSource = self
@@ -86,13 +86,17 @@ extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
             // delete item at indexPath
             print("test delete")
         }
-        
         let archive = UITableViewRowAction(style: .default, title: "Archive") { (action, indexPath) in
             // share item at indexPath
             print("I want to share: atest")
         }
-        archive.backgroundColor = UIColor.magenta
-        return [delete, archive]
+        let edit = UITableViewRowAction(style: .default, title: "Edit") { (action, indexPath) in
+            // share item at indexPath
+            print("I want to share: atest")
+        }
+        archive.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+        edit.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
+        return [delete, archive, edit]
     }
     
 }
