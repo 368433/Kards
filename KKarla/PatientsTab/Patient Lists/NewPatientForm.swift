@@ -25,7 +25,7 @@ class NewPatientForm: KarlaForm {
         
         form +++ Section("")
             <<< ImageRow(){ row in
-                row.title = "I'd rather drink"
+                row.title = "Photo ID"
                 row.sourceTypes = [.PhotoLibrary, .Camera]
                 row.clearAction = .yes(style: UIAlertAction.Style.destructive)
             }
@@ -34,15 +34,21 @@ class NewPatientForm: KarlaForm {
                 row.placeholder = "Nom, prenom, ou nickname"
                 row.tag = "nickname"
             }
+            <<< DateRow(){ row in
+                row.title = "Date of Birth"
+                row.tag = "DOB"
+            }
             <<< TextRow(){ row in
                 row.title = "NAM"
                 row.placeholder = "Numero d'assurance maladie"
                 row.tag = "nam"
-        }
-            <<< DateRow(){ row in
-                row.title = "Date of Birth"
-                row.tag = "DOB"
-        }
+                
+            }
+            <<< TextRow(){ row in
+                row.title = "Postal Code"
+                row.placeholder = "code postal"
+                row.tag = "postalCode"
+            }
             <<< TextAreaRow() { row in
                 row.title = "Blurb"
                 row.placeholder = "Enter patient note. Using dictation speeds up entry"

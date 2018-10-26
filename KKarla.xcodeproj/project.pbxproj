@@ -45,6 +45,21 @@
 		E859A7842182A9C0007BF751 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859A7812182A9BF007BF751 /* ImageCell.swift */; };
 		E859A7852182A9C0007BF751 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859A7822182A9BF007BF751 /* ImagePickerController.swift */; };
 		E859A7862182A9C0007BF751 /* ImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859A7832182A9C0007BF751 /* ImageRow.swift */; };
+		E859A79B2182B21C007BF751 /* SegmentioCellWithImageBeforeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859A7892182B21C007BF751 /* SegmentioCellWithImageBeforeLabel.swift */; };
+		E859A79C2182B21C007BF751 /* SegmentioCellWithImageUnderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859A78A2182B21C007BF751 /* SegmentioCellWithImageUnderLabel.swift */; };
+		E859A79D2182B21C007BF751 /* SegmentioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859A78B2182B21C007BF751 /* SegmentioCell.swift */; };
+		E859A79E2182B21C007BF751 /* SegmentioCellWithImageAfterLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859A78C2182B21C007BF751 /* SegmentioCellWithImageAfterLabel.swift */; };
+		E859A79F2182B21C007BF751 /* SegmentioCellWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859A78D2182B21C007BF751 /* SegmentioCellWithImage.swift */; };
+		E859A7A02182B21C007BF751 /* SegmentioCellWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859A78E2182B21C007BF751 /* SegmentioCellWithLabel.swift */; };
+		E859A7A12182B21C007BF751 /* SegmentioCellWithImageOverLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859A78F2182B21C007BF751 /* SegmentioCellWithImageOverLabel.swift */; };
+		E859A7A22182B21C007BF751 /* UIView+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859A7912182B21C007BF751 /* UIView+Appearance.swift */; };
+		E859A7A32182B21C007BF751 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859A7922182B21C007BF751 /* RoundImageView.swift */; };
+		E859A7A42182B21C007BF751 /* SegmentioOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859A7932182B21C007BF751 /* SegmentioOptions.swift */; };
+		E859A7A52182B21C007BF751 /* Segmentio.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859A7942182B21C007BF751 /* Segmentio.swift */; };
+		E859A7A62182B21C007BF751 /* BadgeViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859A7962182B21C007BF751 /* BadgeViewPresenter.swift */; };
+		E859A7A72182B21C007BF751 /* BadgeWithCounterViewBigSized.xib in Resources */ = {isa = PBXBuildFile; fileRef = E859A7982182B21C007BF751 /* BadgeWithCounterViewBigSized.xib */; };
+		E859A7A82182B21C007BF751 /* BadgeWithCounterViewStandardSized.xib in Resources */ = {isa = PBXBuildFile; fileRef = E859A7992182B21C007BF751 /* BadgeWithCounterViewStandardSized.xib */; };
+		E859A7A92182B21C007BF751 /* BadgeWithCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859A79A2182B21C007BF751 /* BadgeWithCounterView.swift */; };
 		E8782418217A8C9B001258C5 /* TagStackList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8782416217A8C9A001258C5 /* TagStackList.swift */; };
 		E8782419217A8C9B001258C5 /* LabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8782417217A8C9B001258C5 /* LabelType.swift */; };
 		E878241B217A8D43001258C5 /* NRLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E878241A217A8D43001258C5 /* NRLabel.swift */; };
@@ -118,6 +133,21 @@
 		E859A7812182A9BF007BF751 /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		E859A7822182A9BF007BF751 /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
 		E859A7832182A9C0007BF751 /* ImageRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRow.swift; sourceTree = "<group>"; };
+		E859A7892182B21C007BF751 /* SegmentioCellWithImageBeforeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioCellWithImageBeforeLabel.swift; sourceTree = "<group>"; };
+		E859A78A2182B21C007BF751 /* SegmentioCellWithImageUnderLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioCellWithImageUnderLabel.swift; sourceTree = "<group>"; };
+		E859A78B2182B21C007BF751 /* SegmentioCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioCell.swift; sourceTree = "<group>"; };
+		E859A78C2182B21C007BF751 /* SegmentioCellWithImageAfterLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioCellWithImageAfterLabel.swift; sourceTree = "<group>"; };
+		E859A78D2182B21C007BF751 /* SegmentioCellWithImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioCellWithImage.swift; sourceTree = "<group>"; };
+		E859A78E2182B21C007BF751 /* SegmentioCellWithLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioCellWithLabel.swift; sourceTree = "<group>"; };
+		E859A78F2182B21C007BF751 /* SegmentioCellWithImageOverLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioCellWithImageOverLabel.swift; sourceTree = "<group>"; };
+		E859A7912182B21C007BF751 /* UIView+Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Appearance.swift"; sourceTree = "<group>"; };
+		E859A7922182B21C007BF751 /* RoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
+		E859A7932182B21C007BF751 /* SegmentioOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioOptions.swift; sourceTree = "<group>"; };
+		E859A7942182B21C007BF751 /* Segmentio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segmentio.swift; sourceTree = "<group>"; };
+		E859A7962182B21C007BF751 /* BadgeViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeViewPresenter.swift; sourceTree = "<group>"; };
+		E859A7982182B21C007BF751 /* BadgeWithCounterViewBigSized.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BadgeWithCounterViewBigSized.xib; sourceTree = "<group>"; };
+		E859A7992182B21C007BF751 /* BadgeWithCounterViewStandardSized.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BadgeWithCounterViewStandardSized.xib; sourceTree = "<group>"; };
+		E859A79A2182B21C007BF751 /* BadgeWithCounterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeWithCounterView.swift; sourceTree = "<group>"; };
 		E8782416217A8C9A001258C5 /* TagStackList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagStackList.swift; sourceTree = "<group>"; };
 		E8782417217A8C9B001258C5 /* LabelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelType.swift; sourceTree = "<group>"; };
 		E878241A217A8D43001258C5 /* NRLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NRLabel.swift; sourceTree = "<group>"; };
@@ -317,6 +347,60 @@
 			path = ImageRow;
 			sourceTree = "<group>";
 		};
+		E859A7872182B21C007BF751 /* Segmentio */ = {
+			isa = PBXGroup;
+			children = (
+				E859A7882182B21C007BF751 /* Cells */,
+				E859A7902182B21C007BF751 /* Extensions */,
+				E859A7932182B21C007BF751 /* SegmentioOptions.swift */,
+				E859A7942182B21C007BF751 /* Segmentio.swift */,
+				E859A7952182B21C007BF751 /* Badge */,
+			);
+			path = Segmentio;
+			sourceTree = "<group>";
+		};
+		E859A7882182B21C007BF751 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E859A7892182B21C007BF751 /* SegmentioCellWithImageBeforeLabel.swift */,
+				E859A78A2182B21C007BF751 /* SegmentioCellWithImageUnderLabel.swift */,
+				E859A78B2182B21C007BF751 /* SegmentioCell.swift */,
+				E859A78C2182B21C007BF751 /* SegmentioCellWithImageAfterLabel.swift */,
+				E859A78D2182B21C007BF751 /* SegmentioCellWithImage.swift */,
+				E859A78E2182B21C007BF751 /* SegmentioCellWithLabel.swift */,
+				E859A78F2182B21C007BF751 /* SegmentioCellWithImageOverLabel.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E859A7902182B21C007BF751 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E859A7912182B21C007BF751 /* UIView+Appearance.swift */,
+				E859A7922182B21C007BF751 /* RoundImageView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E859A7952182B21C007BF751 /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				E859A7962182B21C007BF751 /* BadgeViewPresenter.swift */,
+				E859A7972182B21C007BF751 /* Views */,
+			);
+			path = Badge;
+			sourceTree = "<group>";
+		};
+		E859A7972182B21C007BF751 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E859A7982182B21C007BF751 /* BadgeWithCounterViewBigSized.xib */,
+				E859A7992182B21C007BF751 /* BadgeWithCounterViewStandardSized.xib */,
+				E859A79A2182B21C007BF751 /* BadgeWithCounterView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		E886172F217F50AB0098D3EE /* LandingCard */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +440,7 @@
 		E8C84C98217FC4BB00D77649 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E859A7872182B21C007BF751 /* Segmentio */,
 				E859A7802182A9B1007BF751 /* ImageRow */,
 				E8C84C9A217FC54B00D77649 /* Labels */,
 				E8861734217F55E70098D3EE /* TableViewResultAdapter.swift */,
@@ -448,8 +533,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E859A7A82182B21C007BF751 /* BadgeWithCounterViewStandardSized.xib in Resources */,
 				E84115212175A38F00C5E9D9 /* OpenSans-ExtraBold.ttf in Resources */,
 				E84115222175A38F00C5E9D9 /* OpenSans-LightItalic.ttf in Resources */,
+				E859A7A72182B21C007BF751 /* BadgeWithCounterViewBigSized.xib in Resources */,
 				E84114B5217210DE00C5E9D9 /* LaunchScreen.storyboard in Resources */,
 				E84115202175A38F00C5E9D9 /* OpenSans-Italic.ttf in Resources */,
 				E841152A2175A4B300C5E9D9 /* Assets.xcassets in Resources */,
@@ -522,7 +609,9 @@
 				E822210C217CF73000CEE16C /* CreateListeViewController.swift in Sources */,
 				E8ABF63F2178EE8000D0C41D /* BillingViewController.swift in Sources */,
 				E82E17A02176A7D400F57761 /* Color+Extension.swift in Sources */,
+				E859A7A02182B21C007BF751 /* SegmentioCellWithLabel.swift in Sources */,
 				E878241B217A8D43001258C5 /* NRLabel.swift in Sources */,
+				E859A7A32182B21C007BF751 /* RoundImageView.swift in Sources */,
 				E822211E217D418000CEE16C /* KarlaFormDelegate.swift in Sources */,
 				E8C84CA4218253EE00D77649 /* NewPatientFormDelegate.swift in Sources */,
 				E8C92F492175AEDC00B39CC4 /* fctet2.swift in Sources */,
@@ -546,26 +635,37 @@
 				E84114C621721C8200C5E9D9 /* CardsStackViewController.swift in Sources */,
 				E8C84C94217FC46F00D77649 /* Act+CoreDataClass.swift in Sources */,
 				E822210E217CFB0700CEE16C /* KarlaForm.swift in Sources */,
+				E859A79D2182B21C007BF751 /* SegmentioCell.swift in Sources */,
+				E859A79B2182B21C007BF751 /* SegmentioCellWithImageBeforeLabel.swift in Sources */,
+				E859A7A92182B21C007BF751 /* BadgeWithCounterView.swift in Sources */,
 				E84115002175924000C5E9D9 /* DemoFoldingCell.swift in Sources */,
 				E84114C1217213EF00C5E9D9 /* MainCoordinator.swift in Sources */,
 				E82E17A12176A7D400F57761 /* Direction.swift in Sources */,
 				E8782418217A8C9B001258C5 /* TagStackList.swift in Sources */,
+				E859A79F2182B21C007BF751 /* SegmentioCellWithImage.swift in Sources */,
 				E8C84C7A217FBF6300D77649 /* PatientsListObject+CoreDataClass.swift in Sources */,
+				E859A7A42182B21C007BF751 /* SegmentioOptions.swift in Sources */,
 				E82E179E2176A7D400F57761 /* Gradients.swift in Sources */,
 				E84114BF217211B200C5E9D9 /* Storyboarded.swift in Sources */,
 				E8C84C9C217FCCC600D77649 /* WorkListPatients.swift in Sources */,
+				E859A7A62182B21C007BF751 /* BadgeViewPresenter.swift in Sources */,
 				E8C84C7F217FBF6300D77649 /* Patient+CoreDataProperties.swift in Sources */,
 				E8C84C95217FC46F00D77649 /* Act+CoreDataProperties.swift in Sources */,
 				E886173C217F98CC0098D3EE /* FormType.swift in Sources */,
 				E8C84C96217FC46F00D77649 /* Tag+CoreDataClass.swift in Sources */,
 				E8782419217A8C9B001258C5 /* LabelType.swift in Sources */,
+				E859A7A22182B21C007BF751 /* UIView+Appearance.swift in Sources */,
 				E82E09FA217830C7006A4B88 /* EowDetailViewController.swift in Sources */,
 				E8C2A9AA217A03CE0032EED5 /* AnalyticsViewController.swift in Sources */,
+				E859A79E2182B21C007BF751 /* SegmentioCellWithImageAfterLabel.swift in Sources */,
 				E8D98660217D69CC00EFE369 /* PatientsCoordinator.swift in Sources */,
 				E8222121217D525D00CEE16C /* KKarlaDatabase1.xcdatamodeld in Sources */,
 				E88920A6217BD50C004216F1 /* LandingCardViewController.swift in Sources */,
+				E859A79C2182B21C007BF751 /* SegmentioCellWithImageUnderLabel.swift in Sources */,
 				E84115022175A1DF00C5E9D9 /* FoldingCell.swift in Sources */,
+				E859A7A12182B21C007BF751 /* SegmentioCellWithImageOverLabel.swift in Sources */,
 				E84114FE21758C8D00C5E9D9 /* FoldingTestTableViewController.swift in Sources */,
+				E859A7A52182B21C007BF751 /* Segmentio.swift in Sources */,
 				E8D98667217D7DF900EFE369 /* NewPatientForm.swift in Sources */,
 				E8861738217F90920098D3EE /* PatientListModel.swift in Sources */,
 				E8ABF6412178EEA900D0C41D /* SettingsViewController.swift in Sources */,
