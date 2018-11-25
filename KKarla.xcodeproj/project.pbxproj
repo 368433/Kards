@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6A8E377521AAE166004F1EFF /* PatientTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A8E377421AAE166004F1EFF /* PatientTableCell.xib */; };
+		6ADCB59021AAFE320005BBE3 /* PatientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADCB58F21AAFE320005BBE3 /* PatientTableViewCell.swift */; };
 		6D84F2CB1929288333473509 /* Pods_KKarla.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E043F8B2F0E2DF630E4C3B97 /* Pods_KKarla.framework */; };
 		E822210C217CF73000CEE16C /* CreateListeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822210B217CF73000CEE16C /* CreateListeViewController.swift */; };
 		E822210E217CFB0700CEE16C /* KarlaForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822210D217CFB0700CEE16C /* KarlaForm.swift */; };
@@ -95,6 +96,7 @@
 		0BC7339C681FB2F7F9462DA9 /* Pods-KKarla.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KKarla.release.xcconfig"; path = "Pods/Target Support Files/Pods-KKarla/Pods-KKarla.release.xcconfig"; sourceTree = "<group>"; };
 		46490DF824D37F6FAF1374ED /* Pods-KKarla.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KKarla.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KKarla/Pods-KKarla.debug.xcconfig"; sourceTree = "<group>"; };
 		6A8E377421AAE166004F1EFF /* PatientTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PatientTableCell.xib; sourceTree = "<group>"; };
+		6ADCB58F21AAFE320005BBE3 /* PatientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewCell.swift; sourceTree = "<group>"; };
 		E043F8B2F0E2DF630E4C3B97 /* Pods_KKarla.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KKarla.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E822210B217CF73000CEE16C /* CreateListeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateListeViewController.swift; sourceTree = "<group>"; };
 		E822210D217CFB0700CEE16C /* KarlaForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarlaForm.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				6A8E377421AAE166004F1EFF /* PatientTableCell.xib */,
+				6ADCB58F21AAFE320005BBE3 /* PatientTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 				E82E179E2176A7D400F57761 /* Gradients.swift in Sources */,
 				E84114BF217211B200C5E9D9 /* Storyboarded.swift in Sources */,
 				E8C84C9C217FCCC600D77649 /* WorkListPatients.swift in Sources */,
+				6ADCB59021AAFE320005BBE3 /* PatientTableViewCell.swift in Sources */,
 				E859A7A62182B21C007BF751 /* BadgeViewPresenter.swift in Sources */,
 				E8C84C7F217FBF6300D77649 /* Patient+CoreDataProperties.swift in Sources */,
 				E8C84C95217FC46F00D77649 /* Act+CoreDataProperties.swift in Sources */,
