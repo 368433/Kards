@@ -24,6 +24,36 @@ class PatientsCoordinator: Coordinator {
         navigationController.pushViewController(landingCardVC, animated: false)
     }
     
+    func showPatients(for patientsList: PatientsListObject?){
+        let patientsListVC = BasePatientsListTVC.instantiate()
+        patientsListVC.coordinator = self
+        navigationController.pushViewController(patientsListVC, animated: true)
+    }
+    
+    func showPatients(for tag: Tag?){
+        
+    }
+    
+    func setCoordinatorAndPush(viewController: UIViewController){
+        
+    }
+    
+    func showAllPatients() {
+        let patientListVC = AllPatientsList.instantiate()
+        patientListVC.coordinator = self
+        navigationController.pushViewController(patientListVC, animated: true)
+    }
+
+    
+    // FORMS invocation
+    
+    func addNewPatient(list: PatientsListObject?){
+        let newPatientForm = NewPatientForm.instantiate()
+        let nc = UINavigationController()
+        nc.pushViewController(newPatientForm, animated: false)
+        navigationController.present(nc, animated: true, completion: nil)
+    }
+    
     func showWorkListPatients(for workList: PatientsListObject?) {
         let patientListVC = WorkListPatients.instantiate()
         patientListVC.coordinator = self

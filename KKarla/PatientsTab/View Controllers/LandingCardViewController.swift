@@ -63,23 +63,25 @@ extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinator?.showWorkListPatients(for: model?.resultController.object(at: indexPath))
+//        coordinator?.showWorkListPatients(for: model?.resultController.object(at: indexPath))
+        coordinator?.showPatients(for: model?.resultController.object(at: indexPath))
         self.eowTable.cellForRow(at: indexPath)?.isSelected = false
-        
-    }
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete{
-            if let itemToDelete = model?.resultController.object(at: indexPath) {
-                model?.dataCoordinator.persistentContainer.viewContext.delete(itemToDelete)
-                model?.dataCoordinator.saveContext()
-            }
-        }
-    }
+    
+//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        // Return false if you do not want the specified item to be editable.
+//        return true
+//    }
+//    
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete{
+//            if let itemToDelete = model?.resultController.object(at: indexPath) {
+//                model?.dataCoordinator.persistentContainer.viewContext.delete(itemToDelete)
+//                model?.dataCoordinator.saveContext()
+//            }
+//        }
+//    }
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in

@@ -313,7 +313,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BXB-E7-6qh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3052" y="-427.73613193403304"/>
+            <point key="canvasLocation" x="4518" y="-430"/>
         </scene>
         <!--Create Liste View Controller-->
         <scene sceneID="h4R-sF-8xC">
@@ -2259,6 +2259,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UcM-J1-gBE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1073" y="-2015"/>
+        </scene>
+        <!--Base Patients ListTVC-->
+        <scene sceneID="ljy-dc-egI">
+            <objects>
+                <tableViewController storyboardIdentifier="BasePatientsListTVC" id="5ei-g6-PRE" customClass="BasePatientsListTVC" customModule="KKarla" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="SXg-vJ-d4v">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="5ei-g6-PRE" id="0En-S5-Dg9"/>
+                            <outlet property="delegate" destination="5ei-g6-PRE" id="tuM-B2-xSG"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JJ4-pP-qLb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3008" y="-434"/>
         </scene>
         <!--All Patients List-->
         <scene sceneID="SOX-6r-hFc">

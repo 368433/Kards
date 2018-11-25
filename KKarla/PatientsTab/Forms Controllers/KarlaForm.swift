@@ -11,6 +11,8 @@ import UIKit
 import Eureka
 
 class KarlaForm: FormViewController, Storyboarded, UIImagePickerControllerDelegate , UINavigationControllerDelegate {
+    var coordinator: PatientsCoordinator?
+    
     
 //    let populator = Populator()
 //    let dataHandler = DataHandler()
