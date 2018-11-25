@@ -12,12 +12,12 @@ class SimpleCellTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var actList: UITextView!
-    @IBOutlet weak var statusTagStack: UIStackView!
+//    @IBOutlet weak var statusTagStack: UIStackView!
     @IBOutlet weak var nameTag: UILabel!
     
     var statusTag: TagStackList?
     var coordinator = PatientsCoordinator()
-    static let cardCellHeight: CGFloat = 80
+    static let cardCellHeight: CGFloat = 70
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,10 +37,10 @@ class SimpleCellTableViewCell: UITableViewCell {
         coordinator.showAddActForm()
     }
     
-    func setupTags() {
-        statusTag = TagStackList(stack: statusTagStack)
-        let label = (LabelType.activeStatusLabel, "Active")
-        statusTag?.setLabels(for: [label])
-    }
+//    func setupTags() {
+//        statusTag = TagStackList(stack: statusTagStack)
+//        let label = (LabelType.activeStatusLabel, "Active")
+//        statusTag?.setLabels(for: [label])
+//    }
 
 }

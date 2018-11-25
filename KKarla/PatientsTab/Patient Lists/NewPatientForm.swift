@@ -18,9 +18,7 @@ class NewPatientForm: KarlaForm {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tableView.tableFooterView = UIView(frame: .zero)
-        
+                
 //        self.title = "New Patient"
         
         form +++ Section("")
@@ -33,6 +31,9 @@ class NewPatientForm: KarlaForm {
                 row.title = "Name"
                 row.placeholder = "Nom, prenom, ou nickname"
                 row.tag = "nickname"
+                }.onChange{ [unowned self] row in
+                    if row.value == nil { self.navigationItem.rightBarButtonItems?[0].isEnabled = false }
+                    else { self.navigationItem.rightBarButtonItems?[0].isEnabled = true }
             }
             <<< DateRow(){ row in
                 row.title = "Date of Birth"

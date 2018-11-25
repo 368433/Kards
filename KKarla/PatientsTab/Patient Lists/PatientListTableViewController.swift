@@ -42,7 +42,7 @@ class PatientListTableViewController: UITableViewController, Storyboarded {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SimpleCell", for: indexPath) as! SimpleCellTableViewCell
-        cell.setupTags()
+//        cell.setupTags()
         cell.nameTag.text = model?.resultController.object(at: indexPath).nickname ?? "NIL"
         return cell
     }

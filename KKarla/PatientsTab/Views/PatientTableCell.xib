@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="186" id="NIR-Ga-IZ9">
+            <rect key="frame" x="0.0" y="0.0" width="433" height="186"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NIR-Ga-IZ9" id="u5a-pv-ChK">
+                <rect key="frame" x="0.0" y="0.0" width="433" height="185.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AA1-5L-3T4" userLabel="SideView">
+                        <rect key="frame" x="0.0" y="0.0" width="110" height="186"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yY4-1y-bbS">
+                                <rect key="frame" x="18" y="29" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-male-userBlue" translatesAutoresizingMaskIntoConstraints="NO" id="SPt-Mr-rtX">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="SPt-Mr-rtX" secondAttribute="height" multiplier="1:1" id="OrL-0D-6fr"/>
+                                            <constraint firstAttribute="width" constant="75" id="bcQ-Ce-LXi"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="110" id="dg0-as-WGN"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="388-tC-CCN" userLabel="MainView">
+                        <rect key="frame" x="109" y="0.0" width="324" height="186"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="AA1-5L-3T4" secondAttribute="bottom" constant="-0.5" id="8YX-Ux-weq"/>
+                    <constraint firstItem="388-tC-CCN" firstAttribute="top" secondItem="u5a-pv-ChK" secondAttribute="top" id="KgA-sb-EA4"/>
+                    <constraint firstAttribute="trailing" secondItem="388-tC-CCN" secondAttribute="trailing" id="Mrn-ww-Rib"/>
+                    <constraint firstItem="AA1-5L-3T4" firstAttribute="top" secondItem="u5a-pv-ChK" secondAttribute="top" id="VWK-Tq-L4g"/>
+                    <constraint firstItem="AA1-5L-3T4" firstAttribute="leading" secondItem="u5a-pv-ChK" secondAttribute="leading" id="WVo-Kw-8rg"/>
+                    <constraint firstAttribute="bottom" secondItem="388-tC-CCN" secondAttribute="bottom" constant="-0.5" id="gqu-oX-rqx"/>
+                    <constraint firstItem="388-tC-CCN" firstAttribute="leading" secondItem="AA1-5L-3T4" secondAttribute="trailing" constant="-1" id="opi-7Z-wCG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="76" y="26.086956521739133"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icons8-male-userBlue" width="50" height="50"/>
+    </resources>
+</document>

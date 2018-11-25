@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A8E377521AAE166004F1EFF /* PatientTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A8E377421AAE166004F1EFF /* PatientTableCell.xib */; };
 		6D84F2CB1929288333473509 /* Pods_KKarla.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E043F8B2F0E2DF630E4C3B97 /* Pods_KKarla.framework */; };
 		E822210C217CF73000CEE16C /* CreateListeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822210B217CF73000CEE16C /* CreateListeViewController.swift */; };
 		E822210E217CFB0700CEE16C /* KarlaForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822210D217CFB0700CEE16C /* KarlaForm.swift */; };
@@ -93,6 +94,7 @@
 /* Begin PBXFileReference section */
 		0BC7339C681FB2F7F9462DA9 /* Pods-KKarla.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KKarla.release.xcconfig"; path = "Pods/Target Support Files/Pods-KKarla/Pods-KKarla.release.xcconfig"; sourceTree = "<group>"; };
 		46490DF824D37F6FAF1374ED /* Pods-KKarla.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KKarla.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KKarla/Pods-KKarla.debug.xcconfig"; sourceTree = "<group>"; };
+		6A8E377421AAE166004F1EFF /* PatientTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PatientTableCell.xib; sourceTree = "<group>"; };
 		E043F8B2F0E2DF630E4C3B97 /* Pods_KKarla.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KKarla.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E822210B217CF73000CEE16C /* CreateListeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateListeViewController.swift; sourceTree = "<group>"; };
 		E822210D217CFB0700CEE16C /* KarlaForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarlaForm.swift; sourceTree = "<group>"; };
@@ -205,6 +207,14 @@
 				E043F8B2F0E2DF630E4C3B97 /* Pods_KKarla.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6A8E377321AAE130004F1EFF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6A8E377421AAE166004F1EFF /* PatientTableCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E813A6C4217D5DE4005E6F81 /* CoreDataNS Objects */ = {
@@ -457,6 +467,7 @@
 			isa = PBXGroup;
 			children = (
 				E8D9865F217D69CC00EFE369 /* PatientsCoordinator.swift */,
+				6A8E377321AAE130004F1EFF /* Views */,
 				E886172F217F50AB0098D3EE /* LandingCard */,
 				E8861736217F8F0E0098D3EE /* Patient Lists */,
 			);
@@ -549,6 +560,7 @@
 				E84115242175A38F00C5E9D9 /* OpenSans-SemiboldItalic.ttf in Resources */,
 				E8C84CA821826C8E00D77649 /* Notes in Resources */,
 				E84115232175A38F00C5E9D9 /* OpenSans-Bold.ttf in Resources */,
+				6A8E377521AAE166004F1EFF /* PatientTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -26,6 +26,7 @@ class KarlaForm: FormViewController, Storyboarded, UIImagePickerControllerDelega
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissForm))
         self.navigationItem.rightBarButtonItems = [saveButton]
         self.navigationItem.leftBarButtonItems = [cancelButton]
+        self.tableView.tableFooterView = UIView(frame: .zero)
     }
     
     @objc func saveEntries(){
