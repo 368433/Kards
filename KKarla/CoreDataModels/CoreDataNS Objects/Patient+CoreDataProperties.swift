@@ -2,7 +2,7 @@
 //  Patient+CoreDataProperties.swift
 //  KKarla
 //
-//  Created by amir2 on 2018-10-25.
+//  Created by quarticAIMBP2018 on 2018-11-25.
 //  Copyright © 2018 amir2. All rights reserved.
 //
 //
@@ -18,48 +18,14 @@ extension Patient {
     }
 
     @NSManaged public var nam: String?
-    @NSManaged public var nickname: String?
+    @NSManaged public var name: String?
     @NSManaged public var photoID: String?
     @NSManaged public var summaryBlurb: String?
-    @NSManaged public var acts: NSSet?
-    @NSManaged public var tags: NSSet?
     @NSManaged public var activeWorkLists: NSSet?
+    @NSManaged public var acts: NSSet?
     @NSManaged public var signedOffWorkLists: NSSet?
+    @NSManaged public var tags: NSSet?
     @NSManaged public var transferWorkLists: NSSet?
-
-}
-
-// MARK: Generated accessors for acts
-extension Patient {
-
-    @objc(addActsObject:)
-    @NSManaged public func addToActs(_ value: Act)
-
-    @objc(removeActsObject:)
-    @NSManaged public func removeFromActs(_ value: Act)
-
-    @objc(addActs:)
-    @NSManaged public func addToActs(_ values: NSSet)
-
-    @objc(removeActs:)
-    @NSManaged public func removeFromActs(_ values: NSSet)
-
-}
-
-// MARK: Generated accessors for tags
-extension Patient {
-
-    @objc(addTagsObject:)
-    @NSManaged public func addToTags(_ value: Tag)
-
-    @objc(removeTagsObject:)
-    @NSManaged public func removeFromTags(_ value: Tag)
-
-    @objc(addTags:)
-    @NSManaged public func addToTags(_ values: NSSet)
-
-    @objc(removeTags:)
-    @NSManaged public func removeFromTags(_ values: NSSet)
 
 }
 
@@ -80,6 +46,23 @@ extension Patient {
 
 }
 
+// MARK: Generated accessors for acts
+extension Patient {
+
+    @objc(addActsObject:)
+    @NSManaged public func addToActs(_ value: Act)
+
+    @objc(removeActsObject:)
+    @NSManaged public func removeFromActs(_ value: Act)
+
+    @objc(addActs:)
+    @NSManaged public func addToActs(_ values: NSSet)
+
+    @objc(removeActs:)
+    @NSManaged public func removeFromActs(_ values: NSSet)
+
+}
+
 // MARK: Generated accessors for signedOffWorkLists
 extension Patient {
 
@@ -94,6 +77,23 @@ extension Patient {
 
     @objc(removeSignedOffWorkLists:)
     @NSManaged public func removeFromSignedOffWorkLists(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for tags
+extension Patient {
+
+    @objc(addTagsObject:)
+    @NSManaged public func addToTags(_ value: Tag)
+
+    @objc(removeTagsObject:)
+    @NSManaged public func removeFromTags(_ value: Tag)
+
+    @objc(addTags:)
+    @NSManaged public func addToTags(_ values: NSSet)
+
+    @objc(removeTags:)
+    @NSManaged public func removeFromTags(_ values: NSSet)
 
 }
 

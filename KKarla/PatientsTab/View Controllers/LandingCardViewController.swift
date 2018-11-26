@@ -13,35 +13,49 @@ import CoreData
 class LandingCardViewController: UIViewController, Storyboarded {
     
     weak var coordinator: PatientsCoordinator?
-    @IBOutlet weak var eowTable: UITableView!
-    @IBOutlet weak var workListLabel: UILabel!
+    @IBOutlet weak var listsTableView: UITableView!
     @IBOutlet weak var showAllPatientsButton: UIButton!
+    @IBOutlet weak var showAllTagsButton: UIButton!
+    @IBOutlet weak var showArchivedListsButton: UIButton!
+    
     var model: LandingCardModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        model = LandingCardModel(modelOutputView: eowTable)
-        showAllPatientsButton.addTarget(self, action: #selector(showAllPatients), for: .touchUpInside)
-        setupViews()
+        model = LandingCardModel(modelOutputView: listsTableView)
+        listsTableView.delegate = self
+        listsTableView.dataSource = self
+        setupButtons()
     }
+}
+
+// MARK: implementation of buttons and actions
+extension LandingCardViewController {
     
-    private func setupViews(){
-        self.title = "Patients Lists"
-        self.tabBarItem.title = "Patients"
-        self.navigationController?.navigationBar.prefersLargeTitles = false
+    private func setupButtons(){
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(createList))
-        eowTable.delegate = self
-        eowTable.dataSource = self
+        showAllPatientsButton.addTarget(self, action: #selector(showAllPatients), for: .touchUpInside)
+        showAllTagsButton.addTarget(self, action: #selector(showAllPatients), for: .touchUpInside)
+        showArchivedListsButton.addTarget(self, action: #selector(showAllPatients), for: .touchUpInside)
     }
     
     @objc func createList(){
-        coordinator?.showNewListForm(to: model)        
+        coordinator?.showNewListForm(to: model)
     }
     
     @objc func showAllPatients(){
         coordinator?.showAllPatients()
     }
+    @objc func showAllTags(){
+        coordinator?.showAllPatients()
+    }
+    @objc func showArchivedLists(){
+        coordinator?.showAllPatients()
+    }
 }
+
+
+// MARK Lists Table datasource and delegate implementation:
 
 extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -53,37 +67,18 @@ extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = eowTable.dequeueReusableCell(withIdentifier: "activeListCell", for: indexPath)
+        let cell = listsTableView.dequeueReusableCell(withIdentifier: "activeListCell", for: indexPath)
         cell.textLabel?.text = model?.resultController.object(at: indexPath).title
-        let numberOfPatients = String(model?.resultController.object(at: indexPath).activeWorkList?.count ?? 0)
-        let cellSubtitle = model?.resultController.object(at: indexPath).subtitle ?? " "
-        cell.detailTextLabel?.text = cellSubtitle + " - (\(numberOfPatients))"
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        coordinator?.showWorkListPatients(for: model?.resultController.object(at: indexPath))
         if let list = model?.resultController.object(at: indexPath) {
             coordinator?.showPatients(for: list)
-            self.eowTable.cellForRow(at: indexPath)?.isSelected = false
+            self.listsTableView.cellForRow(at: indexPath)?.isSelected = false
         }
     }
     
-    
-//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        // Return false if you do not want the specified item to be editable.
-//        return true
-//    }
-//    
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete{
-//            if let itemToDelete = model?.resultController.object(at: indexPath) {
-//                model?.dataCoordinator.persistentContainer.viewContext.delete(itemToDelete)
-//                model?.dataCoordinator.saveContext()
-//            }
-//        }
-//    }
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in

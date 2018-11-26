@@ -2,7 +2,7 @@
 //  PatientsListObject+CoreDataProperties.swift
 //  KKarla
 //
-//  Created by amir2 on 2018-10-25.
+//  Created by quarticAIMBP2018 on 2018-11-25.
 //  Copyright © 2018 amir2. All rights reserved.
 //
 //
@@ -19,26 +19,27 @@ extension PatientsListObject {
 
     @NSManaged public var subtitle: String?
     @NSManaged public var title: String?
-    @NSManaged public var transferWorkList: NSSet?
-    @NSManaged public var signedOffWorkList: NSSet?
+    @NSManaged public var isActive: Bool
     @NSManaged public var activeWorkList: NSSet?
+    @NSManaged public var signedOffWorkList: NSSet?
+    @NSManaged public var transferWorkList: NSSet?
 
 }
 
-// MARK: Generated accessors for transferWorkList
+// MARK: Generated accessors for activeWorkList
 extension PatientsListObject {
 
-    @objc(addTransferWorkListObject:)
-    @NSManaged public func addToTransferWorkList(_ value: Patient)
+    @objc(addActiveWorkListObject:)
+    @NSManaged public func addToActiveWorkList(_ value: Patient)
 
-    @objc(removeTransferWorkListObject:)
-    @NSManaged public func removeFromTransferWorkList(_ value: Patient)
+    @objc(removeActiveWorkListObject:)
+    @NSManaged public func removeFromActiveWorkList(_ value: Patient)
 
-    @objc(addTransferWorkList:)
-    @NSManaged public func addToTransferWorkList(_ values: NSSet)
+    @objc(addActiveWorkList:)
+    @NSManaged public func addToActiveWorkList(_ values: NSSet)
 
-    @objc(removeTransferWorkList:)
-    @NSManaged public func removeFromTransferWorkList(_ values: NSSet)
+    @objc(removeActiveWorkList:)
+    @NSManaged public func removeFromActiveWorkList(_ values: NSSet)
 
 }
 
@@ -59,19 +60,19 @@ extension PatientsListObject {
 
 }
 
-// MARK: Generated accessors for activeWorkList
+// MARK: Generated accessors for transferWorkList
 extension PatientsListObject {
 
-    @objc(addActiveWorkListObject:)
-    @NSManaged public func addToActiveWorkList(_ value: Patient)
+    @objc(addTransferWorkListObject:)
+    @NSManaged public func addToTransferWorkList(_ value: Patient)
 
-    @objc(removeActiveWorkListObject:)
-    @NSManaged public func removeFromActiveWorkList(_ value: Patient)
+    @objc(removeTransferWorkListObject:)
+    @NSManaged public func removeFromTransferWorkList(_ value: Patient)
 
-    @objc(addActiveWorkList:)
-    @NSManaged public func addToActiveWorkList(_ values: NSSet)
+    @objc(addTransferWorkList:)
+    @NSManaged public func addToTransferWorkList(_ values: NSSet)
 
-    @objc(removeActiveWorkList:)
-    @NSManaged public func removeFromActiveWorkList(_ values: NSSet)
+    @objc(removeTransferWorkList:)
+    @NSManaged public func removeFromTransferWorkList(_ values: NSSet)
 
 }

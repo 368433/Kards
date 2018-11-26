@@ -1,8 +1,8 @@
 //
-//  PatientListModel.swift
+//  ListOfListsModel.swift
 //  KKarla
 //
-//  Created by amir2 on 2018-10-23.
+//  Created by quarticAIMBP2018 on 2018-11-25.
 //  Copyright © 2018 amir2. All rights reserved.
 //
 
@@ -11,9 +11,9 @@ import CoreData
 import UIKit
 import Eureka
 
-class PatientListModel{
+class ListOfListsModel{
     
-    var resultController: NSFetchedResultsController<Patient>!
+    var resultController: NSFetchedResultsController<PatientsListObject>!
     var dataCoordinator = AppDelegate.dataCoordinator
     var searchPredicate: NSPredicate?
     var modelOutputView: UITableView
@@ -43,11 +43,11 @@ class PatientListModel{
         loadObjectList()
     }
     
-    private func getFetchedResultsController() -> NSFetchedResultsController<Patient> {
-        let request = Patient.createFetchRequest()
-        let sort = NSSortDescriptor(key: "name", ascending: true)
+    private func getFetchedResultsController() -> NSFetchedResultsController<PatientsListObject> {
+        let request = PatientsListObject.createFetchRequest()
+        let sort = NSSortDescriptor(key: "title", ascending: true)
         request.sortDescriptors = [sort]
         request.fetchBatchSize = 20
-        return NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataCoordinator.persistentContainer.viewContext, sectionNameKeyPath: "name", cacheName: nil)
+        return NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataCoordinator.persistentContainer.viewContext, sectionNameKeyPath: "title", cacheName: nil)
     }
 }

@@ -44,7 +44,7 @@ class PatientTableViewCell: UITableViewCell {
 
     func configure(patient: Patient?){
         if let patient = patient {
-            self.patientNameLabel.text = patient.nickname
+            self.patientNameLabel.text = patient.name
         }
     }
 }

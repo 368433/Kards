@@ -26,9 +26,7 @@ class PatientsCoordinator: Coordinator {
     
     func showPatients(for patientsListObject: PatientsListObject){
         let patientsListVC = ActiveListPatientsVC(patientsListObject: patientsListObject)
-//        let predicate = NSPredicate(format: "ANY activeWorkLists == %@", patientsListObject)
         patientsListVC.coordinator = self
-//        patientsListVC.predicate = predicate
         navigationController.pushViewController(patientsListVC, animated: true)
     }
     

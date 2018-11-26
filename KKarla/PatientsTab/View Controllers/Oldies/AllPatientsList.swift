@@ -38,7 +38,7 @@ extension AllPatientsList: UISearchResultsUpdating {
         if searchController.searchBar.text! == ""{
             model?.searchPredicate = nil
         } else {
-            model?.searchPredicate = NSPredicate(format: "nickname contains[c] %@ ", searchController.searchBar.text!)
+            model?.searchPredicate = NSPredicate(format: "name contains[c] %@ ", searchController.searchBar.text!)
         }
         model?.reloadObjectList()
         tableView.reloadData()

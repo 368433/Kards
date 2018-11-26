@@ -18,7 +18,7 @@ protocol NewPatientFormDelegate {
 extension NewPatientFormDelegate {
     func addToActiveWorkList(from form: Form) {
         let newPatient = Patient(context: dataCoordinator.persistentContainer.viewContext)
-        newPatient.nickname = form.rowBy(tag: "nickname")?.baseValue as? String
+        newPatient.name = form.rowBy(tag: "name")?.baseValue as? String
         patientList.addToActiveWorkList(newPatient)
         dataCoordinator.persistentContainer.viewContext.insert(newPatient)
         dataCoordinator.saveContext()

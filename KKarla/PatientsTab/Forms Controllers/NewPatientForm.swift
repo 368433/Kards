@@ -33,7 +33,7 @@ class NewPatientForm: KarlaForm {
             <<< TextRow(){ row in
                 row.title = "Name"
                 row.placeholder = "Nom, prenom, ou nickname"
-                row.tag = "nickname"
+                row.tag = "name"
                 }.onChange{ [unowned self] row in
                     if row.value == nil { self.navigationItem.rightBarButtonItems?[0].isEnabled = false }
                     else { self.navigationItem.rightBarButtonItems?[0].isEnabled = true }

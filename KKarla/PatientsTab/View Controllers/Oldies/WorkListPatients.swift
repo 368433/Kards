@@ -50,7 +50,7 @@ class WorkListPatients: PatientListTableViewController, NewPatientFormDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SimpleCell", for: indexPath) as! SimpleCellTableViewCell
         //        cell.setupTags()
-        cell.nameTag.text = model?.resultController.object(at: indexPath).nickname ?? "NIL"
+        cell.nameTag.text = model?.resultController.object(at: indexPath).name ?? "NIL"
         return cell
     }
     
