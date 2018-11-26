@@ -19,6 +19,7 @@ class LandingCardViewController: UIViewController, Storyboarded {
     @IBOutlet weak var showArchivedListsButton: UIButton!
     
     var model: ListOfListsModel?
+    var dataCoordinator = AppDelegate.dataCoordinator
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,19 +88,19 @@ extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
             print("test delete")
         }
         let archive = UITableViewRowAction(style: .default, title: "Archive") { (action, indexPath) in
-            // share item at indexPath
-            print("I want to share: atest")
+            if let list = self.model?.resultController.object(at: indexPath) {
+                list.isActive = false
+                self.dataCoordinator.saveContext()
+            }
         }
         let edit = UITableViewRowAction(style: .default, title: "Edit") { (action, indexPath) in
             // share item at indexPath
             if let list = self.model?.resultController.object(at: indexPath) {
                 self.coordinator?.showNewListForm(existingList: list)
             }
-            
         }
         archive.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
         edit.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
         return [delete, archive, edit]
     }
-    
 }

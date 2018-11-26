@@ -31,12 +31,12 @@ class BaseWorkListsListTVC: UITableViewController, Storyboarded{
         model = ListOfListsModel(modelOutputView: self.tableView, searchPredicate: predicate)
         
         self.tableView.register(UINib(nibName: "WorkListTableCell", bundle: nil), forCellReuseIdentifier: "cell")
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNew))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(createList))
         self.tableView.tableFooterView = UIView(frame: .zero)
     }
     
-    @objc func addNew(){
-        //coordinator?.addNewPatient()
+    @objc func createList(){
+        coordinator?.showNewListForm()
     }
     
     // MARK: - Table view data source
@@ -53,5 +53,24 @@ class BaseWorkListsListTVC: UITableViewController, Storyboarded{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WorkListTableViewCell
         cell.configure(workList: model?.resultController.object(at: indexPath))
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+
+        let activate = UITableViewRowAction(style: .default, title: "Activate") { (action, indexPath) in
+            if let list = self.model?.resultController.object(at: indexPath) {
+                list.isActive = true
+                self.dataCoordinator.saveContext()
+            }
+        }
+        let edit = UITableViewRowAction(style: .default, title: "Edit") { (action, indexPath) in
+            // share item at indexPath
+            if let list = self.model?.resultController.object(at: indexPath) {
+                self.coordinator?.showNewListForm(existingList: list)
+            }
+        }
+        activate.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+        edit.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
+        return [activate, edit]
     }
 }
