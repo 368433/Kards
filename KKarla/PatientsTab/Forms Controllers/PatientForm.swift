@@ -12,12 +12,11 @@ import CoreData
 import Eureka
 
 
-class NewPatientForm: KarlaForm {
+class PatientForm: KarlaForm {
     
-    var delegate: NewPatientFormDelegate?
+//    var delegate: NewPatientFormDelegate?
     var patient: Patient?
     var listToLink: PatientsListObject?
-    var dataCoordinator = AppDelegate.dataCoordinator
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,13 +60,9 @@ class NewPatientForm: KarlaForm {
     }
     
     @objc override func saveEntries(){
-        let populator = Populator()
-        let patientToSave = patient ?? getNewPatientInstance()
-        populator.populate(objectsList: [patientToSave], with: form.values())
-        if let list = listToLink { patientToSave.addToActiveWorkLists(list) }
-        
-        dataCoordinator.saveContext()
-        dismissForm()
+        objectToSave = patient ?? getNewPatientInstance()
+        if let list = listToLink, let patientToSave = objectToSave as? Patient { patientToSave.addToActiveWorkLists(list) }
+        super.saveEntries()
     }
     
     func getNewPatientInstance() -> Patient {

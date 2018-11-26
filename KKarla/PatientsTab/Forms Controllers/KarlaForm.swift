@@ -9,16 +9,17 @@
 import Foundation
 import UIKit
 import Eureka
+import CoreData
 
 class KarlaForm: FormViewController, Storyboarded, UIImagePickerControllerDelegate , UINavigationControllerDelegate {
     var coordinator: PatientsCoordinator?
-    
-    
-//    let populator = Populator()
+
 //    let dataHandler = DataHandler()
 //    let imageService = ImageService()
     var saveButton: UIBarButtonItem!
-    var formDelegate: KarlaFormDelegate?
+    var dataCoordinator = AppDelegate.dataCoordinator
+    let populator = Populator()
+    var objectToSave: NSManagedObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,9 @@ class KarlaForm: FormViewController, Storyboarded, UIImagePickerControllerDelega
     }
     
     @objc func saveEntries(){
-        formDelegate?.processFormValues(with: self.form)
+        guard let objectToSave = objectToSave else { fatalError("object to save is nil")}
+        populator.populate(objectsList: [objectToSave], with: self.form.values())
+        dataCoordinator.saveContext()
         dismissForm()
     }
     

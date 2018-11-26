@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Eureka
 
-class AddActFormViewController: KarlaForm {
+class ActForm: KarlaForm {
     
     let abbreviationList = ["VC", "TW", "C"]
     let categoryList = ["ROUT", "MIEE", "OPAT"]

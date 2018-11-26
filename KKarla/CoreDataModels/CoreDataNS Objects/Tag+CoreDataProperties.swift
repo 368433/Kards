@@ -2,7 +2,7 @@
 //  Tag+CoreDataProperties.swift
 //  KKarla
 //
-//  Created by amir2 on 2018-10-25.
+//  Created by quarticAIMBP2018 on 2018-11-25.
 //  Copyright © 2018 amir2. All rights reserved.
 //
 //
@@ -17,7 +17,7 @@ extension Tag {
         return NSFetchRequest<Tag>(entityName: "Tag")
     }
 
-    @NSManaged public var tagName: String?
+    @NSManaged public var title: String?
     @NSManaged public var acts: NSSet?
     @NSManaged public var patients: NSSet?
 

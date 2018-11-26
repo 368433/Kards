@@ -18,11 +18,12 @@ class LandingCardViewController: UIViewController, Storyboarded {
     @IBOutlet weak var showAllTagsButton: UIButton!
     @IBOutlet weak var showArchivedListsButton: UIButton!
     
-    var model: LandingCardModel?
+    var model: ListOfListsModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        model = LandingCardModel(modelOutputView: listsTableView)
+        let predicate = NSPredicate(format: "isActive == true")
+        model = ListOfListsModel(modelOutputView: listsTableView, searchPredicate: predicate)
         listsTableView.delegate = self
         listsTableView.dataSource = self
         setupButtons()
@@ -36,11 +37,11 @@ extension LandingCardViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(createList))
         showAllPatientsButton.addTarget(self, action: #selector(showAllPatients), for: .touchUpInside)
         showAllTagsButton.addTarget(self, action: #selector(showAllPatients), for: .touchUpInside)
-        showArchivedListsButton.addTarget(self, action: #selector(showAllPatients), for: .touchUpInside)
+        showArchivedListsButton.addTarget(self, action: #selector(showAllWorklists), for: .touchUpInside)
     }
     
     @objc func createList(){
-        coordinator?.showNewListForm(to: model)
+        coordinator?.showNewListForm()
     }
     
     @objc func showAllPatients(){
@@ -49,8 +50,8 @@ extension LandingCardViewController {
     @objc func showAllTags(){
         coordinator?.showAllPatients()
     }
-    @objc func showArchivedLists(){
-        coordinator?.showAllPatients()
+    @objc func showAllWorklists(){
+        coordinator?.showArchivedWorklists()
     }
 }
 
@@ -91,7 +92,10 @@ extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
         }
         let edit = UITableViewRowAction(style: .default, title: "Edit") { (action, indexPath) in
             // share item at indexPath
-            print("I want to share: atest")
+            if let list = self.model?.resultController.object(at: indexPath) {
+                self.coordinator?.showNewListForm(existingList: list)
+            }
+            
         }
         archive.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
         edit.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)

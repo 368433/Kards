@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class WorkListPatients: PatientListTableViewController, NewPatientFormDelegate {
+class WorkListPatients: PatientListTableViewController {
     var patientList: PatientsListObject!
     @IBOutlet weak var segmentedSubList: UISegmentedControl!
     @IBOutlet weak var dateSegmentList: UISegmentedControl!
@@ -27,7 +27,7 @@ class WorkListPatients: PatientListTableViewController, NewPatientFormDelegate {
     }
     
     override func addNew(){
-        coordinator?.addNewPatient(to: self)
+//        coordinator?.addNewPatient(to: self)
     }
     
     enum ListOptions {

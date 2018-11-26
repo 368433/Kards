@@ -40,24 +40,26 @@ class PatientsCoordinator: Coordinator {
         navigationController.pushViewController(patientListVC, animated: true)
     }
 
+    func showArchivedWorklists() {
+        let wlVC = BaseWorkListsListTVC() //.instantiate()
+        wlVC.coordinator = self
+        navigationController.pushViewController(wlVC, animated: true)
+    }
     
     // FORMS invocation
     
     func addNewPatient(list: PatientsListObject? = nil){
-        let newPatientForm = NewPatientForm.instantiate()
-        let nc = UINavigationController()
+        let newPatientForm = PatientForm.instantiate()
         if let list = list {newPatientForm.listToLink = list}
-        nc.pushViewController(newPatientForm, animated: false)
-        navigationController.present(nc, animated: true, completion: nil)
+        presentDataForm(for: newPatientForm)
     }
     
-    
-    func showWorkListPatients(for workList: PatientsListObject?) {
-        let patientListVC = WorkListPatients.instantiate()
-        patientListVC.coordinator = self
-        patientListVC.patientList = workList
-        navigationController.pushViewController(patientListVC, animated: true)
-    }
+//    func showWorkListPatients(for workList: PatientsListObject?) {
+//        let patientListVC = WorkListPatients.instantiate()
+//        patientListVC.coordinator = self
+//        patientListVC.patientList = workList
+//        navigationController.pushViewController(patientListVC, animated: true)
+//    }
     
     func showAllPatientsList() {
         let patientListVC = AllPatientsList.instantiate()
@@ -65,25 +67,27 @@ class PatientsCoordinator: Coordinator {
         navigationController.pushViewController(patientListVC, animated: true)
     }
     
-    func showNewListForm(to delegate: KarlaFormDelegate?){
-        guard delegate != nil else { fatalError("no assigned model") }
-        let newListFormVC = CreateListeViewController.instantiate()
-        let nc = UINavigationController()
-        newListFormVC.formDelegate = delegate
-        nc.pushViewController(newListFormVC, animated: false)
-        navigationController.present(nc, animated: true, completion: nil)
+    func showNewListForm(existingList: PatientsListObject? = nil){
+        let newListFormVC = WorkListForm.instantiate()
+        if let list = existingList {newListFormVC.existingPatientList = list}
+        presentDataForm(for: newListFormVC)
     }
     
-    func addNewPatient(to delegate: NewPatientFormDelegate){
-        let newPatientForm = NewPatientForm.instantiate()
+    func presentDataForm(for form: KarlaForm) {
         let nc = UINavigationController()
-        newPatientForm.delegate = delegate
-        nc.pushViewController(newPatientForm, animated: false)
+        nc.pushViewController(form, animated: false)
         navigationController.present(nc, animated: true, completion: nil)
     }
+//    func addNewPatient(to delegate: NewPatientFormDelegate){
+//        let newPatientForm = NewPatientForm.instantiate()
+//        let nc = UINavigationController()
+//        newPatientForm.delegate = delegate
+//        nc.pushViewController(newPatientForm, animated: false)
+//        navigationController.present(nc, animated: true, completion: nil)
+//    }
     
     func showAddActForm(){
-        let actForm = AddActFormViewController.instantiate()
+        let actForm = ActForm.instantiate()
         let nc = UINavigationController()
         nc.pushViewController(actForm, animated: false)
         navigationController.present(nc, animated: true, completion: nil)

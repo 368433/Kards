@@ -46,6 +46,10 @@ class Populator: NSObject {
                         if let intValue = valueDictionary[attribute] as? Int16{
                             object.setValue(intValue, forKey: attribute)
                         }
+                    } else if value.attributeType == .booleanAttributeType {
+                        if let boolValue = valueDictionary[attribute] as? Bool {
+                            object.setValue(boolValue, forKey: attribute)
+                        }
                     }
                 }
             }
