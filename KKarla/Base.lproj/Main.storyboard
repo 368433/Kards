@@ -182,7 +182,7 @@
                                                     <constraint firstAttribute="width" secondItem="v1F-lk-9Cf" secondAttribute="height" multiplier="1:1" id="Ahc-2i-6vt"/>
                                                     <constraint firstAttribute="width" constant="30" id="YZA-Wh-dbg"/>
                                                 </constraints>
-                                                <state key="normal" image="icons8-tag-BLUE-window-filled"/>
+                                                <state key="normal" image="icons8-tag-window"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAGS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gj1-iR-rID" userLabel="TAGS">
                                                 <rect key="frame" x="0.0" y="38" width="31" height="14.5"/>
@@ -2388,7 +2388,7 @@
         <image name="icons8-crowd-filled" width="75" height="75"/>
         <image name="icons8-male-user" width="45" height="45"/>
         <image name="icons8-open-box-filled" width="75" height="75"/>
-        <image name="icons8-tag-BLUE-window-filled" width="50" height="50"/>
+        <image name="icons8-tag-window" width="75" height="75"/>
         <image name="image" width="681" height="330"/>
         <image name="overview" width="75" height="75"/>
         <image name="photo" width="98" height="98"/>

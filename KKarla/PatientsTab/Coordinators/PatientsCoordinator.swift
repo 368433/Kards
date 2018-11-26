@@ -24,9 +24,11 @@ class PatientsCoordinator: Coordinator {
         navigationController.pushViewController(landingCardVC, animated: false)
     }
     
-    func showPatients(for patientsList: PatientsListObject?){
-        let patientsListVC = BasePatientsListTVC.instantiate()
+    func showPatients(for patientsListObject: PatientsListObject){
+        let patientsListVC = ActiveListPatientsVC(patientsListObject: patientsListObject)
+//        let predicate = NSPredicate(format: "ANY activeWorkLists == %@", patientsListObject)
         patientsListVC.coordinator = self
+//        patientsListVC.predicate = predicate
         navigationController.pushViewController(patientsListVC, animated: true)
     }
     
@@ -34,12 +36,8 @@ class PatientsCoordinator: Coordinator {
         
     }
     
-    func setCoordinatorAndPush(viewController: UIViewController){
-        
-    }
-    
     func showAllPatients() {
-        let patientListVC = AllPatientsList.instantiate()
+        let patientListVC = BasePatientsListTVC.instantiate()
         patientListVC.coordinator = self
         navigationController.pushViewController(patientListVC, animated: true)
     }
@@ -47,12 +45,14 @@ class PatientsCoordinator: Coordinator {
     
     // FORMS invocation
     
-    func addNewPatient(list: PatientsListObject?){
+    func addNewPatient(list: PatientsListObject? = nil){
         let newPatientForm = NewPatientForm.instantiate()
         let nc = UINavigationController()
+        if let list = list {newPatientForm.listToLink = list}
         nc.pushViewController(newPatientForm, animated: false)
         navigationController.present(nc, animated: true, completion: nil)
     }
+    
     
     func showWorkListPatients(for workList: PatientsListObject?) {
         let patientListVC = WorkListPatients.instantiate()
