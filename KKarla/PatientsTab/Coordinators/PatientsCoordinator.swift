@@ -75,6 +75,12 @@ class PatientsCoordinator: Coordinator {
         presentDataForm(for: actForm)
     }
     
+    func showTagForm(for patient: Patient){
+        let tagForm = TagForm()
+        tagForm.patient = patient
+        presentDataForm(for: tagForm)
+    }
+    
     // FUNCTIONS HERE HAVE NOT BEEN REVIEWED
     
     

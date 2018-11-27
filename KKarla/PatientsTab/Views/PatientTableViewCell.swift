@@ -67,9 +67,9 @@ class PatientTableViewCell: UITableViewCell {
         }
     }
     @objc func showTagForm(){
-//        if let coordo = coordinator, let pt = patient {
-//            implement
-//        }
+        if let coordo = coordinator, let pt = patient {
+            coordo.showTagForm(for: pt)
+        }
     }
 
 }

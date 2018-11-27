@@ -8,21 +8,47 @@
 
 import Foundation
 
-struct BillingCodes {
-    var hospitalsDict: [(site:String,RAMQSiteID:String)] = [
-        ("HPB","00000"),
-        ("ICM","00000"),
-        ("PCV","00000")]
+struct CodesGenerator {
     
-    // cabinet/category/act/code+fee
-    let ramqDict: [String:[String:[String:(code:String, fee:String)]]] = [
+    var codesDict: [String:[String:[String:(String,String)]]] = [:]
+    
+    func getActSites() -> [String] {
+        return ActSite.allCases.compactMap({return $0.rawValue})
+    }
+//    func getActDepartments() -> [String] {
+//        return codesDict[
+//    }
+    
+    mutating func setCodesDictionary(for actSite: ActSite) {
+        codesDict = actSite.billingD
+    }
+}
+
+enum ActSite: String, CaseIterable {
+    case HPB
+    case ICM
+    case PCV
+    
+    var billingD: [String:[String:[String:(String,String)]]] {
+        switch self {
+        case .HPB, .ICM:
+            return ramqCodes().hospitalDict
+        case .PCV:
+            return ramqCodes().clinicDict
+        }
+    }
+}
+struct ramqCodes {
+    let clinicDict = [
         "Cabinet": [
             "ROUT": [
                 "C": ("9165","218.05"),
                 "VP": ("9127","100.75"),
                 "VC": ("9129","46.17")],
             "MIEE": [
-                "VP": ("15104","122.85")]],
+                "VP": ("15104","122.85")]]]
+    
+    let hospitalDict = [
         "HOSP": [
             "ROUT": [
                 "C": ("9160","215.85"),
@@ -39,12 +65,6 @@ struct BillingCodes {
                 "VP": ("16060","155.85"),
                 "VT": ("16061","133.25"),
                 "VC": ("9019","48.30")],
-            "EMaj": [
-                "J#1": ("15254","580.55"),
-                "J#subMax9j": ("15255","290.25")],
-            "EMin": [
-                "J#1": ("15252","290.25"),
-                "J#subMax9j": ("15253","145.15")],
             "INoso": [
                 "J#1": ("9000","218.05"),
                 "J#sub": ("9007","44.16")],
@@ -54,7 +74,16 @@ struct BillingCodes {
             "TRANSF": [
                 "C": ("9031","245.25")],
             "Prophyl": [
-                "Eval": ("9033","98.10")]],
+                "Eval": ("9033","98.10")]
+        ],
+        "Eclosion": [
+            "EMaj": [
+                "J#1": ("15254","580.55"),
+                "J#subMax9j": ("15255","290.25")],
+            "EMin": [
+                "J#1": ("15252","290.25"),
+                "J#subMax9j": ("15253","145.15")]
+        ],
         "ClinExt": [
             "ROUT": [
                 "C": ("9170","174.55"),
@@ -81,8 +110,7 @@ struct BillingCodes {
                 "C": ("9047","245.25")],
             "PROPH": [
                 "C": ("9049","98.10")],
-        ]
-    ]
+        ]]
 }
 
 enum ramqActLocation {
