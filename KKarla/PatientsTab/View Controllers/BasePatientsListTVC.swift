@@ -41,7 +41,9 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PatientTableViewCell
-        cell.configure(patient: model?.resultController.object(at: indexPath))
+        cell.patient = model?.resultController.object(at: indexPath)
+        cell.coordinator = self.coordinator
+        cell.configure()
         return cell
     }
 }

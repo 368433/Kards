@@ -34,7 +34,7 @@ class SimpleCellTableViewCell: UITableViewCell {
     }
     
     @objc func showAddActForm(){
-        coordinator.showAddActForm()
+//        coordinator.showAddActForm()
     }
     
 //    func setupTags() {

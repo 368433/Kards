@@ -79,7 +79,7 @@ class WorkListPatients: PatientListTableViewController {
         }
         
         let addAct = UITableViewRowAction(style: .default, title: "Add Act") { (action, indexPath) in
-            self.coordinator?.showAddActForm()
+//            self.coordinator?.showAddActForm()
         }
         
         let moreOptions = UITableViewRowAction(style: .default, title: "More") { (action, indexPath) in

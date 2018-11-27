@@ -24,6 +24,9 @@ class PatientsCoordinator: Coordinator {
         navigationController.pushViewController(landingCardVC, animated: false)
     }
     
+    // FUNCTIONS HERE HAVE BEEN REVIEWED
+    
+    //Presenting view controllers
     func showPatients(for patientsListObject: PatientsListObject){
         let patientsListVC = ActiveListPatientsVC(patientsListObject: patientsListObject)
         patientsListVC.coordinator = self
@@ -46,25 +49,18 @@ class PatientsCoordinator: Coordinator {
         navigationController.pushViewController(wlVC, animated: true)
     }
     
-    // FORMS invocation
-    
     func addNewPatient(list: PatientsListObject? = nil){
         let newPatientForm = PatientForm.instantiate()
         if let list = list {newPatientForm.listToLink = list}
         presentDataForm(for: newPatientForm)
     }
     
-//    func showWorkListPatients(for workList: PatientsListObject?) {
-//        let patientListVC = WorkListPatients.instantiate()
-//        patientListVC.coordinator = self
-//        patientListVC.patientList = workList
-//        navigationController.pushViewController(patientListVC, animated: true)
-//    }
-    
-    func showAllPatientsList() {
-        let patientListVC = AllPatientsList.instantiate()
-        patientListVC.coordinator = self
-        navigationController.pushViewController(patientListVC, animated: true)
+    // PRESENTING FORMS CONTROLLERS
+    //A helper function
+    func presentDataForm(for form: KarlaForm) {
+        let nc = UINavigationController()
+        nc.pushViewController(form, animated: false)
+        navigationController.present(nc, animated: true, completion: nil)
     }
     
     func showNewListForm(existingList: PatientsListObject? = nil){
@@ -73,11 +69,29 @@ class PatientsCoordinator: Coordinator {
         presentDataForm(for: newListFormVC)
     }
     
-    func presentDataForm(for form: KarlaForm) {
-        let nc = UINavigationController()
-        nc.pushViewController(form, animated: false)
-        navigationController.present(nc, animated: true, completion: nil)
+    func showAddActForm(patient: Patient){
+        let actForm = ActForm.instantiate()
+        actForm.patient = patient
+        presentDataForm(for: actForm)
     }
+    
+    // FUNCTIONS HERE HAVE NOT BEEN REVIEWED
+    
+    
+    
+//    func showWorkListPatients(for workList: PatientsListObject?) {
+//        let patientListVC = WorkListPatients.instantiate()
+//        patientListVC.coordinator = self
+//        patientListVC.patientList = workList
+//        navigationController.pushViewController(patientListVC, animated: true)
+//    }
+//
+//    func showAllPatientsList() {
+//        let patientListVC = AllPatientsList.instantiate()
+//        patientListVC.coordinator = self
+//        navigationController.pushViewController(patientListVC, animated: true)
+//    }
+
 //    func addNewPatient(to delegate: NewPatientFormDelegate){
 //        let newPatientForm = NewPatientForm.instantiate()
 //        let nc = UINavigationController()
@@ -85,12 +99,5 @@ class PatientsCoordinator: Coordinator {
 //        nc.pushViewController(newPatientForm, animated: false)
 //        navigationController.present(nc, animated: true, completion: nil)
 //    }
-    
-    func showAddActForm(){
-        let actForm = ActForm.instantiate()
-        let nc = UINavigationController()
-        nc.pushViewController(actForm, animated: false)
-        navigationController.present(nc, animated: true, completion: nil)
-    }
 
 }

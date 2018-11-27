@@ -12,6 +12,8 @@ import Eureka
 
 class ActForm: KarlaForm {
     
+    var patient: Patient?
+    
     let abbreviationList = ["VC", "TW", "C"]
     let categoryList = ["ROUT", "MIEE", "OPAT"]
     let locationList = ["CHCD", "ICU", "CE"]

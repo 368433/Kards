@@ -26,7 +26,7 @@ class PatientListTableViewController: UITableViewController, Storyboarded {
     }
     
     @objc func showAddActForm(){
-        coordinator?.showAddActForm()
+//        coordinator?.showAddActForm()
     }
     
     // MARK: - Table view data source

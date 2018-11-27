@@ -33,6 +33,7 @@ class BaseWorkListsListTVC: UITableViewController, Storyboarded{
         self.tableView.register(UINib(nibName: "WorkListTableCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(createList))
         self.tableView.tableFooterView = UIView(frame: .zero)
+        self.tableView.rowHeight = 87
     }
     
     @objc func createList(){
