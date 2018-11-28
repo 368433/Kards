@@ -85,7 +85,6 @@ extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
         
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             // delete item at indexPath
-            print("test delete")
         }
         let archive = UITableViewRowAction(style: .default, title: "Archive") { (action, indexPath) in
             if let list = self.model?.resultController.object(at: indexPath) {

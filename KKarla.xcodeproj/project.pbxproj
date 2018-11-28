@@ -15,6 +15,9 @@
 		6A533A9421AB590F000FB93E /* Populator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A533A9321AB590F000FB93E /* Populator.swift */; };
 		6A533A9621AB665D000FB93E /* ActiveListPatientsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A533A9521AB665D000FB93E /* ActiveListPatientsVC.swift */; };
 		6A533A9921AB7871000FB93E /* ListOfListsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A533A9821AB7871000FB93E /* ListOfListsModel.swift */; };
+		6A58514721AF551500EE6943 /* BaseTagsListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A58514621AF551500EE6943 /* BaseTagsListTVC.swift */; };
+		6A58514A21AF55AF00EE6943 /* TagsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A58514821AF55AF00EE6943 /* TagsListTableViewCell.swift */; };
+		6A58514B21AF55AF00EE6943 /* TagsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A58514921AF55AF00EE6943 /* TagsListTableViewCell.xib */; };
 		6A816EEE21AC2AF800031BAB /* BillingCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A816EED21AC2AF800031BAB /* BillingCodes.swift */; };
 		6A834AB521ADB9B900451E0D /* TagForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A834AB421ADB9B900451E0D /* TagForm.swift */; };
 		6A8E377521AAE166004F1EFF /* PatientTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A8E377421AAE166004F1EFF /* PatientTableCell.xib */; };
@@ -113,6 +116,9 @@
 		6A533A9321AB590F000FB93E /* Populator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Populator.swift; sourceTree = "<group>"; };
 		6A533A9521AB665D000FB93E /* ActiveListPatientsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveListPatientsVC.swift; sourceTree = "<group>"; };
 		6A533A9821AB7871000FB93E /* ListOfListsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfListsModel.swift; sourceTree = "<group>"; };
+		6A58514621AF551500EE6943 /* BaseTagsListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTagsListTVC.swift; sourceTree = "<group>"; };
+		6A58514821AF55AF00EE6943 /* TagsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsListTableViewCell.swift; sourceTree = "<group>"; };
+		6A58514921AF55AF00EE6943 /* TagsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagsListTableViewCell.xib; sourceTree = "<group>"; };
 		6A816EED21AC2AF800031BAB /* BillingCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingCodes.swift; sourceTree = "<group>"; };
 		6A834AB421ADB9B900451E0D /* TagForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagForm.swift; sourceTree = "<group>"; };
 		6A8E377421AAE166004F1EFF /* PatientTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PatientTableCell.xib; sourceTree = "<group>"; };
@@ -272,6 +278,7 @@
 				E88920A5217BD50C004216F1 /* LandingCardViewController.swift */,
 				6A36B04D21AB972300C4F9A8 /* BaseWorkListsListTVC.swift */,
 				6A3BF0E721AB1D4200CA0A71 /* BasePatientsListTVC.swift */,
+				6A58514621AF551500EE6943 /* BaseTagsListTVC.swift */,
 				6A533A9521AB665D000FB93E /* ActiveListPatientsVC.swift */,
 			);
 			path = "View Controllers";
@@ -306,6 +313,8 @@
 				6ADCB58F21AAFE320005BBE3 /* PatientTableViewCell.swift */,
 				6A36B05121AB97CE00C4F9A8 /* WorkListTableCell.xib */,
 				6A36B04F21AB97BE00C4F9A8 /* WorkListTableViewCell.swift */,
+				6A58514821AF55AF00EE6943 /* TagsListTableViewCell.swift */,
+				6A58514921AF55AF00EE6943 /* TagsListTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -618,6 +627,7 @@
 				E84115202175A38F00C5E9D9 /* OpenSans-Italic.ttf in Resources */,
 				E841152A2175A4B300C5E9D9 /* Assets.xcassets in Resources */,
 				E84115262175A38F00C5E9D9 /* OpenSans-Regular.ttf in Resources */,
+				6A58514B21AF55AF00EE6943 /* TagsListTableViewCell.xib in Resources */,
 				E84115272175A38F00C5E9D9 /* OpenSans-BoldItalic.ttf in Resources */,
 				E84114B0217210DC00C5E9D9 /* Main.storyboard in Resources */,
 				E84115252175A38F00C5E9D9 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
@@ -728,6 +738,7 @@
 				6A36B05021AB97BE00C4F9A8 /* WorkListTableViewCell.swift in Sources */,
 				6A533A9921AB7871000FB93E /* ListOfListsModel.swift in Sources */,
 				E8C84C7A217FBF6300D77649 /* PatientsListObject+CoreDataClass.swift in Sources */,
+				6A58514721AF551500EE6943 /* BaseTagsListTVC.swift in Sources */,
 				E859A7A42182B21C007BF751 /* SegmentioOptions.swift in Sources */,
 				E82E179E2176A7D400F57761 /* Gradients.swift in Sources */,
 				E84114BF217211B200C5E9D9 /* Storyboarded.swift in Sources */,
@@ -751,6 +762,7 @@
 				6A834AB521ADB9B900451E0D /* TagForm.swift in Sources */,
 				E859A79C2182B21C007BF751 /* SegmentioCellWithImageUnderLabel.swift in Sources */,
 				E84115022175A1DF00C5E9D9 /* FoldingCell.swift in Sources */,
+				6A58514A21AF55AF00EE6943 /* TagsListTableViewCell.swift in Sources */,
 				E859A7A12182B21C007BF751 /* SegmentioCellWithImageOverLabel.swift in Sources */,
 				E84114FE21758C8D00C5E9D9 /* FoldingTestTableViewController.swift in Sources */,
 				E859A7A52182B21C007BF751 /* Segmentio.swift in Sources */,

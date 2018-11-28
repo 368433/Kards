@@ -29,8 +29,6 @@ class PatientTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupButtons()
-        setupTags()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -40,18 +38,18 @@ class PatientTableViewCell: UITableViewCell {
     }
     
     func setupTags(){
-        let tagListGenerator = TagStackList(stack: tagListStack)
-        let tags: [(type: LabelType, labelText: String)] =
-            [(LabelType.bedsideLocationLabel, "test"),
-             (LabelType.diagnosisLabel, "decirto"),
-             (LabelType.ageLabel, "caminando"),
-             (LabelType.activeStatusLabel, "continuar"),
-             (LabelType.activeStatusLabel, "test")]
-        tagListGenerator.setLabels(for: tags)
+        if let patient = patient, let tags = patient.tags{
+            let tagStackList = TagStackList(stack: tagListStack)
+            let tagsList = tags.compactMap { ($0 as! Tag).tagTitle }
+            let labelsList = tagsList.compactMap { (LabelType.bedsideLocationLabel, $0) }
+            tagStackList.setLabels(for: labelsList)
+        }
     }
 
     func configure(){
         if let patient = patient {
+            setupButtons()
+            setupTags()
             self.patientNameLabel.text = patient.name
         }
     }

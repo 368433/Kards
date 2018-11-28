@@ -2,23 +2,19 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18B75" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Act" representedClassName="Act" syncable="YES">
         <attribute name="actBednumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="actCategory" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="actCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="actDepartment" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="actEndDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="actFee" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="actLocation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="actNature" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="actReferringMD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="actSite" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="actStartDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="bedsideLocation" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="codeRAMQ" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dateAdmission" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="endDate" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="facilityLocation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="patient" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Patient" inverseName="acts" inverseEntity="Patient" syncable="YES"/>
-        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="acts" inverseEntity="Tag" syncable="YES"/>
     </entity>
     <entity name="Patient" representedClassName="Patient" syncable="YES">
         <attribute name="nam" optional="YES" attributeType="String" syncable="YES"/>
@@ -40,14 +36,13 @@
         <relationship name="transferWorkList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Patient" inverseName="transferWorkLists" inverseEntity="Patient" syncable="YES"/>
     </entity>
     <entity name="Tag" representedClassName="Tag" syncable="YES">
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="acts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Act" inverseName="tags" inverseEntity="Act" syncable="YES"/>
+        <attribute name="tagTitle" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="patients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Patient" inverseName="tags" inverseEntity="Patient" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Act" positionX="-45" positionY="36" width="128" height="315"/>
+        <element name="Act" positionX="-45" positionY="36" width="128" height="255"/>
         <element name="Patient" positionX="-63" positionY="0" width="128" height="180"/>
         <element name="PatientsListObject" positionX="-63" positionY="-18" width="128" height="135"/>
-        <element name="Tag" positionX="-36" positionY="81" width="128" height="90"/>
+        <element name="Tag" positionX="-36" positionY="81" width="128" height="75"/>
     </elements>
 </model>

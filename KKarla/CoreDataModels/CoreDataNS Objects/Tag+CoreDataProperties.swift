@@ -2,7 +2,7 @@
 //  Tag+CoreDataProperties.swift
 //  KKarla
 //
-//  Created by quarticAIMBP2018 on 2018-11-25.
+//  Created by quarticAIMBP2018 on 2018-11-27.
 //  Copyright © 2018 amir2. All rights reserved.
 //
 //
@@ -17,26 +17,8 @@ extension Tag {
         return NSFetchRequest<Tag>(entityName: "Tag")
     }
 
-    @NSManaged public var title: String?
-    @NSManaged public var acts: NSSet?
+    @NSManaged public var tagTitle: String?
     @NSManaged public var patients: NSSet?
-
-}
-
-// MARK: Generated accessors for acts
-extension Tag {
-
-    @objc(addActsObject:)
-    @NSManaged public func addToActs(_ value: Act)
-
-    @objc(removeActsObject:)
-    @NSManaged public func removeFromActs(_ value: Act)
-
-    @objc(addActs:)
-    @NSManaged public func addToActs(_ values: NSSet)
-
-    @objc(removeActs:)
-    @NSManaged public func removeFromActs(_ values: NSSet)
 
 }
 

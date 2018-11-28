@@ -2,7 +2,7 @@
 //  Act+CoreDataProperties.swift
 //  KKarla
 //
-//  Created by amir2 on 2018-10-25.
+//  Created by quarticAIMBP2018 on 2018-11-27.
 //  Copyright © 2018 amir2. All rights reserved.
 //
 //
@@ -17,14 +17,20 @@ extension Act {
         return NSFetchRequest<Act>(entityName: "Act")
     }
 
-    @NSManaged public var bedsideLocation: String?
-    @NSManaged public var codeRAMQ: String?
+    @NSManaged public var actBednumber: String?
+    @NSManaged public var actCode: String?
+    @NSManaged public var actDepartment: String?
+    @NSManaged public var actEndDate: NSDate?
+    @NSManaged public var actFee: String?
+    @NSManaged public var actSite: String?
+    @NSManaged public var actNature: String?
+    @NSManaged public var actReferringMD: String?
+    @NSManaged public var actStartDate: Date?
+    @NSManaged public var dateAdmission: Date?
     @NSManaged public var endDate: String?
-    @NSManaged public var facilityLocation: String?
     @NSManaged public var note: String?
-    @NSManaged public var startDate: NSDate?
+    @NSManaged public var actCategory: String?
     @NSManaged public var patient: NSSet?
-    @NSManaged public var tags: NSSet?
 
 }
 
@@ -42,22 +48,5 @@ extension Act {
 
     @objc(removePatient:)
     @NSManaged public func removeFromPatient(_ values: NSSet)
-
-}
-
-// MARK: Generated accessors for tags
-extension Act {
-
-    @objc(addTagsObject:)
-    @NSManaged public func addToTags(_ value: Tag)
-
-    @objc(removeTagsObject:)
-    @NSManaged public func removeFromTags(_ value: Tag)
-
-    @objc(addTags:)
-    @NSManaged public func addToTags(_ values: NSSet)
-
-    @objc(removeTags:)
-    @NSManaged public func removeFromTags(_ values: NSSet)
 
 }

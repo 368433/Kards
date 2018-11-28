@@ -2,7 +2,7 @@
 //  PatientsListObject+CoreDataProperties.swift
 //  KKarla
 //
-//  Created by quarticAIMBP2018 on 2018-11-25.
+//  Created by quarticAIMBP2018 on 2018-11-27.
 //  Copyright © 2018 amir2. All rights reserved.
 //
 //
@@ -17,9 +17,9 @@ extension PatientsListObject {
         return NSFetchRequest<PatientsListObject>(entityName: "PatientsListObject")
     }
 
+    @NSManaged public var isActive: Bool
     @NSManaged public var subtitle: String?
     @NSManaged public var title: String?
-    @NSManaged public var isActive: Bool
     @NSManaged public var activeWorkList: NSSet?
     @NSManaged public var signedOffWorkList: NSSet?
     @NSManaged public var transferWorkList: NSSet?
