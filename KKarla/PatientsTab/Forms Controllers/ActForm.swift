@@ -30,8 +30,10 @@ class ActForm: KarlaForm {
                 }.onChange { row in
                     if let site = row.value, let dic = self.actSites[site],
                         let actDepartment = self.form.rowBy(tag: "actDepartment") as? SegmentedRow<String>,
-                    let actCategory = self.form.rowBy(tag: "actCategory") as? SegmentedRow<String> {
+                    let actCategory = self.form.rowBy(tag: "actCategory") as? SegmentedRow<String>,
+                    let actNature = self.form.rowBy(tag: "actNature") as? SegmentedRow<String>{
                         actCategory.value = ""
+                        actNature.value = ""
                         actDepartment.value = ""
                         actDepartment.options = Array(dic.keys).sorted()
                         actDepartment.reload()

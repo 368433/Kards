@@ -49,7 +49,7 @@ struct ramqCodes {
                 "VP": ("15104","122.85")]]]
     
     let hospitalDict = [
-        "HOSP": [
+        "Hosp": [
             "ROUT": [
                 "C": ("9160","215.85"),
                 "VP": ("9150","111.45"),
