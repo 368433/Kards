@@ -37,7 +37,7 @@ extension LandingCardViewController {
     private func setupButtons(){
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(createList))
         showAllPatientsButton.addTarget(self, action: #selector(showAllPatients), for: .touchUpInside)
-        showAllTagsButton.addTarget(self, action: #selector(showAllPatients), for: .touchUpInside)
+        showAllTagsButton.addTarget(self, action: #selector(showAllTags), for: .touchUpInside)
         showArchivedListsButton.addTarget(self, action: #selector(showAllWorklists), for: .touchUpInside)
     }
     
@@ -49,7 +49,7 @@ extension LandingCardViewController {
         coordinator?.showAllPatients()
     }
     @objc func showAllTags(){
-        coordinator?.showAllPatients()
+        coordinator?.showTagsListsTVC()
     }
     @objc func showAllWorklists(){
         coordinator?.showArchivedWorklists()

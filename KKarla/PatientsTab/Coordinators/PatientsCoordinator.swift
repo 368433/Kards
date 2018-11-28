@@ -55,6 +55,12 @@ class PatientsCoordinator: Coordinator {
         presentDataForm(for: newPatientForm)
     }
     
+    func showTagsListsTVC(){
+        let tagsListsTVC = BaseTagsListTVC()
+        tagsListsTVC.coordinator = self
+        navigationController.pushViewController(tagsListsTVC, animated: true)
+    }
+    
     // PRESENTING FORMS CONTROLLERS
     //A helper function
     func presentDataForm(for form: KarlaForm) {

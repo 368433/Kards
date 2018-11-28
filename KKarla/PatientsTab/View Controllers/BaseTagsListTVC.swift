@@ -15,6 +15,14 @@ class BaseTagsListTVC: UITableViewController {
     var predicate: NSPredicate?
     var dataCoordinator = AppDelegate.dataCoordinator
     
+    init(){
+        super.init(nibName:nil, bundle:nil)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,4 +47,9 @@ class BaseTagsListTVC: UITableViewController {
         return model?.resultController.sections![section].numberOfObjects ?? 0
     }
 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TagsListTableViewCell
+        cell.textLabel?.text = model?.resultController.object(at: indexPath).tagTitle
+        return cell
+    }
 }

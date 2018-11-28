@@ -45,10 +45,10 @@ class TagsListModel{
     
     private func getFetchedResultsController() -> NSFetchedResultsController<Tag> {
         let request = Tag.createFetchRequest()
-        let sort = NSSortDescriptor(key: "title", ascending: true)
+        let sort = NSSortDescriptor(key: "tagTitle", ascending: true)
         request.sortDescriptors = [sort]
         request.fetchBatchSize = 20
-        return NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataCoordinator.persistentContainer.viewContext, sectionNameKeyPath: "title", cacheName: nil)
+        return NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataCoordinator.persistentContainer.viewContext, sectionNameKeyPath: "tagTitle", cacheName: nil)
     }
 }
 

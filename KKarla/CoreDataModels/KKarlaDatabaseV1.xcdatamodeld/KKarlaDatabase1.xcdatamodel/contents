@@ -21,19 +21,19 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photoID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="summaryBlurb" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="activeWorkLists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PatientsListObject" inverseName="activeWorkList" inverseEntity="PatientsListObject" syncable="YES"/>
+        <relationship name="activeWorkLists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PatientsListObject" inverseName="activePatients" inverseEntity="PatientsListObject" syncable="YES"/>
         <relationship name="acts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Act" inverseName="patient" inverseEntity="Act" syncable="YES"/>
-        <relationship name="signedOffWorkLists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PatientsListObject" inverseName="signedOffWorkList" inverseEntity="PatientsListObject" syncable="YES"/>
+        <relationship name="signedOffWorkLists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PatientsListObject" inverseName="signedOffPatients" inverseEntity="PatientsListObject" syncable="YES"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="patients" inverseEntity="Tag" syncable="YES"/>
-        <relationship name="transferWorkLists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PatientsListObject" inverseName="transferWorkList" inverseEntity="PatientsListObject" syncable="YES"/>
+        <relationship name="transferWorkLists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PatientsListObject" inverseName="transferredPatients" inverseEntity="PatientsListObject" syncable="YES"/>
     </entity>
     <entity name="PatientsListObject" representedClassName="PatientsListObject" syncable="YES">
         <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="subtitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="activeWorkList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Patient" inverseName="activeWorkLists" inverseEntity="Patient" syncable="YES"/>
-        <relationship name="signedOffWorkList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Patient" inverseName="signedOffWorkLists" inverseEntity="Patient" syncable="YES"/>
-        <relationship name="transferWorkList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Patient" inverseName="transferWorkLists" inverseEntity="Patient" syncable="YES"/>
+        <relationship name="activePatients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Patient" inverseName="activeWorkLists" inverseEntity="Patient" syncable="YES"/>
+        <relationship name="signedOffPatients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Patient" inverseName="signedOffWorkLists" inverseEntity="Patient" syncable="YES"/>
+        <relationship name="transferredPatients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Patient" inverseName="transferWorkLists" inverseEntity="Patient" syncable="YES"/>
     </entity>
     <entity name="Tag" representedClassName="Tag" syncable="YES">
         <attribute name="tagTitle" optional="YES" attributeType="String" syncable="YES"/>

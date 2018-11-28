@@ -21,7 +21,6 @@ class PatientListModel{
     var objectToLink: NSManagedObject?
     
     init(modelOutputView: UITableView, searchPredicate: NSPredicate?){
-        super.init()
         self.modelOutputView = modelOutputView
         self.resultController = getFetchedResultsController()
         self.searchPredicate = searchPredicate
