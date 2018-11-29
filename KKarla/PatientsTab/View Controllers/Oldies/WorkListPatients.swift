@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class WorkListPatients: PatientListTableViewController {
-    var patientList: PatientsListObject!
+    var patientList: ClinicalList!
     @IBOutlet weak var segmentedSubList: UISegmentedControl!
     @IBOutlet weak var dateSegmentList: UISegmentedControl!
     var segmentioView: Segmentio!
@@ -35,7 +35,7 @@ class WorkListPatients: PatientListTableViewController {
         case signedOffWorkList
         case transferWorkList
         
-        func getPredicate(for list: PatientsListObject) -> NSPredicate {
+        func getPredicate(for list: ClinicalList) -> NSPredicate {
             switch self {
             case .activeWorkList:
                 return NSPredicate(format: "ANY activeWorkLists == %@", list)
@@ -87,15 +87,15 @@ class WorkListPatients: PatientListTableViewController {
             let currentList = self.segmentedSubList.selectedSegmentIndex
             let ac = UIAlertController(title: "Move to list", message: nil, preferredStyle: .actionSheet)
             ac.addAction(UIAlertAction(title: "Sign off list", style: .default) { _ in
-                self.patientList.addToSignedOffWorkList(thisPatient)
+                self.patientList.addToSignedOffPatients(thisPatient)
                 removeFromCurrentList(for: currentList)
             })
             ac.addAction(UIAlertAction(title: "Transfer list", style: .default) { _ in
-                self.patientList.addToTransferWorkList(thisPatient)
+                self.patientList.addToTransferredPatients(thisPatient)
                 removeFromCurrentList(for: currentList)
             })
             ac.addAction(UIAlertAction(title: "Active worklist", style: .default) { _ in
-                self.patientList.addToActiveWorkList(thisPatient)
+                self.patientList.addToActivePatients(thisPatient)
                 removeFromCurrentList(for: currentList)
             })
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))

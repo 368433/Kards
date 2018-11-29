@@ -2,7 +2,7 @@
 //  Tag+CoreDataProperties.swift
 //  KKarla
 //
-//  Created by quarticAIMBP2018 on 2018-11-27.
+//  Created by quarticAIMBP2018 on 2018-11-28.
 //  Copyright © 2018 amir2. All rights reserved.
 //
 //

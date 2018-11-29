@@ -27,8 +27,8 @@ class PatientsCoordinator: Coordinator {
     // FUNCTIONS HERE HAVE BEEN REVIEWED
     
     //Presenting view controllers
-    func showPatients(for patientsListObject: PatientsListObject){
-        let patientsListVC = ActiveListPatientsVC(patientsListObject: patientsListObject)
+    func showPatients(for ClinicalList: ClinicalList){
+        let patientsListVC = ActiveListPatientsVC(ClinicalList: ClinicalList)
         patientsListVC.coordinator = self
         navigationController.pushViewController(patientsListVC, animated: true)
     }
@@ -49,7 +49,7 @@ class PatientsCoordinator: Coordinator {
         navigationController.pushViewController(wlVC, animated: true)
     }
     
-    func addNewPatient(list: PatientsListObject? = nil){
+    func addNewPatient(list: ClinicalList? = nil){
         let newPatientForm = PatientForm.instantiate()
         if let list = list {newPatientForm.listToLink = list}
         presentDataForm(for: newPatientForm)
@@ -69,7 +69,7 @@ class PatientsCoordinator: Coordinator {
         navigationController.present(nc, animated: true, completion: nil)
     }
     
-    func showNewListForm(existingList: PatientsListObject? = nil){
+    func showNewListForm(existingList: ClinicalList? = nil){
         let newListFormVC = WorkListForm.instantiate()
         if let list = existingList {newListFormVC.existingPatientList = list}
         presentDataForm(for: newListFormVC)
@@ -91,7 +91,7 @@ class PatientsCoordinator: Coordinator {
     
     
     
-//    func showWorkListPatients(for workList: PatientsListObject?) {
+//    func showWorkListPatients(for workList: ClinicalList?) {
 //        let patientListVC = WorkListPatients.instantiate()
 //        patientListVC.coordinator = self
 //        patientListVC.patientList = workList

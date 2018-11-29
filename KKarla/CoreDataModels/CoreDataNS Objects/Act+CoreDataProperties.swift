@@ -2,7 +2,7 @@
 //  Act+CoreDataProperties.swift
 //  KKarla
 //
-//  Created by quarticAIMBP2018 on 2018-11-27.
+//  Created by quarticAIMBP2018 on 2018-11-28.
 //  Copyright © 2018 amir2. All rights reserved.
 //
 //
@@ -18,19 +18,20 @@ extension Act {
     }
 
     @NSManaged public var actBednumber: String?
+    @NSManaged public var actCategory: String?
     @NSManaged public var actCode: String?
     @NSManaged public var actDepartment: String?
-    @NSManaged public var actEndDate: NSDate?
+    @NSManaged public var actEndDate: Date?
     @NSManaged public var actFee: String?
-    @NSManaged public var actSite: String?
     @NSManaged public var actNature: String?
     @NSManaged public var actReferringMD: String?
+    @NSManaged public var actSite: String?
     @NSManaged public var actStartDate: Date?
     @NSManaged public var dateAdmission: Date?
     @NSManaged public var endDate: String?
     @NSManaged public var note: String?
-    @NSManaged public var actCategory: String?
     @NSManaged public var patient: NSSet?
+    @NSManaged public var episodeOfCare: EpisodeOfCare?
 
 }
 

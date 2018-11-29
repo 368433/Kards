@@ -11,7 +11,7 @@ import Eureka
 
 class WorkListForm: KarlaForm {
     
-    var existingPatientList: PatientsListObject?
+    var existingPatientList: ClinicalList?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +44,8 @@ class WorkListForm: KarlaForm {
         objectToSave = existingPatientList ?? getNewPatientListInstance()
         super.saveEntries()
     }
-    func getNewPatientListInstance() -> PatientsListObject {
-        let newPatientList = PatientsListObject(context: dataCoordinator.persistentContainer.viewContext)
+    func getNewPatientListInstance() -> ClinicalList {
+        let newPatientList = ClinicalList(context: dataCoordinator.persistentContainer.viewContext)
         dataCoordinator.persistentContainer.viewContext.insert(newPatientList)
         return newPatientList
     }

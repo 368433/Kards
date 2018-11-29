@@ -10,7 +10,7 @@
 //import Eureka
 //
 //protocol NewPatientFormDelegate {
-//    var patientList: PatientsListObject! {get set}
+//    var patientList: ClinicalList! {get set}
 //    func addToActiveWorkList(from form: Form)
 //    var dataCoordinator: DataCoordinator {get set}
 //}

@@ -13,7 +13,7 @@
 //
 //class LandingCardModel{
 //    
-//    var resultController: NSFetchedResultsController<PatientsListObject>!
+//    var resultController: NSFetchedResultsController<ClinicalList>!
 //    var dataCoordinator = AppDelegate.dataCoordinator
 //    var searchPredicate: NSCompoundPredicate?
 //    var modelOutputView: UITableView
@@ -39,8 +39,8 @@
 //        }
 //    }
 //    
-//    private func getFetchedResultsController() -> NSFetchedResultsController<PatientsListObject> {
-//        let request = PatientsListObject.createFetchRequest()
+//    private func getFetchedResultsController() -> NSFetchedResultsController<ClinicalList> {
+//        let request = ClinicalList.createFetchRequest()
 ////        let sort = NSSortDescriptor(key: "title", ascending: true)
 //        
 //        request.sortDescriptors = [listSortingCriteria]

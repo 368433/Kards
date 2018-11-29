@@ -2,7 +2,7 @@
 //  Patient+CoreDataProperties.swift
 //  KKarla
 //
-//  Created by quarticAIMBP2018 on 2018-11-27.
+//  Created by quarticAIMBP2018 on 2018-11-28.
 //  Copyright © 2018 amir2. All rights reserved.
 //
 //
@@ -17,15 +17,19 @@ extension Patient {
         return NSFetchRequest<Patient>(entityName: "Patient")
     }
 
-    @NSManaged public var nam: String?
+    @NSManaged public var sin: String?
     @NSManaged public var name: String?
     @NSManaged public var photoID: String?
     @NSManaged public var summaryBlurb: String?
+    @NSManaged public var postalCode: String?
+    @NSManaged public var dateOfBirth: NSDate?
+    @NSManaged public var uniqueID: UUID?
     @NSManaged public var activeWorkLists: NSSet?
     @NSManaged public var acts: NSSet?
     @NSManaged public var signedOffWorkLists: NSSet?
     @NSManaged public var tags: NSSet?
     @NSManaged public var transferWorkLists: NSSet?
+    @NSManaged public var episodesOfCare: NSSet?
 
 }
 
@@ -33,10 +37,10 @@ extension Patient {
 extension Patient {
 
     @objc(addActiveWorkListsObject:)
-    @NSManaged public func addToActiveWorkLists(_ value: PatientsListObject)
+    @NSManaged public func addToActiveWorkLists(_ value: ClinicalList)
 
     @objc(removeActiveWorkListsObject:)
-    @NSManaged public func removeFromActiveWorkLists(_ value: PatientsListObject)
+    @NSManaged public func removeFromActiveWorkLists(_ value: ClinicalList)
 
     @objc(addActiveWorkLists:)
     @NSManaged public func addToActiveWorkLists(_ values: NSSet)
@@ -67,10 +71,10 @@ extension Patient {
 extension Patient {
 
     @objc(addSignedOffWorkListsObject:)
-    @NSManaged public func addToSignedOffWorkLists(_ value: PatientsListObject)
+    @NSManaged public func addToSignedOffWorkLists(_ value: ClinicalList)
 
     @objc(removeSignedOffWorkListsObject:)
-    @NSManaged public func removeFromSignedOffWorkLists(_ value: PatientsListObject)
+    @NSManaged public func removeFromSignedOffWorkLists(_ value: ClinicalList)
 
     @objc(addSignedOffWorkLists:)
     @NSManaged public func addToSignedOffWorkLists(_ values: NSSet)
@@ -101,15 +105,32 @@ extension Patient {
 extension Patient {
 
     @objc(addTransferWorkListsObject:)
-    @NSManaged public func addToTransferWorkLists(_ value: PatientsListObject)
+    @NSManaged public func addToTransferWorkLists(_ value: ClinicalList)
 
     @objc(removeTransferWorkListsObject:)
-    @NSManaged public func removeFromTransferWorkLists(_ value: PatientsListObject)
+    @NSManaged public func removeFromTransferWorkLists(_ value: ClinicalList)
 
     @objc(addTransferWorkLists:)
     @NSManaged public func addToTransferWorkLists(_ values: NSSet)
 
     @objc(removeTransferWorkLists:)
     @NSManaged public func removeFromTransferWorkLists(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for episodesOfCare
+extension Patient {
+
+    @objc(addEpisodesOfCareObject:)
+    @NSManaged public func addToEpisodesOfCare(_ value: EpisodeOfCare)
+
+    @objc(removeEpisodesOfCareObject:)
+    @NSManaged public func removeFromEpisodesOfCare(_ value: EpisodeOfCare)
+
+    @objc(addEpisodesOfCare:)
+    @NSManaged public func addToEpisodesOfCare(_ values: NSSet)
+
+    @objc(removeEpisodesOfCare:)
+    @NSManaged public func removeFromEpisodesOfCare(_ values: NSSet)
 
 }

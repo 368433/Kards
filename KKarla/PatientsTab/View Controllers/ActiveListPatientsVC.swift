@@ -12,10 +12,10 @@ import UIKit
 
 class ActiveListPatientsVC: BasePatientsListTVC {
     
-    var activeList: PatientsListObject
+    var activeList: ClinicalList
     
-    init(patientsListObject: PatientsListObject){
-        self.activeList = patientsListObject
+    init(ClinicalList: ClinicalList){
+        self.activeList = ClinicalList
         super.init(nibName:nil, bundle:nil)
         self.predicate = NSPredicate(format: "ANY activeWorkLists == %@", activeList)
     }

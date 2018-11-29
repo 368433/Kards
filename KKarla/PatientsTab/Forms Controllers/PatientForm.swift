@@ -16,7 +16,7 @@ class PatientForm: KarlaForm {
     
 //    var delegate: NewPatientFormDelegate?
     var patient: Patient?
-    var listToLink: PatientsListObject?
+    var listToLink: ClinicalList?
     
     override func viewDidLoad() {
         super.viewDidLoad()

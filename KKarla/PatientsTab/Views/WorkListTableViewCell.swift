@@ -27,7 +27,7 @@ class WorkListTableViewCell: UITableViewCell {
     func setupTags(){
     }
 
-    func configure(workList: PatientsListObject?){
+    func configure(workList: ClinicalList?){
         if let list = workList {
             listTitleLabel.text = list.title
         }
