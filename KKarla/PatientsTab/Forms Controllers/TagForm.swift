@@ -23,6 +23,7 @@ class TagForm: KarlaForm{
         <<< TextRow() { row in
             row.title = "Tag:"
             row.placeholder = "Add a tag"
+            row.value = existingTag?.tagTitle
             row.tag = "tagTitle"
         }
     }

@@ -16,16 +16,16 @@ class TagsListModel{
     var resultController: NSFetchedResultsController<Tag>!
     var dataCoordinator = AppDelegate.dataCoordinator
     var searchPredicate: NSPredicate?
-    var modelOutputView: UITableView
+    var tableOutputView: UITableView
     var resultControllerDelegate = TableViewFetchResultAdapter()
     var objectToLink: NSManagedObject?
     
-    init(modelOutputView: UITableView, searchPredicate: NSPredicate?){
-        self.modelOutputView = modelOutputView
+    init(tableOutputView: UITableView, searchPredicate: NSPredicate?){
+        self.tableOutputView = tableOutputView
         self.resultController = getFetchedResultsController()
         self.searchPredicate = searchPredicate
         resultController.delegate = resultControllerDelegate
-        resultControllerDelegate.fetchResultsAdatptedTableView = self.modelOutputView
+        resultControllerDelegate.fetchResultsAdatptedTableView = self.tableOutputView
         loadObjectList()
     }
     

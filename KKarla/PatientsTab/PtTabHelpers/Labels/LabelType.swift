@@ -33,7 +33,6 @@ enum LabelType: String {
     }
     
     var labelCALayer: CALayer {
-        
         let layer = CALayer()
         layer.borderColor = self.borderColorForLabel.cgColor
 //        layer.backgroundColor = self.backgroundColorForLabel.cgColor
@@ -48,6 +47,10 @@ enum LabelType: String {
             layer.cornerRadius = 3.0
         }
         return layer
+    }
+    
+    var font: UIFont {
+        return UIFont.preferredFont(forTextStyle: .caption1)
     }
     
     var borderColorForLabel: UIColor {

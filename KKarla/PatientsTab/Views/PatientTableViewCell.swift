@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class PatientTableViewCell: UITableViewCell {
     
@@ -28,29 +29,37 @@ class PatientTableViewCell: UITableViewCell {
     // MARK: other variables:
     var patient: Patient?
     var coordinator: PatientsCoordinator?
-//    var delegate: 
-
+    var tagStackList: ButtonTagStackList?
+    var tagListModel: TagsListModel?
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
     func setupTags(){
-        if let patient = patient, let tags = patient.tags{
-            let tagStackList = TagStackList(stack: tagListStack)
-            let tagsList = tags.compactMap { ($0 as! Tag).tagTitle }
-            let labelsList = tagsList.compactMap { (LabelType.bedsideLocationLabel, $0) }
-            tagStackList.setLabels(for: labelsList)
+        let tagsTitlesList = tagListModel?.resultController.fetchedObjects?.compactMap{ $0.tagTitle}
+        //            let tagsTitlesList = tags.compactMap { ($0 as! Tag).tagTitle }
+        let labelsList = tagsTitlesList?.compactMap { (LabelType.bedsideLocationLabel, $0) }
+        tagStackList = ButtonTagStackList(stack: tagListStack)
+        if let labelsList = labelsList {
+            tagStackList?.setLabels(for: labelsList)
+            tagStackList?.tagStack.arrangedSubviews.forEach { butn in
+                let button = butn as! UIButton
+                button.addTarget(self, action: #selector(tagButtonAction), for: .touchUpInside)
+            }
         }
     }
-
+    
     func configure(){
         if let patient = patient {
+//            tagListModel?.resultController.delegate = self
             setupButtons()
             setupTags()
             self.patientNameLabel.text = patient.name
@@ -63,14 +72,28 @@ class PatientTableViewCell: UITableViewCell {
     }
     
     @objc func showActForm(){
-        if let coordo = coordinator, let pt = patient {
-            coordo.showAddActForm(patient: pt)
-        }
+        if let pt = patient {coordinator?.showAddActForm(patient: pt)}
     }
     @objc func showTagForm(){
-        if let coordo = coordinator, let pt = patient {
-            coordo.showTagForm(for: pt)
-        }
+        if let pt = patient {coordinator?.showTagForm(for: pt, existingTag: nil)}
     }
-
+    
 }
+
+extension PatientTableViewCell{
+    @objc func tagButtonAction(sender: UIButton){
+        let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Edit tag title", style: .default) {_ in
+            let tag = self.tagListModel?.resultController.fetchedObjects?.first(where: {$0.tagTitle == sender.titleLabel?.text})
+            self.coordinator?.showTagForm(for: self.patient!, existingTag: tag)
+//            self.setupTags()
+        })
+        ac.addAction(UIAlertAction(title: "Delete tag", style: .destructive) {_ in})
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        coordinator?.showTagActions(for: ac)
+    }
+}
+
+//extension PatientTableViewCell: NSFetchedResultsControllerDelegate{
+//    
+//}

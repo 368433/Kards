@@ -39,9 +39,14 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("cellforrow")
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PatientTableViewCell
-        cell.patient = model?.resultController.object(at: indexPath)
+        
+        guard let patient = model?.resultController.object(at: indexPath) else { fatalError("No valid patient object")}
+        cell.patient = patient
         cell.coordinator = self.coordinator
+        let tagListPredicate = NSPredicate(format: "ANY patients == %@", patient)
+        cell.tagListModel = TagsListModel(tableOutputView: self.tableView, searchPredicate: tagListPredicate)
         cell.configure()
         return cell
     }

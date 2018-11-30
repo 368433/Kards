@@ -26,7 +26,7 @@ class BaseTagsListTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        model = TagsListModel(modelOutputView: self.tableView, searchPredicate: predicate)
+        model = TagsListModel(tableOutputView: self.tableView, searchPredicate: predicate)
         
         self.tableView.register(UINib(nibName: TagsListTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: TagsListTableViewCell.reuseID)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewTag))

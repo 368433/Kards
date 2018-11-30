@@ -85,9 +85,6 @@ class ActiveListPatientsVC: BasePatientsListTVC {
     }
 }
 
-
-
-
 // MARK SEGMENTED CONTROL
 
 extension ActiveListPatientsVC{

@@ -49,6 +49,10 @@ class PatientsCoordinator: Coordinator {
         navigationController.pushViewController(wlVC, animated: true)
     }
     
+    func showTagActions(for ac: UIAlertController){
+        navigationController.present(ac, animated: true)
+    }
+    
     func addNewPatient(list: ClinicalList? = nil){
         let newPatientForm = PatientForm.instantiate()
         if let list = list {newPatientForm.listToLink = list}
@@ -81,9 +85,10 @@ class PatientsCoordinator: Coordinator {
         presentDataForm(for: actForm)
     }
     
-    func showTagForm(for patient: Patient){
+    func showTagForm(for patient: Patient, existingTag: Tag?){
         let tagForm = TagForm()
         tagForm.patient = patient
+        tagForm.existingTag = existingTag
         presentDataForm(for: tagForm)
     }
     
