@@ -12,17 +12,16 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
 
     weak var coordinator: PatientsCoordinator?
     var model: PatientListModel?
-    var predicate: NSPredicate?
+//    var predicate: NSPredicate?
     var dataCoordinator = AppDelegate.dataCoordinator
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        model = PatientListModel(modelOutputView: self.tableView, searchPredicate: predicate)
-        
+        model = PatientListModel(modelOutputView: self.tableView)
         self.tableView.register(UINib(nibName: "PatientTableCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNew))
         self.tableView.tableFooterView = UIView(frame: .zero)
+        self.tableView.rowHeight = PatientTableViewCell.cellHeight
     }
 
     @objc func addNew(){

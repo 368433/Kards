@@ -20,12 +20,15 @@ class PatientListModel{
     var resultControllerDelegate = TableViewFetchResultAdapter()
     var objectToLink: NSManagedObject?
     
-    init(modelOutputView: UITableView, searchPredicate: NSPredicate?){
+    init(modelOutputView: UITableView){
         self.modelOutputView = modelOutputView
         self.resultController = getFetchedResultsController()
-        self.searchPredicate = searchPredicate
         resultController.delegate = resultControllerDelegate
         resultControllerDelegate.fetchResultsAdatptedTableView = self.modelOutputView
+    }
+    
+    func getPatients(predicate: NSPredicate?){
+        self.searchPredicate = predicate
         loadObjectList()
     }
     

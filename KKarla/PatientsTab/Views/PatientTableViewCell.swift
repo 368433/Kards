@@ -10,6 +10,9 @@ import UIKit
 
 class PatientTableViewCell: UITableViewCell {
     
+    // STATIC attributes
+    static let cellHeight: CGFloat = 150
+    
     // MARK: IBOUTLETS
     @IBOutlet weak var UserImageIcon: UIImageView!
     @IBOutlet weak var roomNumberLabel: UILabel!

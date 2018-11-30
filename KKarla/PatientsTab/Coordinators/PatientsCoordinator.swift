@@ -38,7 +38,7 @@ class PatientsCoordinator: Coordinator {
     }
     
     func showAllPatients() {
-        let patientListVC = BasePatientsListTVC.instantiate()
+        let patientListVC = AllPatientsListVC()
         patientListVC.coordinator = self
         navigationController.pushViewController(patientListVC, animated: true)
     }

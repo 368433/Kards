@@ -18,7 +18,7 @@ class WorkListPatients: PatientListTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         predicate = NSPredicate(format: "ANY activeWorkLists == %@", patientList)
-        model = PatientListModel(modelOutputView: self.tableView, searchPredicate: predicate)
+//        model = PatientListModel(modelOutputView: self.tableView, searchPredicate: predicate)
         self.title = patientList?.title
         
         //        setupSegmentio()

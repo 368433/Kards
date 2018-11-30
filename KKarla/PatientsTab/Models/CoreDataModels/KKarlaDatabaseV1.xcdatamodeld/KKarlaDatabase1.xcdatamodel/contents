@@ -25,7 +25,7 @@
         <relationship name="signedOffPatients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Patient" inverseName="signedOffWorkLists" inverseEntity="Patient" syncable="YES"/>
         <relationship name="transferredPatients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Patient" inverseName="transferWorkLists" inverseEntity="Patient" syncable="YES"/>
     </entity>
-    <entity name="DiagnosticEpisode" representedClassName="DiagnosticEpisode" syncable="YES" codeGenerationType="class">
+    <entity name="DiagnosticEpisode" representedClassName="DiagnosticEpisode" syncable="YES">
         <attribute name="diagnosis" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -53,9 +53,9 @@
     </entity>
     <elements>
         <element name="Act" positionX="233.03515625" positionY="-218.18359375" width="128" height="268"/>
-        <element name="Patient" positionX="-128.2265625" positionY="-307.77734375" width="128" height="238"/>
         <element name="ClinicalList" positionX="-341.234375" positionY="-209.1484375" width="128" height="133"/>
-        <element name="Tag" positionX="-75.9375" positionY="-22.71875" width="128" height="75"/>
         <element name="DiagnosticEpisode" positionX="-219.73046875" positionY="56.1953125" width="128" height="118"/>
+        <element name="Patient" positionX="-128.2265625" positionY="-307.77734375" width="128" height="238"/>
+        <element name="Tag" positionX="-75.9375" positionY="-22.71875" width="128" height="75"/>
     </elements>
 </model>

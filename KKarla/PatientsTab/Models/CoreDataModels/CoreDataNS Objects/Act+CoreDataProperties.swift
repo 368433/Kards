@@ -30,8 +30,8 @@ extension Act {
     @NSManaged public var dateAdmission: Date?
     @NSManaged public var endDate: String?
     @NSManaged public var note: String?
+    @NSManaged public var diagnosticEpisode: DiagnosticEpisode?
     @NSManaged public var patient: NSSet?
-    @NSManaged public var episodeOfCare: EpisodeOfCare?
 
 }
 

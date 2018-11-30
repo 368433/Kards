@@ -15,7 +15,7 @@ class AllPatientsList: PatientListTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        model = PatientListModel(modelOutputView: self.tableView, searchPredicate: predicate)
+//        model = PatientListModel(modelOutputView: self.tableView, searchPredicate: predicate)
         self.title = "All Patients"
         setupSearch()
     }

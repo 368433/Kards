@@ -17,19 +17,19 @@ extension Patient {
         return NSFetchRequest<Patient>(entityName: "Patient")
     }
 
-    @NSManaged public var sin: String?
+    @NSManaged public var dateOfBirth: Date?
     @NSManaged public var name: String?
     @NSManaged public var photoID: String?
-    @NSManaged public var summaryBlurb: String?
     @NSManaged public var postalCode: String?
-    @NSManaged public var dateOfBirth: NSDate?
+    @NSManaged public var sin: String?
+    @NSManaged public var summaryBlurb: String?
     @NSManaged public var uniqueID: UUID?
     @NSManaged public var activeWorkLists: NSSet?
     @NSManaged public var acts: NSSet?
+    @NSManaged public var diagnosticEpisdoes: NSSet?
     @NSManaged public var signedOffWorkLists: NSSet?
     @NSManaged public var tags: NSSet?
     @NSManaged public var transferWorkLists: NSSet?
-    @NSManaged public var episodesOfCare: NSSet?
 
 }
 
@@ -64,6 +64,23 @@ extension Patient {
 
     @objc(removeActs:)
     @NSManaged public func removeFromActs(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for diagnosticEpisdoes
+extension Patient {
+
+    @objc(addDiagnosticEpisdoesObject:)
+    @NSManaged public func addToDiagnosticEpisdoes(_ value: DiagnosticEpisode)
+
+    @objc(removeDiagnosticEpisdoesObject:)
+    @NSManaged public func removeFromDiagnosticEpisdoes(_ value: DiagnosticEpisode)
+
+    @objc(addDiagnosticEpisdoes:)
+    @NSManaged public func addToDiagnosticEpisdoes(_ values: NSSet)
+
+    @objc(removeDiagnosticEpisdoes:)
+    @NSManaged public func removeFromDiagnosticEpisdoes(_ values: NSSet)
 
 }
 
@@ -115,22 +132,5 @@ extension Patient {
 
     @objc(removeTransferWorkLists:)
     @NSManaged public func removeFromTransferWorkLists(_ values: NSSet)
-
-}
-
-// MARK: Generated accessors for episodesOfCare
-extension Patient {
-
-    @objc(addEpisodesOfCareObject:)
-    @NSManaged public func addToEpisodesOfCare(_ value: EpisodeOfCare)
-
-    @objc(removeEpisodesOfCareObject:)
-    @NSManaged public func removeFromEpisodesOfCare(_ value: EpisodeOfCare)
-
-    @objc(addEpisodesOfCare:)
-    @NSManaged public func addToEpisodesOfCare(_ values: NSSet)
-
-    @objc(removeEpisodesOfCare:)
-    @NSManaged public func removeFromEpisodesOfCare(_ values: NSSet)
 
 }

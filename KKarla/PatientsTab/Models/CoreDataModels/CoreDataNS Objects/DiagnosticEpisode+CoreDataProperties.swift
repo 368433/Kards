@@ -17,11 +17,11 @@ extension DiagnosticEpisode {
         return NSFetchRequest<DiagnosticEpisode>(entityName: "DiagnosticEpisode")
     }
 
-    @NSManaged public var startDate: NSDate?
-    @NSManaged public var endDate: NSDate?
     @NSManaged public var diagnosis: String?
-    @NSManaged public var patient: Patient?
+    @NSManaged public var endDate: Date?
+    @NSManaged public var startDate: Date?
     @NSManaged public var acts: NSSet?
+    @NSManaged public var patient: Patient?
 
 }
 
