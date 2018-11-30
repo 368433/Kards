@@ -23,6 +23,7 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
         self.tableView.tableFooterView = UIView(frame: .zero)
         self.tableView.rowHeight = 150
         self.tableView.separatorStyle = .none
+        
     }
 
     @objc func addNew(){
@@ -48,5 +49,20 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
         cell.coordinator = self.coordinator
         cell.configure()
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        coordinator?.showDetailedPatientView(for: model?.resultController.object(at: indexPath))
+    }
+}
+
+extension BasePatientsListTVC{
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        let cell = self.tableView.cellForRow(at: indexPath) as? PatientTableViewCell
+        cell?.mainBackgroundView.layer.borderWidth = 2
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            cell?.mainBackgroundView.layer.borderWidth = 0.5
+        }
+        return indexPath
     }
 }

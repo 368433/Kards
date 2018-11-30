@@ -36,6 +36,7 @@ class PatientTableViewCell: UITableViewCell {
         self.mainBackgroundView.layer.masksToBounds = true
         self.mainBackgroundView.layer.borderWidth = 0.5
         self.mainBackgroundView.layer.borderColor = UIColor.lightGray.cgColor
+        self.selectionStyle = UITableViewCell.SelectionStyle.none
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

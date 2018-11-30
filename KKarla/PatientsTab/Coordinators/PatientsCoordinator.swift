@@ -92,6 +92,12 @@ class PatientsCoordinator: Coordinator {
         presentDataForm(for: tagForm)
     }
     
+    func showDetailedPatientView(for patient: Patient?){
+        let ptDetails = DetailedPatientViewVC.instantiate()
+        ptDetails.coordinator = self
+        navigationController.pushViewController(ptDetails, animated: true)
+    }
+    
     // FUNCTIONS HERE HAVE NOT BEEN REVIEWED
     
     
