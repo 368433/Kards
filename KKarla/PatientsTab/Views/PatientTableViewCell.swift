@@ -86,7 +86,6 @@ extension PatientTableViewCell{
         ac.addAction(UIAlertAction(title: "Edit tag title", style: .default) {_ in
             let tag = self.tagListModel?.resultController.fetchedObjects?.first(where: {$0.tagTitle == sender.titleLabel?.text})
             self.coordinator?.showTagForm(for: self.patient!, existingTag: tag)
-//            self.setupTags()
         })
         ac.addAction(UIAlertAction(title: "Delete tag", style: .destructive) {_ in})
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
