@@ -31,8 +31,6 @@ class PatientTableViewCell: UITableViewCell {
     var patient: Patient?
     var coordinator: PatientsCoordinator?
     var tagStackList: ButtonTagStackList?
-    var tagListModel: TagsListModel?
-    var delegate: PatientsListTVCellDelegate?
     
     
     override func awakeFromNib() {
@@ -60,7 +58,7 @@ class PatientTableViewCell: UITableViewCell {
             tagStackList?.setLabels(for: labelsList)
             tagStackList?.tagStack.arrangedSubviews.forEach { butn in
                 let button = butn as! UIButton
-                button.addTarget(self, action: #selector(tagButtonAction2), for: .touchUpInside)
+                button.addTarget(self, action: #selector(tagButtonAction), for: .touchUpInside)
             }
         }
     }
@@ -85,13 +83,6 @@ class PatientTableViewCell: UITableViewCell {
     @objc func showTagForm(){
         if let pt = patient {coordinator?.showTagForm(for: pt, existingTag: nil)}
     }
-    @objc func showTagForm2(){
-        //            delegate?.editTagLabel(patient: patient!, labelTitle: labelTitle)
-        let predicate = NSPredicate(format: "tagTitle == %@", "Aaa")
-        let tag = patient!.tags?.filtered(using: predicate)
-        let chosen = tag?.first as! Tag
-        coordinator?.showTagForm(for: patient!, existingTag: chosen)
-    }
     
     @objc func tagButtonAction2(sender: UIButton){
         if let labelTitle = sender.titleLabel?.text {
@@ -107,22 +98,23 @@ class PatientTableViewCell: UITableViewCell {
 
 extension PatientTableViewCell{
     
-    // idea to fix this: make basepatientlisttvc the delegate of cell
-    // make delegate handle the tag editing and deleting, pass to it the tag label
-    // and let delegate figure out the rest
     @objc func tagButtonAction(sender: UIButton){
-        print("GESTS CALLED")
-        let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        ac.addAction(UIAlertAction(title: "Edit tag title", style: .default) {_ in
-            let tag = self.tagListModel?.resultController.fetchedObjects?.first(where: {$0.tagTitle == sender.titleLabel?.text})
-            self.coordinator?.showTagForm(for: self.patient!, existingTag: tag)
-        })
-        ac.addAction(UIAlertAction(title: "Delete tag", style: .destructive) {_ in})
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        coordinator?.showTagActions(for: ac)
+        
+        // get tag corresponding to the button
+        if let patient = patient, let buttonTitle = sender.titleLabel?.text, let tag = patient.tags?.first(where: { ($0 as! Tag).tagTitle == buttonTitle }) as? Tag{
+        
+            let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            
+            ac.addAction(UIAlertAction(title: "Edit tag title", style: .default) {_ in
+                self.coordinator?.showTagForm(for: self.patient!, existingTag: tag)
+            })
+            
+            ac.addAction(UIAlertAction(title: "Delete tag", style: .destructive) {_ in
+                patient.removeFromTags(tag)
+            })
+            
+            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            coordinator?.showTagActions(for: ac)
+        }
     }
 }
-
-//extension PatientTableViewCell: NSFetchedResultsControllerDelegate{
-//    
-//}
