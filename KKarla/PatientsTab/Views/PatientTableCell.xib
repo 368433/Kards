@@ -127,7 +127,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMk-w9-gYR" userLabel="TagNButtons">
                                                 <rect key="frame" x="0.0" y="90" width="274" height="40"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OHG-3d-iFL">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="OHG-3d-iFL">
                                                         <rect key="frame" x="20" y="0.0" width="234" height="40"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVY-oH-Fnz">
@@ -139,7 +139,7 @@
                                                                 <state key="normal" image="icons8-task"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ue-2q-Teb">
-                                                                <rect key="frame" x="31" y="8.5" width="23" height="23"/>
+                                                                <rect key="frame" x="35" y="8.5" width="23" height="23"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="2ue-2q-Teb" secondAttribute="height" multiplier="1:1" id="R63-xZ-t1d"/>
                                                                     <constraint firstAttribute="width" constant="23" id="UeI-DQ-CtC"/>
@@ -147,7 +147,7 @@
                                                                 <state key="normal" image="icons8-add-tag"/>
                                                             </button>
                                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cgI-dB-fbN">
-                                                                <rect key="frame" x="62" y="0.0" width="172" height="40"/>
+                                                                <rect key="frame" x="70" y="0.0" width="164" height="40"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dVc-O6-qJw">
                                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="40"/>
@@ -186,7 +186,6 @@
                                                                                 </constraints>
                                                                             </stackView>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="Bu7-yt-Cae" firstAttribute="centerY" secondItem="dVc-O6-qJw" secondAttribute="centerY" id="4he-WZ-2bz"/>
                                                                             <constraint firstAttribute="width" constant="240" id="SkV-uJ-aih"/>
