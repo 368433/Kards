@@ -32,6 +32,7 @@ class PatientTableViewCell: UITableViewCell {
     var coordinator: PatientsCoordinator?
     var tagStackList: ButtonTagStackList?
     var tagListModel: TagsListModel?
+    var delegate: BasePatientsListTVC?
     
     
     override func awakeFromNib() {
@@ -50,15 +51,16 @@ class PatientTableViewCell: UITableViewCell {
     }
     
     func setupTags(){
-        let tagsTitlesList = tagListModel?.resultController.fetchedObjects?.compactMap{ $0.tagTitle}
-        //            let tagsTitlesList = tags.compactMap { ($0 as! Tag).tagTitle }
+//        let tagsTitlesList = tagListModel?.resultController.fetchedObjects?.compactMap{ $0.tagTitle}
+        let tags = patient!.tags
+        let tagsTitlesList = tags?.compactMap { ($0 as! Tag).tagTitle }
         let labelsList = tagsTitlesList?.compactMap { (LabelType.bedsideLocationLabel, $0) }
         tagStackList = ButtonTagStackList(stack: tagListStack)
         if let labelsList = labelsList {
             tagStackList?.setLabels(for: labelsList)
             tagStackList?.tagStack.arrangedSubviews.forEach { butn in
                 let button = butn as! UIButton
-                button.addTarget(self, action: #selector(tagButtonAction), for: .touchUpInside)
+                button.addTarget(self, action: #selector(tagButtonAction2), for: .touchUpInside)
             }
         }
     }
@@ -82,6 +84,13 @@ class PatientTableViewCell: UITableViewCell {
     }
     @objc func showTagForm(){
         if let pt = patient {coordinator?.showTagForm(for: pt, existingTag: nil)}
+    }
+    
+    @objc func tagButtonAction2(sender: UIButton){
+        if let labelTitle = sender.titleLabel?.text {
+            delegate?.editTagLabel(patient: patient!, labelTitle: labelTitle)
+        }
+
     }
     
 }

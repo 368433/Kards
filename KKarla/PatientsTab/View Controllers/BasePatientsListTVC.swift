@@ -47,7 +47,15 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
         cell.coordinator = self.coordinator
         let tagListPredicate = NSPredicate(format: "ANY patients == %@", patient)
         cell.tagListModel = TagsListModel(tableOutputView: self.tableView, searchPredicate: tagListPredicate)
+        cell.delegate = self
         cell.configure()
         return cell
+    }
+}
+
+extension BasePatientsListTVC: PatientsListTVCellDelegate {
+    func editTagLabel(patient: Patient, labelTitle: String){
+        let tag = patient.tags?.first(where: { ($0 as! Tag).tagTitle == labelTitle}) as! Tag
+        coordinator?.showTagForm(for: patient , existingTag: tag)
     }
 }
