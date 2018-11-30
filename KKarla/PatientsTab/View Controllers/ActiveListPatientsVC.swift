@@ -78,7 +78,7 @@ class ActiveListPatientsVC: BasePatientsListTVC {
         case 1:
             return [transfer, activate]
         case 2:
-            return [activate, signOff]
+            return [signOff, activate]
         default:
             return nil
         }
