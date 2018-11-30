@@ -15,6 +15,7 @@ class PatientTableViewCell: UITableViewCell {
     static let cellHeight: CGFloat = 150
     
     // MARK: IBOUTLETS
+    @IBOutlet weak var mainBackgroundView: UIView!
     @IBOutlet weak var UserImageIcon: UIImageView!
     @IBOutlet weak var roomNumberLabel: UILabel!
     @IBOutlet weak var patientNameLabel: UILabel!
@@ -35,6 +36,11 @@ class PatientTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+//        self.layer.cornerRadius = 5.0
+        self.mainBackgroundView.layer.cornerRadius = 5.0
+        self.mainBackgroundView.layer.masksToBounds = true
+        self.mainBackgroundView.layer.borderWidth = 0.5
+        self.mainBackgroundView.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -81,6 +87,10 @@ class PatientTableViewCell: UITableViewCell {
 }
 
 extension PatientTableViewCell{
+    
+    // idea to fix this: make basepatientlisttvc the delegate of cell
+    // make delegate handle the tag editing and deleting, pass to it the tag label
+    // and let delegate figure out the rest
     @objc func tagButtonAction(sender: UIButton){
         let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "Edit tag title", style: .default) {_ in

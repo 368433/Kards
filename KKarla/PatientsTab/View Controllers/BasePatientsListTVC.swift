@@ -21,7 +21,7 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
         self.tableView.register(UINib(nibName: "PatientTableCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNew))
         self.tableView.tableFooterView = UIView(frame: .zero)
-        self.tableView.rowHeight = PatientTableViewCell.cellHeight
+//        self.tableView.rowHeight = 160
     }
 
     @objc func addNew(){
