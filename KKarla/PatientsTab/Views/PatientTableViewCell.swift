@@ -32,7 +32,7 @@ class PatientTableViewCell: UITableViewCell {
     var coordinator: PatientsCoordinator?
     var tagStackList: ButtonTagStackList?
     var tagListModel: TagsListModel?
-    var delegate: BasePatientsListTVC?
+    var delegate: PatientsListTVCellDelegate?
     
     
     override func awakeFromNib() {
