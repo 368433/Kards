@@ -37,7 +37,7 @@ class PatientTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        self.layer.cornerRadius = 5.0
+        //        self.layer.cornerRadius = 5.0
         self.mainBackgroundView.layer.cornerRadius = 5.0
         self.mainBackgroundView.layer.masksToBounds = true
         self.mainBackgroundView.layer.borderWidth = 0.5
@@ -51,7 +51,7 @@ class PatientTableViewCell: UITableViewCell {
     }
     
     func setupTags(){
-//        let tagsTitlesList = tagListModel?.resultController.fetchedObjects?.compactMap{ $0.tagTitle}
+        //        let tagsTitlesList = tagListModel?.resultController.fetchedObjects?.compactMap{ $0.tagTitle}
         let tags = patient!.tags
         let tagsTitlesList = tags?.compactMap { ($0 as! Tag).tagTitle }
         let labelsList = tagsTitlesList?.compactMap { (LabelType.bedsideLocationLabel, $0) }
@@ -67,7 +67,7 @@ class PatientTableViewCell: UITableViewCell {
     
     func configure(){
         if let patient = patient {
-//            tagListModel?.resultController.delegate = self
+            //            tagListModel?.resultController.delegate = self
             setupButtons()
             setupTags()
             self.patientNameLabel.text = patient.name
@@ -85,12 +85,22 @@ class PatientTableViewCell: UITableViewCell {
     @objc func showTagForm(){
         if let pt = patient {coordinator?.showTagForm(for: pt, existingTag: nil)}
     }
+    @objc func showTagForm2(){
+        //            delegate?.editTagLabel(patient: patient!, labelTitle: labelTitle)
+        let predicate = NSPredicate(format: "tagTitle == %@", "Aaa")
+        let tag = patient!.tags?.filtered(using: predicate)
+        let chosen = tag?.first as! Tag
+        coordinator?.showTagForm(for: patient!, existingTag: chosen)
+    }
     
     @objc func tagButtonAction2(sender: UIButton){
         if let labelTitle = sender.titleLabel?.text {
-            delegate?.editTagLabel(patient: patient!, labelTitle: labelTitle)
+            //            delegate?.editTagLabel(patient: patient!, labelTitle: labelTitle)
+            let predicate = NSPredicate(format: "tagTitle == %@", labelTitle)
+            let tag = patient!.tags?.filtered(using: predicate)
+            let chosen = tag?.first as! Tag
+            coordinator?.showTagForm(for: patient!, existingTag: chosen)
         }
-
     }
     
 }
@@ -101,6 +111,7 @@ extension PatientTableViewCell{
     // make delegate handle the tag editing and deleting, pass to it the tag label
     // and let delegate figure out the rest
     @objc func tagButtonAction(sender: UIButton){
+        print("GESTS CALLED")
         let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "Edit tag title", style: .default) {_ in
             let tag = self.tagListModel?.resultController.fetchedObjects?.first(where: {$0.tagTitle == sender.titleLabel?.text})

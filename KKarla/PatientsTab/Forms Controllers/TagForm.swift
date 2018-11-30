@@ -30,13 +30,13 @@ class TagForm: KarlaForm{
     
     @objc override func saveEntries(){
         objectToSave = existingTag ?? getNewTagInstance()
+        patient.addToTags(objectToSave as! Tag)
         super.saveEntries()
     }
     
     func getNewTagInstance() -> Tag {
         let newObject = Tag(context: dataCoordinator.persistentContainer.viewContext)
         dataCoordinator.persistentContainer.viewContext.insert(newObject)
-        patient.addToTags(newObject)
         return newObject
     }
 }
