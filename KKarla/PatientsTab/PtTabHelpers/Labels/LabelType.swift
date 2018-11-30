@@ -18,6 +18,7 @@ enum LabelType: String {
     case diagnosisLabel
     case tagLabel
     case genericLabel
+    case fullBg
     
     func formattedStringForLabel(label: String) -> String {
         return label.lowercased()
@@ -27,6 +28,8 @@ enum LabelType: String {
         switch self {
         case .tagLabel:
             return #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
+        case .fullBg:
+            return self.borderColorForLabel
         default:
             return UIColor.clear
         }
@@ -35,17 +38,10 @@ enum LabelType: String {
     var labelCALayer: CALayer {
         let layer = CALayer()
         layer.borderColor = self.borderColorForLabel.cgColor
-//        layer.backgroundColor = self.backgroundColorForLabel.cgColor
-        layer.backgroundColor = self.borderColorForLabel.cgColor
+        layer.backgroundColor = self.backgroundColorForLabel.cgColor
         layer.masksToBounds = true
         layer.borderWidth = 1.0
-
-        switch self {
-        case .tagLabel:
-            layer.cornerRadius = 10.0
-        default:
-            layer.cornerRadius = 3.0
-        }
+        layer.cornerRadius = 3.0
         return layer
     }
     
@@ -69,7 +65,7 @@ enum LabelType: String {
             return UIColor(hue:0.53, saturation:1, brightness:0.91, alpha:1)
         case .tagLabel:
             return .white
-        case .genericLabel:
+        case .genericLabel, .fullBg:
             return UIColor(hue:0, saturation:0, brightness:0.69, alpha:1)
         }
     }

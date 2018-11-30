@@ -27,7 +27,7 @@ class PatientTableViewCell: UITableViewCell {
     // MARK: other variables:
     var patient: Patient?
     var coordinator: PatientsCoordinator?
-    var tagStackList: ButtonTagStackList?
+    lazy var tagStackList = ButtonTagStackList(stack: tagListStack)
     
     
     override func awakeFromNib() {
@@ -45,13 +45,11 @@ class PatientTableViewCell: UITableViewCell {
     }
     
     func setupTags(){
-        let tags = patient!.tags
-        let tagsTitlesList = tags?.compactMap { ($0 as! Tag).tagTitle }
+        let tagsTitlesList = patient!.tags?.compactMap { ($0 as! Tag).tagTitle }
         let labelsList = tagsTitlesList?.compactMap { (LabelType.bedsideLocationLabel, $0) }
-        tagStackList = ButtonTagStackList(stack: tagListStack)
         if let labelsList = labelsList {
-            tagStackList?.setLabels(for: labelsList)
-            tagStackList?.tagStack.arrangedSubviews.forEach {($0 as! UIButton).addTarget(self, action: #selector(tagButtonAction), for: .touchUpInside)}
+            tagStackList.setLabels(for: labelsList)
+            tagStackList.tagStack.arrangedSubviews.forEach {($0 as! UIButton).addTarget(self, action: #selector(tagButtonAction), for: .touchUpInside)}
         }
     }
     

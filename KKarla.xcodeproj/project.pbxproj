@@ -25,7 +25,6 @@
 		6A806D5221B04371004E85A2 /* PatientsFilterSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A806D5121B04371004E85A2 /* PatientsFilterSegmentedControl.swift */; };
 		6A806D5421B09A04004E85A2 /* AllPatientsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A806D5321B09A04004E85A2 /* AllPatientsListVC.swift */; };
 		6A806D5621B0DDD1004E85A2 /* ButtonTagStackList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A806D5521B0DDD1004E85A2 /* ButtonTagStackList.swift */; };
-		6A806D5821B0DE32004E85A2 /* NRButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A806D5721B0DE32004E85A2 /* NRButton.swift */; };
 		6A816EEE21AC2AF800031BAB /* BillingCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A816EED21AC2AF800031BAB /* BillingCodes.swift */; };
 		6A834AB521ADB9B900451E0D /* TagForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A834AB421ADB9B900451E0D /* TagForm.swift */; };
 		6A8E377521AAE166004F1EFF /* PatientTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A8E377421AAE166004F1EFF /* PatientTableCell.xib */; };
@@ -132,7 +131,6 @@
 		6A806D5121B04371004E85A2 /* PatientsFilterSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsFilterSegmentedControl.swift; sourceTree = "<group>"; };
 		6A806D5321B09A04004E85A2 /* AllPatientsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPatientsListVC.swift; sourceTree = "<group>"; };
 		6A806D5521B0DDD1004E85A2 /* ButtonTagStackList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTagStackList.swift; sourceTree = "<group>"; };
-		6A806D5721B0DE32004E85A2 /* NRButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NRButton.swift; sourceTree = "<group>"; };
 		6A816EED21AC2AF800031BAB /* BillingCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingCodes.swift; sourceTree = "<group>"; };
 		6A834AB421ADB9B900451E0D /* TagForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagForm.swift; sourceTree = "<group>"; };
 		6A8E377421AAE166004F1EFF /* PatientTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PatientTableCell.xib; sourceTree = "<group>"; };
@@ -560,7 +558,6 @@
 			isa = PBXGroup;
 			children = (
 				E878241A217A8D43001258C5 /* NRLabel.swift */,
-				6A806D5721B0DE32004E85A2 /* NRButton.swift */,
 				E8782417217A8C9B001258C5 /* LabelType.swift */,
 				E8782416217A8C9A001258C5 /* TagStackList.swift */,
 				6A806D5521B0DDD1004E85A2 /* ButtonTagStackList.swift */,
@@ -767,7 +764,6 @@
 				E8C2A9AA217A03CE0032EED5 /* AnalyticsViewController.swift in Sources */,
 				E859A79E2182B21C007BF751 /* SegmentioCellWithImageAfterLabel.swift in Sources */,
 				E8D98660217D69CC00EFE369 /* PatientsCoordinator.swift in Sources */,
-				6A806D5821B0DE32004E85A2 /* NRButton.swift in Sources */,
 				6A3BF0E821AB1D4200CA0A71 /* BasePatientsListTVC.swift in Sources */,
 				E8222121217D525D00CEE16C /* KKarlaDatabaseV1.xcdatamodeld in Sources */,
 				E88920A6217BD50C004216F1 /* LandingCardViewController.swift in Sources */,

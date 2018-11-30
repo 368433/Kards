@@ -27,7 +27,7 @@ extension TagStackList {
             let l = NRLabel()
             l.font = font
             l.textAlignment = .center
-            l.textColor = .white
+//            l.textColor = .white
             l.text = $0.labelText
             l.layer.borderColor = $0.type.labelCALayer.borderColor
             l.layer.borderWidth = $0.type.labelCALayer.borderWidth

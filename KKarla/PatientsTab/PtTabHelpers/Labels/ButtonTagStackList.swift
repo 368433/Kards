@@ -26,7 +26,7 @@ extension ButtonTagStackList {
             let b = UIButton()
             b.titleLabel?.font = $0.type.font
             b.titleLabel?.textAlignment = .center
-            b.setTitleColor(.white, for: .normal)
+//            b.setTitleColor(.white, for: .normal)
             b.setTitle($0.labelText, for: .normal)
             b.layer.backgroundColor = $0.type.labelCALayer.backgroundColor
             b.layer.borderColor = $0.type.labelCALayer.borderColor
