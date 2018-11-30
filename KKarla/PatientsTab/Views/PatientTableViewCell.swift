@@ -10,10 +10,7 @@ import UIKit
 import CoreData
 
 class PatientTableViewCell: UITableViewCell {
-    
-    // STATIC attributes
-    static let cellHeight: CGFloat = 150
-    
+        
     // MARK: IBOUTLETS
     @IBOutlet weak var mainBackgroundView: UIView!
     @IBOutlet weak var UserImageIcon: UIImageView!
@@ -35,7 +32,6 @@ class PatientTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        //        self.layer.cornerRadius = 5.0
         self.mainBackgroundView.layer.cornerRadius = 5.0
         self.mainBackgroundView.layer.masksToBounds = true
         self.mainBackgroundView.layer.borderWidth = 0.5
@@ -49,51 +45,31 @@ class PatientTableViewCell: UITableViewCell {
     }
     
     func setupTags(){
-        //        let tagsTitlesList = tagListModel?.resultController.fetchedObjects?.compactMap{ $0.tagTitle}
         let tags = patient!.tags
         let tagsTitlesList = tags?.compactMap { ($0 as! Tag).tagTitle }
         let labelsList = tagsTitlesList?.compactMap { (LabelType.bedsideLocationLabel, $0) }
         tagStackList = ButtonTagStackList(stack: tagListStack)
         if let labelsList = labelsList {
             tagStackList?.setLabels(for: labelsList)
-            tagStackList?.tagStack.arrangedSubviews.forEach { butn in
-                let button = butn as! UIButton
-                button.addTarget(self, action: #selector(tagButtonAction), for: .touchUpInside)
-            }
+            tagStackList?.tagStack.arrangedSubviews.forEach {($0 as! UIButton).addTarget(self, action: #selector(tagButtonAction), for: .touchUpInside)}
         }
     }
     
     func configure(){
         if let patient = patient {
-            //            tagListModel?.resultController.delegate = self
-            setupButtons()
+            addActButton.addTarget(self, action: #selector(showActForm), for: .touchUpInside)
+            addTagButton.addTarget(self, action: #selector(showTagForm), for: .touchUpInside)
             setupTags()
             self.patientNameLabel.text = patient.name
         }
     }
-    
-    func setupButtons(){
-        addActButton.addTarget(self, action: #selector(showActForm), for: .touchUpInside)
-        addTagButton.addTarget(self, action: #selector(showTagForm), for: .touchUpInside)
-    }
-    
+
     @objc func showActForm(){
         if let pt = patient {coordinator?.showAddActForm(patient: pt)}
     }
     @objc func showTagForm(){
         if let pt = patient {coordinator?.showTagForm(for: pt, existingTag: nil)}
     }
-    
-    @objc func tagButtonAction2(sender: UIButton){
-        if let labelTitle = sender.titleLabel?.text {
-            //            delegate?.editTagLabel(patient: patient!, labelTitle: labelTitle)
-            let predicate = NSPredicate(format: "tagTitle == %@", labelTitle)
-            let tag = patient!.tags?.filtered(using: predicate)
-            let chosen = tag?.first as! Tag
-            coordinator?.showTagForm(for: patient!, existingTag: chosen)
-        }
-    }
-    
 }
 
 extension PatientTableViewCell{
