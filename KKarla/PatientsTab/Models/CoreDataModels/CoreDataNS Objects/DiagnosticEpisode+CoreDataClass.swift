@@ -18,5 +18,9 @@ public class DiagnosticEpisode: NSManagedObject {
         let date = self.dxEpisodeStartDate?.dayMonthYear() ?? "No date"
         return primaryDx + "-" + date
     }
+    
+    public override var description: String {
+        return self.primaryDiagnosis ?? "No Primary Dx"
+    }
 
 }

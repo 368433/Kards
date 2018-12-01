@@ -11,11 +11,20 @@ import Eureka
 
 class TagForm: KarlaForm{
     
-    var patient: Patient!
+    var patient: Patient
     var existingTag: Tag?
     
+    init(patient: Patient, existingTag: Tag?){
+        self.patient = patient
+        self.existingTag = existingTag
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
-        guard patient != nil else {fatalError("No patient assigned to tag form")}
         
         super.viewDidLoad()
         

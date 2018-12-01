@@ -12,11 +12,22 @@ import Eureka
 
 class ActForm: KarlaForm {
     
-    var patient: Patient?
+    var patient: Patient
     var existingAct: Act?
-    var diagnosticEpisode: DiagnosticEpisode?
+    var existingDiagnosticEpisode: DiagnosticEpisode?
     
     var actSites = ["HPB":ramqCodes().hospitalDict, "ICM":ramqCodes().hospitalDict, "PCV":ramqCodes().clinicDict]
+    
+    init(patient: Patient, existingAct: Act?, existingDiagnosticEpisode: DiagnosticEpisode?){
+        self.patient = patient
+        self.existingAct = existingAct
+        self.existingDiagnosticEpisode = existingDiagnosticEpisode
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +38,13 @@ class ActForm: KarlaForm {
     }
     
     @objc override func saveEntries(){
+        guard let dxEpisodeRow = form.rowBy(tag: "diagnosticEpisode") as? PushRow<DiagnosticEpisode> else { fatalError("dx episode row does not exist")}
+        guard let dxEpisode = dxEpisodeRow.value else { fatalError("no dx episode selected")}
+
         objectToSave = existingAct ?? getNewActInstance()
-        if let act = objectToSave as? Act, let patientToSave = patient { patientToSave.addToActs(act)}
+        patient.addToActs(objectToSave as! Act)
+        dxEpisode.addToActs(objectToSave as! Act)
+        
         super.saveEntries()
     }
     
@@ -39,18 +55,13 @@ class ActForm: KarlaForm {
     }
     
     private func createNewDiagnosticEpisode(cell: ButtonCellOf<String>, row: ButtonRow){
-        guard let patient = patient else {fatalError("patient value is nil")}
-        let dxEpisode = DiagnosticEpisodeForm()
-        dxEpisode.patient = patient
-        dxEpisode.existingDiagnosticEpisode = nil
+        let dxEpisode = DiagnosticEpisodeForm(patient: patient, existingAct: nil, existingDiagnosticEpisode: nil)
         let nc = UINavigationController()
         nc.pushViewController(dxEpisode, animated: false)
         self.navigationController?.present(nc, animated: true, completion: nil)
     }
     
     private func initializeForm(){
-        
-        guard let patient = patient else {fatalError("patient value is nil")}
         
         form +++ Section("Link To Diagnostic Episode")
             
@@ -59,16 +70,26 @@ class ActForm: KarlaForm {
                 row.title = "Diagnotic Episode"
                 row.tag = "diagnosticEpisode"
                 row.optionsProvider = .lazy({ (form, completion) in
-                    completion(patient.diagnosticEpisdoes?.allObjects as? [DiagnosticEpisode])
+                    completion(self.patient.diagnosticEpisdoes?.allObjects as? [DiagnosticEpisode])
                     })
                 }.onPresent{ from, to in
                     to.selectableRowSetup = { row in
                         row.cellProvider = CellProvider<ListCheckCell<DiagnosticEpisode>>(nibName: "EurekaDxEpisodeChoiceCell", bundle: Bundle.main)
+                        row.cell.textLabel?.text = row.selectableValue?.primaryDiagnosis
+                        row.cell.detailTextLabel?.text = row.selectableValue?.dxEpisodeStartDate?.dayMonthYear() ?? "No Start Date Entered"
                     }
-                    to.selectableRowCellUpdate = { cell, row in
-                        cell.textLabel?.text = row.selectableValue?.primaryDiagnosis
-                        cell.detailTextLabel?.text = row.selectableValue?.dxEpisodeStartDate?.dayMonthYear() ?? "No Start Date Entered"
-                    }
+                    
+                    /*
+                     following call was removed as it gets called for every cell
+                     when cell updates.
+                     keeping code as sample for reference of functionality
+                     
+                         to.selectableRowCellUpdate = { cell, row in
+                         print(row.selectableValue?.description)
+                         cell.textLabel?.text = row.selectableValue?.primaryDiagnosis
+                         cell.detailTextLabel?.text = row.selectableValue?.dxEpisodeStartDate?.dayMonthYear() ?? "No Start Date Entered"
+                         }
+                     */
             }
             <<< ButtonRow() { row in
                 row.title = "Create new Diagnostic Episode"

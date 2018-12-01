@@ -42,7 +42,7 @@ extension LandingCardViewController {
     }
     
     @objc func createList(){
-        coordinator?.showNewListForm()
+        coordinator?.showClinicalkListForm()
     }
     
     @objc func showAllPatients(){
@@ -95,7 +95,7 @@ extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
         let edit = UITableViewRowAction(style: .default, title: "Edit") { (action, indexPath) in
             // share item at indexPath
             if let list = self.model?.resultController.object(at: indexPath) {
-                self.coordinator?.showNewListForm(existingList: list)
+                self.coordinator?.showClinicalkListForm(existingList: list)
             }
         }
         archive.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)

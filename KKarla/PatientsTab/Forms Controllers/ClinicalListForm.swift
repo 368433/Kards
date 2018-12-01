@@ -1,5 +1,5 @@
 //
-//  CreateListeViewController.swift
+//  ClinicalListForm.swift
 //  KKarla
 //
 //  Created by amir2 on 2018-10-21.
@@ -9,9 +9,18 @@
 import UIKit
 import Eureka
 
-class WorkListForm: KarlaForm {
+class ClinicalListForm: KarlaForm {
     
-    var existingPatientList: ClinicalList?
+    var existingClinicalList: ClinicalList?
+    
+    init(existingClinicalList: ClinicalList?){
+        self.existingClinicalList = existingClinicalList
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,25 +32,25 @@ class WorkListForm: KarlaForm {
         form +++ Section("")
             <<< TextRow(){ row in
                 row.title = "List title"
-                row.value = existingPatientList?.title
+                row.value = existingClinicalList?.title
                 row.placeholder = "Enter text here"
                 row.tag = "title"
             }
             <<< TextRow(){ row in
                 row.title = "List subtitle"
-                row.value = existingPatientList?.subtitle
+                row.value = existingClinicalList?.subtitle
                 row.placeholder = "Enter text here"
                 row.tag = "subtitle"
             }
             <<< SwitchRow(){ row in
                 row.title = "Active Worklist"
-                row.value = existingPatientList?.isActive ?? true
+                row.value = existingClinicalList?.isActive ?? true
                 row.tag = "isActive"
         }
     }
     
     @objc override func saveEntries() {
-        objectToSave = existingPatientList ?? getNewPatientListInstance()
+        objectToSave = existingClinicalList ?? getNewPatientListInstance()
         super.saveEntries()
     }
     func getNewPatientListInstance() -> ClinicalList {

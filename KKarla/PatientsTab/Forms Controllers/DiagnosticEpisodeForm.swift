@@ -11,8 +11,21 @@ import Eureka
 
 class DiagnosticEpisodeForm: KarlaForm{
     
-    var patient: Patient?
+    var patient: Patient
+    var existingAct: Act?
     var existingDiagnosticEpisode: DiagnosticEpisode?
+
+    
+    init(patient: Patient, existingAct: Act?, existingDiagnosticEpisode: DiagnosticEpisode?){
+        self.patient = patient
+        self.existingAct = existingAct
+        self.existingDiagnosticEpisode = existingDiagnosticEpisode
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +54,11 @@ class DiagnosticEpisodeForm: KarlaForm{
     }
     
     override func saveEntries() {
-        guard let patient = patient else { fatalError("patient is nil")}
         objectToSave = existingDiagnosticEpisode ?? getNewDiagnosticEpisodeObject()
+        
+        if let act = existingAct {
+            (objectToSave as! DiagnosticEpisode).addToActs(act)
+        }
         patient.addToDiagnosticEpisdoes(objectToSave as! DiagnosticEpisode)
         super.saveEntries()
     }
