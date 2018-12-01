@@ -19,6 +19,6 @@ public class ClinicalList: NSManagedObject {
     
     static var titleTag = "clinicalListTitle"
     static var subtitleTag = "clinicalListSubtitle"
-    static var dateTag = "clinicalListCreatedDate"
+    static var dateTag = "clinicalListCreateDate"
     static var isActiveTag = "isActive"
 }

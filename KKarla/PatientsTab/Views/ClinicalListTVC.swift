@@ -31,7 +31,7 @@ class ClinicalListTVC: UITableViewCell {
             self.textLabel?.text = list.clinicalListTitle
             let dateCreated = list.clinicalListCreateDate?.dayMonthYear() ?? "Not entered"
             let numbOfPatients = String(list.totalPatients)
-            self.detailTextLabel?.text = "CREATED: " + dateCreated + " | Number of Patients: " + numbOfPatients
+            self.detailTextLabel?.text = "CREATED: " + dateCreated + "   |   Number of Patients: " + numbOfPatients
         }
     }
 }
