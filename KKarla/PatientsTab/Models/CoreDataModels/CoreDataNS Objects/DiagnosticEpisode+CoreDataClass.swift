@@ -12,5 +12,11 @@ import CoreData
 
 @objc(DiagnosticEpisode)
 public class DiagnosticEpisode: NSManagedObject {
+    
+    var dateAndTitle: String {
+        let primaryDx = self.primaryDiagnosis ?? "No 1ry Dx"
+        let date = self.dxEpisodeStartDate?.dayMonthYear() ?? "No date"
+        return primaryDx + "-" + date
+    }
 
 }

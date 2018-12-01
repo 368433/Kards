@@ -14,15 +14,69 @@ class ActForm: KarlaForm {
     
     var patient: Patient?
     var existingAct: Act?
-
+    var diagnosticEpisode: DiagnosticEpisode?
+    
     var actSites = ["HPB":ramqCodes().hospitalDict, "ICM":ramqCodes().hospitalDict, "PCV":ramqCodes().clinicDict]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "New Act"
+        initializeForm()
         
-        form +++ Section("")
+    }
+    
+    @objc override func saveEntries(){
+        objectToSave = existingAct ?? getNewActInstance()
+        if let act = objectToSave as? Act, let patientToSave = patient { patientToSave.addToActs(act)}
+        super.saveEntries()
+    }
+    
+    func getNewActInstance() -> Act {
+        let newObject = Act(context: dataCoordinator.persistentContainer.viewContext)
+        dataCoordinator.persistentContainer.viewContext.insert(newObject)
+        return newObject
+    }
+    
+    private func createNewDiagnosticEpisode(cell: ButtonCellOf<String>, row: ButtonRow){
+        guard let patient = patient else {fatalError("patient value is nil")}
+        let dxEpisode = DiagnosticEpisodeForm()
+        dxEpisode.patient = patient
+        dxEpisode.existingDiagnosticEpisode = nil
+        let nc = UINavigationController()
+        nc.pushViewController(dxEpisode, animated: false)
+        self.navigationController?.present(nc, animated: true, completion: nil)
+    }
+    
+    private func initializeForm(){
+        
+        guard let patient = patient else {fatalError("patient value is nil")}
+        
+        form +++ Section("Link To Diagnostic Episode")
+            
+            // Clinical Episode selection
+            <<< PushRow<DiagnosticEpisode>() { row in
+                row.title = "Diagnotic Episode"
+                row.tag = "diagnosticEpisode"
+                row.optionsProvider = .lazy({ (form, completion) in
+                    completion(patient.diagnosticEpisdoes?.allObjects as? [DiagnosticEpisode])
+                    })
+                }.onPresent{ from, to in
+                    to.selectableRowSetup = { row in
+                        row.cellProvider = CellProvider<ListCheckCell<DiagnosticEpisode>>(nibName: "EurekaDxEpisodeChoiceCell", bundle: Bundle.main)
+                    }
+                    to.selectableRowCellUpdate = { cell, row in
+                        cell.textLabel?.text = row.selectableValue?.primaryDiagnosis
+                        cell.detailTextLabel?.text = row.selectableValue?.dxEpisodeStartDate?.dayMonthYear() ?? "No Start Date Entered"
+                    }
+            }
+            <<< ButtonRow() { row in
+                row.title = "Create new Diagnostic Episode"
+                row.onCellSelection(self.createNewDiagnosticEpisode)
+            }
+            
+            +++ Section("Act Parameters")
+            
             // actSite SegmentedRow
             <<< SegmentedRow<String>() { row in
                 row.tag = "actSite"
@@ -82,6 +136,7 @@ class ActForm: KarlaForm {
                 row.hidden = "$actCategory == nil OR $actCategory == '' "
             }
             
+            +++ Section("Dates & other")
             <<< DateTimeRow(){ row in
                 row.title = "Start Date"
                 row.value = existingAct?.actStartDate ?? Date(timeIntervalSinceNow: 0)
@@ -92,23 +147,11 @@ class ActForm: KarlaForm {
                 row.value = existingAct?.actBednumber
                 row.placeholder = "Bed number"
                 row.tag = "actBedsideLocation"
-                }
+            }
             <<< TextAreaRow() { row in
                 row.title = "Blurb"
                 row.placeholder = "Enter act note. Using dictation speeds up entry"
                 row.tag = "actNote"
         }
-    }
-    
-    @objc override func saveEntries(){
-        objectToSave = existingAct ?? getNewActInstance()
-        if let act = objectToSave as? Act, let patientToSave = patient { patientToSave.addToActs(act)}
-        super.saveEntries()
-    }
-    
-    func getNewActInstance() -> Act {
-        let newObject = Act(context: dataCoordinator.persistentContainer.viewContext)
-        dataCoordinator.persistentContainer.viewContext.insert(newObject)
-        return newObject
     }
 }

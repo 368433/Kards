@@ -2,7 +2,7 @@
 //  DiagnosticEpisode+CoreDataProperties.swift
 //  KKarla
 //
-//  Created by quarticAIMBP2018 on 2018-11-28.
+//  Created by quarticAIMBP2018 on 2018-12-01.
 //  Copyright © 2018 amir2. All rights reserved.
 //
 //
@@ -17,9 +17,9 @@ extension DiagnosticEpisode {
         return NSFetchRequest<DiagnosticEpisode>(entityName: "DiagnosticEpisode")
     }
 
-    @NSManaged public var diagnosis: String?
-    @NSManaged public var endDate: Date?
-    @NSManaged public var startDate: Date?
+    @NSManaged public var primaryDiagnosis: String?
+    @NSManaged public var dxEpisodeStartDate: Date?
+    @NSManaged public var secondaryDiagnosises: String?
     @NSManaged public var acts: NSSet?
     @NSManaged public var patient: Patient?
 

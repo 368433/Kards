@@ -71,6 +71,7 @@ class PatientsCoordinator: Coordinator {
         let nc = UINavigationController()
         nc.pushViewController(form, animated: false)
         navigationController.present(nc, animated: true, completion: nil)
+//        navigationController.pushViewController(form, animated: true)
     }
     
     func showNewListForm(existingList: ClinicalList? = nil){
@@ -79,9 +80,10 @@ class PatientsCoordinator: Coordinator {
         presentDataForm(for: newListFormVC)
     }
     
-    func showAddActForm(patient: Patient){
-        let actForm = ActForm.instantiate()
+    func showActForm(patient: Patient){
+        let actForm = ActForm()
         actForm.patient = patient
+        actForm.coordinator = self
         presentDataForm(for: actForm)
     }
     
@@ -90,6 +92,13 @@ class PatientsCoordinator: Coordinator {
         tagForm.patient = patient
         tagForm.existingTag = existingTag
         presentDataForm(for: tagForm)
+    }
+    
+    func showDiagnosticEpisodeForm(for patient: Patient, existingDiagnosticEpisode: DiagnosticEpisode?){
+        let dxEpisode = DiagnosticEpisodeForm()
+        dxEpisode.patient = patient
+        dxEpisode.existingDiagnosticEpisode = existingDiagnosticEpisode
+        presentDataForm(for: dxEpisode)
     }
     
     func showDetailedPatientView(for patient: Patient?){

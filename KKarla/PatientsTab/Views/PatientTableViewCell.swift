@@ -64,7 +64,7 @@ class PatientTableViewCell: UITableViewCell {
     }
 
     @objc func showActForm(){
-        if let pt = patient {coordinator?.showAddActForm(patient: pt)}
+        if let pt = patient {coordinator?.showActForm(patient: pt)}
     }
     @objc func showTagForm(){
         if let pt = patient {coordinator?.showTagForm(for: pt, existingTag: nil)}
