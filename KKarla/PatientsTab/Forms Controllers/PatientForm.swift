@@ -20,9 +20,7 @@ class PatientForm: KarlaForm {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-//        self.title = "New Patient"
-        
+                        
         form +++ Section("")
             <<< ImageRow(){ row in
                 row.title = "Photo ID"

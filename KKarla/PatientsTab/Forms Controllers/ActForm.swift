@@ -18,11 +18,10 @@ class ActForm: KarlaForm {
     var existingDiagnosticEpisode: DiagnosticEpisode?
     
     var actSites = ["HPB":ramqCodes().hospitalDict, "ICM":ramqCodes().hospitalDict, "PCV":ramqCodes().clinicDict]
-   
-    /*
+    
+    
     var site: String? {
         didSet{
-            print("GETS CALLED")
             let actSiteRow = form.rowBy(tag: Act.siteTag) as! SegmentedRow<String>
             actSiteRow.options = actSites.keys.sorted()
             actSiteRow.value = site
@@ -37,17 +36,17 @@ class ActForm: KarlaForm {
         didSet{
             let departmentRow = form.rowBy(tag: Act.departmentTag) as! SegmentedRow<String>
             departmentRow.options = depDict?.keys.sorted()
-            departmentRow.value = existingActToUpdate?.actDepartment  ?? actToPrePopSomeFields?.actDepartment
-//            departmentRow.reload()
+            departmentRow.value = nil
+            departmentRow.updateCell()
         }
     }
-
+    
     var catDict: [String:[String:(String,String)]]? {
         didSet{
             let categoryRow = form.rowBy(tag: Act.categoryTag) as! SegmentedRow<String>
             categoryRow.options = catDict?.keys.sorted()
-            categoryRow.value = existingActToUpdate?.actCategory ?? actToPrePopSomeFields?.actCategory
-//            categoryRow.reload()
+            categoryRow.value = nil
+            categoryRow.updateCell()
         }
     }
     
@@ -55,12 +54,11 @@ class ActForm: KarlaForm {
         didSet{
             let natureRow = form.rowBy(tag: Act.natureTag) as! SegmentedRow<String>
             natureRow.options = natDict?.keys.sorted()
-            natureRow.value = existingActToUpdate?.actNature ?? actToPrePopSomeFields?.actNature
-//            natureRow.reload()
+            natureRow.value = nil
+            natureRow.updateCell()
         }
     }
-     
-    */
+    
     
     init(patient: Patient, existingAct: Act?, actToPrePopSomeFields: Act?, existingDiagnosticEpisode: DiagnosticEpisode?){
         self.patient = patient
@@ -79,17 +77,7 @@ class ActForm: KarlaForm {
         
         self.title = "New Act"
         initializeForm()
-        
-        // populate billing fileds
-//        site = existingActToUpdate?.actSite ?? actToPrePopSomeFields?.actSite
-        let actSiteRow = form.rowBy(tag: Act.siteTag) as! SegmentedRow<String>
-        actSiteRow.value = existingActToUpdate?.actSite ?? actToPrePopSomeFields?.actSite
-        let departmentRow = form.rowBy(tag: Act.departmentTag) as! SegmentedRow<String>
-        departmentRow.value = existingActToUpdate?.actDepartment ?? actToPrePopSomeFields?.actDepartment
-        let categoryRow = form.rowBy(tag: Act.categoryTag) as! SegmentedRow<String>
-        categoryRow.value = existingActToUpdate?.actCategory ?? actToPrePopSomeFields?.actCategory
-        let natureRow = form.rowBy(tag: Act.natureTag) as! SegmentedRow<String>
-        natureRow.value = existingActToUpdate?.actNature ?? actToPrePopSomeFields?.actNature
+        initializeBillingSegments()
         
         // if patient has no diagnostic episode automatically invoke form
         if patient.diagnosticEpisdoes?.allObjects.count == 0 {
@@ -97,16 +85,37 @@ class ActForm: KarlaForm {
         }
     }
     
-    @objc override func saveEntries(){
-        guard let dxEpisodeRow = form.rowBy(tag: "diagnosticEpisode") as? PushRow<DiagnosticEpisode> else { fatalError("dx episode row does not exist")}
-        guard let dxEpisode = dxEpisodeRow.value else { fatalError("no dx episode selected")}
-
-        objectToSave = existingActToUpdate ?? getNewActInstance()
-        patient.addToActs(objectToSave as! Act)
-        patient.activeDiagnosticEpisode = dxEpisode
-        dxEpisode.addToActs(objectToSave as! Act)
+    private func initializeBillingSegments(){
         
-        super.saveEntries()
+        site = existingActToUpdate?.actSite ?? actToPrePopSomeFields?.actSite
+        
+        let departmentRow = form.rowBy(tag: Act.departmentTag) as! SegmentedRow<String>
+        departmentRow.value = existingActToUpdate?.actDepartment ?? actToPrePopSomeFields?.actDepartment
+        
+        let categoryRow = form.rowBy(tag: Act.categoryTag) as! SegmentedRow<String>
+        categoryRow.value = existingActToUpdate?.actCategory ?? actToPrePopSomeFields?.actCategory
+        
+        let natureRow = form.rowBy(tag: Act.natureTag) as! SegmentedRow<String>
+        natureRow.value = existingActToUpdate?.actNature ?? actToPrePopSomeFields?.actNature
+    }
+    
+    @objc override func saveEntries(){
+        
+        if form.validate().isEmpty {
+            guard let dxEpisodeRow = form.rowBy(tag: "diagnosticEpisode") as? PushRow<DiagnosticEpisode> else { fatalError("dx episode row does not exist")}
+            guard let dxEpisode = dxEpisodeRow.value else { fatalError("no dx episode selected")}
+            
+            objectToSave = existingActToUpdate ?? getNewActInstance()
+            patient.addToActs(objectToSave as! Act)
+            patient.activeDiagnosticEpisode = dxEpisode
+            dxEpisode.addToActs(objectToSave as! Act)
+            
+            super.saveEntries()
+        }else {
+            let ac = UIAlertController(title: "Form is incomplete ", message: "Required: A diagnostic episode, Complete act definition, Date, Bed number", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Ok", style: .cancel))
+            self.navigationController?.present(ac, animated: true)
+        }
     }
     
     func getNewActInstance() -> Act {
@@ -135,10 +144,13 @@ class ActForm: KarlaForm {
                 row.title = "Diagnotic Episode"
                 row.tag = "diagnosticEpisode"
                 row.value = existingDiagnosticEpisode
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChange
                 row.optionsProvider = .lazy({ (form, completion) in
                     completion(self.patient.diagnosticEpisdoes?.allObjects as? [DiagnosticEpisode])
-                    })
-                }.onPresent{ from, to in
+                })
+                }
+                .onPresent{ from, to in
                     to.selectableRowSetup = { row in
                         row.cellProvider = CellProvider<ListCheckCell<DiagnosticEpisode>>(nibName: "EurekaDxEpisodeChoiceCell", bundle: Bundle.main)
                     }
@@ -147,6 +159,12 @@ class ActForm: KarlaForm {
                         cell.detailTextLabel?.text = row.selectableValue?.dxEpisodeStartDate?.dayMonthYear() ?? "No Start Date Entered"
                     }
             }
+                .cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.textLabel?.textColor = .red
+                    }
+            }
+            
             <<< ButtonRow() { row in
                 row.title = "Create new Diagnostic Episode"
                 row.onCellSelection(self.createNewDiagnosticEpisode)
@@ -159,75 +177,49 @@ class ActForm: KarlaForm {
             // actSite SegmentedRow
             <<< SegmentedRow<String>() { row in
                 row.tag = Act.siteTag
-                row.options = Array(actSites.keys).sorted()
-//                row.value = existingActToUpdate?.actSite ?? actToPrePopSomeFields?.actSite
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChange
                 }.onChange { row in
-//                    if let rowSite = row.value {
-//                        self.site = rowSite
-//                    }
-//                    if let site = row.value {
-//                        guard let dic = self.actSites[site] else {fatalError("Billing dictionary corrupted")}
-//                        self.depDict = dic
-//                    }
-                    
-                    if let actDepartment = self.form.rowBy(tag: "actDepartment") as? SegmentedRow<String>{
-                        actDepartment.value = nil
-                        if let site = row.value, let dic = self.actSites[site]{
-                            actDepartment.options = Array(dic.keys).sorted()
-                            actDepartment.reload()
-                        }
+                    if let rowValue = row.value {
+                        guard let dict = self.actSites[rowValue] else {fatalError("Not in billing Dict")}
+                        self.depDict = dict
                     }
             }
             
             // actDepartment SegmentedRow
             <<< SegmentedRow<String>() { row in
                 row.tag = Act.departmentTag
-//                row.value = existingActToUpdate?.actDepartment  ?? actToPrePopSomeFields?.actDepartment
                 row.hidden = "$actSite == nil OR $actSite == ''"
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChange
                 }.onChange{ row in
-//                    if let rowValue = row.value{
-//                        guard let dict = self.depDict?[rowValue] else {fatalError("Corrupt Dict")}
-//                        self.catDict = dict
-//                        row.reload()
-//                    }
+                    if let rowValue = row.value{
+                        guard let newDict = self.depDict?[rowValue] else {fatalError("Not in billing Dict")}
+                        self.catDict = newDict
+                    } else { self.natDict = nil }
                     
-                    // if change --> look for the segment to update
-                    if let actCategory = self.form.rowBy(tag: "actCategory") as? SegmentedRow<String> {
-                        // reset the segment's value to nil
-                        actCategory.value = nil
-                        // get the proper dictionary and update the option array
-                        if let actSite = self.form.rowBy(tag: "actSite")?.baseValue as? String,
-                            let actDep = row.value,
-                            let dic = self.actSites[actSite]?[actDep]{
-                            actCategory.options = Array(dic.keys).sorted()
-                            actCategory.reload()
-                        }
-                    }
             }
             
             // actCategory SegmentedRow
             <<< SegmentedRow<String>() { row in
                 row.tag = Act.categoryTag
-//                row.value = existingActToUpdate?.actCategory ?? actToPrePopSomeFields?.actCategory
                 row.hidden = "$actDepartment == nil OR $actDepartment == '' "
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChange
                 }.onChange{ row in
-                    if let segRow = self.form.rowBy(tag: "actNature") as? SegmentedRow<String> {
-                        segRow.value = nil
-                        if let actSite = self.form.rowBy(tag: "actSite")?.baseValue as? String,
-                            let actDep = self.form.rowBy(tag: "actDepartment")?.baseValue as? String,
-                            let actCat = row.value,
-                            let dic = self.actSites[actSite]?[actDep]?[actCat]{
-                            segRow.options = Array(dic.keys).sorted()
-                            segRow.reload()
-                        }
-                    }
+                    if let rowValue = row.value{
+                        guard let newDict = self.catDict?[rowValue] else {fatalError("Not in billing Dict")}
+                        self.natDict = newDict
+                    } else { self.natDict = nil }
+                    
             }
             
             // actNature SegmentedRow
             <<< SegmentedRow<String>() { row in
                 row.tag = Act.natureTag
-//                row.value = existingActToUpdate?.actNature ?? actToPrePopSomeFields?.actNature
                 row.hidden = "$actCategory == nil OR $actCategory == '' "
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChange
             }
             
             +++ Section("Dates & other")
@@ -235,12 +227,16 @@ class ActForm: KarlaForm {
                 row.title = "Start Date"
                 row.value = existingActToUpdate?.actStartDate ?? Date(timeIntervalSinceNow: 0)
                 row.tag = Act.startDateTag
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChange
             }
             <<< TextRow() { row in
                 row.title = "Bedside Location"
                 row.value = existingActToUpdate?.actBednumber ?? actToPrePopSomeFields?.actBednumber
                 row.placeholder = "Bed number"
                 row.tag = Act.bedNumberTag
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChange
             }
             <<< TextAreaRow() { row in
                 row.title = "Blurb"
