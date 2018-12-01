@@ -33,7 +33,7 @@ class TagForm: KarlaForm{
             row.title = "Tag:"
             row.placeholder = "Add a tag"
             row.value = existingTag?.tagTitle
-            row.tag = "tagTitle"
+            row.tag = Tag.titleTag
         }
     }
     

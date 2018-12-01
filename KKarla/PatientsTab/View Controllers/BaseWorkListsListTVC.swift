@@ -12,7 +12,7 @@ import UIKit
 class BaseWorkListsListTVC: UITableViewController, Storyboarded{
     
     weak var coordinator: PatientsCoordinator?
-    var model: ListOfListsModel?
+    var model: ClinicalListModel?
     var predicate: NSPredicate?
     var dataCoordinator = AppDelegate.dataCoordinator
     
@@ -28,9 +28,9 @@ class BaseWorkListsListTVC: UITableViewController, Storyboarded{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        model = ListOfListsModel(modelOutputView: self.tableView, searchPredicate: predicate)
+        model = ClinicalListModel(modelOutputView: self.tableView, searchPredicate: predicate)
         
-        self.tableView.register(UINib(nibName: "WorkListTableCell", bundle: nil), forCellReuseIdentifier: "cell")
+        self.tableView.register(UINib(nibName: "ClinicalListTVC", bundle: nil), forCellReuseIdentifier: "cell")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(createList))
         self.tableView.tableFooterView = UIView(frame: .zero)
         self.tableView.rowHeight = 87
@@ -51,7 +51,7 @@ class BaseWorkListsListTVC: UITableViewController, Storyboarded{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WorkListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ClinicalListTVC
         cell.configure(workList: model?.resultController.object(at: indexPath))
         return cell
     }

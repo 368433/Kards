@@ -13,4 +13,12 @@ import CoreData
 @objc(ClinicalList)
 public class ClinicalList: NSManagedObject {
 
+    var totalPatients: Int {
+        return (self.activePatients?.count ?? 0) + (self.signedOffPatients?.count ?? 0) + (self.transferredPatients?.count ?? 0)
+    }
+    
+    static var titleTag = "clinicalListTitle"
+    static var subtitleTag = "clinicalListSubtitle"
+    static var dateTag = "clinicalListCreatedDate"
+    static var isActiveTag = "isActive"
 }

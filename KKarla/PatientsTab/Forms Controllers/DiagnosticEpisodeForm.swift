@@ -38,18 +38,18 @@ class DiagnosticEpisodeForm: KarlaForm{
         form +++ Section()
             <<< TextRow(){ row in
                 row.title = "Primary diagnosis"
-                row.tag = "primaryDiagnosis"
+                row.tag = DiagnosticEpisode.primaryDxTag
                 row.placeholder = "enter a primary diagnosis"
         }
             <<< TextRow(){ row in
                 row.title = "Secondary diagnosises"
-                row.tag = "secondaryDiagnosises"
+                row.tag = DiagnosticEpisode.secondaryDxTag
                 row.placeholder = "comma separated diagnosises"
             }
             <<< DateRow() { row in
                 row.title = "Started"
                 row.value = existingDiagnosticEpisode?.dxEpisodeStartDate ?? Date(timeIntervalSinceNow: 0)
-                row.tag = "dxEpisodeStartDate"
+                row.tag = DiagnosticEpisode.startDateTag
         }
     }
     

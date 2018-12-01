@@ -32,20 +32,25 @@ class ClinicalListForm: KarlaForm {
         form +++ Section("")
             <<< TextRow(){ row in
                 row.title = "List title"
-                row.value = existingClinicalList?.title
+                row.value = existingClinicalList?.clinicalListTitle
                 row.placeholder = "Enter text here"
-                row.tag = "title"
+                row.tag = ClinicalList.titleTag
             }
             <<< TextRow(){ row in
                 row.title = "List subtitle"
-                row.value = existingClinicalList?.subtitle
+                row.value = existingClinicalList?.clinicalListSubtitle
                 row.placeholder = "Enter text here"
-                row.tag = "subtitle"
+                row.tag = ClinicalList.subtitleTag
             }
             <<< SwitchRow(){ row in
                 row.title = "Active Worklist"
                 row.value = existingClinicalList?.isActive ?? true
-                row.tag = "isActive"
+                row.tag = ClinicalList.isActiveTag
+        }
+            <<< DateRow() { row in
+                row.title = "Creation Date"
+                row.value = existingClinicalList?.clinicalListCreateDate ?? Date(timeIntervalSinceNow: 0)
+                row.tag = ClinicalList.dateTag
         }
     }
     

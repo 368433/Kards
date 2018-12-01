@@ -22,6 +22,8 @@ class PatientTableViewCell: UITableViewCell {
     @IBOutlet weak var addActButton: UIButton!
     @IBOutlet weak var addTagButton: UIButton!
     @IBOutlet weak var changeBedButton: UIButton!
+    @IBOutlet weak var diagnosisLabel: UILabel!
+    @IBOutlet weak var caseDescriptionLabel: UILabel!
     
     
     // MARK: other variables:
@@ -60,11 +62,17 @@ class PatientTableViewCell: UITableViewCell {
             addTagButton.addTarget(self, action: #selector(showTagForm), for: .touchUpInside)
             setupTags()
             self.patientNameLabel.text = patient.name
+            self.diagnosisLabel.text = patient.activeDiagnosticEpisode?.primaryDiagnosis
+            self.caseDescriptionLabel.text = "Case Description: " + (patient.summaryBlurb ?? "::No description provided")
         }
     }
 
     @objc func showActForm(){
-        if let pt = patient {coordinator?.showActForm(patient: pt)}
+        if let pt = patient {
+            let latestAct = pt.activeDiagnosticEpisode?.getLatestAct()
+            coordinator?.showActForm(patient: pt, existingAct: nil, actToPrePopSomeFields: latestAct, existingDiagnosticEpisode: pt.activeDiagnosticEpisode)
+            
+        }
     }
     @objc func showTagForm(){
         if let pt = patient {coordinator?.showTagForm(for: pt, existingTag: nil)}

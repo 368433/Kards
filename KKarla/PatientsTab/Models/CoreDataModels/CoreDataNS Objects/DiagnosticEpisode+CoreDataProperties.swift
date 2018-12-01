@@ -22,6 +22,7 @@ extension DiagnosticEpisode {
     @NSManaged public var secondaryDiagnosises: String?
     @NSManaged public var acts: NSSet?
     @NSManaged public var patient: Patient?
+    @NSManaged public var cursorPatient: Patient?
 
 }
 

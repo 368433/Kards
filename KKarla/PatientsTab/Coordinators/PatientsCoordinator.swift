@@ -85,8 +85,8 @@ class PatientsCoordinator: Coordinator {
         presentDataForm(for: newListFormVC)
     }
     
-    func showActForm(patient: Patient){
-        let actForm = ActForm(patient: patient, existingAct: nil, existingDiagnosticEpisode: nil)
+    func showActForm(patient: Patient, existingAct: Act?, actToPrePopSomeFields: Act?, existingDiagnosticEpisode: DiagnosticEpisode?){
+        let actForm = ActForm(patient: patient, existingAct: existingAct, actToPrePopSomeFields: actToPrePopSomeFields, existingDiagnosticEpisode: existingDiagnosticEpisode)
         presentDataForm(for: actForm)
     }
     

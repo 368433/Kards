@@ -2,7 +2,7 @@
 //  ClinicalList+CoreDataProperties.swift
 //  KKarla
 //
-//  Created by quarticAIMBP2018 on 2018-11-28.
+//  Created by quarticAIMBP2018 on 2018-12-01.
 //  Copyright © 2018 amir2. All rights reserved.
 //
 //
@@ -18,8 +18,9 @@ extension ClinicalList {
     }
 
     @NSManaged public var isActive: Bool
-    @NSManaged public var subtitle: String?
-    @NSManaged public var title: String?
+    @NSManaged public var clinicalListSubtitle: String?
+    @NSManaged public var clinicalListTitle: String?
+    @NSManaged public var clinicalListCreateDate: Date?
     @NSManaged public var activePatients: NSSet?
     @NSManaged public var signedOffPatients: NSSet?
     @NSManaged public var transferredPatients: NSSet?

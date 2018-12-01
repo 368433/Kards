@@ -8,9 +8,8 @@
 
 import UIKit
 
-class WorkListTableViewCell: UITableViewCell {
+class ClinicalListTVC: UITableViewCell {
     
-    @IBOutlet weak var listTitleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,7 +28,10 @@ class WorkListTableViewCell: UITableViewCell {
 
     func configure(workList: ClinicalList?){
         if let list = workList {
-            listTitleLabel.text = list.title
+            self.textLabel?.text = list.clinicalListTitle
+            let dateCreated = list.clinicalListCreateDate?.dayMonthYear() ?? "Not entered"
+            let numbOfPatients = String(list.totalPatients)
+            self.detailTextLabel?.text = "CREATED: " + dateCreated + " | Number of Patients: " + numbOfPatients
         }
     }
 }

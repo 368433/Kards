@@ -13,4 +13,12 @@ import CoreData
 @objc(Patient)
 public class Patient: NSManagedObject {
 
+    static var birthdateTag = "dateOfBirth"
+    static var nameTag = "name"
+    static var photoIdTag = "photoID"
+    static var postalCodeTag = "postalCode"
+    static var sinTag = "sin"
+    static var blurbTag = "summaryBlurb"
+    static var uuidTag = "uniqueID"
+    
 }

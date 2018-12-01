@@ -13,4 +13,6 @@ import CoreData
 @objc(Tag)
 public class Tag: NSManagedObject {
 
+    static var titleTag = "tagTitle"
+    
 }

@@ -18,13 +18,13 @@ class LandingCardViewController: UIViewController, Storyboarded {
     @IBOutlet weak var showAllTagsButton: UIButton!
     @IBOutlet weak var showArchivedListsButton: UIButton!
     
-    var model: ListOfListsModel?
+    var model: ClinicalListModel?
     var dataCoordinator = AppDelegate.dataCoordinator
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let predicate = NSPredicate(format: "isActive == true")
-        model = ListOfListsModel(modelOutputView: listsTableView, searchPredicate: predicate)
+        model = ClinicalListModel(modelOutputView: listsTableView, searchPredicate: predicate)
         listsTableView.delegate = self
         listsTableView.dataSource = self
         setupButtons()
@@ -70,7 +70,7 @@ extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = listsTableView.dequeueReusableCell(withIdentifier: "activeListCell", for: indexPath)
-        cell.textLabel?.text = model?.resultController.object(at: indexPath).title
+        cell.textLabel?.text = model?.resultController.object(at: indexPath).clinicalListTitle
         return cell
     }
     

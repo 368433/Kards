@@ -1,5 +1,5 @@
 //
-//  ListOfListsModel.swift
+//  ClinicalListModel.swift
 //  KKarla
 //
 //  Created by quarticAIMBP2018 on 2018-11-25.
@@ -11,7 +11,7 @@ import CoreData
 import UIKit
 import Eureka
 
-class ListOfListsModel{
+class ClinicalListModel{
     
     var resultController: NSFetchedResultsController<ClinicalList>!
     var dataCoordinator = AppDelegate.dataCoordinator
@@ -45,9 +45,9 @@ class ListOfListsModel{
     
     private func getFetchedResultsController() -> NSFetchedResultsController<ClinicalList> {
         let request = ClinicalList.createFetchRequest()
-        let sort = NSSortDescriptor(key: "title", ascending: true)
+        let sort = NSSortDescriptor(key: "clinicalListTitle", ascending: true)
         request.sortDescriptors = [sort]
         request.fetchBatchSize = 20
-        return NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataCoordinator.persistentContainer.viewContext, sectionNameKeyPath: "title", cacheName: nil)
+        return NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataCoordinator.persistentContainer.viewContext, sectionNameKeyPath: "clinicalListTitle", cacheName: nil)
     }
 }

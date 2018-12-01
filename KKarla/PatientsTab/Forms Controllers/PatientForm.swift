@@ -32,30 +32,30 @@ class PatientForm: KarlaForm {
             <<< TextRow(){ row in
                 row.title = "Name"
                 row.placeholder = "Nom, prenom, ou nickname"
-                row.tag = "name"
+                row.tag = Patient.nameTag
                 }.onChange{ [unowned self] row in
                     if row.value == nil { self.navigationItem.rightBarButtonItems?[0].isEnabled = false }
                     else { self.navigationItem.rightBarButtonItems?[0].isEnabled = true }
             }
             <<< DateRow(){ row in
                 row.title = "Date of Birth"
-                row.tag = "DOB"
+                row.tag = Patient.birthdateTag
             }
             <<< TextRow(){ row in
                 row.title = "NAM"
                 row.placeholder = "Numero d'assurance maladie"
-                row.tag = "nam"
+                row.tag = Patient.sinTag
                 
             }
             <<< TextRow(){ row in
                 row.title = "Postal Code"
                 row.placeholder = "code postal"
-                row.tag = "postalCode"
+                row.tag = Patient.postalCodeTag
             }
             <<< TextAreaRow() { row in
                 row.title = "Blurb"
                 row.placeholder = "Enter patient note. Using dictation speeds up entry"
-                row.tag = "patientNote"
+                row.tag = Patient.blurbTag
         }
     }
     

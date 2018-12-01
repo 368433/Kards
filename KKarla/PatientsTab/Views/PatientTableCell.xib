@@ -108,21 +108,29 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ogY-K9-ics" userLabel="Description">
                                                 <rect key="frame" x="0.0" y="40" width="274" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJJ-jR-pY4" userLabel="Diagnosis">
-                                                        <rect key="frame" x="20" y="0.0" width="234" height="50"/>
-                                                        <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exer</string>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
-                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="FEy-zB-WLO">
+                                                        <rect key="frame" x="20" y="0.0" width="234" height="32"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diagnosis: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJJ-jR-pY4" userLabel="DiagnosisLabel">
+                                                                <rect key="frame" x="0.0" y="0.0" width="69.5" height="16"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Case: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veG-ir-Tdk" userLabel="CaseDescription">
+                                                                <rect key="frame" x="0.0" y="16" width="39.5" height="16"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="ZJJ-jR-pY4" firstAttribute="leading" secondItem="ogY-K9-ics" secondAttribute="leading" constant="20" symbolic="YES" id="nH8-AH-Hna"/>
-                                                    <constraint firstItem="ZJJ-jR-pY4" firstAttribute="top" secondItem="ogY-K9-ics" secondAttribute="top" id="o4D-4M-lYi"/>
-                                                    <constraint firstAttribute="bottom" secondItem="ZJJ-jR-pY4" secondAttribute="bottom" id="uRX-tR-c48"/>
+                                                    <constraint firstAttribute="trailing" secondItem="FEy-zB-WLO" secondAttribute="trailing" constant="20" symbolic="YES" id="Veg-bj-SVQ"/>
+                                                    <constraint firstItem="FEy-zB-WLO" firstAttribute="top" secondItem="ogY-K9-ics" secondAttribute="top" id="hCg-86-g68"/>
                                                     <constraint firstAttribute="height" constant="50" id="xPE-Z7-2eN"/>
-                                                    <constraint firstAttribute="trailing" secondItem="ZJJ-jR-pY4" secondAttribute="trailing" constant="20" symbolic="YES" id="yrC-ZY-gCA"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMk-w9-gYR" userLabel="TagNButtons">
@@ -222,6 +230,7 @@
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="FEy-zB-WLO" firstAttribute="leading" secondItem="hm3-7O-nvc" secondAttribute="leading" id="A7a-Li-2Dz"/>
                                             <constraint firstItem="ogY-K9-ics" firstAttribute="top" secondItem="Q0f-F9-JAC" secondAttribute="bottom" id="D38-mI-STn"/>
                                             <constraint firstItem="MMk-w9-gYR" firstAttribute="leading" secondItem="388-tC-CCN" secondAttribute="leading" id="FhO-WS-N3P"/>
                                             <constraint firstAttribute="bottom" secondItem="MMk-w9-gYR" secondAttribute="bottom" id="IxD-XY-kgT"/>
@@ -257,7 +266,9 @@
                 <outlet property="UserImageIcon" destination="SPt-Mr-rtX" id="rNV-hc-OFu"/>
                 <outlet property="addActButton" destination="eVY-oH-Fnz" id="XZa-ew-z0z"/>
                 <outlet property="addTagButton" destination="2ue-2q-Teb" id="Vkh-4e-8jR"/>
+                <outlet property="caseDescriptionLabel" destination="veG-ir-Tdk" id="Elx-nb-xcu"/>
                 <outlet property="changeBedButton" destination="g0l-sd-Vx9" id="obx-e7-G8W"/>
+                <outlet property="diagnosisLabel" destination="ZJJ-jR-pY4" id="AeB-X3-GRr"/>
                 <outlet property="mainBackgroundView" destination="Irc-tI-oE0" id="rCw-b6-FTi"/>
                 <outlet property="patientDetailsLabel" destination="ZJJ-jR-pY4" id="q37-4d-sBe"/>
                 <outlet property="patientNameLabel" destination="hm3-7O-nvc" id="9iK-PV-oXa"/>

@@ -13,15 +13,37 @@ import Eureka
 class ActForm: KarlaForm {
     
     var patient: Patient
-    var existingAct: Act?
+    var existingActToUpdate: Act?
+    var actToPrePopSomeFields: Act?
     var existingDiagnosticEpisode: DiagnosticEpisode?
     
     var actSites = ["HPB":ramqCodes().hospitalDict, "ICM":ramqCodes().hospitalDict, "PCV":ramqCodes().clinicDict]
     
-    init(patient: Patient, existingAct: Act?, existingDiagnosticEpisode: DiagnosticEpisode?){
+    var depDict: [String:[String:[String:(String,String)]]] = [:] {
+        didSet{
+            let departmentRow = form.rowBy(tag: Act.departmentTag) as! SegmentedRow<String>
+            departmentRow.options = depDict.keys.sorted()
+        }
+    }
+    var catDict: [String:[String:(String,String)]] = [:]{
+        didSet{
+            let categoryRow = form.rowBy(tag: Act.categoryTag) as! SegmentedRow<String>
+            categoryRow.options = depDict.keys.sorted()
+        }
+    }
+    var natDict: [String:(String,String)] = [:]{
+        didSet{
+            let natureRow = form.rowBy(tag: Act.natureTag) as! SegmentedRow<String>
+            natureRow.options = depDict.keys.sorted()
+        }
+    }
+    
+    
+    init(patient: Patient, existingAct: Act?, actToPrePopSomeFields: Act?, existingDiagnosticEpisode: DiagnosticEpisode?){
         self.patient = patient
-        self.existingAct = existingAct
+        self.existingActToUpdate = existingAct
         self.existingDiagnosticEpisode = existingDiagnosticEpisode
+        self.actToPrePopSomeFields = actToPrePopSomeFields
         super.init()
     }
     
@@ -35,14 +57,19 @@ class ActForm: KarlaForm {
         self.title = "New Act"
         initializeForm()
         
+        // if patient has no diagnostic episode automatically invoke form
+        if patient.diagnosticEpisdoes?.allObjects.count == 0 {
+            createNewDiagnosticEpisode()
+        }
     }
     
     @objc override func saveEntries(){
         guard let dxEpisodeRow = form.rowBy(tag: "diagnosticEpisode") as? PushRow<DiagnosticEpisode> else { fatalError("dx episode row does not exist")}
         guard let dxEpisode = dxEpisodeRow.value else { fatalError("no dx episode selected")}
 
-        objectToSave = existingAct ?? getNewActInstance()
+        objectToSave = existingActToUpdate ?? getNewActInstance()
         patient.addToActs(objectToSave as! Act)
+        patient.activeDiagnosticEpisode = dxEpisode
         dxEpisode.addToActs(objectToSave as! Act)
         
         super.saveEntries()
@@ -55,6 +82,10 @@ class ActForm: KarlaForm {
     }
     
     private func createNewDiagnosticEpisode(cell: ButtonCellOf<String>, row: ButtonRow){
+        createNewDiagnosticEpisode()
+    }
+    
+    private func createNewDiagnosticEpisode(){
         let dxEpisode = DiagnosticEpisodeForm(patient: patient, existingAct: nil, existingDiagnosticEpisode: nil)
         let nc = UINavigationController()
         nc.pushViewController(dxEpisode, animated: false)
@@ -69,27 +100,18 @@ class ActForm: KarlaForm {
             <<< PushRow<DiagnosticEpisode>() { row in
                 row.title = "Diagnotic Episode"
                 row.tag = "diagnosticEpisode"
+                row.value = existingDiagnosticEpisode
                 row.optionsProvider = .lazy({ (form, completion) in
                     completion(self.patient.diagnosticEpisdoes?.allObjects as? [DiagnosticEpisode])
                     })
                 }.onPresent{ from, to in
                     to.selectableRowSetup = { row in
                         row.cellProvider = CellProvider<ListCheckCell<DiagnosticEpisode>>(nibName: "EurekaDxEpisodeChoiceCell", bundle: Bundle.main)
-                        row.cell.textLabel?.text = row.selectableValue?.primaryDiagnosis
-                        row.cell.detailTextLabel?.text = row.selectableValue?.dxEpisodeStartDate?.dayMonthYear() ?? "No Start Date Entered"
                     }
-                    
-                    /*
-                     following call was removed as it gets called for every cell
-                     when cell updates.
-                     keeping code as sample for reference of functionality
-                     
-                         to.selectableRowCellUpdate = { cell, row in
-                         print(row.selectableValue?.description)
-                         cell.textLabel?.text = row.selectableValue?.primaryDiagnosis
-                         cell.detailTextLabel?.text = row.selectableValue?.dxEpisodeStartDate?.dayMonthYear() ?? "No Start Date Entered"
-                         }
-                     */
+                    to.selectableRowCellUpdate = { cell, row in
+                        cell.textLabel?.text = row.selectableValue?.primaryDiagnosis
+                        cell.detailTextLabel?.text = row.selectableValue?.dxEpisodeStartDate?.dayMonthYear() ?? "No Start Date Entered"
+                    }
             }
             <<< ButtonRow() { row in
                 row.title = "Create new Diagnostic Episode"
@@ -98,11 +120,13 @@ class ActForm: KarlaForm {
             
             +++ Section("Act Parameters")
             
+            // MARK : BILLING SEGMENTS CREATION
+            
             // actSite SegmentedRow
             <<< SegmentedRow<String>() { row in
-                row.tag = "actSite"
+                row.tag = Act.siteTag
                 row.options = Array(actSites.keys).sorted()
-                row.value = existingAct?.actSite
+                row.value = existingActToUpdate?.actSite ?? actToPrePopSomeFields?.actSite
                 }.onChange { row in
                     if let actDepartment = self.form.rowBy(tag: "actDepartment") as? SegmentedRow<String>{
                         actDepartment.value = nil
@@ -115,8 +139,8 @@ class ActForm: KarlaForm {
             
             // actDepartment SegmentedRow
             <<< SegmentedRow<String>() { row in
-                row.tag = "actDepartment"
-                row.value = existingAct?.actDepartment
+                row.tag = Act.departmentTag
+                row.value = existingActToUpdate?.actDepartment  ?? actToPrePopSomeFields?.actDepartment
                 row.hidden = "$actSite == nil OR $actSite == ''"
                 }.onChange{ row in
                     // if change --> look for the segment to update
@@ -132,10 +156,11 @@ class ActForm: KarlaForm {
                         }
                     }
             }
+            
             // actCategory SegmentedRow
             <<< SegmentedRow<String>() { row in
-                row.tag = "actCategory"
-                row.value = existingAct?.actCategory
+                row.tag = Act.categoryTag
+                row.value = existingActToUpdate?.actCategory ?? actToPrePopSomeFields?.actCategory
                 row.hidden = "$actDepartment == nil OR $actDepartment == '' "
                 }.onChange{ row in
                     if let segRow = self.form.rowBy(tag: "actNature") as? SegmentedRow<String> {
@@ -152,27 +177,27 @@ class ActForm: KarlaForm {
             
             // actNature SegmentedRow
             <<< SegmentedRow<String>() { row in
-                row.tag = "actNature"
-                row.value = existingAct?.actNature
+                row.tag = Act.natureTag
+                row.value = existingActToUpdate?.actNature ?? actToPrePopSomeFields?.actNature
                 row.hidden = "$actCategory == nil OR $actCategory == '' "
             }
             
             +++ Section("Dates & other")
             <<< DateTimeRow(){ row in
                 row.title = "Start Date"
-                row.value = existingAct?.actStartDate ?? Date(timeIntervalSinceNow: 0)
-                row.tag = "actStartDate"
+                row.value = existingActToUpdate?.actStartDate ?? Date(timeIntervalSinceNow: 0)
+                row.tag = Act.startDateTag
             }
             <<< TextRow() { row in
                 row.title = "Bedside Location"
-                row.value = existingAct?.actBednumber
+                row.value = existingActToUpdate?.actBednumber ?? actToPrePopSomeFields?.actBednumber
                 row.placeholder = "Bed number"
-                row.tag = "actBedsideLocation"
+                row.tag = Act.bedNumberTag
             }
             <<< TextAreaRow() { row in
                 row.title = "Blurb"
                 row.placeholder = "Enter act note. Using dictation speeds up entry"
-                row.tag = "actNote"
+                row.tag = Act.noteTag
         }
     }
 }
