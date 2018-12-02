@@ -15,16 +15,15 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
     var searchCriteria: NSPredicate?
     var dataCoordinator = AppDelegate.dataCoordinator
     internal var searchModule: PatientSearcher!
-    static let tableViewCellIdentifier = "cell"
-    private static let nibName = "PatientTableCell"
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         model = PatientListModel(searchPredicate: searchCriteria, modelOutputView: self.tableView)
         
-        let nib = UINib(nibName: BasePatientsListTVC.nibName, bundle: nil)
-        self.tableView.register(nib, forCellReuseIdentifier: "cell")
+        let nib = UINib(nibName: PatientTableViewCell.nibName, bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: PatientTableViewCell.reuseID)
         self.tableView.tableFooterView = UIView(frame: .zero)
         self.tableView.rowHeight = PatientTableViewCell.rowHeight
         self.tableView.separatorStyle = .none
@@ -37,7 +36,7 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
         // Make the search bar visible when scrolling - default is false
         navigationItem.hidesSearchBarWhenScrolling = true
         definesPresentationContext = true
-        
+
         let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(invokeSearch))
         self.navigationItem.rightBarButtonItems?.append(searchButton)
     }
@@ -53,19 +52,18 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return model?.resultController.sections?.count ?? 0
+        return model.resultController.sections?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model?.resultController.sections![section].numberOfObjects ?? 0
+        return model.resultController.sections![section].numberOfObjects
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: BasePatientsListTVC.tableViewCellIdentifier, for: indexPath) as! PatientTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: PatientTableViewCell.reuseID, for: indexPath) as! PatientTableViewCell
         
-        guard let patient = model?.resultController.object(at: indexPath) else { fatalError("No valid patient object")}
-        cell.patient = patient
+        cell.patient = model.resultController.object(at: indexPath)
         cell.coordinator = self.coordinator
         cell.configure()
         return cell

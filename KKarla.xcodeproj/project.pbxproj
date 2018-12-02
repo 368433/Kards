@@ -295,6 +295,7 @@
 		6A3BF0E421AB12DF00CA0A71 /* TRASH */ = {
 			isa = PBXGroup;
 			children = (
+				6A533A9721AB6B31000FB93E /* Oldies */,
 				E8861730217F50E40098D3EE /* LandingCardModel.swift */,
 				E822211D217D418000CEE16C /* KarlaFormDelegate.swift */,
 				E886173B217F98CC0098D3EE /* FormType.swift */,
@@ -307,15 +308,13 @@
 		6A3BF0E521AB161D00CA0A71 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6A533A9721AB6B31000FB93E /* Oldies */,
 				E88920A5217BD50C004216F1 /* LandingCardViewController.swift */,
-				6A36B04D21AB972300C4F9A8 /* BaseWorkListsListTVC.swift */,
 				6A3BF0E721AB1D4200CA0A71 /* BasePatientsListTVC.swift */,
-				6A806D6121B1D6F2004E85A2 /* DetailedPatientViewVC.swift */,
 				6A58514621AF551500EE6943 /* BaseTagsListTVC.swift */,
+				6A36B04D21AB972300C4F9A8 /* BaseWorkListsListTVC.swift */,
+				6A806D6121B1D6F2004E85A2 /* DetailedPatientViewVC.swift */,
 				6A533A9521AB665D000FB93E /* ActiveListPatientsVC.swift */,
 				6A806D5321B09A04004E85A2 /* AllPatientsListVC.swift */,
-				6A32F91E21B3744200BB1234 /* PatientSearchController.swift */,
 				6A32F91C21B358D900BB1234 /* ResultsTableController.swift */,
 			);
 			path = "View Controllers";
@@ -332,6 +331,7 @@
 				6A32F91121B2BEF900BB1234 /* ImageService.swift */,
 				E84114BE217211B200C5E9D9 /* Storyboarded.swift */,
 				6A806D5121B04371004E85A2 /* PatientsFilterSegmentedControl.swift */,
+				6A32F91E21B3744200BB1234 /* PatientSearchController.swift */,
 				E8861734217F55E70098D3EE /* TableViewResultAdapter.swift */,
 				6A816EED21AC2AF800031BAB /* BillingCodes.swift */,
 			);

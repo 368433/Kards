@@ -32,6 +32,9 @@ class PatientTableViewCell: UITableViewCell {
     lazy var tagStackList = ButtonTagStackList(stack: tagListStack)
     static var rowHeight: CGFloat = 150
     
+    static var nibName = "PatientTableCell"
+    static var reuseID = "cell"
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
