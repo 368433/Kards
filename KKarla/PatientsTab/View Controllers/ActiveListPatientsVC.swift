@@ -13,16 +13,16 @@ import UIKit
 class ActiveListPatientsVC: BasePatientsListTVC {
     
     var activeList: ClinicalList
-    var astSegment = ASTSegment.Active
-//    var segmentedControl = UISegmentedControl()
-    var kSeg = KKSegments()
+    var astSegment: ASTSegment = .Active
+    let kSeg = KKSegments(options: [ASTSegment.Active, ASTSegment.SignedOff,ASTSegment.Transferred])
+
     var headerFrame = CGRect()
     var headerView = UIView()
     
     init(ClinicalList: ClinicalList){
         self.activeList = ClinicalList
         super.init(nibName:nil, bundle:nil)
-        self.searchCriteria = NSPredicate(format: "ANY activeWorkLists == %@", activeList)
+        self.searchCriteria = astSegment.searchPredicate(clinicalList: activeList)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -31,12 +31,14 @@ class ActiveListPatientsVC: BasePatientsListTVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.headerFrame = CGRect(x: 0, y: 0, width: super.view.frame.width, height: 80)
         self.headerView = UIView(frame:headerFrame )
         self.tableView.tableHeaderView = headerView
+       
         self.kSeg.parentView = headerView
         self.kSeg.addTarget(self, action: #selector(updateModel), for: .valueChanged)
-//        setupSegmentedTabs()
+        
         searchModule = PatientSearcher(requiredPredicate: self.searchCriteria, ptCoordinator: self.coordinator)
         setupSearch()
     }
@@ -54,30 +56,4 @@ class ActiveListPatientsVC: BasePatientsListTVC {
         self.searchCriteria = astSegment.searchPredicate(clinicalList: activeList)
         self.tableView.reloadData()
     }
-}
-
-// MARK: SEGMENTED CONTROL implementation
-
-extension ActiveListPatientsVC{
-    
-//    func setupSegmentedTabs(){
-//        //insert uiview in table header and give it frame
-//        let scFrame = CGRect(x: 10, y: 10, width: view.frame.width-20, height: 35)
-//        let tabs = [
-//            ASTSegment.Active.description,
-//            ASTSegment.SignedOff.description,
-//            ASTSegment.Transferred.description]
-//
-//        self.segmentedControl = UISegmentedControl(items: tabs)
-//        self.segmentedControl.frame = scFrame
-//        self.segmentedControl.selectedSegmentIndex = astSegment.rawValue
-//        self.segmentedControl.addTarget(self, action: #selector(updateModel), for: .valueChanged)
-//        self.headerView.addSubview(segmentedControl)
-//    }
-//
-//    @objc private func updateModel(sender: UISegmentedControl){
-//        astSegment = ASTSegment(rawValue: sender.selectedSegmentIndex) ?? .Active
-//        self.searchCriteria = astSegment.searchPredicate(clinicalList: activeList)
-//        self.tableView.reloadData()
-//    }
 }

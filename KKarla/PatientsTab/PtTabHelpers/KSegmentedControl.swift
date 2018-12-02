@@ -21,18 +21,20 @@ class KKSegments: UISegmentedControl {
             self.frame = scFrame
         }
     }
-    let options = [ASTSegment.Active, ASTSegment.SignedOff, ASTSegment.Transferred]
+    var options = [ASTSegment]()
     
-    init(){
+    init(options: [ASTSegment]){
+        self.options = options
         super.init(items: options.compactMap{$0.description})
         self.selectedSegmentIndex = 0
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
 }
