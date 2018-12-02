@@ -17,11 +17,41 @@ class PatientForm: KarlaForm {
 //    var delegate: NewPatientFormDelegate?
     var patient: Patient?
     var listToLink: ClinicalList?
+    var quickParser: QuickParser!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                        
-        form +++ Section("")
+        
+        initializeForm()
+        quickParser = QuickParser(form: self.form)
+    }
+    
+    @objc override func saveEntries(){
+        objectToSave = patient ?? getNewPatientInstance()
+        if let list = listToLink, let patientToSave = objectToSave as? Patient { patientToSave.addToActiveWorkLists(list) }
+        super.saveEntries()
+    }
+    
+    func getNewPatientInstance() -> Patient {
+        let newPatient = Patient(context: dataCoordinator.persistentContainer.viewContext)
+        dataCoordinator.persistentContainer.viewContext.insert(newPatient)
+        return newPatient
+    }
+}
+
+extension PatientForm{
+    private func initializeForm(){
+        form +++ Section("Quick Parser")
+            <<< TextRow(){ row in
+                row.placeholder = "enter text to parse"
+                }.onChange { row in
+                    if row.value == "" || row.value == nil {
+                        return
+                    }
+                    self.quickParser.parse(textToParse: row.value!)
+            }
+            
+            +++ Section("Direct form entry")
             <<< ImageRow(){ row in
                 row.title = "Photo ID"
                 row.sourceTypes = [.PhotoLibrary, .Camera]
@@ -55,17 +85,5 @@ class PatientForm: KarlaForm {
                 row.placeholder = "Enter patient note. Using dictation speeds up entry"
                 row.tag = Patient.blurbTag
         }
-    }
-    
-    @objc override func saveEntries(){
-        objectToSave = patient ?? getNewPatientInstance()
-        if let list = listToLink, let patientToSave = objectToSave as? Patient { patientToSave.addToActiveWorkLists(list) }
-        super.saveEntries()
-    }
-    
-    func getNewPatientInstance() -> Patient {
-        let newPatient = Patient(context: dataCoordinator.persistentContainer.viewContext)
-        dataCoordinator.persistentContainer.viewContext.insert(newPatient)
-        return newPatient
     }
 }

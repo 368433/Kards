@@ -53,11 +53,7 @@ class PatientsCoordinator: Coordinator {
         navigationController.present(ac, animated: true)
     }
     
-    func addNewPatient(list: ClinicalList? = nil){
-        let newPatientForm = PatientForm.instantiate()
-        if let list = list {newPatientForm.listToLink = list}
-        presentDataForm(for: newPatientForm)
-    }
+    
     
     func showTagsListsTVC(){
         let tagsListsTVC = BaseTagsListTVC()
@@ -82,6 +78,12 @@ class PatientsCoordinator: Coordinator {
         form.coordinator = self
         nc.pushViewController(form, animated: false)
         navigationController.present(nc, animated: true, completion: nil)
+    }
+    
+    func addNewPatient(list: ClinicalList? = nil){
+        let newPatientForm = PatientForm()
+        if let list = list {newPatientForm.listToLink = list}
+        presentDataForm(for: newPatientForm)
     }
     
     func showClinicalkListForm(existingList: ClinicalList? = nil){
