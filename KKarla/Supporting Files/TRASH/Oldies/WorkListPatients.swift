@@ -137,7 +137,7 @@ extension WorkListPatients {
         default:
             return
         }
-        model?.reloadObjectList()
+//        model?.reloadObjectList()
         self.tableView.reloadData()
         
     }

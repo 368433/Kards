@@ -40,7 +40,7 @@ extension AllPatientsList: UISearchResultsUpdating {
         } else {
             model?.searchPredicate = NSPredicate(format: "name contains[c] %@ ", searchController.searchBar.text!)
         }
-        model?.reloadObjectList()
+//        model?.reloadObjectList()
         tableView.reloadData()
     }
 }

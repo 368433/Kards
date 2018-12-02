@@ -161,9 +161,9 @@ extension PatientSearcher: UISearchResultsUpdating {
             NSCompoundPredicate(andPredicateWithSubpredicates: andMatchPredicates)
         
         if let resultsController = searchController.searchResultsController as? BasePatientsListTVC {
-            resultsController.model?.getPatients(predicate: finalCompoundPredicate)
+            resultsController.model?.searchPredicate = finalCompoundPredicate
+            resultsController.tableView.reloadData()
         }
-        //            resultsController.filteredPatients =
     }
     
     

@@ -15,7 +15,11 @@ class PatientListModel{
     
     var resultController: NSFetchedResultsController<Patient>!
     var dataCoordinator = AppDelegate.dataCoordinator
-    var searchPredicate: NSPredicate?
+    var searchPredicate: NSPredicate? {
+        didSet{
+            self.loadObjectList()
+        }
+    }
     
     init(searchPredicate: NSPredicate?){
         self.searchPredicate = searchPredicate
@@ -23,10 +27,10 @@ class PatientListModel{
         loadObjectList()
     }
     
-    func getPatients(predicate: NSPredicate){
-        self.searchPredicate = predicate
-        loadObjectList()
-    }
+//    func getPatients(predicate: NSPredicate){
+//        self.searchPredicate = predicate
+//        loadObjectList()
+//    }
 
     
     private func loadObjectList(){
@@ -38,10 +42,10 @@ class PatientListModel{
             print("Fetch failed")
         }
     }
-    
-    func reloadObjectList(){
-        loadObjectList()
-    }
+//    
+//    func reloadObjectList(){
+//        loadObjectList()
+//    }
     
     private func getFetchedResultsController() -> NSFetchedResultsController<Patient> {
         let request = Patient.createFetchRequest()

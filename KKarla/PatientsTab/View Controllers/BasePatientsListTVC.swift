@@ -12,7 +12,11 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
 
     weak var coordinator: PatientsCoordinator?
     var model: PatientListModel!
-    var searchCriteria: NSPredicate?
+    var searchCriteria: NSPredicate? {
+        didSet{
+            model?.searchPredicate = searchCriteria
+        }
+    }
     var dataCoordinator = AppDelegate.dataCoordinator
     var resultsControllerDelegate: TableViewFetchResultAdapter!
     internal var searchModule: PatientSearcher!
