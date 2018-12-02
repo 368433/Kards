@@ -8,36 +8,33 @@
 
 import UIKit
 
-class PatientSearcher: UISearchController {
+class PatientSearcher: NSObject {
     
     // MARK: - Properties
     
     /// Search controller to help us with filtering.
-    //private var searchController: UISearchController!
+    var searchController: UISearchController!
     
     /// Secondary search results table view.
     private var resultsTableController: ResultsTableController!
     
-    init(){
+    override init(){
+        super.init()
         resultsTableController = ResultsTableController()
-        super.init(searchResultsController: resultsTableController)
+        searchController = UISearchController (searchResultsController: resultsTableController)
         setup()
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
+
     
     func setup(){
-        
         resultsTableController = ResultsTableController()
         //searchController = UISearchController(searchResultsController: resultsTableController)
-        self.searchResultsUpdater = self
-        self.searchBar.autocapitalizationType = .none
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.autocapitalizationType = .none
         
-        self.delegate = self
-        self.dimsBackgroundDuringPresentation = true
-        self.searchBar.delegate = self
+        searchController.delegate = self
+        searchController.dimsBackgroundDuringPresentation = true
+        searchController.searchBar.delegate = self
         
     }
 }

@@ -29,7 +29,8 @@ class AllPatientsListVC: BasePatientsListTVC {
     // MARK: - Properties
     
     /// Search controller to help us with filtering.
-    private var searchController: UISearchController!
+//    private var searchController: UISearchController!
+    private var searchModule: PatientSearcher!
     
     /// Secondary search results table view.
 //    private var resultsTableController: ResultsTableController!
@@ -62,8 +63,9 @@ class AllPatientsListVC: BasePatientsListTVC {
 //        searchController.searchResultsUpdater = self
 //        searchController.searchBar.autocapitalizationType = .none
 //
-        searchController = PatientSearcher()
-        navigationItem.searchController = searchController
+        searchModule = PatientSearcher()
+        
+        navigationItem.searchController = searchModule.searchController
         
         // Make the search bar visible when scrolling - default is false
         navigationItem.hidesSearchBarWhenScrolling = true
@@ -78,7 +80,7 @@ class AllPatientsListVC: BasePatientsListTVC {
     }
     
     @objc func invokeSearch(){
-        searchController.searchBar.becomeFirstResponder()
+        searchModule.searchController.searchBar.becomeFirstResponder()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -86,11 +88,11 @@ class AllPatientsListVC: BasePatientsListTVC {
         
         // Restore the searchController's active state.
         if restoredState.wasActive{
-            searchController.isActive = restoredState.wasActive
+            searchModule.searchController.isActive = restoredState.wasActive
             restoredState.wasActive = false
             
             if restoredState.wasFirstResponder {
-                searchController.searchBar.becomeFirstResponder()
+                searchModule.searchController.searchBar.becomeFirstResponder()
                 restoredState.wasFirstResponder = false
             }
         }
@@ -115,124 +117,124 @@ class AllPatientsListVC: BasePatientsListTVC {
 
 // MARK: - UISearchBarDelegate
 
-extension AllPatientsListVC: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-    }
-}
+//extension AllPatientsListVC: UISearchBarDelegate {
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        searchBar.resignFirstResponder()
+//    }
+//}
 
 // MARK: - UISearchControllerDelegate
 
 // Use these delegate functions for additional control over the search controller.
-
-extension AllPatientsListVC: UISearchControllerDelegate {
-   
-    /*
-    func presentSearchController(_ searchController: UISearchController) {
-        debugPrint("UISearchControllerDelegate invoked method: \(#function).")
-    }
-    
-    func willPresentSearchController(_ searchController: UISearchController) {
-        debugPrint("UISearchControllerDelegate invoked method: \(#function).")
-    }
-    
-    func didPresentSearchController(_ searchController: UISearchController) {
-        debugPrint("UISearchControllerDelegate invoked method: \(#function).")
-    }
-    
-    func willDismissSearchController(_ searchController: UISearchController) {
-        debugPrint("UISearchControllerDelegate invoked method: \(#function).")
-    }
-    
-    func didDismissSearchController(_ searchController: UISearchController) {
-        debugPrint("UISearchControllerDelegate invoked method: \(#function).")
-    }
-    */
-}
-
-
-// MARK: - UISearchResultsUpdating
-
-extension AllPatientsListVC: UISearchResultsUpdating {
-    
-    private func generateSearchPredicate(searchString: String) -> NSCompoundPredicate {
-        var searchItemsPredicate = [NSPredicate]()
-    
-        // Generate search predicate for patient name field
-        let nameExpression = NSExpression(forKeyPath: Patient.nameTag)
-        let searchStringExpression = NSExpression(forConstantValue: searchString)
-        let nameSearchComparisonPredicate =
-            NSComparisonPredicate(leftExpression: nameExpression,
-                                  rightExpression: searchStringExpression,
-                                  modifier: .direct,
-                                  type: .contains,
-                                  options: [.caseInsensitive, .diacriticInsensitive])
-        searchItemsPredicate.append(nameSearchComparisonPredicate)
-
-        // Generate search predicate for patient diagnosis field
-        let primaryDxExpression = NSExpression(forKeyPath: Patient.searchActiveEpisode1ryDx)
-        let diagnosisComparisonPredicate =
-            NSComparisonPredicate(leftExpression: primaryDxExpression,
-                                  rightExpression: searchStringExpression,
-                                  modifier: .direct,
-                                  type: .contains,
-                                  options: [.caseInsensitive, .diacriticInsensitive])
-        
-        searchItemsPredicate.append(diagnosisComparisonPredicate)
-
-        // Generate search predicate for patient tags field
-        let tagsExpression = NSExpression(forKeyPath: Patient.tagSearchKeyPath)
-        let tagsComparisonPredicate =
-            NSComparisonPredicate(leftExpression: tagsExpression,
-                                  rightExpression: searchStringExpression,
-                                  modifier: .any,
-                                  type: .contains,
-                                  options: [.caseInsensitive, .diacriticInsensitive])
-        
-        searchItemsPredicate.append(tagsComparisonPredicate)
-/*
-        // Generate search predicate for patient name field
-        let nameExpression = NSExpression(forKeyPath: Patient.nameTag)
-        let searchStringExpression = NSExpression(forConstantValue: searchString)
-        let nameSearchComparisonPredicate =
-            NSComparisonPredicate(leftExpression: nameExpression,
-                                  rightExpression: searchStringExpression,
-                                  modifier: .direct,
-                                  type: .contains,
-                                  options: [.caseInsensitive, .diacriticInsensitive])
-
-        searchItemsPredicate.append(nameSearchComparisonPredicate)
-  */
-        
-        // Put all predicates together and return compound predicate
-        let orPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: searchItemsPredicate)
-        return orPredicate
-    }
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        
-        // Strip out all the leading and trailing spaces.
-        let whitespaceCharacterSet = CharacterSet.whitespaces
-        let strippedString =
-            searchController.searchBar.text!.trimmingCharacters(in: whitespaceCharacterSet)
-        let searchItems = strippedString.components(separatedBy: " ") as [String]
-        
-        // Build all the "AND" expressions for each value in searchString.
-        let andMatchPredicates: [NSPredicate] = searchItems.map { searchString in
-            generateSearchPredicate(searchString: searchString)
-        }
-        
-        // Match up the fields of the Product object.
-        let finalCompoundPredicate =
-            NSCompoundPredicate(andPredicateWithSubpredicates: andMatchPredicates)
-        
-        if let resultsController = searchController.searchResultsController as? ResultsTableController {
-//            resultsController.model?.searchPatients(predicate: finalCompoundPredicate)
-            resultsController.model?.getPatients(predicate: finalCompoundPredicate)
-            resultsController.tableView.reloadData()
-        }
-//            resultsController.filteredPatients =
-    }
-    
-    
-}
+//
+//extension AllPatientsListVC: UISearchControllerDelegate {
+//   
+//    /*
+//    func presentSearchController(_ searchController: UISearchController) {
+//        debugPrint("UISearchControllerDelegate invoked method: \(#function).")
+//    }
+//    
+//    func willPresentSearchController(_ searchController: UISearchController) {
+//        debugPrint("UISearchControllerDelegate invoked method: \(#function).")
+//    }
+//    
+//    func didPresentSearchController(_ searchController: UISearchController) {
+//        debugPrint("UISearchControllerDelegate invoked method: \(#function).")
+//    }
+//    
+//    func willDismissSearchController(_ searchController: UISearchController) {
+//        debugPrint("UISearchControllerDelegate invoked method: \(#function).")
+//    }
+//    
+//    func didDismissSearchController(_ searchController: UISearchController) {
+//        debugPrint("UISearchControllerDelegate invoked method: \(#function).")
+//    }
+//    */
+//}
+//
+//
+//// MARK: - UISearchResultsUpdating
+//
+//extension AllPatientsListVC: UISearchResultsUpdating {
+//    
+//    private func generateSearchPredicate(searchString: String) -> NSCompoundPredicate {
+//        var searchItemsPredicate = [NSPredicate]()
+//    
+//        // Generate search predicate for patient name field
+//        let nameExpression = NSExpression(forKeyPath: Patient.nameTag)
+//        let searchStringExpression = NSExpression(forConstantValue: searchString)
+//        let nameSearchComparisonPredicate =
+//            NSComparisonPredicate(leftExpression: nameExpression,
+//                                  rightExpression: searchStringExpression,
+//                                  modifier: .direct,
+//                                  type: .contains,
+//                                  options: [.caseInsensitive, .diacriticInsensitive])
+//        searchItemsPredicate.append(nameSearchComparisonPredicate)
+//
+//        // Generate search predicate for patient diagnosis field
+//        let primaryDxExpression = NSExpression(forKeyPath: Patient.searchActiveEpisode1ryDx)
+//        let diagnosisComparisonPredicate =
+//            NSComparisonPredicate(leftExpression: primaryDxExpression,
+//                                  rightExpression: searchStringExpression,
+//                                  modifier: .direct,
+//                                  type: .contains,
+//                                  options: [.caseInsensitive, .diacriticInsensitive])
+//        
+//        searchItemsPredicate.append(diagnosisComparisonPredicate)
+//
+//        // Generate search predicate for patient tags field
+//        let tagsExpression = NSExpression(forKeyPath: Patient.tagSearchKeyPath)
+//        let tagsComparisonPredicate =
+//            NSComparisonPredicate(leftExpression: tagsExpression,
+//                                  rightExpression: searchStringExpression,
+//                                  modifier: .any,
+//                                  type: .contains,
+//                                  options: [.caseInsensitive, .diacriticInsensitive])
+//        
+//        searchItemsPredicate.append(tagsComparisonPredicate)
+///*
+//        // Generate search predicate for patient name field
+//        let nameExpression = NSExpression(forKeyPath: Patient.nameTag)
+//        let searchStringExpression = NSExpression(forConstantValue: searchString)
+//        let nameSearchComparisonPredicate =
+//            NSComparisonPredicate(leftExpression: nameExpression,
+//                                  rightExpression: searchStringExpression,
+//                                  modifier: .direct,
+//                                  type: .contains,
+//                                  options: [.caseInsensitive, .diacriticInsensitive])
+//
+//        searchItemsPredicate.append(nameSearchComparisonPredicate)
+//  */
+//        
+//        // Put all predicates together and return compound predicate
+//        let orPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: searchItemsPredicate)
+//        return orPredicate
+//    }
+//    
+//    func updateSearchResults(for searchController: UISearchController) {
+//        
+//        // Strip out all the leading and trailing spaces.
+//        let whitespaceCharacterSet = CharacterSet.whitespaces
+//        let strippedString =
+//            searchController.searchBar.text!.trimmingCharacters(in: whitespaceCharacterSet)
+//        let searchItems = strippedString.components(separatedBy: " ") as [String]
+//        
+//        // Build all the "AND" expressions for each value in searchString.
+//        let andMatchPredicates: [NSPredicate] = searchItems.map { searchString in
+//            generateSearchPredicate(searchString: searchString)
+//        }
+//        
+//        // Match up the fields of the Product object.
+//        let finalCompoundPredicate =
+//            NSCompoundPredicate(andPredicateWithSubpredicates: andMatchPredicates)
+//        
+//        if let resultsController = searchController.searchResultsController as? ResultsTableController {
+////            resultsController.model?.searchPatients(predicate: finalCompoundPredicate)
+//            resultsController.model?.getPatients(predicate: finalCompoundPredicate)
+//            resultsController.tableView.reloadData()
+//        }
+////            resultsController.filteredPatients =
+//    }
+//    
+//    
+//}
