@@ -17,7 +17,7 @@ class AllPatientsListVC: BasePatientsListTVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchModule = PatientSearcher(requiredPredicate: nil)
+        searchModule = PatientSearcher(requiredPredicate: nil, ptCoordinator: self.coordinator)
         setupSearch()
     }
 

@@ -20,10 +20,11 @@ class PatientSearcher: NSObject {
     
     var requiredPredicate: NSPredicate?
     
-    init(requiredPredicate: NSPredicate?){
+    init(requiredPredicate: NSPredicate?, ptCoordinator: PatientsCoordinator?){
         super.init()
         self.requiredPredicate = requiredPredicate
         resultsTableController = ResultsTableController()
+        resultsTableController.coordinator = ptCoordinator
         searchController = UISearchController (searchResultsController: resultsTableController)
         setup()
     }

@@ -36,7 +36,7 @@ class ActiveListPatientsVC: BasePatientsListTVC {
         super.viewDidLoad()
         setupSegmentedTabs()
         self.model?.getPatients(predicate: patientFilterPredicate)
-        searchModule = PatientSearcher(requiredPredicate: patientFilterPredicate)
+        searchModule = PatientSearcher(requiredPredicate: patientFilterPredicate, ptCoordinator: self.coordinator)
         setupSearch()
     }
     

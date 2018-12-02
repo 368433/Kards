@@ -36,7 +36,7 @@ class LandingCardViewController: UIViewController, Storyboarded {
 
 extension LandingCardViewController{
     private func setupSearch(){
-        searchModule = PatientSearcher(requiredPredicate: nil)
+        searchModule = PatientSearcher(requiredPredicate: nil, ptCoordinator: self.coordinator)
         
         searchWindow.navigationItem.searchController = searchModule.searchController
         searchWindow.view.backgroundColor = .white
