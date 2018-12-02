@@ -20,6 +20,8 @@ class LandingCardViewController: UIViewController, Storyboarded {
     
     var model: ClinicalListModel?
     var dataCoordinator = AppDelegate.dataCoordinator
+    var searchModule: PatientSearcher!
+    let searchWindow = UIViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,26 @@ class LandingCardViewController: UIViewController, Storyboarded {
         listsTableView.delegate = self
         listsTableView.dataSource = self
         setupButtons()
+        setupSearch()
+    }
+}
+
+extension LandingCardViewController{
+    private func setupSearch(){
+        searchModule = PatientSearcher(requiredPredicate: nil)
+        
+        searchWindow.navigationItem.searchController = searchModule.searchController
+        searchWindow.view.backgroundColor = .white
+        searchWindow.navigationItem.searchController?.dimsBackgroundDuringPresentation = true
+        searchWindow.definesPresentationContext = true
+        
+        let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(invokeSearch))
+        self.navigationItem.rightBarButtonItems?.append(searchButton)
+    }
+    
+    @objc func invokeSearch(){
+        navigationController?.pushViewController(searchWindow, animated: false)
+        searchWindow.navigationItem.searchController?.searchBar.becomeFirstResponder()
     }
 }
 

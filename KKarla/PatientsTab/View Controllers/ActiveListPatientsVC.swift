@@ -17,6 +17,7 @@ class ActiveListPatientsVC: BasePatientsListTVC {
     var patientFilterPredicate: NSPredicate {
         didSet{
             self.model?.getPatients(predicate: patientFilterPredicate)
+            searchModule.requiredPredicate = patientFilterPredicate
         }
     }
     
@@ -35,11 +36,14 @@ class ActiveListPatientsVC: BasePatientsListTVC {
         super.viewDidLoad()
         setupSegmentedTabs()
         self.model?.getPatients(predicate: patientFilterPredicate)
+        searchModule = PatientSearcher(requiredPredicate: patientFilterPredicate)
+        setupSearch()
     }
     
     @objc override func addNew(){
         coordinator?.addNewPatient(list: activeList)
     }
+
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         

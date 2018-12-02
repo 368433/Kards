@@ -11,8 +11,9 @@ import UIKit
 class BasePatientsListTVC: UITableViewController, Storyboarded{
 
     weak var coordinator: PatientsCoordinator?
-    var model: PatientListModel?
+    var model: PatientListModel!
     var dataCoordinator = AppDelegate.dataCoordinator
+    internal var searchModule: PatientSearcher!
     
     static let tableViewCellIdentifier = "cell"
     private static let nibName = "PatientTableCell"
@@ -29,10 +30,22 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
         self.tableView.separatorStyle = .none
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNew))
-        
-        
     }
-
+    
+    func setupSearch(){
+        navigationItem.searchController = searchModule.searchController
+        // Make the search bar visible when scrolling - default is false
+        navigationItem.hidesSearchBarWhenScrolling = true
+        definesPresentationContext = true
+        
+        let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(invokeSearch))
+        self.navigationItem.rightBarButtonItems?.append(searchButton)
+    }
+    
+    @objc func invokeSearch(){
+        searchModule.searchController.searchBar.becomeFirstResponder()
+    }
+    
     @objc func addNew(){
         coordinator?.addNewPatient()
     }

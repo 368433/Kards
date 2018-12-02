@@ -18,30 +18,34 @@ class PatientSearcher: NSObject {
     /// Secondary search results table view.
     private var resultsTableController: ResultsTableController!
     
-    override init(){
+    var requiredPredicate: NSPredicate?
+    
+    init(requiredPredicate: NSPredicate?){
         super.init()
+        self.requiredPredicate = requiredPredicate
         resultsTableController = ResultsTableController()
         searchController = UISearchController (searchResultsController: resultsTableController)
         setup()
     }
 
-    
     func setup(){
         resultsTableController = ResultsTableController()
-        //searchController = UISearchController(searchResultsController: resultsTableController)
         searchController.searchResultsUpdater = self
         searchController.searchBar.autocapitalizationType = .none
         
         searchController.delegate = self
         searchController.dimsBackgroundDuringPresentation = true
         searchController.searchBar.delegate = self
-        
     }
 }
 
 extension PatientSearcher: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
     }
 }
 
@@ -141,8 +145,11 @@ extension PatientSearcher: UISearchResultsUpdating {
         let searchItems = strippedString.components(separatedBy: " ") as [String]
         
         // Build all the "AND" expressions for each value in searchString.
-        let andMatchPredicates: [NSPredicate] = searchItems.map { searchString in
+        var andMatchPredicates: [NSPredicate] = searchItems.map { searchString in
             generateSearchPredicate(searchString: searchString)
+        }
+        if let requiredPredicate = requiredPredicate{
+            andMatchPredicates.append(requiredPredicate)
         }
         
         // Match up the fields of the Product object.
