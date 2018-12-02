@@ -10,6 +10,8 @@ import UIKit
 
 class ClinicalListTVC: UITableViewCell {
     
+    static var reuseID = "cell"
+    static var nibName = "ClinicalListTVC"
     
     override func awakeFromNib() {
         super.awakeFromNib()
