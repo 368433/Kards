@@ -11,16 +11,17 @@ import CoreData
 import UIKit
 import Eureka
 
-class ClinicalListModel: BaseListsModel{
+class ClinicalListModel{
     
     var resultController: NSFetchedResultsController<ClinicalList>!
+    var dataCoordinator = AppDelegate.dataCoordinator
+    var searchPredicate: NSPredicate?
 
     
-    init(modelOutputView: UITableView, searchPredicate: NSPredicate?){
-        super.init(searchPredicate: searchPredicate, outputView: modelOutputView)
-
+    init(searchPredicate: NSPredicate?){
+        self.searchPredicate = searchPredicate
         self.resultController = getFetchedResultsController()
-        self.resultController.delegate = resultControllerDelegate
+//        self.resultController.delegate = resultControllerDelegate
 
         loadObjectList()
     }

@@ -15,12 +15,16 @@ class BaseWorkListsListTVC: UITableViewController, Storyboarded{
     var model: ClinicalListModel!
     var predicate: NSPredicate?
     var dataCoordinator = AppDelegate.dataCoordinator
-    
+    var resultsControllerDelegate: TableViewFetchResultAdapter!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.predicate = NSPredicate(format: "isActive == false")
-        model = ClinicalListModel(modelOutputView: self.tableView, searchPredicate: predicate)
+        model = ClinicalListModel(searchPredicate: predicate)
+        resultsControllerDelegate = TableViewFetchResultAdapter(tableView: self.tableView)
+        model.resultController.delegate = resultsControllerDelegate
+
         
         self.tableView.register(UINib(nibName: ClinicalListTVC.nibName, bundle: nil), forCellReuseIdentifier: ClinicalListTVC.reuseID)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(createList))

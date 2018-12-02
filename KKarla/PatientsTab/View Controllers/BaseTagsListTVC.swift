@@ -11,14 +11,19 @@ import UIKit
 class BaseTagsListTVC: UITableViewController {
 
     weak var coordinator: PatientsCoordinator?
-    var model: TagsListModel?
+    var model: TagsListModel!
     var predicate: NSPredicate?
     var dataCoordinator = AppDelegate.dataCoordinator
-    
+    var resultsControllerDelegate: TableViewFetchResultAdapter!
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        model = TagsListModel(tableOutputView: self.tableView, searchPredicate: predicate)
+        model = TagsListModel(searchPredicate: predicate)
+        resultsControllerDelegate = TableViewFetchResultAdapter(tableView: self.tableView)
+        model.resultController.delegate = resultsControllerDelegate
+
         
         self.tableView.register(UINib(nibName: TagsListTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: TagsListTableViewCell.reuseID)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewTag))
@@ -32,22 +37,22 @@ class BaseTagsListTVC: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return model?.resultController.sections?.count ?? 0
+        return model.resultController.sections?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model?.resultController.sections![section].numberOfObjects ?? 0
+        return model.resultController.sections![section].numberOfObjects
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TagsListTableViewCell
-        cell.textLabel?.text = model?.resultController.object(at: indexPath).tagTitle
+        cell.textLabel?.text = model.resultController.object(at: indexPath).tagTitle
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let primaryDxExpression = NSExpression(forKeyPath: Patient.tagSearchKP)
-        let tableDerivedExpression = NSExpression(forConstantValue: model?.resultController.object(at: indexPath))
+        let tableDerivedExpression = NSExpression(forConstantValue: model.resultController.object(at: indexPath))
         let ComparisonPredicate =
             NSComparisonPredicate(leftExpression: primaryDxExpression,
                                   rightExpression: tableDerivedExpression,

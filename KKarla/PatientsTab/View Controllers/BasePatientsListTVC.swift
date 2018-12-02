@@ -15,12 +15,15 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
     var searchCriteria: NSPredicate?
     var dataCoordinator = AppDelegate.dataCoordinator
     internal var searchModule: PatientSearcher!
+    var resultsControllerDelegate: TableViewFetchResultAdapter!
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        model = PatientListModel(searchPredicate: searchCriteria, modelOutputView: self.tableView)
+        model = PatientListModel(searchPredicate: searchCriteria)
+        resultsControllerDelegate = TableViewFetchResultAdapter(tableView: self.tableView)
+        model.resultController.delegate = resultsControllerDelegate
         
         let nib = UINib(nibName: PatientTableViewCell.nibName, bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: PatientTableViewCell.reuseID)

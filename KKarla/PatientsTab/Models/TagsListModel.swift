@@ -11,15 +11,15 @@ import CoreData
 import UIKit
 import Eureka
 
-class TagsListModel: BaseListsModel{
+class TagsListModel{
     
     var resultController: NSFetchedResultsController<Tag>!
+    var dataCoordinator = AppDelegate.dataCoordinator
+    var searchPredicate: NSPredicate?
     
-    init(tableOutputView: UITableView?, searchPredicate: NSPredicate?){
-        super.init(searchPredicate: searchPredicate, outputView: tableOutputView)
-
+    init( searchPredicate: NSPredicate?){
+        self.searchPredicate = searchPredicate
         self.resultController = getFetchedResultsController()
-        self.resultController.delegate = resultControllerDelegate
 
         loadObjectList()
     }

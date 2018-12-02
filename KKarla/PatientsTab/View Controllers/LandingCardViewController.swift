@@ -22,11 +22,17 @@ class LandingCardViewController: UIViewController, Storyboarded {
     var dataCoordinator = AppDelegate.dataCoordinator
     var searchModule: PatientSearcher!
     let searchWindow = UIViewController()
+    var resultsControllerDelegate: TableViewFetchResultAdapter!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let predicate = NSPredicate(format: "isActive == true")
-        model = ClinicalListModel(modelOutputView: listsTableView, searchPredicate: predicate)
+        
+        model = ClinicalListModel(searchPredicate: predicate)
+        resultsControllerDelegate = TableViewFetchResultAdapter(tableView: listsTableView)
+        model?.resultController.delegate = resultsControllerDelegate
+        
         listsTableView.delegate = self
         listsTableView.dataSource = self
         setupButtons()
