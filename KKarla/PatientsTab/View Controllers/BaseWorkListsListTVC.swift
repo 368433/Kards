@@ -24,7 +24,6 @@ class BaseWorkListsListTVC: UITableViewController, Storyboarded{
         model = ClinicalListModel(searchPredicate: predicate)
         resultsControllerDelegate = TableViewFetchResultAdapter(tableView: self.tableView)
         model.resultController.delegate = resultsControllerDelegate
-
         
         self.tableView.register(UINib(nibName: ClinicalListTVC.nibName, bundle: nil), forCellReuseIdentifier: ClinicalListTVC.reuseID)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(createList))
