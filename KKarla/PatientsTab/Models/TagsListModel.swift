@@ -17,8 +17,9 @@ class TagsListModel: BaseListsModel{
     
     init(tableOutputView: UITableView?, searchPredicate: NSPredicate?){
         super.init(searchPredicate: searchPredicate, outputView: tableOutputView)
-        self.resultController.delegate = resultControllerDelegate
+
         self.resultController = getFetchedResultsController()
+        self.resultController.delegate = resultControllerDelegate
 
         loadObjectList()
     }

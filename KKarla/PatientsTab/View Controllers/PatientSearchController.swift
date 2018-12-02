@@ -109,7 +109,7 @@ extension PatientSearcher: UISearchResultsUpdating {
         searchItemsPredicate.append(diagnosisComparisonPredicate)
         
         // Generate search predicate for patient tags field
-        let tagsExpression = NSExpression(forKeyPath: Patient.tagSearchKeyPath)
+        let tagsExpression = NSExpression(forKeyPath: Patient.tagTitleSearchKeyPath)
         let tagsComparisonPredicate =
             NSComparisonPredicate(leftExpression: tagsExpression,
                                   rightExpression: searchStringExpression,

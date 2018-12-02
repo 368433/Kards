@@ -36,8 +36,9 @@ class PatientsCoordinator: Coordinator {
     }
 
     
-    func showAllPatients() {
+    func showAllPatients(predicate: NSPredicate?) {
         let patientListVC = AllPatientsListVC()
+        patientListVC.searchCriteria = predicate
         patientListVC.coordinator = self
         navigationController.pushViewController(patientListVC, animated: true)
     }

@@ -76,6 +76,18 @@ class BaseWorkListsListTVC: UITableViewController, Storyboarded{
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+        
+        let searchKP = [Patient.activeListSKP, Patient.signedOffListSKP, Patient.transferredListSKP]
+        let leftExpressions = searchKP.compactMap { NSExpression(forKeyPath: $0) }
+        let tableDerivedExpression = NSExpression(forConstantValue: model?.resultController.object(at: indexPath))
+        let comparisonPredicates = leftExpressions.compactMap {
+            NSComparisonPredicate(leftExpression: $0,
+                                  rightExpression: tableDerivedExpression,
+                                  modifier: .direct,
+                                  type: .contains,
+                                  options: [.caseInsensitive, .diacriticInsensitive])
+        }
+        let orPredicates = NSCompoundPredicate(orPredicateWithSubpredicates: comparisonPredicates)
+        coordinator?.showAllPatients(predicate: orPredicates)
     }
 }

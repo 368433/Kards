@@ -12,6 +12,7 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
 
     weak var coordinator: PatientsCoordinator?
     var model: PatientListModel!
+    var searchCriteria: NSPredicate?
     var dataCoordinator = AppDelegate.dataCoordinator
     internal var searchModule: PatientSearcher!
     static let tableViewCellIdentifier = "cell"
@@ -20,7 +21,7 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        model = PatientListModel(searchPredicate: nil, modelOutputView: self.tableView)
+        model = PatientListModel(searchPredicate: searchCriteria, modelOutputView: self.tableView)
         
         let nib = UINib(nibName: BasePatientsListTVC.nibName, bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "cell")

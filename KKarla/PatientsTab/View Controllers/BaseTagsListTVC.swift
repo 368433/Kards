@@ -54,6 +54,15 @@ class BaseTagsListTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+        let primaryDxExpression = NSExpression(forKeyPath: Patient.tagSearchKP)
+        let tableDerivedExpression = NSExpression(forConstantValue: model?.resultController.object(at: indexPath))
+        let ComparisonPredicate =
+            NSComparisonPredicate(leftExpression: primaryDxExpression,
+                                  rightExpression: tableDerivedExpression,
+                                  modifier: .direct,
+                                  type: .contains,
+                                  options: [.caseInsensitive, .diacriticInsensitive])
+        
+        coordinator?.showAllPatients(predicate: ComparisonPredicate)
     }
 }
