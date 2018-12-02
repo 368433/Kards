@@ -21,7 +21,7 @@ class PatientForm: KarlaForm {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Patient form"
         initializeForm()
         quickParser = QuickParser(form: self.form)
     }
@@ -42,6 +42,7 @@ class PatientForm: KarlaForm {
 extension PatientForm{
     private func initializeForm(){
         form +++ Section("Quick Parser")
+            
             <<< TextRow(){ row in
                 row.placeholder = "enter text to parse"
                 }.onChange { row in
@@ -49,6 +50,12 @@ extension PatientForm{
                         return
                     }
                     self.quickParser.parse(textToParse: row.value!)
+            }
+            <<< SwitchRow(){ row in
+                row.cell.backgroundColor = tableView.backgroundColor
+                row.cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
+                row.title = "Switch quick parser"
+                row.value = true
             }
             
             +++ Section("Direct form entry")
