@@ -10,27 +10,31 @@ import UIKit
 
 class PatientSearcher: NSObject {
     
+    /*
+     need to set the coordinator of the tableviewcontroller
+     */
+    
     // MARK: - Properties
     
     /// Search controller to help us with filtering.
     var searchController: UISearchController!
     
     /// Secondary search results table view.
-    private var resultsTableController: ResultsTableController!
+    private var resultsTableController: BasePatientsListTVC!
     
     var requiredPredicate: NSPredicate?
     
     init(requiredPredicate: NSPredicate?, ptCoordinator: PatientsCoordinator?){
         super.init()
         self.requiredPredicate = requiredPredicate
-        resultsTableController = ResultsTableController()
+        resultsTableController = BasePatientsListTVC()
         resultsTableController.coordinator = ptCoordinator
         searchController = UISearchController (searchResultsController: resultsTableController)
         setup()
     }
 
     func setup(){
-        resultsTableController = ResultsTableController()
+//        resultsTableController = ResultsTableController()
         searchController.searchResultsUpdater = self
         searchController.searchBar.autocapitalizationType = .none
         
@@ -157,10 +161,10 @@ extension PatientSearcher: UISearchResultsUpdating {
         let finalCompoundPredicate =
             NSCompoundPredicate(andPredicateWithSubpredicates: andMatchPredicates)
         
-        if let resultsController = searchController.searchResultsController as? ResultsTableController {
+        if let resultsController = searchController.searchResultsController as? BasePatientsListTVC {
             //            resultsController.model?.searchPatients(predicate: finalCompoundPredicate)
             resultsController.model?.getPatients(predicate: finalCompoundPredicate)
-            resultsController.tableView.reloadData()
+//            resultsController.tableView.reloadData()
         }
         //            resultsController.filteredPatients =
     }
