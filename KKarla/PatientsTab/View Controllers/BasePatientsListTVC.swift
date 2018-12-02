@@ -19,6 +19,7 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         model = PatientListModel(modelOutputView: self.tableView)
         
         let nib = UINib(nibName: BasePatientsListTVC.nibName, bundle: nil)

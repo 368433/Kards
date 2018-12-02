@@ -14,7 +14,7 @@ class ActiveListPatientsVC: BasePatientsListTVC {
     
     var activeList: ClinicalList
     var segmentedControl: UISegmentedControl
-    var patientFilterPredicate: NSPredicate? {
+    var patientFilterPredicate: NSPredicate {
         didSet{
             self.model?.getPatients(predicate: patientFilterPredicate)
         }

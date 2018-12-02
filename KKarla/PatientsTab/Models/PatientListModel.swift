@@ -26,16 +26,14 @@ class PatientListModel{
         self.resultController = getFetchedResultsController()
         resultController.delegate = resultControllerDelegate
         resultControllerDelegate.fetchResultsAdatptedTableView = self.modelOutputView
-    }
-    
-    func getPatients(predicate: NSPredicate?){
-        self.searchPredicate = predicate
         loadObjectList()
     }
     
-    func searchPatients(compoundSearch: NSCompoundPredicate){
-        
+    func getPatients(predicate: NSPredicate){
+        self.searchPredicate = predicate
+        loadObjectList()
     }
+
     
     private func loadObjectList(){
         if resultController == nil { resultController = getFetchedResultsController() }
@@ -53,9 +51,9 @@ class PatientListModel{
     
     private func getFetchedResultsController() -> NSFetchedResultsController<Patient> {
         let request = Patient.createFetchRequest()
-        let sort = NSSortDescriptor(key: "name", ascending: true)
+        let sort = NSSortDescriptor(key: Patient.nameTag, ascending: true)
         request.sortDescriptors = [sort]
         request.fetchBatchSize = 20
-        return NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataCoordinator.persistentContainer.viewContext, sectionNameKeyPath: "name", cacheName: nil)
+        return NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataCoordinator.persistentContainer.viewContext, sectionNameKeyPath: Patient.nameTag, cacheName: nil)
     }
 }
