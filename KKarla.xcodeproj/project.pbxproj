@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6A32F91021B2BE5500BB1234 /* Search in Resources */ = {isa = PBXBuildFile; fileRef = 6A32F90F21B2BE5500BB1234 /* Search */; };
 		6A32F91221B2BEF900BB1234 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A32F91121B2BEF900BB1234 /* ImageService.swift */; };
 		6A32F91521B2D27600BB1234 /* dayMonthYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A32F91421B2D27600BB1234 /* dayMonthYear.swift */; };
 		6A32F91721B2D9B000BB1234 /* DiagnosticEpisodeForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A32F91621B2D9B000BB1234 /* DiagnosticEpisodeForm.swift */; };
 		6A32F91A21B2EC4900BB1234 /* EurekaDxEpisodeChoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A32F91821B2EC4900BB1234 /* EurekaDxEpisodeChoiceCell.swift */; };
 		6A32F91B21B2EC4900BB1234 /* EurekaDxEpisodeChoiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A32F91921B2EC4900BB1234 /* EurekaDxEpisodeChoiceCell.xib */; };
-		6A32F91D21B358D900BB1234 /* ResultsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A32F91C21B358D900BB1234 /* ResultsTableController.swift */; };
 		6A32F91F21B3744200BB1234 /* PatientSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A32F91E21B3744200BB1234 /* PatientSearchController.swift */; };
 		6A36B04C21AB95CA00C4F9A8 /* TagsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A36B04B21AB95CA00C4F9A8 /* TagsListModel.swift */; };
 		6A36B04E21AB972300C4F9A8 /* BaseWorkListsListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A36B04D21AB972300C4F9A8 /* BaseWorkListsListTVC.swift */; };
@@ -122,13 +120,11 @@
 /* Begin PBXFileReference section */
 		0BC7339C681FB2F7F9462DA9 /* Pods-KKarla.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KKarla.release.xcconfig"; path = "Pods/Target Support Files/Pods-KKarla/Pods-KKarla.release.xcconfig"; sourceTree = "<group>"; };
 		46490DF824D37F6FAF1374ED /* Pods-KKarla.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KKarla.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KKarla/Pods-KKarla.debug.xcconfig"; sourceTree = "<group>"; };
-		6A32F90F21B2BE5500BB1234 /* Search */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Search; sourceTree = "<group>"; };
 		6A32F91121B2BEF900BB1234 /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		6A32F91421B2D27600BB1234 /* dayMonthYear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dayMonthYear.swift; sourceTree = "<group>"; };
 		6A32F91621B2D9B000BB1234 /* DiagnosticEpisodeForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticEpisodeForm.swift; sourceTree = "<group>"; };
 		6A32F91821B2EC4900BB1234 /* EurekaDxEpisodeChoiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EurekaDxEpisodeChoiceCell.swift; sourceTree = "<group>"; };
 		6A32F91921B2EC4900BB1234 /* EurekaDxEpisodeChoiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EurekaDxEpisodeChoiceCell.xib; sourceTree = "<group>"; };
-		6A32F91C21B358D900BB1234 /* ResultsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableController.swift; sourceTree = "<group>"; };
 		6A32F91E21B3744200BB1234 /* PatientSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientSearchController.swift; sourceTree = "<group>"; };
 		6A36B04B21AB95CA00C4F9A8 /* TagsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsListModel.swift; sourceTree = "<group>"; };
 		6A36B04D21AB972300C4F9A8 /* BaseWorkListsListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWorkListsListTVC.swift; sourceTree = "<group>"; };
@@ -312,7 +308,6 @@
 				6A806D6121B1D6F2004E85A2 /* DetailedPatientViewVC.swift */,
 				6A533A9521AB665D000FB93E /* ActiveListPatientsVC.swift */,
 				6A806D5321B09A04004E85A2 /* AllPatientsListVC.swift */,
-				6A32F91C21B358D900BB1234 /* ResultsTableController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -432,7 +427,6 @@
 		E84114C421721C5600C5E9D9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6A32F90F21B2BE5500BB1234 /* Search */,
 				6A3BF0E421AB12DF00CA0A71 /* TRASH */,
 				E8C2A9A8217A03B90032EED5 /* To Develop */,
 				E841152B2175A4B900C5E9D9 /* Demos */,
@@ -652,7 +646,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A32F91021B2BE5500BB1234 /* Search in Resources */,
 				E859A7A82182B21C007BF751 /* BadgeWithCounterViewStandardSized.xib in Resources */,
 				6A36B05221AB97CE00C4F9A8 /* ClinicalListTVC.xib in Resources */,
 				E84115212175A38F00C5E9D9 /* OpenSans-ExtraBold.ttf in Resources */,
@@ -781,7 +774,6 @@
 				6A36B05021AB97BE00C4F9A8 /* ClinicalListTVC.swift in Sources */,
 				6A533A9921AB7871000FB93E /* ClinicalListModel.swift in Sources */,
 				6A58514721AF551500EE6943 /* BaseTagsListTVC.swift in Sources */,
-				6A32F91D21B358D900BB1234 /* ResultsTableController.swift in Sources */,
 				E859A7A42182B21C007BF751 /* SegmentioOptions.swift in Sources */,
 				E82E179E2176A7D400F57761 /* Gradients.swift in Sources */,
 				E84114BF217211B200C5E9D9 /* Storyboarded.swift in Sources */,

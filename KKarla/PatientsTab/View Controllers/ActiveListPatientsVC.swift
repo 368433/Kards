@@ -45,6 +45,13 @@ class ActiveListPatientsVC: BasePatientsListTVC {
     }
 
     
+    
+}
+
+
+// MARK: SWIPE ACTIONS implementations for active clinical list view
+
+extension ActiveListPatientsVC {
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         // get patient
@@ -56,7 +63,7 @@ class ActiveListPatientsVC: BasePatientsListTVC {
             thisPatient.removeFromActiveWorkLists(self.activeList)
             thisPatient.removeFromSignedOffWorkLists(self.activeList)
             self.dataCoordinator.saveContext()
-            }
+        }
         transfer.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         
         // signed off action
@@ -89,7 +96,8 @@ class ActiveListPatientsVC: BasePatientsListTVC {
     }
 }
 
-// MARK SEGMENTED CONTROL
+
+// MARK: SEGMENTED CONTROL implementation
 
 extension ActiveListPatientsVC{
     

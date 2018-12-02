@@ -14,9 +14,8 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
     var model: PatientListModel!
     var searchCriteria: NSPredicate?
     var dataCoordinator = AppDelegate.dataCoordinator
-    internal var searchModule: PatientSearcher!
     var resultsControllerDelegate: TableViewFetchResultAdapter!
-
+    internal var searchModule: PatientSearcher!
     
     override func viewDidLoad() {
         super.viewDidLoad()
