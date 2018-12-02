@@ -12,7 +12,17 @@ import UIKit
 import CoreData
 
 class TableViewFetchResultAdapter: NSObject, NSFetchedResultsControllerDelegate {
-    var fetchResultsAdatptedTableView: UITableView!
+    
+    var fetchResultsAdatptedTableView: UITableView
+    
+    init?(tableView: UITableView?){
+        if let table = tableView {
+            fetchResultsAdatptedTableView = table
+        } else {
+            return nil
+        }
+    }
+    
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         fetchResultsAdatptedTableView.beginUpdates()

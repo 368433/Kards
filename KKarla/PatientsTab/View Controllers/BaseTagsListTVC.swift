@@ -52,4 +52,8 @@ class BaseTagsListTVC: UITableViewController {
         cell.textLabel?.text = model?.resultController.object(at: indexPath).tagTitle
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        <#code#>
+    }
 }

@@ -14,14 +14,13 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
     var model: PatientListModel!
     var dataCoordinator = AppDelegate.dataCoordinator
     internal var searchModule: PatientSearcher!
-    
     static let tableViewCellIdentifier = "cell"
     private static let nibName = "PatientTableCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        model = PatientListModel(modelOutputView: self.tableView)
+        model = PatientListModel(searchPredicate: nil, modelOutputView: self.tableView)
         
         let nib = UINib(nibName: BasePatientsListTVC.nibName, bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "cell")

@@ -15,6 +15,7 @@
 		6A32F91B21B2EC4900BB1234 /* EurekaDxEpisodeChoiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A32F91921B2EC4900BB1234 /* EurekaDxEpisodeChoiceCell.xib */; };
 		6A32F91D21B358D900BB1234 /* ResultsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A32F91C21B358D900BB1234 /* ResultsTableController.swift */; };
 		6A32F91F21B3744200BB1234 /* PatientSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A32F91E21B3744200BB1234 /* PatientSearchController.swift */; };
+		6A32F92121B3F60400BB1234 /* BaseListsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A32F92021B3F60400BB1234 /* BaseListsModel.swift */; };
 		6A36B04C21AB95CA00C4F9A8 /* TagsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A36B04B21AB95CA00C4F9A8 /* TagsListModel.swift */; };
 		6A36B04E21AB972300C4F9A8 /* BaseWorkListsListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A36B04D21AB972300C4F9A8 /* BaseWorkListsListTVC.swift */; };
 		6A36B05021AB97BE00C4F9A8 /* ClinicalListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A36B04F21AB97BE00C4F9A8 /* ClinicalListTVC.swift */; };
@@ -130,6 +131,7 @@
 		6A32F91921B2EC4900BB1234 /* EurekaDxEpisodeChoiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EurekaDxEpisodeChoiceCell.xib; sourceTree = "<group>"; };
 		6A32F91C21B358D900BB1234 /* ResultsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableController.swift; sourceTree = "<group>"; };
 		6A32F91E21B3744200BB1234 /* PatientSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientSearchController.swift; sourceTree = "<group>"; };
+		6A32F92021B3F60400BB1234 /* BaseListsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListsModel.swift; sourceTree = "<group>"; };
 		6A36B04B21AB95CA00C4F9A8 /* TagsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsListModel.swift; sourceTree = "<group>"; };
 		6A36B04D21AB972300C4F9A8 /* BaseWorkListsListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWorkListsListTVC.swift; sourceTree = "<group>"; };
 		6A36B04F21AB97BE00C4F9A8 /* ClinicalListTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClinicalListTVC.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 			children = (
 				E84114C721721CAB00C5E9D9 /* CoreDataModels */,
 				E8861737217F90920098D3EE /* PatientListModel.swift */,
+				6A32F92021B3F60400BB1234 /* BaseListsModel.swift */,
 				6A533A9821AB7871000FB93E /* ClinicalListModel.swift */,
 				6A36B04B21AB95CA00C4F9A8 /* TagsListModel.swift */,
 			);
@@ -763,6 +766,7 @@
 				E8861735217F55E70098D3EE /* TableViewResultAdapter.swift in Sources */,
 				E859A7842182A9C0007BF751 /* ImageCell.swift in Sources */,
 				E84114BD2172110000C5E9D9 /* Coordinator.swift in Sources */,
+				6A32F92121B3F60400BB1234 /* BaseListsModel.swift in Sources */,
 				E8861731217F50E40098D3EE /* LandingCardModel.swift in Sources */,
 				E84114C621721C8200C5E9D9 /* CardsStackViewController.swift in Sources */,
 				6A816EEE21AC2AF800031BAB /* BillingCodes.swift in Sources */,
