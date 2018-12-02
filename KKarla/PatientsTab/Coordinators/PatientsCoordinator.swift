@@ -26,6 +26,8 @@ class PatientsCoordinator: Coordinator {
     
     // FUNCTIONS HERE HAVE BEEN REVIEWED
     
+    // MARK: Presenting View Controllers
+    
     //Presenting view controllers
     func showPatients(for ClinicalList: ClinicalList){
         let patientsListVC = ActiveListPatientsVC(ClinicalList: ClinicalList)
@@ -70,6 +72,7 @@ class PatientsCoordinator: Coordinator {
     
     
     // MARK: presenting FORMS CONTROLLERS
+    
     // 5 functional forms = 5 calls
     
     //A helper function

@@ -14,15 +14,21 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
     var model: PatientListModel?
     var dataCoordinator = AppDelegate.dataCoordinator
     
+    static let tableViewCellIdentifier = "cell"
+    private static let nibName = "PatientTableCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         model = PatientListModel(modelOutputView: self.tableView)
         
-        self.tableView.register(UINib(nibName: "PatientTableCell", bundle: nil), forCellReuseIdentifier: "cell")
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNew))
+        let nib = UINib(nibName: BasePatientsListTVC.nibName, bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "cell")
         self.tableView.tableFooterView = UIView(frame: .zero)
-        self.tableView.rowHeight = 150
+        self.tableView.rowHeight = PatientTableViewCell.rowHeight
         self.tableView.separatorStyle = .none
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNew))
+        
         
     }
 
@@ -42,7 +48,7 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PatientTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: BasePatientsListTVC.tableViewCellIdentifier, for: indexPath) as! PatientTableViewCell
         
         guard let patient = model?.resultController.object(at: indexPath) else { fatalError("No valid patient object")}
         cell.patient = patient

@@ -30,6 +30,7 @@ class PatientTableViewCell: UITableViewCell {
     var patient: Patient?
     var coordinator: PatientsCoordinator?
     lazy var tagStackList = ButtonTagStackList(stack: tagListStack)
+    static var rowHeight: CGFloat = 150
     
     
     override func awakeFromNib() {

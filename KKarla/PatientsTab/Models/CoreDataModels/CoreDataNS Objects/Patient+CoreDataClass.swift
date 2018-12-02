@@ -20,5 +20,7 @@ public class Patient: NSManagedObject {
     static var sinTag = "sin"
     static var blurbTag = "summaryBlurb"
     static var uuidTag = "uniqueID"
+    static var searchActiveEpisode1ryDx = "activeDiagnosticEpisode.primaryDiagnosis"
+    static var tagSearchKeyPath = "tags.tagTitle"
     
 }

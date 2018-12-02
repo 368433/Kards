@@ -19,6 +19,7 @@ class PatientListModel{
     var modelOutputView: UITableView
     var resultControllerDelegate = TableViewFetchResultAdapter()
     var objectToLink: NSManagedObject?
+
     
     init(modelOutputView: UITableView){
         self.modelOutputView = modelOutputView
@@ -30,6 +31,10 @@ class PatientListModel{
     func getPatients(predicate: NSPredicate?){
         self.searchPredicate = predicate
         loadObjectList()
+    }
+    
+    func searchPatients(compoundSearch: NSCompoundPredicate){
+        
     }
     
     private func loadObjectList(){
