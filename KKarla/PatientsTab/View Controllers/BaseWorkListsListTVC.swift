@@ -20,6 +20,7 @@ class BaseWorkListsListTVC: UITableViewController, Storyboarded{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Archived Lists"
         self.predicate = NSPredicate(format: "isActive == false")
         model = ClinicalListModel(searchPredicate: predicate)
         resultsControllerDelegate = TableViewFetchResultAdapter(tableView: self.tableView)

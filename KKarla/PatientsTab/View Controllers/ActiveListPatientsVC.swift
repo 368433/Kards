@@ -32,6 +32,7 @@ class ActiveListPatientsVC: BasePatientsListTVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = activeList.clinicalListTitle
         self.headerFrame = CGRect(x: 0, y: 0, width: super.view.frame.width, height: 80)
         self.headerView = UIView(frame:headerFrame )
         self.tableView.tableHeaderView = headerView

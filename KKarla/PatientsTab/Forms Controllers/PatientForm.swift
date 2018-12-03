@@ -14,7 +14,28 @@ import Eureka
 
 class PatientForm: KarlaForm {
     
-//    var delegate: NewPatientFormDelegate?
+    var nameEntry: String? {
+        didSet{
+            guard let nameRow = form.rowBy(tag: Patient.nameTag) as? TextRow else {return}
+            nameRow.value = nameEntry
+            nameRow.reload()
+        }
+    }
+    var dateValue: Date? {
+        didSet{
+            guard let dateOfBirthRow = form.rowBy(tag: Patient.birthdateTag) as? DateRow else {return}
+            dateOfBirthRow.value = dateValue
+            dateOfBirthRow.reload()
+        }
+    }
+    var genderValue: String? {
+        didSet{
+            guard let genderRow = form.rowBy(tag: Patient.genderTag) as? SegmentedRow<String> else {return}
+            genderRow.value = genderValue
+            genderRow.reload()
+            
+        }
+    }
     var patient: Patient?
     var listToLink: ClinicalList?
     var quickParser: QuickParser!
@@ -50,11 +71,14 @@ extension PatientForm{
                         return
                     }
                     self.quickParser.parse(textToParse: row.value!)
+                    self.nameEntry = self.quickParser.nameValue
+                    self.dateValue = self.quickParser.parsedDateOfBirthValue
+                    self.genderValue = self.quickParser.gender
             }
             <<< SwitchRow(){ row in
                 row.cell.backgroundColor = tableView.backgroundColor
                 row.cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
-                row.title = "Switch quick parser"
+                row.title = "FIRST LAST YYMM DDXX Y0Y0Y0"
                 row.value = true
             }
             
@@ -71,6 +95,14 @@ extension PatientForm{
                 }.onChange{ [unowned self] row in
                     if row.value == nil { self.navigationItem.rightBarButtonItems?[0].isEnabled = false }
                     else { self.navigationItem.rightBarButtonItems?[0].isEnabled = true }
+            }
+            <<< SegmentedRow<String>() { row in
+                row.options = ["M", "F"]
+                row.title = "Gender"
+                row.tag = Patient.genderTag
+                row.value = patient?.patientGender
+                }.cellUpdate { (cell, row) in
+                    cell.setControlWidth(width: 80)
             }
             <<< DateRow(){ row in
                 row.title = "Date of Birth"

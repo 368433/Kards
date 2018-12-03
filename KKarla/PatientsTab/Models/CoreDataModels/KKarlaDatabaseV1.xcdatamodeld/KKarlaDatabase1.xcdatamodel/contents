@@ -36,6 +36,7 @@
     <entity name="Patient" representedClassName="Patient" syncable="YES">
         <attribute name="dateOfBirth" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="patientGender" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photoID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="postalCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sin" optional="YES" attributeType="String" syncable="YES"/>
@@ -57,7 +58,7 @@
         <element name="Act" positionX="242.9296875" positionY="-78.109375" width="128" height="255"/>
         <element name="ClinicalList" positionX="-392.05859375" positionY="-275.3046875" width="128" height="150"/>
         <element name="DiagnosticEpisode" positionX="-224.3828125" positionY="104.86328125" width="128" height="133"/>
-        <element name="Patient" positionX="-27.48046875" positionY="-340.57421875" width="128" height="253"/>
+        <element name="Patient" positionX="-27.48046875" positionY="-340.57421875" width="128" height="268"/>
         <element name="Tag" positionX="9.390625" positionY="-42.94921875" width="128" height="75"/>
     </elements>
 </model>

@@ -22,9 +22,11 @@ public class Patient: NSManagedObject {
     static var uuidTag = "uniqueID"
     static var searchActiveEpisode1ryDx = "activeDiagnosticEpisode.primaryDiagnosis"
     static var tagTitleSearchKeyPath = "tags.tagTitle"
+    static var genderTag = "patientGender"
     
     static var tagSearchKP = "tags"
     static var activeListSKP = "activeWorkLists"
     static var signedOffListSKP = "signedOffWorkLists"
     static var transferredListSKP = "transferWorkLists"
+
 }

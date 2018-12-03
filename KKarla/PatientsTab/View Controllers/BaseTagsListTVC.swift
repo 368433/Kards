@@ -20,6 +20,7 @@ class BaseTagsListTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "All tags"
         model = TagsListModel(searchPredicate: predicate)
         resultsControllerDelegate = TableViewFetchResultAdapter(tableView: self.tableView)
         model.resultController.delegate = resultsControllerDelegate

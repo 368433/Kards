@@ -2,7 +2,7 @@
 //  Patient+CoreDataProperties.swift
 //  KKarla
 //
-//  Created by quarticAIMBP2018 on 2018-12-01.
+//  Created by quarticAIMBP2018 on 2018-12-03.
 //  Copyright © 2018 amir2. All rights reserved.
 //
 //
@@ -24,6 +24,7 @@ extension Patient {
     @NSManaged public var sin: String?
     @NSManaged public var summaryBlurb: String?
     @NSManaged public var uniqueID: UUID?
+    @NSManaged public var patientGender: String?
     @NSManaged public var activeWorkLists: NSSet?
     @NSManaged public var acts: NSSet?
     @NSManaged public var diagnosticEpisdoes: NSSet?

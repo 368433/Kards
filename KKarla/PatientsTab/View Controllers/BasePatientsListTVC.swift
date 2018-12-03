@@ -24,6 +24,7 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Patients database"
         model = PatientListModel(searchPredicate: searchCriteria)
         resultsControllerDelegate = TableViewFetchResultAdapter(tableView: self.tableView)
         model.resultController.delegate = resultsControllerDelegate
