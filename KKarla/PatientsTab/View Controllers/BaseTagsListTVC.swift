@@ -25,7 +25,6 @@ class BaseTagsListTVC: UITableViewController {
         resultsControllerDelegate = TableViewFetchResultAdapter(tableView: self.tableView)
         model.resultController.delegate = resultsControllerDelegate
 
-        
         self.tableView.register(UINib(nibName: TagsListTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: TagsListTableViewCell.reuseID)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewTag))
         self.tableView.tableFooterView = UIView(frame: .zero)
@@ -47,7 +46,7 @@ class BaseTagsListTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TagsListTableViewCell
-        cell.textLabel?.text = model.resultController.object(at: indexPath).tagTitle
+        cell.tagName.text = model.resultController.object(at: indexPath).tagTitle
         return cell
     }
     

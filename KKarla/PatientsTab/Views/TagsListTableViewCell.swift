@@ -13,6 +13,8 @@ class TagsListTableViewCell: UITableViewCell {
     static var nibName = "TagsListTableViewCell"
     static var reuseID = "cell"
     
+    @IBOutlet weak var tagName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
