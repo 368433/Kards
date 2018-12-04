@@ -53,7 +53,8 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
 
     private func configurePatientDetails(){
         self.patientNameLabel.text = patient?.name
-        self.patientAgeLabel.text = patient?.dateOfBirth?.dayMonthYear()
+//        self.patientAgeLabel.text = patient?.dateOfBirth?.dayMonthYear()
+        self.patientAgeLabel.text = patient?.age
         self.genderLabel.text = patient?.patientGender
         self.bedlocationLabel.text = patient?.activeDiagnosticEpisode?.getLatestAct()?.actBednumber
         self.patientBlurbLabel.text = patient?.summaryBlurb

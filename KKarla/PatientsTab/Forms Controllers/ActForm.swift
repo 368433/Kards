@@ -29,10 +29,9 @@ class ActForm: KarlaForm {
     var patient: Patient
     var existingActToUpdate: Act?
     var actToPrePopSomeFields: Act?
-//    var existingDiagnosticEpisode: DiagnosticEpisode?
+    //    var existingDiagnosticEpisode: DiagnosticEpisode?
     
     var actSites = ["HPB":ramqCodes().hospitalDict, "ICM":ramqCodes().hospitalDict, "PCV":ramqCodes().clinicDict]
-    
     
     var site: String? {
         didSet{
@@ -73,11 +72,10 @@ class ActForm: KarlaForm {
         }
     }
     
-    
     init(patient: Patient, existingAct: Act?, actToPrePopSomeFields: Act?, existingDiagnosticEpisode: DiagnosticEpisode?){
         self.patient = patient
         self.existingActToUpdate = existingAct
-//        self.existingDiagnosticEpisode = existingDiagnosticEpisode
+        //        self.existingDiagnosticEpisode = existingDiagnosticEpisode
         self.actToPrePopSomeFields = actToPrePopSomeFields
         super.init(nibName: nil, bundle: nil)
     }
@@ -157,15 +155,14 @@ class ActForm: KarlaForm {
             <<< PushRow<DiagnosticEpisode>() { row in
                 row.title = "Diagnotic Episode"
                 row.tag = "diagnosticEpisode"
-//                row.value = existingDiagnosticEpisode
+                //                row.value = existingDiagnosticEpisode
                 row.value = actToPrePopSomeFields?.diagnosticEpisode
                 row.add(rule: RuleRequired())
                 row.validationOptions = .validatesOnChange
                 row.optionsProvider = .lazy({ (form, completion) in
                     completion(self.patient.diagnosticEpisdoes?.allObjects as? [DiagnosticEpisode])
                 })
-                }
-                .onPresent{ from, to in
+                }.onPresent{ from, to in
                     to.selectableRowSetup = { row in
                         row.cellProvider = CellProvider<ListCheckCell<DiagnosticEpisode>>(nibName: EurekaDxEpisodeChoiceCell.nibName, bundle: Bundle.main)
                     }
@@ -173,8 +170,7 @@ class ActForm: KarlaForm {
                         cell.textLabel?.text = row.selectableValue?.primaryDiagnosis
                         cell.detailTextLabel?.text = row.selectableValue?.dxEpisodeStartDate?.dayMonthYear() ?? "No Start Date Entered"
                     }
-            }
-                .cellUpdate { cell, row in
+                }.cellUpdate { cell, row in
                     if !row.isValid {
                         cell.textLabel?.textColor = .red
                     }
@@ -212,7 +208,6 @@ class ActForm: KarlaForm {
                         guard let newDict = self.depDict?[rowValue] else {fatalError("Not in billing Dict")}
                         self.catDict = newDict
                     } else { self.natDict = nil }
-                    
             }
             
             // actCategory SegmentedRow
@@ -226,7 +221,6 @@ class ActForm: KarlaForm {
                         guard let newDict = self.catDict?[rowValue] else {fatalError("Not in billing Dict")}
                         self.natDict = newDict
                     } else { self.natDict = nil }
-                    
             }
             
             // actNature SegmentedRow
@@ -236,7 +230,6 @@ class ActForm: KarlaForm {
                 row.add(rule: RuleRequired())
                 row.validationOptions = .validatesOnChange
             }
-            
             +++ Section("Dates & other")
             <<< DateTimeRow(){ row in
                 row.title = "Start Date"

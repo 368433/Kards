@@ -29,4 +29,22 @@ public class Patient: NSManagedObject {
     static var signedOffListSKP = "signedOffWorkLists"
     static var transferredListSKP = "transferWorkLists"
 
+    var age: String {
+        if let dob = self.dateOfBirth {
+            let years = Calendar.current.dateComponents([.year], from: dob, to: Date()).year
+            let age = years != nil ? String(years!) : "DOB n/a"
+            return age
+        } else {
+            return "DOB n/a"
+        }
+        
+        
+//        if let dob = self.dateOfBirth {
+////            let year = Calendar.current.component(.year, from: dob)
+////            let age = Calendar.compare(Calendar.current.compare(dob, to: Calendar.current.date(from: .year), toGranularity: .year))
+//            return String(Calendar.current.dateComponents([.year], from: dob, to: Date()).year)
+//        } else {
+//            return "DOB n/a"
+//        }
+    }
 }
