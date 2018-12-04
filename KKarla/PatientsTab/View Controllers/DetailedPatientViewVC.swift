@@ -14,6 +14,8 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
     var patient: Patient?
     lazy var tagStackList = ButtonTagStackList(stack: tagsStack)
     var model: ActListModel!
+    var resultsControllerDelegate: TableViewFetchResultAdapter!
+
     
     // MARK: IBoutlets
     @IBOutlet weak var patientNameLabel: UILabel!
@@ -53,6 +55,8 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
         let leftExpression = NSExpression(forKeyPath: Act.patientTag)
         let expression = NSComparisonPredicate(leftExpression: leftExpression, rightExpression: rightExpression, modifier: .direct, type: .contains, options: .caseInsensitive)
         model = ActListModel(searchPredicate: expression)
+        resultsControllerDelegate = TableViewFetchResultAdapter(tableView: self.tableView)
+        model.resultController.delegate = resultsControllerDelegate
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -107,6 +111,6 @@ extension DetailedPatientViewVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let patient = patient else {fatalError("patient is nil")}
         let act = model.resultController.object(at: indexPath)
-        coordinator?.showActForm(patient: patient, existingAct: act, actToPrePopSomeFields: nil, existingDiagnosticEpisode: nil)
+        coordinator?.showActForm(patient: patient, existingAct: act, actToPrePopSomeFields: act, existingDiagnosticEpisode: nil)
     }
 }

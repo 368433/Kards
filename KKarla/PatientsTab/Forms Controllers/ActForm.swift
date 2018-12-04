@@ -6,6 +6,20 @@
 //  Copyright © 2018 amir2. All rights reserved.
 //
 
+/*
+ existing act is an act that exists and needs to be updated.
+ typically it would be an act already created that needs editing
+ 
+ an act to prepop some fields is for example a previous act done the
+ preceding day that will be used when creating a new act in order to speed up the
+ entry process by prepopulating the fields
+ 
+ ** the difference is with an existing act, you will save the form entries to THAT
+ entity and hence edit it or update it
+ with act to prepop, you are only using its values to prepo but you are creating a
+ completely new separate act entity and saving the form to this new act entity
+ */
+
 import Foundation
 import UIKit
 import Eureka
@@ -15,7 +29,7 @@ class ActForm: KarlaForm {
     var patient: Patient
     var existingActToUpdate: Act?
     var actToPrePopSomeFields: Act?
-    var existingDiagnosticEpisode: DiagnosticEpisode?
+//    var existingDiagnosticEpisode: DiagnosticEpisode?
     
     var actSites = ["HPB":ramqCodes().hospitalDict, "ICM":ramqCodes().hospitalDict, "PCV":ramqCodes().clinicDict]
     
@@ -63,7 +77,7 @@ class ActForm: KarlaForm {
     init(patient: Patient, existingAct: Act?, actToPrePopSomeFields: Act?, existingDiagnosticEpisode: DiagnosticEpisode?){
         self.patient = patient
         self.existingActToUpdate = existingAct
-        self.existingDiagnosticEpisode = existingDiagnosticEpisode
+//        self.existingDiagnosticEpisode = existingDiagnosticEpisode
         self.actToPrePopSomeFields = actToPrePopSomeFields
         super.init()
     }
@@ -143,7 +157,8 @@ class ActForm: KarlaForm {
             <<< PushRow<DiagnosticEpisode>() { row in
                 row.title = "Diagnotic Episode"
                 row.tag = "diagnosticEpisode"
-                row.value = existingDiagnosticEpisode
+//                row.value = existingDiagnosticEpisode
+                row.value = actToPrePopSomeFields?.diagnosticEpisode
                 row.add(rule: RuleRequired())
                 row.validationOptions = .validatesOnChange
                 row.optionsProvider = .lazy({ (form, completion) in
