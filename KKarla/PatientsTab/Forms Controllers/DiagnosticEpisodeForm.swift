@@ -8,6 +8,7 @@
 
 import Foundation
 import Eureka
+import EmptyDataSet_Swift
 
 class DiagnosticEpisodeForm: KarlaForm{
     
@@ -32,6 +33,9 @@ class DiagnosticEpisodeForm: KarlaForm{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.actListTableView.tableFooterView = UIView(frame: .zero)
+        self.actListTableView.emptyDataSetSource = self
+        self.actListTableView.emptyDataSetDelegate = self
         initializeForm()
     }
     
@@ -72,5 +76,18 @@ class DiagnosticEpisodeForm: KarlaForm{
         let newObject = DiagnosticEpisode(context: dataCoordinator.persistentContainer.viewContext)
         dataCoordinator.persistentContainer.viewContext.insert(newObject)
         return newObject
+    }
+}
+
+extension DiagnosticEpisodeForm: EmptyDataSetSource, EmptyDataSetDelegate {
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let myString = "No Acts"
+        let myAttrString = NSAttributedString(string: myString, attributes: nil)
+        
+        return myAttrString
+    }
+    
+    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+        return UIImage(named: "icons8-caduceus-medical")
     }
 }

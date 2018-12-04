@@ -43,6 +43,9 @@ class KarlaForm: FormViewController, Storyboarded, UIImagePickerControllerDelega
         self.navigationItem.rightBarButtonItems = [saveButton]
         self.navigationItem.leftBarButtonItems = [cancelButton]
         self.tableView.tableFooterView = UIView(frame: .zero)
+//        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.rowHeight = 44
+        
     }
     
     @objc func saveEntries(){

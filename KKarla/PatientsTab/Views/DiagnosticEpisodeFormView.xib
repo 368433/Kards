@@ -21,25 +21,25 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iy8-YJ-5qK">
-                    <rect key="frame" x="0.0" y="20" width="375" height="245"/>
+                    <rect key="frame" x="0.0" y="70" width="375" height="200"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="245" id="QJr-Bc-Et5"/>
+                        <constraint firstAttribute="height" constant="200" id="UeV-QJ-qG0"/>
                     </constraints>
                 </tableView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gPs-Xe-iBq">
-                    <rect key="frame" x="0.0" y="296" width="375" height="371"/>
+                    <rect key="frame" x="0.0" y="320" width="375" height="347"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
                 <constraint firstItem="xdT-ES-dJs" firstAttribute="bottom" secondItem="gPs-Xe-iBq" secondAttribute="bottom" id="0Hc-hD-jZu"/>
                 <constraint firstItem="xdT-ES-dJs" firstAttribute="trailing" secondItem="gPs-Xe-iBq" secondAttribute="trailing" id="863-VJ-hji"/>
                 <constraint firstItem="xdT-ES-dJs" firstAttribute="trailing" secondItem="iy8-YJ-5qK" secondAttribute="trailing" id="C6Z-Wv-ZdN"/>
-                <constraint firstItem="iy8-YJ-5qK" firstAttribute="top" secondItem="xdT-ES-dJs" secondAttribute="top" id="F2Y-Yb-UYc"/>
+                <constraint firstItem="iy8-YJ-5qK" firstAttribute="top" secondItem="xdT-ES-dJs" secondAttribute="top" constant="50" id="F2Y-Yb-UYc"/>
                 <constraint firstItem="gPs-Xe-iBq" firstAttribute="leading" secondItem="xdT-ES-dJs" secondAttribute="leading" id="dsI-BD-ZyZ"/>
-                <constraint firstItem="gPs-Xe-iBq" firstAttribute="top" secondItem="iy8-YJ-5qK" secondAttribute="bottom" constant="31" id="iQQ-kj-eY5"/>
+                <constraint firstItem="gPs-Xe-iBq" firstAttribute="top" secondItem="iy8-YJ-5qK" secondAttribute="bottom" constant="50" id="iQQ-kj-eY5"/>
                 <constraint firstItem="iy8-YJ-5qK" firstAttribute="leading" secondItem="xdT-ES-dJs" secondAttribute="leading" id="nqZ-VL-HLC"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="xdT-ES-dJs"/>

@@ -13,6 +13,7 @@ import Eureka
 
 
 class PatientForm: KarlaForm {
+
     
     var nameEntry: String? {
         didSet{
@@ -36,9 +37,19 @@ class PatientForm: KarlaForm {
             
         }
     }
-    var patient: Patient?
+    var existingPatient: Patient?
     var listToLink: ClinicalList?
     var quickParser: QuickParser!
+    
+    init(existingPatient: Patient?){
+        self.existingPatient = existingPatient
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +59,7 @@ class PatientForm: KarlaForm {
     }
     
     @objc override func saveEntries(){
-        objectToSave = patient ?? getNewPatientInstance()
+        objectToSave = existingPatient ?? getNewPatientInstance()
         if let list = listToLink, let patientToSave = objectToSave as? Patient { patientToSave.addToActiveWorkLists(list) }
         super.saveEntries()
     }
@@ -92,6 +103,7 @@ extension PatientForm{
                 row.title = "Name"
                 row.placeholder = "Nom, prenom, ou nickname"
                 row.tag = Patient.nameTag
+                row.value = existingPatient?.name
                 }.onChange{ [unowned self] row in
                     if row.value == nil { self.navigationItem.rightBarButtonItems?[0].isEnabled = false }
                     else { self.navigationItem.rightBarButtonItems?[0].isEnabled = true }
@@ -100,29 +112,32 @@ extension PatientForm{
                 row.options = ["M", "F"]
                 row.title = "Gender"
                 row.tag = Patient.genderTag
-                row.value = patient?.patientGender
+                row.value = existingPatient?.patientGender
                 }.cellUpdate { (cell, row) in
                     cell.setControlWidth(width: 80)
             }
             <<< DateRow(){ row in
                 row.title = "Date of Birth"
                 row.tag = Patient.birthdateTag
+                row.value = existingPatient?.dateOfBirth
             }
             <<< TextRow(){ row in
                 row.title = "NAM"
                 row.placeholder = "Numero d'assurance maladie"
                 row.tag = Patient.sinTag
-                
+                row.value = existingPatient?.sin
             }
             <<< TextRow(){ row in
                 row.title = "Postal Code"
                 row.placeholder = "code postal"
                 row.tag = Patient.postalCodeTag
+                row.value = existingPatient?.postalCode
             }
             <<< TextAreaRow() { row in
                 row.title = "Blurb"
                 row.placeholder = "Enter patient note. Using dictation speeds up entry"
                 row.tag = Patient.blurbTag
+                row.value = existingPatient?.summaryBlurb
         }
     }
 }

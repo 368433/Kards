@@ -53,7 +53,7 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
     }
     
     @objc func addNew(){
-        coordinator?.addNewPatient()
+        coordinator?.showPatientForm(existingPatient: nil, list: nil)
     }
     
     // MARK: - Table view data source

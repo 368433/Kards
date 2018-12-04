@@ -22,8 +22,10 @@ class PatientTableViewCell: UITableViewCell {
     @IBOutlet weak var addActButton: UIButton!
     @IBOutlet weak var addTagButton: UIButton!
     @IBOutlet weak var changeBedButton: UIButton!
+    @IBOutlet weak var editPatientButton: UIButton!
     @IBOutlet weak var diagnosisLabel: UILabel!
     @IBOutlet weak var caseDescriptionLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
     
     
     // MARK: other variables:
@@ -62,12 +64,15 @@ class PatientTableViewCell: UITableViewCell {
     
     func configure(){
         if let patient = patient {
-            addActButton.addTarget(self, action: #selector(showActForm), for: .touchUpInside)
-            addTagButton.addTarget(self, action: #selector(showTagForm), for: .touchUpInside)
+            self.addActButton.addTarget(self, action: #selector(showActForm), for: .touchUpInside)
+            self.addTagButton.addTarget(self, action: #selector(showTagForm), for: .touchUpInside)
+            self.editPatientButton.addTarget(self, action: #selector(editPatient), for: .touchUpInside)
             setupTags()
             self.patientNameLabel.text = patient.name
             self.diagnosisLabel.text = patient.activeDiagnosticEpisode?.primaryDiagnosis
-            self.caseDescriptionLabel.text = "Case Description: " + (patient.summaryBlurb ?? "::No description provided")
+            self.caseDescriptionLabel.text = patient.summaryBlurb ?? "No description provided"
+            let gender = patient.patientGender ?? ""
+            self.ageLabel.text = patient.age + gender
         }
     }
 
@@ -80,6 +85,9 @@ class PatientTableViewCell: UITableViewCell {
     }
     @objc func showTagForm(){
         if let pt = patient {coordinator?.showTagForm(for: pt, existingTag: nil)}
+    }
+    @objc func editPatient(){
+        if let pt = patient { coordinator?.showPatientForm(existingPatient: pt)}
     }
 }
 

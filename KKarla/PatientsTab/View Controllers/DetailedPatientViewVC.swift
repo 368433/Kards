@@ -35,7 +35,11 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
     @IBOutlet weak var patientIdImageButton: UIImageView!
     @IBOutlet weak var actTabButton: UIButton!
     @IBOutlet weak var clinicalListTabButton: UIButton!
+    @IBOutlet weak var patientEditButton: UIButton!
     
+    @IBOutlet weak var actBottomLine: UIView!
+    @IBOutlet weak var actRightView: UIView!
+    @IBOutlet weak var ClinEpBottom: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,9 +54,7 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
         
-        configurePatientDetails()
-        
-        // Do any additional setup after loading the view.
+        configurePatientDetails()        
     }
 
     private func configurePatientDetails(){
@@ -78,6 +80,11 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
         let expression2 = NSComparisonPredicate(leftExpression: leftExpression2, rightExpression: rightExpression2, modifier: .direct, type: .equalTo, options: .caseInsensitive)
         diagnosticEpisodeModel = DiagnosticEpisodeListModel(searchPredicate: expression2)
         diagnosticEpisodeModel.resultController.delegate = resultsControllerDelegate
+        
+        // Setting up action buttons
+        self.patientEditButton.addTarget(self, action: #selector(editPatient), for: .touchUpInside)
+        
+        
         
         
         self.tableView.delegate = self
@@ -106,14 +113,16 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
             ac.addAction(UIAlertAction(title: "Edit tag title", style: .default) {_ in
                 self.coordinator?.showTagForm(for: self.patient!, existingTag: tag)
             })
-            
             ac.addAction(UIAlertAction(title: "Delete tag", style: .destructive) {_ in
                 patient.removeFromTags(tag)
             })
-            
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             coordinator?.showTagActions(for: ac)
         }
+    }
+    
+    @objc func editPatient(){
+        if let pt = patient { coordinator?.showPatientForm(existingPatient: pt)}
     }
 }
 
@@ -154,6 +163,7 @@ extension DetailedPatientViewVC: UITableViewDelegate, UITableViewDataSource {
             let diagnosticEpisode = diagnosticEpisodeModel.resultController.object(at: indexPath)
             coordinator?.showDiagnosticEpisodeForm(for: patient, existingAct: nil, existingDiagnosticEpisode: diagnosticEpisode)
         }
+        self.tableView.deselectRow(at: indexPath, animated: false)
     }
 }
 
@@ -161,7 +171,6 @@ extension DetailedPatientViewVC {
     private func setupTabButtons(){
         actTabButton.addTarget(self, action: #selector(switchTabButtons), for: .touchUpInside)
         clinicalListTabButton.addTarget(self, action: #selector(switchTabButtons), for: .touchUpInside)
-        
     }
     
     private func updateTabButtons(){
@@ -170,29 +179,19 @@ extension DetailedPatientViewVC {
     
     @objc private func switchTabButtons(sender: UIButton){
         if sender === actTabButton{
-            actTabButton.backgroundColor = .white
-            clinicalListTabButton.backgroundColor = .groupTableViewBackground
+//            actTabButton.backgroundColor = .white
+//            clinicalListTabButton.backgroundColor = .groupTableViewBackground
+            actBottomLine.backgroundColor = .white
+            ClinEpBottom.backgroundColor = .lightGray
             actTabIsSelected = true
             self.tableView.reloadData()
         } else if sender === clinicalListTabButton {
-            actTabButton.backgroundColor = .groupTableViewBackground
-            clinicalListTabButton.backgroundColor = .white
+//            actTabButton.backgroundColor = .groupTableViewBackground
+//            clinicalListTabButton.backgroundColor = .white
+            actBottomLine.backgroundColor = .lightGray
+            ClinEpBottom.backgroundColor = .white
             actTabIsSelected = false
             self.tableView.reloadData()
-        }
-    }
-}
-
-enum TabStatus {
-    case active
-    case inactive
-    
-    var backgroundColor: UIColor {
-        switch self {
-        case .active:
-            return .white
-        case .inactive:
-            return .groupTableViewBackground
         }
     }
 }

@@ -9,6 +9,7 @@
 import UIKit
 import Eureka
 import CoreData
+import EmptyDataSet_Swift
 
 class LandingCardViewController: UIViewController, Storyboarded {
     
@@ -33,8 +34,10 @@ class LandingCardViewController: UIViewController, Storyboarded {
         resultsControllerDelegate = TableViewFetchResultAdapter(tableView: listsTableView)
         model?.resultController.delegate = resultsControllerDelegate
         
-        listsTableView.delegate = self
-        listsTableView.dataSource = self
+        self.listsTableView.delegate = self
+        self.listsTableView.dataSource = self
+        self.listsTableView.emptyDataSetDelegate = self
+        self.listsTableView.emptyDataSetSource = self
         setupButtons()
         setupSearch()
     }
@@ -129,5 +132,17 @@ extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
         archive.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
         edit.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
         return [delete, archive, edit]
+    }
+}
+
+extension LandingCardViewController: EmptyDataSetDelegate, EmptyDataSetSource {
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let myString = "No Active Lists"
+        let myAttrString = NSAttributedString(string: myString, attributes: nil)
+        return myAttrString
+    }
+    
+    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+        return UIImage(named: "icons8-doctors-bag")
     }
 }

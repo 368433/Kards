@@ -81,8 +81,8 @@ class PatientsCoordinator: Coordinator {
         navigationController.present(nc, animated: true, completion: nil)
     }
     
-    func addNewPatient(list: ClinicalList? = nil){
-        let newPatientForm = PatientForm(nibName: nil, bundle: nil)
+    func showPatientForm(existingPatient: Patient?, list: ClinicalList? = nil){
+        let newPatientForm = PatientForm(existingPatient: existingPatient)
         if let list = list {newPatientForm.listToLink = list}
         presentDataForm(for: newPatientForm)
     }

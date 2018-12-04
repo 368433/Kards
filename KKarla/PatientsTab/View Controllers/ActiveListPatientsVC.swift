@@ -50,7 +50,7 @@ class ActiveListPatientsVC: BasePatientsListTVC {
     }
     
     @objc override func addNew(){
-        coordinator?.addNewPatient(list: activeList)
+        coordinator?.showPatientForm(existingPatient: nil, list: activeList)
     }
     @objc private func updateModel(sender: UISegmentedControl){
         astSegment = ASTSegment(rawValue: sender.selectedSegmentIndex) ?? .Active
