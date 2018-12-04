@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EmptyDataSet_Swift
 
 class DetailedPatientViewVC: UIViewController, Storyboarded {
 
@@ -45,6 +46,9 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
         self.tableView.register(nib2, forCellReuseIdentifier: DiagnosticEpisodeTableViewCell.reuseID)
         self.tableView.tableFooterView = UIView(frame: .zero)
 //        self.tableView.rowHeight = Ac.rowHeight
+        
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
         
         configurePatientDetails()
         
@@ -190,5 +194,15 @@ enum TabStatus {
         case .inactive:
             return .groupTableViewBackground
         }
+    }
+}
+
+extension DetailedPatientViewVC: EmptyDataSetSource, EmptyDataSetDelegate {
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let myString = "No Data"
+        let myAttribute = [ NSAttributedString.Key.foregroundColor: UIColor.blue ]
+        let myAttrString = NSAttributedString(string: myString, attributes: myAttribute)
+
+        return myAttrString
     }
 }
