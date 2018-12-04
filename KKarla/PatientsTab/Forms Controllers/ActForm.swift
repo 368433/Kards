@@ -79,7 +79,7 @@ class ActForm: KarlaForm {
         self.existingActToUpdate = existingAct
 //        self.existingDiagnosticEpisode = existingDiagnosticEpisode
         self.actToPrePopSomeFields = actToPrePopSomeFields
-        super.init()
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {

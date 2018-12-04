@@ -17,7 +17,7 @@ class TagForm: KarlaForm{
     init(patient: Patient, existingTag: Tag?){
         self.patient = patient
         self.existingTag = existingTag
-        super.init()
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {

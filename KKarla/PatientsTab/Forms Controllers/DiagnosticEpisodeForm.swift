@@ -18,11 +18,11 @@ class DiagnosticEpisodeForm: KarlaForm{
     @IBOutlet weak var actListTableView: UITableView!
 
     
-    init(patient: Patient, existingAct: Act?, existingDiagnosticEpisode: DiagnosticEpisode?, nibNameOrNil: String?, nibBundleOrNil: Bundle? ){
+    init(patient: Patient, existingAct: Act?, existingDiagnosticEpisode: DiagnosticEpisode?){
         self.patient = patient
         self.existingAct = existingAct
         self.existingDiagnosticEpisode = existingDiagnosticEpisode
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {

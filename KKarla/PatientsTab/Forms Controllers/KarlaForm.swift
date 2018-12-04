@@ -22,13 +22,13 @@ class KarlaForm: FormViewController, Storyboarded, UIImagePickerControllerDelega
     var objectToSave: NSManagedObject?
     
     
-    init(){
-        super.init(nibName: nil, bundle: nil)
+    override init(nibName: String?, bundle: Bundle?){
+        super.init(nibName: nibName, bundle: bundle)
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
+//    override convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+//        self.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+//    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

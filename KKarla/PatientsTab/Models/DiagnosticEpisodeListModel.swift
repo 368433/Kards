@@ -44,7 +44,7 @@ class DiagnosticEpisodeListModel{
         let sort = NSSortDescriptor(key: DiagnosticEpisode.startDateTag, ascending: true)
         request.sortDescriptors = [sort]
         request.fetchBatchSize = 20
-        return NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataCoordinator.persistentContainer.viewContext, sectionNameKeyPath: DiagnosticEpisode.startDateTag, cacheName: nil)
+        return NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataCoordinator.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
     }
 }
 

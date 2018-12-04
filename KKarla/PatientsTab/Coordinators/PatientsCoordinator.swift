@@ -82,7 +82,7 @@ class PatientsCoordinator: Coordinator {
     }
     
     func addNewPatient(list: ClinicalList? = nil){
-        let newPatientForm = PatientForm()
+        let newPatientForm = PatientForm(nibName: nil, bundle: nil)
         if let list = list {newPatientForm.listToLink = list}
         presentDataForm(for: newPatientForm)
     }

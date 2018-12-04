@@ -15,7 +15,7 @@ class ClinicalListForm: KarlaForm {
     
     init(existingClinicalList: ClinicalList?){
         self.existingClinicalList = existingClinicalList
-        super.init()
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
