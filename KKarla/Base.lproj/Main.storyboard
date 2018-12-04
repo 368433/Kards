@@ -387,6 +387,11 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXC-fu-yTe" userLabel="Blurb">
                                                 <rect key="frame" x="0.0" y="210" width="335" height="80"/>
                                                 <subviews>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wGs-G7-h2d">
+                                                        <rect key="frame" x="47" y="-24" width="240" height="128"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsd-PQ-SOb" userLabel="Diagnosis">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="80"/>
                                                         <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exer</string>
@@ -2318,7 +2323,6 @@
         <!--All Patients List-->
         <scene sceneID="SOX-6r-hFc">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zpy-31-mTQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="AllPatientsList" id="Zgf-VF-nK0" customClass="AllPatientsList" customModule="KKarla" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="oAM-kY-yXH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
@@ -2410,6 +2414,7 @@
                     </tableView>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zpy-31-mTQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1758" y="-2000"/>
         </scene>

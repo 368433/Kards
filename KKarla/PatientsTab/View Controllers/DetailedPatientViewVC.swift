@@ -170,13 +170,13 @@ extension DetailedPatientViewVC {
     
     @objc private func switchTabButtons(sender: UIButton){
         if sender === actTabButton{
-            actTabButton.backgroundColor = .groupTableViewBackground
-            clinicalListTabButton.backgroundColor = .white
+            actTabButton.backgroundColor = .white
+            clinicalListTabButton.backgroundColor = .groupTableViewBackground
             actTabIsSelected = true
             self.tableView.reloadData()
         } else if sender === clinicalListTabButton {
-            actTabButton.backgroundColor = .white
-            clinicalListTabButton.backgroundColor = .groupTableViewBackground
+            actTabButton.backgroundColor = .groupTableViewBackground
+            clinicalListTabButton.backgroundColor = .white
             actTabIsSelected = false
             self.tableView.reloadData()
         }
@@ -200,9 +200,13 @@ enum TabStatus {
 extension DetailedPatientViewVC: EmptyDataSetSource, EmptyDataSetDelegate {
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         let myString = "No Data"
-        let myAttribute = [ NSAttributedString.Key.foregroundColor: UIColor.blue ]
-        let myAttrString = NSAttributedString(string: myString, attributes: myAttribute)
+//        let myAttribute = [ NSAttributedString.Key.foregroundColor: UIColor.blue ]
+        let myAttrString = NSAttributedString(string: myString, attributes: nil)
 
         return myAttrString
+    }
+    
+    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+        return UIImage(named: "icons8-ambulance")
     }
 }
