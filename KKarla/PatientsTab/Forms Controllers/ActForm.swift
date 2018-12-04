@@ -167,7 +167,7 @@ class ActForm: KarlaForm {
                 }
                 .onPresent{ from, to in
                     to.selectableRowSetup = { row in
-                        row.cellProvider = CellProvider<ListCheckCell<DiagnosticEpisode>>(nibName: "EurekaDxEpisodeChoiceCell", bundle: Bundle.main)
+                        row.cellProvider = CellProvider<ListCheckCell<DiagnosticEpisode>>(nibName: EurekaDxEpisodeChoiceCell.nibName, bundle: Bundle.main)
                     }
                     to.selectableRowCellUpdate = { cell, row in
                         cell.textLabel?.text = row.selectableValue?.primaryDiagnosis

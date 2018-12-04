@@ -16,6 +16,7 @@ public class DiagnosticEpisode: NSManagedObject {
     static var primaryDxTag = "primaryDiagnosis"
     static var secondaryDxTag = "secondaryDiagnosises"
     static var startDateTag = "dxEpisodeStartDate"
+    static var patientTag = "patient"
     
     var dateAndTitle: String {
         let primaryDx = self.primaryDiagnosis ?? "No 1ry Dx"

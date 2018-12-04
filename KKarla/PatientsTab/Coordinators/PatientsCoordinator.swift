@@ -105,6 +105,12 @@ class PatientsCoordinator: Coordinator {
     func showDiagnosticEpisodeForm(for patient: Patient, existingAct: Act?, existingDiagnosticEpisode: DiagnosticEpisode?){
         let dxEpisode = DiagnosticEpisodeForm(patient: patient, existingAct: existingAct, existingDiagnosticEpisode: existingDiagnosticEpisode)
         presentDataForm(for: dxEpisode)
+        
+//        let vc = DiagnosticEpisodeForm.instantiate()
+//        vc.patient = patient
+//        vc.existingAct = existingAct
+//        vc.existingDiagnosticEpisode = existingDiagnosticEpisode
+//        presentDataForm(for: vc)
     }
 
 }

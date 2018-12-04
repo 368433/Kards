@@ -11,20 +11,22 @@ import Eureka
 
 class DiagnosticEpisodeForm: KarlaForm{
     
-    var patient: Patient
+    var patient: Patient?
     var existingAct: Act?
     var existingDiagnosticEpisode: DiagnosticEpisode?
+    
+    @IBOutlet weak var actListTableView: UITableView!
 
     
-    init(patient: Patient, existingAct: Act?, existingDiagnosticEpisode: DiagnosticEpisode?){
+    init(patient: Patient, existingAct: Act?, existingDiagnosticEpisode: DiagnosticEpisode?, nibNameOrNil: String?, nibBundleOrNil: Bundle? ){
         self.patient = patient
         self.existingAct = existingAct
         self.existingDiagnosticEpisode = existingDiagnosticEpisode
-        super.init()
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
     override func viewDidLoad() {
@@ -40,16 +42,19 @@ class DiagnosticEpisodeForm: KarlaForm{
                 row.title = "Primary diagnosis"
                 row.tag = DiagnosticEpisode.primaryDxTag
                 row.placeholder = "enter a primary diagnosis"
+                row.value = existingDiagnosticEpisode?.primaryDiagnosis
         }
             <<< TextRow(){ row in
                 row.title = "Secondary diagnosises"
                 row.tag = DiagnosticEpisode.secondaryDxTag
                 row.placeholder = "comma separated diagnosises"
+                row.value = existingDiagnosticEpisode?.secondaryDiagnosises
             }
             <<< DateRow() { row in
                 row.title = "Started"
                 row.value = existingDiagnosticEpisode?.dxEpisodeStartDate ?? Date(timeIntervalSinceNow: 0)
                 row.tag = DiagnosticEpisode.startDateTag
+                row.value = existingDiagnosticEpisode?.dxEpisodeStartDate
         }
     }
     
@@ -59,7 +64,7 @@ class DiagnosticEpisodeForm: KarlaForm{
         if let act = existingAct {
             (objectToSave as! DiagnosticEpisode).addToActs(act)
         }
-        patient.addToDiagnosticEpisdoes(objectToSave as! DiagnosticEpisode)
+        patient?.addToDiagnosticEpisdoes(objectToSave as! DiagnosticEpisode)
         super.saveEntries()
     }
     

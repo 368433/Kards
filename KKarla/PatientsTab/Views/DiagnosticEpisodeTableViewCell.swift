@@ -1,5 +1,5 @@
 //
-//  ActTableViewCell.swift
+//  DiagnosticEpisodeTableViewCell.swift
 //  KKarla
 //
 //  Created by quarticAIMBP2018 on 2018-12-03.
@@ -8,11 +8,10 @@
 
 import UIKit
 
-class ActTableViewCell: UITableViewCell {
+class DiagnosticEpisodeTableViewCell: UITableViewCell {
 
-    static var nibName = "ActTableViewCell"
-    static var reuseID = "actCell"
-    
+    static var nibName = "DiagnosticEpisodeTableViewCell"
+    static var reuseID = "dxEpisodeCell"
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -11,6 +11,8 @@ import Eureka
 
 class EurekaDxEpisodeChoiceCell: ListCheckCell<DiagnosticEpisode> {
 
+    static var nibName = "EurekaDxEpisodeChoiceCell"
+    static var reuseID = "eurekaDxEpisodeCell"
 //    override func awakeFromNib() {
 //        super.awakeFromNib()
 //        // Initialization code
