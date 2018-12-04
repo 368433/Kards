@@ -1,8 +1,8 @@
 //
-//  ClinicalListModel.swift
+//  ActListModel.swift
 //  KKarla
 //
-//  Created by quarticAIMBP2018 on 2018-11-25.
+//  Created by quarticAIMBP2018 on 2018-12-03.
 //  Copyright © 2018 amir2. All rights reserved.
 //
 
@@ -11,16 +11,17 @@ import CoreData
 import UIKit
 import Eureka
 
-class ClinicalListModel{
+class ActListModel{
     
-    var resultController: NSFetchedResultsController<ClinicalList>!
+    var resultController: NSFetchedResultsController<Act>!
     var dataCoordinator = AppDelegate.dataCoordinator
     var searchPredicate: NSPredicate?
-
+    
     
     init(searchPredicate: NSPredicate?){
         self.searchPredicate = searchPredicate
         self.resultController = getFetchedResultsController()
+        
         loadObjectList()
     }
     
@@ -38,12 +39,12 @@ class ClinicalListModel{
         loadObjectList()
     }
     
-    private func getFetchedResultsController() -> NSFetchedResultsController<ClinicalList> {
-        let request = ClinicalList.createFetchRequest()
-        let sort = NSSortDescriptor(key: ClinicalList.titleTag, ascending: true)
+    private func getFetchedResultsController() -> NSFetchedResultsController<Act> {
+        let request = Act.createFetchRequest()
+        let sort = NSSortDescriptor(key: Act.startDateTag, ascending: true)
         request.sortDescriptors = [sort]
         request.fetchBatchSize = 20
-        return NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataCoordinator.persistentContainer.viewContext, sectionNameKeyPath: ClinicalList.titleTag, cacheName: nil)
+        return NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataCoordinator.persistentContainer.viewContext, sectionNameKeyPath: Act.startDateTag, cacheName: nil)
     }
 }
 

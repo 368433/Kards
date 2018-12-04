@@ -63,6 +63,7 @@ class PatientsCoordinator: Coordinator {
     
     func showDetailedPatientView(for patient: Patient?){
         let ptDetails = DetailedPatientViewVC.instantiate()
+        ptDetails.patient = patient
         ptDetails.coordinator = self
         navigationController.pushViewController(ptDetails, animated: true)
     }
