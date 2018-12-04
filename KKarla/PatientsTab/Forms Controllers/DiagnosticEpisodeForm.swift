@@ -22,7 +22,7 @@ class DiagnosticEpisodeForm: KarlaForm{
         self.patient = patient
         self.existingAct = existingAct
         self.existingDiagnosticEpisode = existingDiagnosticEpisode
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: "DiagnosticEpisodeFormView", bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
