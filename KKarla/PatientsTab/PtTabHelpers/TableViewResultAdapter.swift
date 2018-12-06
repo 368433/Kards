@@ -54,6 +54,7 @@ class TableViewFetchResultAdapter: NSObject, NSFetchedResultsControllerDelegate 
         }
     }
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        // works without comments
         fetchResultsAdatptedTableView.endUpdates()
     }
 }
