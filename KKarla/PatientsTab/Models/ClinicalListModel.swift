@@ -34,10 +34,6 @@ class ClinicalListModel{
         }
     }
     
-    func reloadObjectList(){
-        loadObjectList()
-    }
-    
     private func getFetchedResultsController() -> NSFetchedResultsController<ClinicalList> {
         let request = ClinicalList.createFetchRequest()
         let sort = NSSortDescriptor(key: ClinicalList.titleTag, ascending: true)

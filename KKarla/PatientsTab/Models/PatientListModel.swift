@@ -26,11 +26,6 @@ class PatientListModel{
         self.resultController = getFetchedResultsController()
         loadObjectList()
     }
-    
-//    func getPatients(predicate: NSPredicate){
-//        self.searchPredicate = predicate
-//        loadObjectList()
-//    }
 
     
     private func loadObjectList(){
@@ -42,10 +37,6 @@ class PatientListModel{
             print("Fetch failed")
         }
     }
-//    
-//    func reloadObjectList(){
-//        loadObjectList()
-//    }
     
     private func getFetchedResultsController() -> NSFetchedResultsController<Patient> {
         let request = Patient.createFetchRequest()

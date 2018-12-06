@@ -35,10 +35,6 @@ class ActListModel{
         }
     }
     
-    func reloadObjectList(){
-        loadObjectList()
-    }
-    
     private func getFetchedResultsController() -> NSFetchedResultsController<Act> {
         let request = Act.createFetchRequest()
         let sort = NSSortDescriptor(key: Act.startDateTag, ascending: true)

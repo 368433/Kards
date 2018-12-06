@@ -35,10 +35,6 @@ class DiagnosticEpisodeListModel{
         }
     }
     
-    func reloadObjectList(){
-        loadObjectList()
-    }
-    
     private func getFetchedResultsController() -> NSFetchedResultsController<DiagnosticEpisode> {
         let request = DiagnosticEpisode.createFetchRequest()
         let sort = NSSortDescriptor(key: DiagnosticEpisode.startDateTag, ascending: true)

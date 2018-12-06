@@ -34,10 +34,6 @@ class TagsListModel{
         }
     }
     
-    func reloadObjectList(){
-        loadObjectList()
-    }
-    
     private func getFetchedResultsController() -> NSFetchedResultsController<Tag> {
         let request = Tag.createFetchRequest()
         let sort = NSSortDescriptor(key: "tagTitle", ascending: true)
