@@ -10,7 +10,7 @@ import UIKit
 import EmptyDataSet_Swift
 
 class DetailedPatientViewVC: UIViewController, Storyboarded {
-
+    
     weak var coordinator: PatientsCoordinator?
     var patient: Patient?
     lazy var tagStackList = ButtonTagStackList(stack: tagsStack)
@@ -18,7 +18,7 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
     var diagnosticEpisodeModel: DiagnosticEpisodeListModel!
     var resultsControllerDelegateAct: TableViewFetchResultAdapter!
     var actTabIsSelected: Bool = true
-
+    
     
     // MARK: IBoutlets
     @IBOutlet weak var patientNameLabel: UILabel!
@@ -43,23 +43,23 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
     @IBOutlet weak var actBottomLine: UIView!
     @IBOutlet weak var actRightView: UIView!
     @IBOutlet weak var ClinEpBottom: UIView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let nib = UINib(nibName: ActTableViewCell.nibName, bundle: nil)
         let nib2 = UINib(nibName: DiagnosticEpisodeTableViewCell.nibName, bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: ActTableViewCell.reuseID)
         self.tableView.register(nib2, forCellReuseIdentifier: DiagnosticEpisodeTableViewCell.reuseID)
         self.tableView.tableFooterView = UIView(frame: .zero)
-//        self.tableView.rowHeight = Ac.rowHeight
+        //        self.tableView.rowHeight = Ac.rowHeight
         
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
         
         configurePatientDetails()        
     }
-
+    
     private func configurePatientDetails(){
         self.patientNameLabel.text = patient?.name
         self.patientAgeLabel.text = patient?.age
@@ -68,7 +68,7 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
         self.patientBlurbLabel.text = patient?.summaryBlurb ?? "No summary in database."
         
         resultsControllerDelegateAct = TableViewFetchResultAdapter(tableView: self.tableView)
-
+        
         // Setting up actModel
         let rightExpression = NSExpression(forConstantValue: patient)
         let leftExpression = NSExpression(forKeyPath: Act.patientTag)
@@ -174,6 +174,20 @@ extension DetailedPatientViewVC: UITableViewDelegate, UITableViewDataSource {
         }
         self.tableView.deselectRow(at: indexPath, animated: false)
     }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            if self.actTabIsSelected{
+                let object = self.actModel.resultController.object(at: indexPath)
+                self.actModel.dataCoordinator.persistentContainer.viewContext.delete(object)
+            }else {
+                let object = self.diagnosticEpisodeModel.resultController.object(at: indexPath)
+                self.diagnosticEpisodeModel.dataCoordinator.persistentContainer.viewContext.delete(object)
+            }
+        }
+        return [delete]
+    }
 }
 
 extension DetailedPatientViewVC {
@@ -214,13 +228,16 @@ extension DetailedPatientViewVC {
 extension DetailedPatientViewVC: EmptyDataSetSource, EmptyDataSetDelegate {
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         let myString = "No Data"
-//        let myAttribute = [ NSAttributedString.Key.foregroundColor: UIColor.blue ]
+        //        let myAttribute = [ NSAttributedString.Key.foregroundColor: UIColor.blue ]
         let myAttrString = NSAttributedString(string: myString, attributes: nil)
-
         return myAttrString
     }
     
     func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
         return UIImage(named: "icons8-ambulance")
     }
+}
+
+enum DataModel {
+    
 }
