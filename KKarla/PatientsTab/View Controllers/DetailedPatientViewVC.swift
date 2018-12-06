@@ -52,20 +52,12 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
         self.tableView.register(nib, forCellReuseIdentifier: ActTableViewCell.reuseID)
         self.tableView.register(nib2, forCellReuseIdentifier: DiagnosticEpisodeTableViewCell.reuseID)
         self.tableView.tableFooterView = UIView(frame: .zero)
-        //        self.tableView.rowHeight = Ac.rowHeight
-        
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
-        
         configurePatientDetails()        
     }
     
     private func configurePatientDetails(){
-        self.patientNameLabel.text = patient?.name
-        self.patientAgeLabel.text = patient?.age
-        self.genderLabel.text = patient?.patientGender
-        self.bedlocationLabel.text = patient?.activeDiagnosticEpisode?.getLatestAct()?.actBednumber
-        self.patientBlurbLabel.text = patient?.summaryBlurb ?? "No summary in database."
         
         resultsControllerDelegateAct = TableViewFetchResultAdapter(tableView: self.tableView)
         
@@ -85,10 +77,8 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
         
         // Setting up action buttons
         self.patientEditButton.addTarget(self, action: #selector(editPatient), for: .touchUpInside)
-        
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
         setupTags()
         setupTabButtons()
     }
@@ -125,15 +115,27 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
             coordinator?.showPatientForm(existingPatient: pt, delegate: self)
         }
     }
+    
+    private func updateLabels(){
+        self.patientNameLabel.text = patient?.name
+        self.patientAgeLabel.text = patient?.age
+        self.genderLabel.text = patient?.patientGender
+        self.bedlocationLabel.text = patient?.activeDiagnosticEpisode?.getLatestAct()?.actBednumber
+        self.patientBlurbLabel.text = patient?.summaryBlurb ?? "No summary in database."
+    }
 }
 
 extension DetailedPatientViewVC: PatientFormDelegate {
     func update(patient: Patient){
-        self.patientBlurbLabel.text = self.patient?.summaryBlurb
+        updateLabels()
     }
 }
 
-extension DetailedPatientViewVC: UITableViewDelegate, UITableViewDataSource {
+
+//***
+// MARK: UITableView DataSource methods
+
+extension DetailedPatientViewVC: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         if actTabIsSelected {
             return actModel.resultController.sections?.count ?? 0
@@ -162,6 +164,12 @@ extension DetailedPatientViewVC: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
     }
+}
+
+//***
+// MARK: UITableView Delegate methods
+
+extension DetailedPatientViewVC: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let patient = patient else {fatalError("patient is nil")}
@@ -175,19 +183,18 @@ extension DetailedPatientViewVC: UITableViewDelegate, UITableViewDataSource {
         self.tableView.deselectRow(at: indexPath, animated: false)
     }
     
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//        
-//        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-//            if self.actTabIsSelected{
-//                let object = self.actModel.resultController.object(at: indexPath)
-//                self.actModel.dataCoordinator.persistentContainer.viewContext.delete(object)
-//            }else {
-//                let object = self.diagnosticEpisodeModel.resultController.object(at: indexPath)
-//                self.diagnosticEpisodeModel.dataCoordinator.persistentContainer.viewContext.delete(object)
-//            }
-//        }
-//        return [delete]
-//    }
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            if self.actTabIsSelected{
+                let object = self.actModel.resultController.object(at: indexPath)
+                self.actModel.dataCoordinator.persistentContainer.viewContext.delete(object)
+            }else {
+                let object = self.diagnosticEpisodeModel.resultController.object(at: indexPath)
+                self.diagnosticEpisodeModel.dataCoordinator.persistentContainer.viewContext.delete(object)
+            }
+        }
+        return [delete]
+    }
 }
 
 extension DetailedPatientViewVC {
@@ -236,8 +243,4 @@ extension DetailedPatientViewVC: EmptyDataSetSource, EmptyDataSetDelegate {
     func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
         return UIImage(named: "icons8-ambulance")
     }
-}
-
-enum DataModel {
-    
 }

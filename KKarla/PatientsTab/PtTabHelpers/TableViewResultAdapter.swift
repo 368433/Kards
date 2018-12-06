@@ -44,11 +44,11 @@ class TableViewFetchResultAdapter: NSObject, NSFetchedResultsControllerDelegate 
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .insert:
-            fetchResultsAdatptedTableView.insertRows(at: [newIndexPath!], with: .fade)
+            fetchResultsAdatptedTableView.insertRows(at: [newIndexPath!], with: .automatic)
         case .delete:
             fetchResultsAdatptedTableView.deleteRows(at: [indexPath!], with: .automatic)
         case .update:
-            fetchResultsAdatptedTableView.reloadRows(at: [indexPath!], with: .fade)
+            fetchResultsAdatptedTableView.reloadRows(at: [indexPath!], with: .automatic)
         case .move:
             fetchResultsAdatptedTableView.moveRow(at: indexPath!, to: newIndexPath!)
         }

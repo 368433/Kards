@@ -17,11 +17,9 @@ class DiagnosticEpisodeListModel{
     var dataCoordinator = AppDelegate.dataCoordinator
     var searchPredicate: NSPredicate?
     
-    
     init(searchPredicate: NSPredicate?){
         self.searchPredicate = searchPredicate
         self.resultController = getFetchedResultsController()
-        
         loadObjectList()
     }
     

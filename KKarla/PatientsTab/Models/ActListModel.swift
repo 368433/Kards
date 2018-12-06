@@ -40,7 +40,7 @@ class ActListModel{
         let sort = NSSortDescriptor(key: Act.startDateTag, ascending: true)
         request.sortDescriptors = [sort]
         request.fetchBatchSize = 20
-        return NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataCoordinator.persistentContainer.viewContext, sectionNameKeyPath: Act.startDateTag, cacheName: nil)
+        return NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataCoordinator.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
     }
 }
 
