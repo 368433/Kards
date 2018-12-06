@@ -150,7 +150,6 @@ extension DetailedPatientViewVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("reload")
         if actTabIsSelected {
             let cell = tableView.dequeueReusableCell(withIdentifier: ActTableViewCell.reuseID) as! ActTableViewCell
             cell.model = actModel.resultController.object(at: indexPath)

@@ -56,9 +56,8 @@ class DiagnosticEpisodeForm: KarlaForm{
             }
             <<< DateRow() { row in
                 row.title = "Started"
-                row.value = existingDiagnosticEpisode?.dxEpisodeStartDate ?? Date(timeIntervalSinceNow: 0)
                 row.tag = DiagnosticEpisode.startDateTag
-                row.value = existingDiagnosticEpisode?.dxEpisodeStartDate
+                row.value = existingDiagnosticEpisode?.dxEpisodeStartDate ?? Date(timeIntervalSinceNow: 0)
         }
     }
     
