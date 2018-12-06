@@ -13,9 +13,13 @@ class DiagnosticEpisodeTableViewCell: UITableViewCell {
     static var nibName = "DiagnosticEpisodeTableViewCell"
     static var reuseID = "dxEpisodeCell"
     
+    var model: DiagnosticEpisode?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        configure()
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,4 +28,9 @@ class DiagnosticEpisodeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func configure(){
+        self.textLabel?.text = model?.primaryDiagnosis ?? "Dx primaire n/a"
+        let date = model?.dxEpisodeStartDate?.dayMonthYear() ?? "No valid date"
+        self.detailTextLabel?.text = date
+    }
 }

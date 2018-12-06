@@ -120,6 +120,7 @@ class ActForm: KarlaForm {
             objectToSave = existingActToUpdate ?? getNewActInstance()
             patient.addToActs(objectToSave as! Act)
             patient.activeDiagnosticEpisode = dxEpisode
+            
             dxEpisode.addToActs(objectToSave as! Act)
             
             super.saveEntries()

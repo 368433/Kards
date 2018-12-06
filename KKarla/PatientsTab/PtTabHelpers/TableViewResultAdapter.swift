@@ -54,6 +54,7 @@ class TableViewFetchResultAdapter: NSObject, NSFetchedResultsControllerDelegate 
         }
     }
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+//        self.fetchResultsAdatptedTableView.reloadData()
         fetchResultsAdatptedTableView.endUpdates()
     }
 }

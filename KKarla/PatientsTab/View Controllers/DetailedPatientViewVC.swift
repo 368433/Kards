@@ -16,7 +16,7 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
     lazy var tagStackList = ButtonTagStackList(stack: tagsStack)
     var actModel: ActListModel!
     var diagnosticEpisodeModel: DiagnosticEpisodeListModel!
-    var resultsControllerDelegate: TableViewFetchResultAdapter!
+    var resultsControllerDelegateAct: TableViewFetchResultAdapter!
     var actTabIsSelected: Bool = true
 
     
@@ -27,6 +27,8 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
     @IBOutlet weak var bedlocationLabel: UILabel!
     @IBOutlet weak var patientBlurbLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var clinEpTableView: UITableView!
+    @IBOutlet weak var actTableView: UITableView!
     @IBOutlet weak var tagsStack: UIStackView!
     
     @IBOutlet weak var addActButton: UIButton!
@@ -36,6 +38,7 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
     @IBOutlet weak var actTabButton: UIButton!
     @IBOutlet weak var clinicalListTabButton: UIButton!
     @IBOutlet weak var patientEditButton: UIButton!
+    @IBOutlet weak var addToActOrClinicalEpTableButton: UIButton!
     
     @IBOutlet weak var actBottomLine: UIView!
     @IBOutlet weak var actRightView: UIView!
@@ -59,33 +62,29 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
 
     private func configurePatientDetails(){
         self.patientNameLabel.text = patient?.name
-//        self.patientAgeLabel.text = patient?.dateOfBirth?.dayMonthYear()
         self.patientAgeLabel.text = patient?.age
         self.genderLabel.text = patient?.patientGender
         self.bedlocationLabel.text = patient?.activeDiagnosticEpisode?.getLatestAct()?.actBednumber
-        self.patientBlurbLabel.text = patient?.summaryBlurb
+        self.patientBlurbLabel.text = patient?.summaryBlurb ?? "No summary in database."
         
-        resultsControllerDelegate = TableViewFetchResultAdapter(tableView: self.tableView)
+        resultsControllerDelegateAct = TableViewFetchResultAdapter(tableView: self.tableView)
 
         // Setting up actModel
         let rightExpression = NSExpression(forConstantValue: patient)
         let leftExpression = NSExpression(forKeyPath: Act.patientTag)
         let expression = NSComparisonPredicate(leftExpression: leftExpression, rightExpression: rightExpression, modifier: .direct, type: .contains, options: .caseInsensitive)
         actModel = ActListModel(searchPredicate: expression)
-        actModel.resultController.delegate = resultsControllerDelegate
+        actModel.resultController.delegate = resultsControllerDelegateAct
         
         // Setting up diagnostic episode model
         let rightExpression2 = NSExpression(forConstantValue: patient)
         let leftExpression2 = NSExpression(forKeyPath: DiagnosticEpisode.patientTag)
         let expression2 = NSComparisonPredicate(leftExpression: leftExpression2, rightExpression: rightExpression2, modifier: .direct, type: .equalTo, options: .caseInsensitive)
         diagnosticEpisodeModel = DiagnosticEpisodeListModel(searchPredicate: expression2)
-        diagnosticEpisodeModel.resultController.delegate = resultsControllerDelegate
+        diagnosticEpisodeModel.resultController.delegate = resultsControllerDelegateAct
         
         // Setting up action buttons
         self.patientEditButton.addTarget(self, action: #selector(editPatient), for: .touchUpInside)
-        
-        
-        
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -122,7 +121,15 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
     }
     
     @objc func editPatient(){
-        if let pt = patient { coordinator?.showPatientForm(existingPatient: pt)}
+        if let pt = patient {
+            coordinator?.showPatientForm(existingPatient: pt, delegate: self)
+        }
+    }
+}
+
+extension DetailedPatientViewVC: PatientFormDelegate {
+    func update(patient: Patient){
+        self.patientBlurbLabel.text = self.patient?.summaryBlurb
     }
 }
 
@@ -143,13 +150,16 @@ extension DetailedPatientViewVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("reload")
         if actTabIsSelected {
             let cell = tableView.dequeueReusableCell(withIdentifier: ActTableViewCell.reuseID) as! ActTableViewCell
-            cell.textLabel?.text = actModel?.resultController.object(at: indexPath).actNature
+            cell.model = actModel.resultController.object(at: indexPath)
+            cell.configure()
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: DiagnosticEpisodeTableViewCell.reuseID) as! DiagnosticEpisodeTableViewCell
-            cell.textLabel?.text = diagnosticEpisodeModel?.resultController.object(at: indexPath).primaryDiagnosis
+            cell.model = diagnosticEpisodeModel.resultController.object(at: indexPath)
+            cell.configure()
             return cell
         }
     }
@@ -168,31 +178,37 @@ extension DetailedPatientViewVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension DetailedPatientViewVC {
+    
     private func setupTabButtons(){
         actTabButton.addTarget(self, action: #selector(switchTabButtons), for: .touchUpInside)
         clinicalListTabButton.addTarget(self, action: #selector(switchTabButtons), for: .touchUpInside)
+        addToActOrClinicalEpTableButton.addTarget(self, action: #selector(addActOrClinEp), for: .touchUpInside)
     }
     
     private func updateTabButtons(){
         
     }
     
+    @objc private func addActOrClinEp(sender: UIButton){
+        guard let patient = patient else { fatalError("no valid patient")}
+        if actTabIsSelected {
+            coordinator?.showActForm(patient: patient, existingAct: nil, actToPrePopSomeFields: nil, existingDiagnosticEpisode: nil)
+        } else {
+            coordinator?.showDiagnosticEpisodeForm(for: patient, existingAct: nil, existingDiagnosticEpisode: nil)
+        }
+    }
+    
     @objc private func switchTabButtons(sender: UIButton){
         if sender === actTabButton{
-//            actTabButton.backgroundColor = .white
-//            clinicalListTabButton.backgroundColor = .groupTableViewBackground
             actBottomLine.backgroundColor = .white
             ClinEpBottom.backgroundColor = .lightGray
             actTabIsSelected = true
-            self.tableView.reloadData()
         } else if sender === clinicalListTabButton {
-//            actTabButton.backgroundColor = .groupTableViewBackground
-//            clinicalListTabButton.backgroundColor = .white
             actBottomLine.backgroundColor = .lightGray
             ClinEpBottom.backgroundColor = .white
             actTabIsSelected = false
-            self.tableView.reloadData()
         }
+        self.tableView.reloadData()
     }
 }
 

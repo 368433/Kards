@@ -149,16 +149,8 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="OHG-3d-iFL">
                                                         <rect key="frame" x="0.0" y="0.0" width="258" height="40"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxl-Hs-BTt">
-                                                                <rect key="frame" x="0.0" y="10" width="20" height="20"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="hxl-Hs-BTt" secondAttribute="height" multiplier="1:1" id="Ncg-Ep-SOJ"/>
-                                                                    <constraint firstAttribute="width" constant="20" id="uzF-62-nGi"/>
-                                                                </constraints>
-                                                                <state key="normal" image="icons8-flag-2"/>
-                                                            </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVY-oH-Fnz">
-                                                                <rect key="frame" x="35" y="8.5" width="23" height="23"/>
+                                                                <rect key="frame" x="0.0" y="8.5" width="23" height="23"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="eVY-oH-Fnz" secondAttribute="height" multiplier="1:1" id="2HV-Up-0od"/>
                                                                     <constraint firstAttribute="width" constant="23" id="vbS-Yn-hKy"/>
@@ -166,7 +158,7 @@
                                                                 <state key="normal" image="icons8-task"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ue-2q-Teb">
-                                                                <rect key="frame" x="73" y="8.5" width="23" height="23"/>
+                                                                <rect key="frame" x="38" y="8.5" width="23" height="23"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="2ue-2q-Teb" secondAttribute="height" multiplier="1:1" id="R63-xZ-t1d"/>
                                                                     <constraint firstAttribute="width" constant="23" id="UeI-DQ-CtC"/>
@@ -174,7 +166,7 @@
                                                                 <state key="normal" image="icons8-add-tag"/>
                                                             </button>
                                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cgI-dB-fbN">
-                                                                <rect key="frame" x="111" y="0.0" width="147" height="40"/>
+                                                                <rect key="frame" x="76" y="0.0" width="182" height="40"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dVc-O6-qJw">
                                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="40"/>
@@ -299,7 +291,6 @@
     <resources>
         <image name="icons8-add-tag" width="75" height="75"/>
         <image name="icons8-bed" width="75" height="75"/>
-        <image name="icons8-flag-2" width="75" height="75"/>
         <image name="icons8-male-userBlue" width="75" height="75"/>
         <image name="icons8-task" width="75" height="75"/>
         <image name="icons8-term" width="75" height="75"/>

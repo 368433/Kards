@@ -40,6 +40,7 @@ class PatientForm: KarlaForm {
     var existingPatient: Patient?
     var listToLink: ClinicalList?
     var quickParser: QuickParser!
+    var delegate: PatientFormDelegate?
     
     init(existingPatient: Patient?){
         self.existingPatient = existingPatient
@@ -62,6 +63,7 @@ class PatientForm: KarlaForm {
         objectToSave = existingPatient ?? getNewPatientInstance()
         if let list = listToLink, let patientToSave = objectToSave as? Patient { patientToSave.addToActiveWorkLists(list) }
         super.saveEntries()
+        delegate?.update(patient: objectToSave as! Patient)
     }
     
     func getNewPatientInstance() -> Patient {

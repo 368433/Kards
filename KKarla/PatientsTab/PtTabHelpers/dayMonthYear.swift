@@ -11,7 +11,7 @@ import Foundation
 extension Date {
     func dayMonthYear() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MMM/yy"
+        formatter.dateFormat = "dd MMM yyyy"
         return formatter.string(from: self)
     }
 }
