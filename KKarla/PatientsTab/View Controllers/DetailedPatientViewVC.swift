@@ -175,19 +175,19 @@ extension DetailedPatientViewVC: UITableViewDelegate, UITableViewDataSource {
         self.tableView.deselectRow(at: indexPath, animated: false)
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
-        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            if self.actTabIsSelected{
-                let object = self.actModel.resultController.object(at: indexPath)
-                self.actModel.dataCoordinator.persistentContainer.viewContext.delete(object)
-            }else {
-                let object = self.diagnosticEpisodeModel.resultController.object(at: indexPath)
-                self.diagnosticEpisodeModel.dataCoordinator.persistentContainer.viewContext.delete(object)
-            }
-        }
-        return [delete]
-    }
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        
+//        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+//            if self.actTabIsSelected{
+//                let object = self.actModel.resultController.object(at: indexPath)
+//                self.actModel.dataCoordinator.persistentContainer.viewContext.delete(object)
+//            }else {
+//                let object = self.diagnosticEpisodeModel.resultController.object(at: indexPath)
+//                self.diagnosticEpisodeModel.dataCoordinator.persistentContainer.viewContext.delete(object)
+//            }
+//        }
+//        return [delete]
+//    }
 }
 
 extension DetailedPatientViewVC {
