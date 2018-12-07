@@ -58,6 +58,7 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
     }
     
     private func configurePatientDetails(){
+        updateLabels()
         
         resultsControllerDelegateAct = TableViewFetchResultAdapter(tableView: self.tableView)
         
