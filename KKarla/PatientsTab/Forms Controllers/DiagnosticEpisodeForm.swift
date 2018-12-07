@@ -15,6 +15,7 @@ class DiagnosticEpisodeForm: KarlaForm{
     var patient: Patient?
     var existingAct: Act?
     var existingDiagnosticEpisode: DiagnosticEpisode?
+    var model: ActListModel?
     
     @IBOutlet weak var actListTableView: UITableView!
 
@@ -24,6 +25,12 @@ class DiagnosticEpisodeForm: KarlaForm{
         self.existingAct = existingAct
         self.existingDiagnosticEpisode = existingDiagnosticEpisode
         super.init(nibName: "DiagnosticEpisodeFormView", bundle: nil)
+        if let existingEpi = existingDiagnosticEpisode{
+            let rightExpression = NSExpression(forConstantValue: existingEpi)
+            let leftExpression = NSExpression(forKeyPath: Act.dxEpisodeTag)
+            let expression = NSComparisonPredicate(leftExpression: leftExpression, rightExpression: rightExpression, modifier: .direct, type: .equalTo, options: .caseInsensitive)
+            model = ActListModel(searchPredicate: expression)
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -33,7 +40,12 @@ class DiagnosticEpisodeForm: KarlaForm{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let nib = UINib(nibName: ActTableViewCell.nibName, bundle: nil)
+        self.actListTableView.register(nib, forCellReuseIdentifier: ActTableViewCell.reuseID)
+        
         self.actListTableView.tableFooterView = UIView(frame: .zero)
+        self.actListTableView.dataSource = self
+        self.actListTableView.delegate = self
         self.actListTableView.emptyDataSetSource = self
         self.actListTableView.emptyDataSetDelegate = self
         initializeForm()
@@ -63,7 +75,6 @@ class DiagnosticEpisodeForm: KarlaForm{
     
     override func saveEntries() {
         objectToSave = existingDiagnosticEpisode ?? getNewDiagnosticEpisodeObject()
-        
         if let act = existingAct {
             (objectToSave as! DiagnosticEpisode).addToActs(act)
         }
@@ -89,4 +100,34 @@ extension DiagnosticEpisodeForm: EmptyDataSetSource, EmptyDataSetDelegate {
     func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
         return UIImage(named: "icons8-caduceus-medical")
     }
+}
+
+extension DiagnosticEpisodeForm {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == actListTableView {
+            return model?.resultController.sections![section].numberOfObjects ?? 0
+        } else {
+            return super.tableView(tableView, numberOfRowsInSection: section)
+        }
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        if tableView == actListTableView {
+            return model?.resultController.sections?.count ?? 0
+        } else {
+            return super.numberOfSections(in: tableView)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if tableView == actListTableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ActTableViewCell.reuseID) as! ActTableViewCell
+            cell.model = model?.resultController.object(at: indexPath)
+            cell.configure()
+            return cell
+        } else {
+            return super.tableView(tableView, cellForRowAt: indexPath)
+        }
+    }
+    
 }

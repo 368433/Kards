@@ -26,4 +26,5 @@ public class Act: NSManagedObject {
     static var admissionDateTag = "dateAdmission"
     static var noteTag = "note"
     static var patientTag = "patient"
+    static var dxEpisodeTag = "diagnosticEpisode"
 }

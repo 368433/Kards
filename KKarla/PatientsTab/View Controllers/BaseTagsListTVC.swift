@@ -28,6 +28,7 @@ class BaseTagsListTVC: UITableViewController {
         self.tableView.register(UINib(nibName: TagsListTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: TagsListTableViewCell.reuseID)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewTag))
         self.tableView.tableFooterView = UIView(frame: .zero)
+        self.tableView.rowHeight = 44
     }
 
     @objc func addNewTag(){
