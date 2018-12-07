@@ -13,7 +13,7 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
     
     weak var coordinator: PatientsCoordinator?
     var patient: Patient?
-    lazy var tagStackList = ButtonTagStackList(stack: tagsStack)
+//    lazy var tagStackList = ButtonTagStackList(stack: tagsStack)
     var actModel: ActListModel!
     var diagnosticEpisodeModel: DiagnosticEpisodeListModel!
     var resultsControllerDelegateAct: TableViewFetchResultAdapter!
@@ -80,18 +80,18 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
         self.patientEditButton.addTarget(self, action: #selector(editPatient), for: .touchUpInside)
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        setupTags()
+//        setupTags()
         setupTabButtons()
     }
     
-    private func setupTags(){
-        let tagsTitlesList = patient?.tags?.compactMap { ($0 as! Tag).tagTitle }
-        let labelsList = tagsTitlesList?.compactMap { (LabelType.bedsideLocationLabel, $0) }
-        if let labelsList = labelsList {
-            tagStackList.setLabels(for: labelsList)
-            tagStackList.tagStack.arrangedSubviews.forEach {($0 as! UIButton).addTarget(self, action: #selector(tagButtonAction), for: .touchUpInside)}
-        }
-    }
+//    private func setupTags(){
+//        let tagsTitlesList = patient?.tags?.compactMap { ($0 as! Tag).tagTitle }
+//        let labelsList = tagsTitlesList?.compactMap { (LabelType.bedsideLocationLabel, $0) }
+//        if let labelsList = labelsList {
+//            tagStackList.setLabels(for: labelsList)
+//            tagStackList.tagStack.arrangedSubviews.forEach {($0 as! UIButton).addTarget(self, action: #selector(tagButtonAction), for: .touchUpInside)}
+//        }
+//    }
     
     @objc func tagButtonAction(sender: UIButton){
         

@@ -31,9 +31,9 @@ class TableViewFetchResultAdapter: NSObject, NSFetchedResultsControllerDelegate 
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         switch type {
         case .insert:
-            fetchResultsAdatptedTableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+            fetchResultsAdatptedTableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
         case .delete:
-            fetchResultsAdatptedTableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
+            fetchResultsAdatptedTableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
         case .move:
             break
         case .update:
