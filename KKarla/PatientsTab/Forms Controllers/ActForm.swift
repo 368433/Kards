@@ -156,7 +156,6 @@ class ActForm: KarlaForm {
             <<< PushRow<DiagnosticEpisode>() { row in
                 row.title = "Diagnotic Episode"
                 row.tag = "diagnosticEpisode"
-                //                row.value = existingDiagnosticEpisode
                 row.value = actToPrePopSomeFields?.diagnosticEpisode
                 row.add(rule: RuleRequired())
                 row.validationOptions = .validatesOnChange
