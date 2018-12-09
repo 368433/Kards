@@ -25,7 +25,7 @@ class ActListModel{
         loadObjectList()
     }
     
-    private func loadObjectList(){
+    func loadObjectList(){
         if resultController == nil { resultController = getFetchedResultsController() }
         resultController.fetchRequest.predicate = self.searchPredicate
         do {

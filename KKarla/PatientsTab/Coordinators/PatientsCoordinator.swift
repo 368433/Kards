@@ -49,7 +49,7 @@ class PatientsCoordinator: Coordinator {
         navigationController.pushViewController(wlVC, animated: true)
     }
     
-    func showTagActions(for ac: UIAlertController){
+    func showAlertController(for ac: UIAlertController){
         navigationController.present(ac, animated: true)
     }
     

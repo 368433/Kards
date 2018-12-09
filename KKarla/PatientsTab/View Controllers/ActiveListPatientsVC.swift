@@ -50,8 +50,16 @@ class ActiveListPatientsVC: BasePatientsListTVC {
     }
     
     @objc override func addNew(){
-        coordinator?.showPatientForm(existingPatient: nil, list: activeList)
+        let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Existing Patient", style: .default) { _ in
+            // show search window
+        })
+        ac.addAction(UIAlertAction(title: "New Patient", style: .default) { _ in
+            self.coordinator?.showPatientForm(existingPatient: nil, list: self.activeList)
+        })
+        coordinator?.showAlertController(for: ac)
     }
+    
     @objc private func updateModel(sender: UISegmentedControl){
         astSegment = ASTSegment(rawValue: sender.selectedSegmentIndex) ?? .Active
         self.searchCriteria = astSegment.searchPredicate(clinicalList: activeList)

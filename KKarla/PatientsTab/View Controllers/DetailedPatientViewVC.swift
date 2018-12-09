@@ -107,7 +107,7 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
                 patient.removeFromTags(tag)
             })
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            coordinator?.showTagActions(for: ac)
+            coordinator?.showAlertController(for: ac)
         }
     }
     
@@ -137,6 +137,7 @@ extension DetailedPatientViewVC: PatientFormDelegate {
 // MARK: UITableView DataSource methods
 
 extension DetailedPatientViewVC: UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         if actTabIsSelected {
             return actModel.resultController.sections?.count ?? 0
@@ -144,6 +145,7 @@ extension DetailedPatientViewVC: UITableViewDataSource {
             return diagnosticEpisodeModel.resultController.sections?.count ?? 0
         }
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if actTabIsSelected {
             return actModel.resultController.sections![section].numberOfObjects
@@ -189,9 +191,13 @@ extension DetailedPatientViewVC: UITableViewDelegate{
             if self.actTabIsSelected{
                 let object = self.actModel.resultController.object(at: indexPath)
                 self.actModel.dataCoordinator.persistentContainer.viewContext.delete(object)
+                self.actModel.dataCoordinator.saveContext()
+                self.actModel.loadObjectList()
             }else {
                 let object = self.diagnosticEpisodeModel.resultController.object(at: indexPath)
                 self.diagnosticEpisodeModel.dataCoordinator.persistentContainer.viewContext.delete(object)
+                self.diagnosticEpisodeModel.dataCoordinator.saveContext()
+                self.diagnosticEpisodeModel.loadObjectList()
             }
         }
         return [delete]

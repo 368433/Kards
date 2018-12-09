@@ -110,7 +110,7 @@ extension PatientTableViewCell{
             })
             
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            coordinator?.showTagActions(for: ac)
+            coordinator?.showAlertController(for: ac)
         }
     }
 }
