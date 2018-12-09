@@ -43,6 +43,7 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
     @IBOutlet weak var actBottomLine: UIView!
     @IBOutlet weak var actRightView: UIView!
     @IBOutlet weak var ClinEpBottom: UIView!
+    @IBOutlet weak var idView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +55,8 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
         self.tableView.tableFooterView = UIView(frame: .zero)
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
+        
+        self.idView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "qbkls"))
         configurePatientDetails()        
     }
     

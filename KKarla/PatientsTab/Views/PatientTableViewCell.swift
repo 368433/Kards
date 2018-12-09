@@ -27,6 +27,8 @@ class PatientTableViewCell: UITableViewCell {
     @IBOutlet weak var caseDescriptionLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     
+    @IBOutlet weak var mainView: UIView!
+    
     
     // MARK: other variables:
     var patient: Patient?
@@ -45,6 +47,8 @@ class PatientTableViewCell: UITableViewCell {
         self.mainBackgroundView.layer.borderWidth = 0.5
         self.mainBackgroundView.layer.borderColor = UIColor.lightGray.cgColor
         self.selectionStyle = UITableViewCell.SelectionStyle.none
+        
+        self.mainView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "qbkls"))
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

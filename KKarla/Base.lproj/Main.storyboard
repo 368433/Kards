@@ -494,6 +494,7 @@
                         <outlet property="bedlocationLabel" destination="TRM-e5-clM" id="gfS-aG-7sb"/>
                         <outlet property="clinicalListTabButton" destination="prh-Z6-weH" id="weY-fn-3p9"/>
                         <outlet property="genderLabel" destination="KT8-dQ-o0U" id="j4A-yn-q9F"/>
+                        <outlet property="idView" destination="VGw-6s-7S8" id="whU-sZ-bMx"/>
                         <outlet property="patientAgeLabel" destination="NkK-g6-zcX" id="XDd-WE-bTb"/>
                         <outlet property="patientBlurbLabel" destination="tsd-PQ-SOb" id="HIl-Qj-1cw"/>
                         <outlet property="patientEditButton" destination="KCU-5b-iAe" id="NRY-Jg-0rK"/>
