@@ -14,7 +14,7 @@ class PatientTableViewCell: UITableViewCell {
     // MARK: IBOUTLETS
     @IBOutlet weak var mainBackgroundView: UIView!
     @IBOutlet weak var UserImageIcon: UIImageView!
-    @IBOutlet weak var roomNumberLabel: UILabel!
+    @IBOutlet weak var actBedNumber: UILabel!
     @IBOutlet weak var patientNameLabel: UILabel!
     @IBOutlet weak var patientDetailsLabel: UILabel!
     @IBOutlet weak var tagListStack: UIStackView!
@@ -32,7 +32,7 @@ class PatientTableViewCell: UITableViewCell {
     var patient: Patient?
     var coordinator: PatientsCoordinator?
     lazy var tagStackList = ButtonTagStackList(stack: tagListStack)
-    static var rowHeight: CGFloat = 150
+    static var rowHeight: CGFloat = 180
     
     static var nibName = "PatientTableCell"
     static var reuseID = "cell"
@@ -73,6 +73,7 @@ class PatientTableViewCell: UITableViewCell {
             self.caseDescriptionLabel.text = patient.summaryBlurb ?? "No description provided"
             let gender = patient.patientGender ?? ""
             self.ageLabel.text = patient.age + gender
+            self.actBedNumber.text = patient.activeDiagnosticEpisode?.getLatestAct()?.actBednumber
         }
     }
 

@@ -11,30 +11,30 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="156" id="NIR-Ga-IZ9" customClass="PatientTableViewCell" customModule="KKarla" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="434" height="156"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="180" id="NIR-Ga-IZ9" customClass="PatientTableViewCell" customModule="KKarla" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="434" height="180"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NIR-Ga-IZ9" id="u5a-pv-ChK">
-                <rect key="frame" x="0.0" y="0.0" width="434" height="155.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="434" height="179.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Irc-tI-oE0">
-                        <rect key="frame" x="20" y="10" width="394" height="135"/>
+                        <rect key="frame" x="20" y="10" width="394" height="150"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9if-qc-AbA">
-                                <rect key="frame" x="0.0" y="0.0" width="394" height="135"/>
+                                <rect key="frame" x="0.0" y="0.0" width="394" height="150"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANl-5L-7OJ" userLabel="RibbonView">
-                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="135"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="width" id="EGE-vX-qlq"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AA1-5L-3T4" userLabel="SideView">
-                                        <rect key="frame" x="8" y="0.0" width="100" height="135"/>
+                                        <rect key="frame" x="8" y="0.0" width="100" height="150"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yY4-1y-bbS">
-                                                <rect key="frame" x="15" y="21.5" width="70" height="92"/>
+                                                <rect key="frame" x="15" y="29" width="70" height="92"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-male-userBlue" translatesAutoresizingMaskIntoConstraints="NO" id="SPt-Mr-rtX">
                                                         <rect key="frame" x="5" y="0.0" width="60" height="60"/>
@@ -74,7 +74,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="388-tC-CCN" userLabel="MainView">
-                                        <rect key="frame" x="116" y="0.0" width="278" height="135"/>
+                                        <rect key="frame" x="116" y="0.0" width="278" height="150"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0f-F9-JAC" userLabel="Name">
                                                 <rect key="frame" x="0.0" y="0.0" width="278" height="40"/>
@@ -118,7 +118,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ogY-K9-ics" userLabel="Description">
-                                                <rect key="frame" x="0.0" y="40" width="278" height="55"/>
+                                                <rect key="frame" x="0.0" y="40" width="278" height="70"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="FEy-zB-WLO">
                                                         <rect key="frame" x="0.0" y="0.0" width="258" height="32.5"/>
@@ -144,7 +144,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMk-w9-gYR" userLabel="TagNButtons">
-                                                <rect key="frame" x="0.0" y="95" width="278" height="40"/>
+                                                <rect key="frame" x="0.0" y="110" width="278" height="40"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="OHG-3d-iFL">
                                                         <rect key="frame" x="0.0" y="0.0" width="258" height="40"/>
@@ -258,7 +258,7 @@
                         <constraints>
                             <constraint firstItem="9if-qc-AbA" firstAttribute="top" secondItem="Irc-tI-oE0" secondAttribute="top" id="8oS-d3-G7h"/>
                             <constraint firstAttribute="bottom" secondItem="9if-qc-AbA" secondAttribute="bottom" id="OVX-9h-t75"/>
-                            <constraint firstAttribute="height" constant="135" id="QoK-eh-15g"/>
+                            <constraint firstAttribute="height" constant="150" id="QoK-eh-15g"/>
                             <constraint firstAttribute="trailing" secondItem="9if-qc-AbA" secondAttribute="trailing" id="olL-p1-K3I"/>
                             <constraint firstItem="9if-qc-AbA" firstAttribute="leading" secondItem="Irc-tI-oE0" secondAttribute="leading" id="tCc-gA-Cz3"/>
                         </constraints>
@@ -272,6 +272,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="UserImageIcon" destination="SPt-Mr-rtX" id="rNV-hc-OFu"/>
+                <outlet property="actBedNumber" destination="97N-DR-Pt2" id="ckF-Ov-wFC"/>
                 <outlet property="addActButton" destination="eVY-oH-Fnz" id="XZa-ew-z0z"/>
                 <outlet property="addTagButton" destination="2ue-2q-Teb" id="Vkh-4e-8jR"/>
                 <outlet property="ageLabel" destination="heQ-c7-EgN" id="kGS-p1-h1c"/>
@@ -282,10 +283,9 @@
                 <outlet property="mainBackgroundView" destination="Irc-tI-oE0" id="rCw-b6-FTi"/>
                 <outlet property="patientDetailsLabel" destination="ZJJ-jR-pY4" id="q37-4d-sBe"/>
                 <outlet property="patientNameLabel" destination="hm3-7O-nvc" id="9iK-PV-oXa"/>
-                <outlet property="roomNumberLabel" destination="97N-DR-Pt2" id="ckF-Ov-wFC"/>
                 <outlet property="tagListStack" destination="Bu7-yt-Cae" id="pfw-TU-eNc"/>
             </connections>
-            <point key="canvasLocation" x="76.799999999999997" y="12.593703148425789"/>
+            <point key="canvasLocation" x="76.799999999999997" y="23.388305847076463"/>
         </tableViewCell>
     </objects>
     <resources>
