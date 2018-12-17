@@ -71,7 +71,7 @@ class PatientTableViewCell: UITableViewCell {
         
         self.patientNameLabel.text = patient.name
         self.diagnosisLabel.text = patient.activeDiagnosticEpisode?.primaryDiagnosis
-        self.caseDescriptionLabel.text = patient.summaryBlurb ?? "No description provided"
+        self.caseDescriptionLabel.text = patient.summaryBlurb
         self.ageLabel.text = "\(patient.age)"
         self.actBedNumber.text = patient.activeDiagnosticEpisode?.getLatestAct()?.actBednumber
         
@@ -85,7 +85,7 @@ class PatientTableViewCell: UITableViewCell {
     private func setupButtons(){
         self.addActButton.addTarget(self, action: #selector(showActForm), for: .touchUpInside)
         //        self.addTagButton.addTarget(self, action: #selector(showTagForm), for: .touchUpInside)
-        //        self.editPatientButton.addTarget(self, action: #selector(editPatient), for: .touchUpInside)
+        self.editPatientButton.addTarget(self, action: #selector(editPatient), for: .touchUpInside)
     }
     
     private func setupTags(){
