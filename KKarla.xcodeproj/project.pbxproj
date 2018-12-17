@@ -49,6 +49,7 @@
 		6A806D6321B1D6F2004E85A2 /* DetailedPatientViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A806D6121B1D6F2004E85A2 /* DetailedPatientViewVC.swift */; };
 		6A816EEE21AC2AF800031BAB /* BillingCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A816EED21AC2AF800031BAB /* BillingCodes.swift */; };
 		6A834AB521ADB9B900451E0D /* TagForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A834AB421ADB9B900451E0D /* TagForm.swift */; };
+		6A868E9221C7810500ECA7BD /* PatientTableCell4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A868E9121C7810500ECA7BD /* PatientTableCell4.xib */; };
 		6A8E377521AAE166004F1EFF /* PatientTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A8E377421AAE166004F1EFF /* PatientTableCell.xib */; };
 		6AADF72821C0B5EC00DFD0B9 /* PatientTableCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AADF72721C0B5EC00DFD0B9 /* PatientTableCell3.xib */; };
 		6ADCB59021AAFE320005BBE3 /* PatientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADCB58F21AAFE320005BBE3 /* PatientTableViewCell.swift */; };
@@ -178,6 +179,7 @@
 		6A806D6121B1D6F2004E85A2 /* DetailedPatientViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedPatientViewVC.swift; sourceTree = "<group>"; };
 		6A816EED21AC2AF800031BAB /* BillingCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingCodes.swift; sourceTree = "<group>"; };
 		6A834AB421ADB9B900451E0D /* TagForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagForm.swift; sourceTree = "<group>"; };
+		6A868E9121C7810500ECA7BD /* PatientTableCell4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatientTableCell4.xib; sourceTree = "<group>"; };
 		6A8E377421AAE166004F1EFF /* PatientTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PatientTableCell.xib; sourceTree = "<group>"; };
 		6AADF72721C0B5EC00DFD0B9 /* PatientTableCell3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatientTableCell3.xib; sourceTree = "<group>"; };
 		6ADCB58F21AAFE320005BBE3 /* PatientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewCell.swift; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 				6A8E377421AAE166004F1EFF /* PatientTableCell.xib */,
 				6A4ED3D621BDB49800935C0A /* PatientTableCell2.xib */,
 				6AADF72721C0B5EC00DFD0B9 /* PatientTableCell3.xib */,
+				6A868E9121C7810500ECA7BD /* PatientTableCell4.xib */,
 				6ADCB58F21AAFE320005BBE3 /* PatientTableViewCell.swift */,
 				6A32F91821B2EC4900BB1234 /* EurekaDxEpisodeChoiceCell.swift */,
 				6A32F91921B2EC4900BB1234 /* EurekaDxEpisodeChoiceCell.xib */,
@@ -697,6 +700,7 @@
 				6A32F93921B6088D00BB1234 /* DiagnosticEpisodeTableViewCell.xib in Resources */,
 				E859A7A82182B21C007BF751 /* BadgeWithCounterViewStandardSized.xib in Resources */,
 				6A36B05221AB97CE00C4F9A8 /* ClinicalListTVC.xib in Resources */,
+				6A868E9221C7810500ECA7BD /* PatientTableCell4.xib in Resources */,
 				E84115212175A38F00C5E9D9 /* OpenSans-ExtraBold.ttf in Resources */,
 				E84115222175A38F00C5E9D9 /* OpenSans-LightItalic.ttf in Resources */,
 				E859A7A72182B21C007BF751 /* BadgeWithCounterViewBigSized.xib in Resources */,

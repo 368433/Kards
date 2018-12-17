@@ -36,7 +36,7 @@ class PatientTableViewCell: UITableViewCell {
     lazy var tagStackList = ButtonTagStackList(stack: tagListStack)
     static var rowHeight: CGFloat = 110
     
-    static var nibName = "PatientTableCell3"
+    static var nibName = "PatientTableCell4"
     static var reuseID = "cell"
     
     
@@ -59,7 +59,7 @@ class PatientTableViewCell: UITableViewCell {
     
     func setupTags(){
         let tagsTitlesList = patient!.tags?.compactMap { ($0 as! Tag).tagTitle }
-        let labelsList = tagsTitlesList?.compactMap { (LabelType.bedsideLocationLabel, $0) }
+        let labelsList = tagsTitlesList?.compactMap { (LabelType.tagLabel, $0) }
         if let labelsList = labelsList {
             tagStackList.setLabels(for: labelsList)
             tagStackList.tagStack.arrangedSubviews.forEach {($0 as! UIButton).addTarget(self, action: #selector(tagButtonAction), for: .touchUpInside)}
@@ -71,12 +71,12 @@ class PatientTableViewCell: UITableViewCell {
             self.addActButton.addTarget(self, action: #selector(showActForm), for: .touchUpInside)
 //            self.addTagButton.addTarget(self, action: #selector(showTagForm), for: .touchUpInside)
             self.editPatientButton.addTarget(self, action: #selector(editPatient), for: .touchUpInside)
-//            setupTags()
+            setupTags()
             self.patientNameLabel.text = patient.name
             self.diagnosisLabel.text = patient.activeDiagnosticEpisode?.primaryDiagnosis
             self.caseDescriptionLabel.text = patient.summaryBlurb ?? "No description provided"
-            let gender = patient.patientGender ?? ""
-            self.ageLabel.text = patient.age + gender
+//            let gender = patient.patientGender ?? ""
+            self.ageLabel.text = "\(patient.age)"
             self.actBedNumber.text = patient.activeDiagnosticEpisode?.getLatestAct()?.actBednumber
         }
     }

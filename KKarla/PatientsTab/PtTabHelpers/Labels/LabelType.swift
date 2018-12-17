@@ -27,7 +27,7 @@ enum LabelType: String {
     var backgroundColorForLabel: UIColor {
         switch self {
         case .tagLabel:
-            return #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
+            return UIColor.white
         case .fullBg:
             return self.borderColorForLabel
         default:
@@ -49,6 +49,24 @@ enum LabelType: String {
         return UIFont.preferredFont(forTextStyle: .caption2)
     }
     
+    var edgeInset: UIEdgeInsets {
+        switch self{
+        case .tagLabel:
+            return UIEdgeInsets(top: 2, left: 4, bottom: 2, right: 4)
+        default:
+            return UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
+        }
+    }
+    
+    var labelTextColor: UIColor {
+        switch self {
+        case .tagLabel:
+            return .black
+        default:
+            return .white
+        }
+    }
+    
     var borderColorForLabel: UIColor {
         switch self {
         case .activeStatusLabel:
@@ -64,7 +82,7 @@ enum LabelType: String {
         case .diagnosisLabel:
             return UIColor(hue:0.53, saturation:1, brightness:0.91, alpha:1)
         case .tagLabel:
-            return .white
+            return .black
         case .genericLabel, .fullBg:
             return UIColor(hue:0, saturation:0, brightness:0.69, alpha:1)
         }

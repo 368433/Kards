@@ -26,13 +26,13 @@ extension ButtonTagStackList {
             let b = UIButton()
             b.titleLabel?.font = $0.type.font
             b.titleLabel?.textAlignment = .center
-            b.setTitleColor(.gray, for: .normal)
+            b.setTitleColor($0.type.labelTextColor, for: .normal)
             b.setTitle($0.labelText, for: .normal)
             b.layer.backgroundColor = $0.type.labelCALayer.backgroundColor
             b.layer.borderColor = $0.type.labelCALayer.borderColor
             b.layer.borderWidth = $0.type.labelCALayer.borderWidth
             b.layer.cornerRadius = $0.type.labelCALayer.cornerRadius
-            b.contentEdgeInsets = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
+            b.contentEdgeInsets = $0.type.edgeInset
             b.clipsToBounds = true
             return b
         }
