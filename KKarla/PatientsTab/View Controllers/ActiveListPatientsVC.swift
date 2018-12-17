@@ -33,6 +33,8 @@ class ActiveListPatientsVC: BasePatientsListTVC {
         super.viewDidLoad()
         
         self.title = activeList.clinicalListTitle
+        // Make the search bar visible when scrolling - default is false
+        navigationItem.hidesSearchBarWhenScrolling = true
         self.headerFrame = CGRect(x: 0, y: 0, width: super.view.frame.width, height: 80)
         self.headerView = UIView(frame:headerFrame )
         self.tableView.tableHeaderView = headerView

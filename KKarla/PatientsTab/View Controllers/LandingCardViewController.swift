@@ -28,8 +28,11 @@ class LandingCardViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let predicate = NSPredicate(format: "isActive == true")
         
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.title = "Active Lists"
+        
+        let predicate = NSPredicate(format: "isActive == true")
         model = ClinicalListModel(searchPredicate: predicate)
         resultsControllerDelegate = TableViewFetchResultAdapter(tableView: listsTableView)
         model?.resultController.delegate = resultsControllerDelegate
@@ -41,6 +44,8 @@ class LandingCardViewController: UIViewController, Storyboarded {
         setupButtons()
         setupSearch()
     }
+    
+    
 }
 
 extension LandingCardViewController{

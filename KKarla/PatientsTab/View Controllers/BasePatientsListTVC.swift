@@ -12,19 +12,24 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
 
     weak var coordinator: PatientsCoordinator?
     var model: PatientListModel!
+    var dataCoordinator = AppDelegate.dataCoordinator
+    var resultsControllerDelegate: TableViewFetchResultAdapter!
+    internal var searchModule: PatientSearcher!
     var searchCriteria: NSPredicate? {
         didSet{
             model?.searchPredicate = searchCriteria
         }
     }
-    var dataCoordinator = AppDelegate.dataCoordinator
-    var resultsControllerDelegate: TableViewFetchResultAdapter!
-    internal var searchModule: PatientSearcher!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Patients database"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+        // Make the search bar visible when scrolling - default is false
+        navigationItem.hidesSearchBarWhenScrolling = false
+        
         model = PatientListModel(searchPredicate: searchCriteria)
         resultsControllerDelegate = TableViewFetchResultAdapter(tableView: self.tableView)
         model.resultController.delegate = resultsControllerDelegate
@@ -32,18 +37,13 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
         let nib = UINib(nibName: PatientTableViewCell.nibName, bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: PatientTableViewCell.reuseID)
         self.tableView.tableFooterView = UIView(frame: .zero)
-//        self.tableView.rowHeight = PatientTableViewCell.rowHeight
-//        self.tableView.estimatedRowHeight = 110
         self.tableView.rowHeight = UITableView.automaticDimension
-//        self.tableView.separatorStyle = .none
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNew))
     }
     
     func setupSearch(){
         navigationItem.searchController = searchModule.searchController
-        // Make the search bar visible when scrolling - default is false
-        navigationItem.hidesSearchBarWhenScrolling = true
         definesPresentationContext = true
 
         let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(invokeSearch))
