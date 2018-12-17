@@ -58,6 +58,7 @@ class PatientTableViewCell: UITableViewCell {
     }
     
     func setupTags(){
+        self.tagStackList.tagStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
         let tagsTitlesList = patient!.tags?.compactMap { ($0 as! Tag).tagTitle }
         let labelsList = tagsTitlesList?.compactMap { (LabelType.tagLabel, $0) }
         if let labelsList = labelsList {

@@ -53,6 +53,7 @@ enum LabelType: String {
         switch self{
         case .tagLabel:
             return UIEdgeInsets(top: 2, left: 4, bottom: 2, right: 4)
+//            return UIEdgeInsets.zero
         default:
             return UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
         }
