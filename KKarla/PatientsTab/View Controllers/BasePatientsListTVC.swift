@@ -35,7 +35,7 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
 //        self.tableView.rowHeight = PatientTableViewCell.rowHeight
 //        self.tableView.estimatedRowHeight = 110
         self.tableView.rowHeight = UITableView.automaticDimension
-        self.tableView.separatorStyle = .none
+//        self.tableView.separatorStyle = .none
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNew))
     }
@@ -83,13 +83,13 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
     }
 }
 
-extension BasePatientsListTVC{
-    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        let cell = self.tableView.cellForRow(at: indexPath) as? PatientTableViewCell
-        cell?.mainBackgroundView.layer.borderWidth = 2
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            cell?.mainBackgroundView.layer.borderWidth = 0.5
-        }
-        return indexPath
-    }
-}
+//extension BasePatientsListTVC{
+//    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+//        let cell = self.tableView.cellForRow(at: indexPath) as? PatientTableViewCell
+//        cell?.mainBackgroundView.layer.borderWidth = 2
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+//            cell?.mainBackgroundView.layer.borderWidth = 0.5
+//        }
+//        return indexPath
+//    }
+//}

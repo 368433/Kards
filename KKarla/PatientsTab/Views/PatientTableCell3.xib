@@ -19,32 +19,32 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kpA-Cb-DO8" userLabel="main">
-                        <rect key="frame" x="20" y="12" width="266.5" height="75"/>
+                        <rect key="frame" x="20" y="12" width="259.5" height="75"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="BAj-Lb-k12">
-                                <rect key="frame" x="0.0" y="0.0" width="266.5" height="24"/>
+                                <rect key="frame" x="0.0" y="0.0" width="259.5" height="24"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Jzb-Vw-UlP" userLabel="bed">
-                                        <rect key="frame" x="0.0" y="5" width="50.5" height="14.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Jzb-Vw-UlP" userLabel="bed">
+                                        <rect key="frame" x="0.0" y="3" width="53.5" height="18"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-pillow" translatesAutoresizingMaskIntoConstraints="NO" id="H9X-UP-OqP">
-                                                <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-bed" translatesAutoresizingMaskIntoConstraints="NO" id="H9X-UP-OqP">
+                                                <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="14" id="gza-8v-FvU"/>
+                                                    <constraint firstAttribute="width" constant="16" id="gza-8v-FvU"/>
                                                     <constraint firstAttribute="width" secondItem="H9X-UP-OqP" secondAttribute="height" multiplier="1:1" id="sYO-EC-5XF"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="712.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKi-Od-PQA">
-                                                <rect key="frame" x="22" y="0.0" width="28.5" height="14.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                <rect key="frame" x="19" y="0.0" width="34.5" height="18"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1jQ-1c-4IX" userLabel="age">
-                                        <rect key="frame" x="80.5" y="3" width="57.5" height="18"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="1jQ-1c-4IX" userLabel="age">
+                                        <rect key="frame" x="83.5" y="3" width="52.5" height="18"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-birth-date" translatesAutoresizingMaskIntoConstraints="NO" id="pP7-3L-B6t">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-birthday-cake-" translatesAutoresizingMaskIntoConstraints="NO" id="pP7-3L-B6t">
                                                 <rect key="frame" x="0.0" y="2" width="14" height="14"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="pP7-3L-B6t" secondAttribute="height" multiplier="1:1" id="PUb-eA-VyB"/>
@@ -52,16 +52,16 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="35 M" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heQ-c7-EgN">
-                                                <rect key="frame" x="22" y="0.0" width="35.5" height="18"/>
+                                                <rect key="frame" x="17" y="0.0" width="35.5" height="18"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KEo-ph-WlN" userLabel="Dx">
-                                        <rect key="frame" x="168" y="3" width="98.5" height="18"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="KEo-ph-WlN" userLabel="Dx">
+                                        <rect key="frame" x="166" y="3" width="93.5" height="18"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-bandage" translatesAutoresizingMaskIntoConstraints="NO" id="jzX-NX-SOA">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-caduceus" translatesAutoresizingMaskIntoConstraints="NO" id="jzX-NX-SOA">
                                                 <rect key="frame" x="0.0" y="2" width="14" height="14"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="jzX-NX-SOA" secondAttribute="height" multiplier="1:1" id="22L-Qj-jc7"/>
@@ -69,7 +69,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pneumonia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJJ-jR-pY4" userLabel="DiagnosisLabel">
-                                                <rect key="frame" x="22" y="0.0" width="76.5" height="18"/>
+                                                <rect key="frame" x="17" y="0.0" width="76.5" height="18"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -83,8 +83,8 @@
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pneumonia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaO-fg-bPR" userLabel="description">
-                                <rect key="frame" x="0.0" y="60.5" width="63" height="14.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaO-fg-bPR" userLabel="description">
+                                <rect key="frame" x="0.0" y="60.5" width="65" height="14.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -135,9 +135,9 @@
     </objects>
     <resources>
         <image name="icons8-add" width="75" height="75"/>
-        <image name="icons8-bandage" width="75" height="75"/>
-        <image name="icons8-birth-date" width="75" height="75"/>
-        <image name="icons8-pillow" width="75" height="75"/>
+        <image name="icons8-bed" width="75" height="75"/>
+        <image name="icons8-birthday-cake-" width="45" height="45"/>
+        <image name="icons8-caduceus" width="45" height="45"/>
         <image name="icons8-term" width="75" height="75"/>
     </resources>
 </document>
