@@ -10,6 +10,10 @@ import UIKit
 
 class BasePatientsListTVC: UITableViewController, Storyboarded{
 
+    var nib = UINib(nibName: BasePatientTableViewCell.nibName, bundle: nil)
+    var reuseID = BasePatientTableViewCell.reuseID
+    
+    
     weak var coordinator: PatientsCoordinator?
     var model: PatientListModel!
     var dataCoordinator = AppDelegate.dataCoordinator
@@ -34,8 +38,8 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
         resultsControllerDelegate = TableViewFetchResultAdapter(tableView: self.tableView)
         model.resultController.delegate = resultsControllerDelegate
         
-        let nib = UINib(nibName: PatientTableViewCell.nibName, bundle: nil)
-        self.tableView.register(nib, forCellReuseIdentifier: PatientTableViewCell.reuseID)
+        
+        self.tableView.register(nib, forCellReuseIdentifier: reuseID)
         self.tableView.tableFooterView = UIView(frame: .zero)
         self.tableView.rowHeight = UITableView.automaticDimension
         
@@ -70,7 +74,7 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: PatientTableViewCell.reuseID, for: indexPath) as! PatientTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath) as! BasePatientTableViewCell
         
         cell.patient = model.resultController.object(at: indexPath)
         cell.coordinator = self.coordinator

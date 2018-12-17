@@ -1,5 +1,5 @@
 //
-//  PatientTableViewCell.swift
+//  BasePatientTableViewCell.swift
 //  KKarla
 //
 //  Created by quarticAIMBP2018 on 2018-11-25.
@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class PatientTableViewCell4: UITableViewCell {
+class BasePatientTableViewCell: UITableViewCell {
         
     // MARK: IBOUTLETS
     @IBOutlet weak var mainBackgroundView: UIView!
@@ -34,30 +34,51 @@ class PatientTableViewCell4: UITableViewCell {
     var patient: Patient?
     var coordinator: PatientsCoordinator?
     lazy var tagStackList = ButtonTagStackList(stack: tagListStack)
-    static var rowHeight: CGFloat = 110
     
-    static var nibName = "PatientTableCell4"
+    static var nibName = "BasePatientTableCell"
     static var reuseID = "cell"
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        self.mainBackgroundView.layer.cornerRadius = 5.0
-//        self.mainBackgroundView.layer.masksToBounds = true
-//        self.mainBackgroundView.layer.borderWidth = 0.5
-//        self.mainBackgroundView.layer.borderColor = UIColor.lightGray.cgColor
         self.selectionStyle = UITableViewCell.SelectionStyle.none
-        
-//        self.mainView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "qbkls"))
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
         // Configure the view for the selected state
     }
     
-    func setupTags(){
+    private func setupBackground(){
+        self.mainBackgroundView.layer.cornerRadius = 5.0
+        self.mainBackgroundView.layer.masksToBounds = true
+        self.mainBackgroundView.layer.borderWidth = 0.5
+        self.mainBackgroundView.layer.borderColor = UIColor.lightGray.cgColor
+        self.mainView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "qbkls"))
+    }
+    
+    func configure(){
+        setupLabels()
+        setupButtons()
+        setupTags()
+    }
+    
+    private func setupLabels(){
+        if let patient = patient {
+            self.patientNameLabel.text = patient.name
+//            self.diagnosisLabel.text = patient.activeDiagnosticEpisode?.primaryDiagnosis
+            self.caseDescriptionLabel.text = patient.summaryBlurb ?? "No description provided"
+//            self.ageLabel.text = "\(patient.age)"
+//            self.actBedNumber.text = patient.activeDiagnosticEpisode?.getLatestAct()?.actBednumber
+        }
+    }
+    
+    private func setupButtons(){
+        self.addActButton.addTarget(self, action: #selector(showActForm), for: .touchUpInside)
+//        self.addTagButton.addTarget(self, action: #selector(showTagForm), for: .touchUpInside)
+//        self.editPatientButton.addTarget(self, action: #selector(editPatient), for: .touchUpInside)
+    }
+    
+    private func setupTags(){
         self.tagStackList.tagStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
         let tagsTitlesList = patient!.tags?.compactMap { ($0 as! Tag).tagTitle }
         let labelsList = tagsTitlesList?.compactMap { (LabelType.tagLabel, $0) }
@@ -66,27 +87,12 @@ class PatientTableViewCell4: UITableViewCell {
             tagStackList.tagStack.arrangedSubviews.forEach {($0 as! UIButton).addTarget(self, action: #selector(tagButtonAction), for: .touchUpInside)}
         }
     }
-    
-    func configure(){
-        if let patient = patient {
-            self.addActButton.addTarget(self, action: #selector(showActForm), for: .touchUpInside)
-//            self.addTagButton.addTarget(self, action: #selector(showTagForm), for: .touchUpInside)
-            self.editPatientButton.addTarget(self, action: #selector(editPatient), for: .touchUpInside)
-            setupTags()
-            self.patientNameLabel.text = patient.name
-            self.diagnosisLabel.text = patient.activeDiagnosticEpisode?.primaryDiagnosis
-            self.caseDescriptionLabel.text = patient.summaryBlurb ?? "No description provided"
-//            let gender = patient.patientGender ?? ""
-            self.ageLabel.text = "\(patient.age)"
-            self.actBedNumber.text = patient.activeDiagnosticEpisode?.getLatestAct()?.actBednumber
-        }
-    }
+
 
     @objc func showActForm(){
         if let pt = patient {
             let latestAct = pt.activeDiagnosticEpisode?.getLatestAct()
             coordinator?.showActForm(patient: pt, existingAct: nil, actToPrePopSomeFields: latestAct, existingDiagnosticEpisode: pt.activeDiagnosticEpisode)
-            
         }
     }
     @objc func showTagForm(){
@@ -97,7 +103,7 @@ class PatientTableViewCell4: UITableViewCell {
     }
 }
 
-extension PatientTableViewCell4{
+extension BasePatientTableViewCell{
     
     @objc func tagButtonAction(sender: UIButton){
         
