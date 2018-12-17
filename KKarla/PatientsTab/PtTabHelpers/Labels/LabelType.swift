@@ -27,7 +27,7 @@ enum LabelType: String {
     var backgroundColorForLabel: UIColor {
         switch self {
         case .tagLabel:
-            return UIColor.white
+            return UIColor.groupTableViewBackground
         case .fullBg:
             return self.borderColorForLabel
         default:
@@ -62,7 +62,7 @@ enum LabelType: String {
     var labelTextColor: UIColor {
         switch self {
         case .tagLabel:
-            return .black
+            return .lightText
         default:
             return .white
         }
@@ -83,7 +83,7 @@ enum LabelType: String {
         case .diagnosisLabel:
             return UIColor(hue:0.53, saturation:1, brightness:0.91, alpha:1)
         case .tagLabel:
-            return .black
+            return .clear
         case .genericLabel, .fullBg:
             return UIColor(hue:0, saturation:0, brightness:0.69, alpha:1)
         }

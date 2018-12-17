@@ -35,7 +35,6 @@ class PatientTableViewCell: UITableViewCell {
     // MARK: other variables:
     var patient: Patient?
     var coordinator : PatientsCoordinator?
-    lazy var tagStackList = ButtonTagStackList(stack: tagListStack)
     
     static var nibName = "PatientTableCell4"
     static var reuseID = "cell"
@@ -64,7 +63,7 @@ class PatientTableViewCell: UITableViewCell {
         
         setupLabels()
         setupButtons()
-        setupTags()
+//        setupTags()
     }
     
     private func setupLabels(){
@@ -92,7 +91,8 @@ class PatientTableViewCell: UITableViewCell {
     private func setupTags(){
         guard let patient = patient else {fatalError("patient not initialized")}
         
-        self.tagStackList.tagStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        let tagStackList = ButtonTagStackList(stack: tagListStack)
+        tagStackList.tagStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
         let tagsTitlesList = patient.tags?.compactMap { ($0 as! Tag).tagTitle }
         let labelsList = tagsTitlesList?.compactMap { (LabelType.tagLabel, $0) }
         if let labelsList = labelsList {
