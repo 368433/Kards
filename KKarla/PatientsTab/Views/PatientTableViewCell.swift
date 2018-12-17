@@ -13,7 +13,7 @@ class PatientTableViewCell: UITableViewCell {
         
     // MARK: IBOUTLETS
     @IBOutlet weak var mainBackgroundView: UIView!
-    @IBOutlet weak var UserImageIcon: UIImageView!
+//    @IBOutlet weak var UserImageIcon: UIImageView!
     @IBOutlet weak var actBedNumber: UILabel!
     @IBOutlet weak var patientNameLabel: UILabel!
     @IBOutlet weak var patientDetailsLabel: UILabel!
@@ -34,21 +34,21 @@ class PatientTableViewCell: UITableViewCell {
     var patient: Patient?
     var coordinator: PatientsCoordinator?
     lazy var tagStackList = ButtonTagStackList(stack: tagListStack)
-    static var rowHeight: CGFloat = 180
+    static var rowHeight: CGFloat = 110
     
-    static var nibName = "PatientTableCell"
+    static var nibName = "PatientTableCell3"
     static var reuseID = "cell"
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.mainBackgroundView.layer.cornerRadius = 5.0
-        self.mainBackgroundView.layer.masksToBounds = true
-        self.mainBackgroundView.layer.borderWidth = 0.5
-        self.mainBackgroundView.layer.borderColor = UIColor.lightGray.cgColor
+//        self.mainBackgroundView.layer.cornerRadius = 5.0
+//        self.mainBackgroundView.layer.masksToBounds = true
+//        self.mainBackgroundView.layer.borderWidth = 0.5
+//        self.mainBackgroundView.layer.borderColor = UIColor.lightGray.cgColor
         self.selectionStyle = UITableViewCell.SelectionStyle.none
         
-        self.mainView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "qbkls"))
+//        self.mainView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "qbkls"))
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -69,9 +69,9 @@ class PatientTableViewCell: UITableViewCell {
     func configure(){
         if let patient = patient {
             self.addActButton.addTarget(self, action: #selector(showActForm), for: .touchUpInside)
-            self.addTagButton.addTarget(self, action: #selector(showTagForm), for: .touchUpInside)
+//            self.addTagButton.addTarget(self, action: #selector(showTagForm), for: .touchUpInside)
             self.editPatientButton.addTarget(self, action: #selector(editPatient), for: .touchUpInside)
-            setupTags()
+//            setupTags()
             self.patientNameLabel.text = patient.name
             self.diagnosisLabel.text = patient.activeDiagnosticEpisode?.primaryDiagnosis
             self.caseDescriptionLabel.text = patient.summaryBlurb ?? "No description provided"

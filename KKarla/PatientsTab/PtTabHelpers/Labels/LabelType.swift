@@ -46,7 +46,7 @@ enum LabelType: String {
     }
     
     var font: UIFont {
-        return UIFont.preferredFont(forTextStyle: .caption1)
+        return UIFont.preferredFont(forTextStyle: .caption2)
     }
     
     var borderColorForLabel: UIColor {

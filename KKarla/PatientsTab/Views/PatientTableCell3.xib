@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="101" id="NIR-Ga-IZ9" customClass="PatientTableViewCell" customModule="KKarla" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="434" height="101"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NIR-Ga-IZ9" id="u5a-pv-ChK">
+                <rect key="frame" x="0.0" y="0.0" width="434" height="100.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kpA-Cb-DO8" userLabel="main">
+                        <rect key="frame" x="20" y="12" width="266.5" height="75"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="BAj-Lb-k12">
+                                <rect key="frame" x="0.0" y="0.0" width="266.5" height="24"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Jzb-Vw-UlP" userLabel="bed">
+                                        <rect key="frame" x="0.0" y="5" width="50.5" height="14.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-pillow" translatesAutoresizingMaskIntoConstraints="NO" id="H9X-UP-OqP">
+                                                <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="14" id="gza-8v-FvU"/>
+                                                    <constraint firstAttribute="width" secondItem="H9X-UP-OqP" secondAttribute="height" multiplier="1:1" id="sYO-EC-5XF"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="712.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKi-Od-PQA">
+                                                <rect key="frame" x="22" y="0.0" width="28.5" height="14.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1jQ-1c-4IX" userLabel="age">
+                                        <rect key="frame" x="80.5" y="3" width="57.5" height="18"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-birth-date" translatesAutoresizingMaskIntoConstraints="NO" id="pP7-3L-B6t">
+                                                <rect key="frame" x="0.0" y="2" width="14" height="14"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="pP7-3L-B6t" secondAttribute="height" multiplier="1:1" id="PUb-eA-VyB"/>
+                                                    <constraint firstAttribute="width" constant="14" id="eVX-VH-jhz"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="35 M" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heQ-c7-EgN">
+                                                <rect key="frame" x="22" y="0.0" width="35.5" height="18"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KEo-ph-WlN" userLabel="Dx">
+                                        <rect key="frame" x="168" y="3" width="98.5" height="18"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-bandage" translatesAutoresizingMaskIntoConstraints="NO" id="jzX-NX-SOA">
+                                                <rect key="frame" x="0.0" y="2" width="14" height="14"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="jzX-NX-SOA" secondAttribute="height" multiplier="1:1" id="22L-Qj-jc7"/>
+                                                    <constraint firstAttribute="width" constant="14" id="RDA-sJ-gM7"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pneumonia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJJ-jR-pY4" userLabel="DiagnosisLabel">
+                                                <rect key="frame" x="22" y="0.0" width="76.5" height="18"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Martin lafontaine" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hm3-7O-nvc">
+                                <rect key="frame" x="0.0" y="32" width="135.5" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pneumonia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaO-fg-bPR" userLabel="description">
+                                <rect key="frame" x="0.0" y="60.5" width="63" height="14.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9Ip-A2-pui">
+                        <rect key="frame" x="389" y="12" width="25" height="58"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7O5-8y-r7J">
+                                <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Gq3-YT-6Sk"/>
+                                    <constraint firstAttribute="width" secondItem="7O5-8y-r7J" secondAttribute="height" multiplier="1:1" id="fcs-VR-wXo"/>
+                                </constraints>
+                                <state key="normal" image="icons8-term"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVY-oH-Fnz">
+                                <rect key="frame" x="0.0" y="33" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="eVY-oH-Fnz" secondAttribute="height" multiplier="1:1" id="2HV-Up-0od"/>
+                                </constraints>
+                                <state key="normal" image="icons8-add"/>
+                            </button>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="9Ip-A2-pui" firstAttribute="top" secondItem="u5a-pv-ChK" secondAttribute="top" constant="12" id="2OK-Cz-xMV"/>
+                    <constraint firstItem="kpA-Cb-DO8" firstAttribute="top" secondItem="u5a-pv-ChK" secondAttribute="top" constant="12" id="66b-rx-74U"/>
+                    <constraint firstItem="kpA-Cb-DO8" firstAttribute="leading" secondItem="u5a-pv-ChK" secondAttribute="leading" constant="20" symbolic="YES" id="Ha8-7y-W5L"/>
+                    <constraint firstAttribute="bottom" secondItem="kpA-Cb-DO8" secondAttribute="bottom" constant="13.5" id="MxT-7t-YBN"/>
+                    <constraint firstItem="9Ip-A2-pui" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kpA-Cb-DO8" secondAttribute="trailing" constant="8" symbolic="YES" id="f2c-KS-Ks7"/>
+                    <constraint firstAttribute="trailing" secondItem="9Ip-A2-pui" secondAttribute="trailing" constant="20" symbolic="YES" id="oBD-wm-j24"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="actBedNumber" destination="UKi-Od-PQA" id="XzB-ku-zxJ"/>
+                <outlet property="addActButton" destination="eVY-oH-Fnz" id="XZa-ew-z0z"/>
+                <outlet property="ageLabel" destination="heQ-c7-EgN" id="kGS-p1-h1c"/>
+                <outlet property="caseDescriptionLabel" destination="MaO-fg-bPR" id="fpW-7C-EFS"/>
+                <outlet property="diagnosisLabel" destination="ZJJ-jR-pY4" id="AeB-X3-GRr"/>
+                <outlet property="editPatientButton" destination="7O5-8y-r7J" id="Cx3-PR-lc6"/>
+                <outlet property="patientDetailsLabel" destination="ZJJ-jR-pY4" id="q37-4d-sBe"/>
+                <outlet property="patientNameLabel" destination="hm3-7O-nvc" id="9iK-PV-oXa"/>
+            </connections>
+            <point key="canvasLocation" x="76.799999999999997" y="-12.143928035982009"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icons8-add" width="75" height="75"/>
+        <image name="icons8-bandage" width="75" height="75"/>
+        <image name="icons8-birth-date" width="75" height="75"/>
+        <image name="icons8-pillow" width="75" height="75"/>
+        <image name="icons8-term" width="75" height="75"/>
+    </resources>
+</document>

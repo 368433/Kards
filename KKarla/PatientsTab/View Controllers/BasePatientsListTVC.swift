@@ -32,7 +32,9 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
         let nib = UINib(nibName: PatientTableViewCell.nibName, bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: PatientTableViewCell.reuseID)
         self.tableView.tableFooterView = UIView(frame: .zero)
-        self.tableView.rowHeight = PatientTableViewCell.rowHeight
+//        self.tableView.rowHeight = PatientTableViewCell.rowHeight
+//        self.tableView.estimatedRowHeight = 110
+        self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.separatorStyle = .none
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNew))
