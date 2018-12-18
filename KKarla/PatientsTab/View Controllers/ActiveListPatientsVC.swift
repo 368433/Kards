@@ -58,11 +58,13 @@ class ActiveListPatientsVC: BasePatientsListTVC {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath) as! PatientTableViewCell
-
         cell.configure(patient: model.resultController.object(at: indexPath), coordinator: self.coordinator)
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        return
     }
     
     @objc override func addNew(){

@@ -83,7 +83,8 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinator?.showDetailedPatientView(for: model?.resultController.object(at: indexPath))
+//        coordinator?.showDetailedPatientView(for: model?.resultController.object(at: indexPath))
+        coordinator?.showDetailedPatientView2(for: model.resultController.object(at: indexPath))
     }
 }
 

@@ -35,19 +35,24 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
     @IBOutlet weak var addTagButton: UIButton!
     @IBOutlet weak var thirdButton: UIButton!
     @IBOutlet weak var patientIdImageButton: UIImageView!
-    @IBOutlet weak var actTabButton: UIButton!
-    @IBOutlet weak var clinicalListTabButton: UIButton!
+    
+    
     @IBOutlet weak var patientEditButton: UIButton!
-    @IBOutlet weak var addToActOrClinicalEpTableButton: UIButton!
+    
     
     @IBOutlet weak var actBottomLine: UIView!
     @IBOutlet weak var actRightView: UIView!
     @IBOutlet weak var ClinEpBottom: UIView!
+    @IBOutlet weak var clinicalListTabButton: UIButton!
+    @IBOutlet weak var actTabButton: UIButton!
+    @IBOutlet weak var addToActOrClinicalEpTableButton: UIButton!
+    
     @IBOutlet weak var idView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = patient?.name
         let nib = UINib(nibName: ActTableViewCell.nibName, bundle: nil)
         let nib2 = UINib(nibName: DiagnosticEpisodeTableViewCell.nibName, bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: ActTableViewCell.reuseID)
@@ -56,12 +61,12 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
         
-        self.idView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "qbkls"))
-        configurePatientDetails()        
+//        self.idView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "qbkls"))
+        configurePatientDetails()
     }
     
     private func configurePatientDetails(){
-        updateLabels()
+//        updateLabels()
         
         resultsControllerDelegateAct = TableViewFetchResultAdapter(tableView: self.tableView)
         
@@ -80,7 +85,7 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
         diagnosticEpisodeModel.resultController.delegate = resultsControllerDelegateAct
         
         // Setting up action buttons
-        self.patientEditButton.addTarget(self, action: #selector(editPatient), for: .touchUpInside)
+//        self.patientEditButton.addTarget(self, action: #selector(editPatient), for: .touchUpInside)
         self.tableView.delegate = self
         self.tableView.dataSource = self
 //        setupTags()
@@ -120,18 +125,18 @@ class DetailedPatientViewVC: UIViewController, Storyboarded {
         }
     }
     
-    private func updateLabels(){
-        self.patientNameLabel.text = patient?.name
-        self.patientAgeLabel.text = patient?.age
-        self.genderLabel.text = patient?.patientGender
-        self.bedlocationLabel.text = patient?.activeDiagnosticEpisode?.getLatestAct()?.actBednumber
-        self.patientBlurbLabel.text = patient?.summaryBlurb ?? "No summary in database."
-    }
+//    private func updateLabels(){
+//        self.patientNameLabel.text = patient?.name
+//        self.patientAgeLabel.text = patient?.age
+//        self.genderLabel.text = patient?.patientGender
+//        self.bedlocationLabel.text = patient?.activeDiagnosticEpisode?.getLatestAct()?.actBednumber
+//        self.patientBlurbLabel.text = patient?.summaryBlurb ?? "No summary in database."
+//    }
 }
 
 extension DetailedPatientViewVC: PatientFormDelegate {
     func update(patient: Patient){
-        updateLabels()
+//        updateLabels()
     }
 }
 

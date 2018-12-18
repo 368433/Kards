@@ -62,7 +62,7 @@ enum LabelType: String {
     var labelTextColor: UIColor {
         switch self {
         case .tagLabel:
-            return .lightText
+            return .lightGray
         default:
             return .white
         }

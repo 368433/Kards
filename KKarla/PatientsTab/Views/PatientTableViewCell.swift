@@ -22,6 +22,7 @@ class PatientTableViewCell: UITableViewCell {
     @IBOutlet weak var addActButton: UIButton!
     @IBOutlet weak var addTagButton: UIButton!
     @IBOutlet weak var changeBedButton: UIButton!
+    @IBOutlet weak var actListButton: UIButton!
     @IBOutlet weak var editPatientButton: UIButton!
     @IBOutlet weak var diagnosisLabel: UILabel!
     @IBOutlet weak var caseDescriptionLabel: UILabel!
@@ -86,6 +87,7 @@ class PatientTableViewCell: UITableViewCell {
         self.addActButton.addTarget(self, action: #selector(showActForm), for: .touchUpInside)
         //        self.addTagButton.addTarget(self, action: #selector(showTagForm), for: .touchUpInside)
         self.editPatientButton.addTarget(self, action: #selector(editPatient), for: .touchUpInside)
+        self.actListButton.addTarget(self, action: #selector(showActList), for: .touchUpInside)
     }
     
     private func setupTags(){
@@ -110,6 +112,9 @@ class PatientTableViewCell: UITableViewCell {
     }
     @objc func showTagForm(){
         coordinator?.showTagForm(for: patient!, existingTag: nil)
+    }
+    @objc func showActList(){
+        coordinator?.showDetailedPatientView(for: patient!)
     }
     @objc func editPatient(){
         coordinator?.showPatientForm(existingPatient: patient)

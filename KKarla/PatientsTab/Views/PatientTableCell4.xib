@@ -22,48 +22,56 @@
                         <rect key="frame" x="20" y="20" width="394" height="98.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="b4c-fM-wHt" userLabel="Name">
-                                <rect key="frame" x="0.0" y="0.0" width="394" height="24"/>
+                                <rect key="frame" x="0.0" y="0.0" width="394" height="23"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Martin lafontaine" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hm3-7O-nvc">
-                                        <rect key="frame" x="0.0" y="0.0" width="135.5" height="24"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="135.5" height="23"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="bottom" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="9Ip-A2-pui" userLabel="Actions">
-                                        <rect key="frame" x="331" y="0.0" width="63" height="24"/>
+                                        <rect key="frame" x="295" y="0.0" width="99" height="23"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVY-oH-Fnz">
-                                                <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="23" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="eVY-oH-Fnz" secondAttribute="height" multiplier="1:1" id="2HV-Up-0od"/>
                                                 </constraints>
                                                 <state key="normal" image="icons8-installing-updates"/>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8TN-q1-8q1">
+                                                <rect key="frame" x="38" y="0.0" width="23" height="23"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="8TN-q1-8q1" secondAttribute="height" multiplier="1:1" id="63n-iI-gwf"/>
+                                                </constraints>
+                                                <state key="normal" image="icons8-grid-filled"/>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaY-Dy-Ya7">
-                                                <rect key="frame" x="39" y="0.0" width="24" height="24"/>
+                                                <rect key="frame" x="76" y="0.0" width="23" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="VaY-Dy-Ya7" secondAttribute="height" multiplier="1:1" id="PZB-X6-goL"/>
-                                                    <constraint firstAttribute="width" constant="24" id="iU9-Ox-C84"/>
+                                                    <constraint firstAttribute="width" constant="23" id="iU9-Ox-C84"/>
                                                 </constraints>
-                                                <state key="normal" image="icons8-termBlack-"/>
+                                                <state key="normal" image="icons8-name-tag"/>
                                             </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="eVY-oH-Fnz" firstAttribute="width" secondItem="VaY-Dy-Ya7" secondAttribute="width" id="Ozc-qC-oLl"/>
+                                            <constraint firstItem="8TN-q1-8q1" firstAttribute="width" secondItem="VaY-Dy-Ya7" secondAttribute="width" id="n4d-bj-oko"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d74-1c-enG">
-                                <rect key="frame" x="0.0" y="32" width="63.5" height="14.5"/>
+                                <rect key="frame" x="0.0" y="31" width="63.5" height="14.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ZHC-Q8-sfU" userLabel="bottomStack">
-                                <rect key="frame" x="0.0" y="54.5" width="265" height="44"/>
+                                <rect key="frame" x="0.0" y="53.5" width="265" height="45"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="umi-Hs-tye" userLabel="LastSeen">
                                         <rect key="frame" x="0.0" y="0.0" width="26.5" height="33"/>
@@ -167,6 +175,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="actBedNumber" destination="UKi-Od-PQA" id="XzB-ku-zxJ"/>
+                <outlet property="actListButton" destination="8TN-q1-8q1" id="dzT-nn-ehM"/>
                 <outlet property="addActButton" destination="eVY-oH-Fnz" id="XZa-ew-z0z"/>
                 <outlet property="ageLabel" destination="heQ-c7-EgN" id="kGS-p1-h1c"/>
                 <outlet property="caseDescriptionLabel" destination="d74-1c-enG" id="fsB-gr-yKD"/>
@@ -181,7 +190,8 @@
     </objects>
     <resources>
         <image name="icons8-female" width="75" height="75"/>
+        <image name="icons8-grid-filled" width="75" height="75"/>
         <image name="icons8-installing-updates" width="75" height="75"/>
-        <image name="icons8-termBlack-" width="75" height="75"/>
+        <image name="icons8-name-tag" width="75" height="75"/>
     </resources>
 </document>

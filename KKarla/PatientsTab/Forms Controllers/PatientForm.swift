@@ -75,10 +75,10 @@ class PatientForm: KarlaForm {
 
 extension PatientForm{
     private func initializeForm(){
-        form +++ Section("Quick Parser")
+        form +++ Section()
             
             <<< TextRow(){ row in
-                row.placeholder = "enter text to parse"
+                row.placeholder = "FIRST LAST YYMM DDXX Y0Y0Y0"
                 }.onChange { row in
                     if row.value == "" || row.value == nil {
                         return
@@ -88,12 +88,12 @@ extension PatientForm{
                     self.dateValue = self.quickParser.parsedDateOfBirthValue
                     self.genderValue = self.quickParser.gender
             }
-            <<< SwitchRow(){ row in
-                row.cell.backgroundColor = tableView.backgroundColor
-                row.cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
-                row.title = "FIRST LAST YYMM DDXX Y0Y0Y0"
-                row.value = true
-            }
+//            <<< SwitchRow(){ row in
+//                row.cell.backgroundColor = tableView.backgroundColor
+//                row.cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
+//                row.title = "FIRST LAST YYMM DDXX Y0Y0Y0"
+//                row.value = true
+//            }
             
             +++ Section("Direct form entry")
             <<< ImageRow(){ row in

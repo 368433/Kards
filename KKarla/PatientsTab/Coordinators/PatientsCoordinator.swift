@@ -53,8 +53,6 @@ class PatientsCoordinator: Coordinator {
         navigationController.present(ac, animated: true)
     }
     
-    
-    
     func showTagsListsTVC(){
         let tagsListsTVC = BaseTagsListTVC()
         tagsListsTVC.coordinator = self
@@ -65,9 +63,18 @@ class PatientsCoordinator: Coordinator {
         let ptDetails = DetailedPatientViewVC.instantiate()
         ptDetails.patient = patient
         ptDetails.coordinator = self
+//        let nc = UINavigationController()
+//        nc.pushViewController(ptDetails, animated: false)
+//        navigationController.present(nc, animated: true)
         navigationController.pushViewController(ptDetails, animated: true)
     }
     
+    func showDetailedPatientView2(for patient: Patient?){
+        let form2 = PatientForm2.instantiate()
+        form2.existingPatient = patient
+//        let form = PatientForm2(existingPatient: patient)
+        presentDataForm(for: form2)
+    }
     
     // MARK: presenting FORMS CONTROLLERS
     
@@ -96,6 +103,18 @@ class PatientsCoordinator: Coordinator {
     func showActForm(patient: Patient, existingAct: Act?, actToPrePopSomeFields: Act?, existingDiagnosticEpisode: DiagnosticEpisode?){
         let actForm = ActForm(patient: patient, existingAct: existingAct, actToPrePopSomeFields: actToPrePopSomeFields, existingDiagnosticEpisode: existingDiagnosticEpisode)
         presentDataForm(for: actForm)
+    }
+    
+    func showActForm2(nc: UINavigationController?, patient: Patient, existingAct: Act?, actToPrePopSomeFields: Act?, existingDiagnosticEpisode: DiagnosticEpisode?){
+        let actForm = ActForm(patient: patient, existingAct: existingAct, actToPrePopSomeFields: actToPrePopSomeFields, existingDiagnosticEpisode: existingDiagnosticEpisode)
+//        presentDataForm(for: actForm)
+        nc?.present(actForm, animated: true)
+    }
+    
+    func showDiagnosticEpisodeForm2(nc: UINavigationController?, for patient: Patient, existingAct: Act?, existingDiagnosticEpisode: DiagnosticEpisode?){
+        let dxEpisode = DiagnosticEpisodeForm(patient: patient, existingAct: existingAct, existingDiagnosticEpisode: existingDiagnosticEpisode)
+        nc?.present(dxEpisode, animated: true)
+//        presentDataForm(for: dxEpisode)
     }
     
     func showTagForm(for patient: Patient, existingTag: Tag?){
