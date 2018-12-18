@@ -58,7 +58,7 @@ class PatientForm2: KarlaForm {
     
     init(existingPatient: Patient?){
         self.existingPatient = existingPatient
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: "DetailedPatientForm", bundle: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -237,10 +237,14 @@ extension PatientForm2{
             super.tableView(tableView, didSelectRowAt: indexPath)
         case .act:
             let act = actModel.resultController.object(at: indexPath)
-            coordinator?.showActForm2(nc: self.navigationController, patient: patient, existingAct: act, actToPrePopSomeFields: act, existingDiagnosticEpisode: nil)
+            let actForm = ActForm(patient: patient, existingAct: act, actToPrePopSomeFields: act, existingDiagnosticEpisode: nil)
+            actForm.coordinator = self.coordinator
+            self.navCont.present(actForm.navCont, animated: true)
         case .episode:
             let diagnosticEpisode = diagnosticEpisodeModel.resultController.object(at: indexPath)
-            coordinator?.showDiagnosticEpisodeForm2(nc: self.navigationController,for: patient, existingAct: nil, existingDiagnosticEpisode: diagnosticEpisode)
+            let episodeForm = DiagnosticEpisodeForm(patient: patient, existingAct: nil, existingDiagnosticEpisode: diagnosticEpisode)
+            episodeForm.coordinator = self.coordinator
+            self.navCont.present(episodeForm.navCont, animated: true)
         }
         self.tableView.deselectRow(at: indexPath, animated: false)
     }

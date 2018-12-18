@@ -70,10 +70,12 @@ class PatientsCoordinator: Coordinator {
     }
     
     func showDetailedPatientView2(for patient: Patient?){
-        let form2 = PatientForm2.instantiate()
-        form2.existingPatient = patient
+//        let form2 = PatientForm2.instantiate()
+        let detailedForm = PatientForm2(existingPatient: patient)
+        presentDataForm(for: detailedForm)
+//        form2.existingPatient = patient
 //        let form = PatientForm2(existingPatient: patient)
-        presentDataForm(for: form2)
+//        presentDataForm(for: form2)
     }
     
     // MARK: presenting FORMS CONTROLLERS
@@ -82,10 +84,12 @@ class PatientsCoordinator: Coordinator {
     
     //A helper function
     func presentDataForm(for form: KarlaForm) {
-        let nc = UINavigationController()
+        print("calledEE")
+//        let nc = UINavigationController()
         form.coordinator = self
-        nc.pushViewController(form, animated: false)
-        navigationController.present(nc, animated: true, completion: nil)
+//        nc.pushViewController(form, animated: false)
+//        navigationController.present(nc, animated: true, completion: nil)
+        navigationController.present(form.navCont, animated: true, completion: nil)
     }
     
     func showPatientForm(existingPatient: Patient?, list: ClinicalList? = nil, delegate: PatientFormDelegate? = nil){

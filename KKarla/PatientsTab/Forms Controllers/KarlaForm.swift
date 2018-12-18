@@ -20,10 +20,12 @@ class KarlaForm: FormViewController, Storyboarded, UIImagePickerControllerDelega
     var dataCoordinator = AppDelegate.dataCoordinator
     let populator = Populator()
     var objectToSave: NSManagedObject?
+    let navCont = UINavigationController()
     
     
     override init(nibName: String?, bundle: Bundle?){
         super.init(nibName: nibName, bundle: bundle)
+        self.navCont.pushViewController(self, animated: false)
     }
     
 //    override convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -36,6 +38,8 @@ class KarlaForm: FormViewController, Storyboarded, UIImagePickerControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        self.navigationController = UINavigationController()
         self.tableView.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = false
         saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveEntries))
@@ -45,8 +49,23 @@ class KarlaForm: FormViewController, Storyboarded, UIImagePickerControllerDelega
         self.tableView.tableFooterView = UIView(frame: .zero)
 //        self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.rowHeight = 44
-        
+//        setupHeaderView()
     }
+    
+//    private func setupHeaderView(){
+//        let buttonSize: CGFloat = 33
+//        let topView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 100))
+//        let closeButton = UIButton(frame: CGRect(x: 10, y: 90, width: buttonSize, height: buttonSize))
+//        let saveButton = UIButton(frame: CGRect(x: 0, y: 0, width: buttonSize, height: buttonSize))
+//        closeButton.imageView?.image = UIImage(named: "icons8-multiply")
+//        closeButton.titleLabel?.text = "THIS"
+////        let topStack = UIStackView(arrangedSubviews: [closeButton, saveButton])
+////        topStack.axis = .horizontal
+////        topStack.distribution = .equalCentering
+//        topView.backgroundColor = .red
+//        topView.addSubview(closeButton)
+//        self.view.addSubview(topView)
+//    }
     
     @objc func saveEntries(){
         guard let objectToSave = objectToSave else { fatalError("object to save is nil")}
