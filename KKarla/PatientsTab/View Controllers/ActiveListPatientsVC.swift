@@ -40,13 +40,13 @@ class ActiveListPatientsVC: BasePatientsListTVC {
         // Make the search bar visible when scrolling - default is false
         navigationItem.hidesSearchBarWhenScrolling = true
         
-        self.headerFrame = CGRect(x: 0, y: 0, width: super.view.frame.width, height: 80)
-        self.headerView = UIView(frame:headerFrame )
+        //self.headerFrame = CGRect(x: 0, y: 0, width: super.view.frame.width, height: 80)
+        //self.headerView = UIView(frame:headerFrame )
         self.tableView.tableHeaderView = headerView
         self.tableView.register(nib, forCellReuseIdentifier: reuseID)
        
-        self.kSeg.parentView = headerView
-        self.kSeg.addTarget(self, action: #selector(updateModel), for: .valueChanged)
+//        self.kSeg.parentView = headerView
+//        self.kSeg.addTarget(self, action: #selector(updateModel), for: .valueChanged)
         
         searchModule = PatientSearcher(requiredPredicate: self.searchCriteria, ptCoordinator: self.coordinator)
         setupSearch()
