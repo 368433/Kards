@@ -22,8 +22,8 @@ class PatientTableViewCell: UITableViewCell {
     @IBOutlet weak var addActButton: UIButton!
     @IBOutlet weak var addTagButton: UIButton!
     @IBOutlet weak var changeBedButton: UIButton!
-    @IBOutlet weak var actListButton: UIButton!
-    @IBOutlet weak var editPatientButton: UIButton!
+//    @IBOutlet weak var actListButton: UIButton!
+//    @IBOutlet weak var editPatientButton: UIButton!
     @IBOutlet weak var diagnosisLabel: UILabel!
     @IBOutlet weak var caseDescriptionLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
@@ -72,7 +72,7 @@ class PatientTableViewCell: UITableViewCell {
         
         self.patientNameLabel.text = patient.name
         self.diagnosisLabel.text = patient.activeDiagnosticEpisode?.primaryDiagnosis
-        self.caseDescriptionLabel.text = patient.summaryBlurb
+        self.caseDescriptionLabel.text = patient.summaryBlurb ?? "---"
         self.ageLabel.text = "\(patient.age)"
         self.actBedNumber.text = patient.activeDiagnosticEpisode?.getLatestAct()?.actBednumber
         
@@ -84,10 +84,10 @@ class PatientTableViewCell: UITableViewCell {
     }
     
     private func setupButtons(){
-        self.addActButton.addTarget(self, action: #selector(showActForm), for: .touchUpInside)
+        //self.addActButton.addTarget(self, action: #selector(showActForm), for: .touchUpInside)
         //        self.addTagButton.addTarget(self, action: #selector(showTagForm), for: .touchUpInside)
-        self.editPatientButton.addTarget(self, action: #selector(editPatient), for: .touchUpInside)
-        self.actListButton.addTarget(self, action: #selector(showActList), for: .touchUpInside)
+//        self.editPatientButton.addTarget(self, action: #selector(editPatient), for: .touchUpInside)
+//        self.actListButton.addTarget(self, action: #selector(showActList), for: .touchUpInside)
     }
     
     private func setupTags(){

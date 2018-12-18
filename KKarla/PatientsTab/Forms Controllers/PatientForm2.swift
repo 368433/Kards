@@ -14,24 +14,47 @@ import EmptyDataSet_Swift
 
 class PatientForm2: KarlaForm {
 
+    // lines
     @IBOutlet weak var actBottomLine: UIView!
     @IBOutlet weak var actRightView: UIView!
     @IBOutlet weak var ClinEpBottom: UIView!
-    @IBOutlet weak var clinicalListTabButton: UIButton!
+    @IBOutlet weak var infoBottomLine: UIView!
+    
+    
+    // buttons
     @IBOutlet weak var actTabButton: UIButton!
     @IBOutlet weak var infoTabButton: UIButton!
+    @IBOutlet weak var clinicalListTabButton: UIButton!
     @IBOutlet weak var addToActOrClinicalEpTableButton: UIButton!
     
     var actModel: ActListModel!
     var diagnosticEpisodeModel: DiagnosticEpisodeListModel!
     var resultsControllerDelegateAct: TableViewFetchResultAdapter!
-    var tabSelected: TabSelection = .info
+    
 
     var existingPatient: Patient?
     var listToLink: ClinicalList?
     var quickParser: QuickParser!
     var delegate: PatientFormDelegate?
 
+    var tabSelected: TabSelection = .info {
+        didSet{
+            switch tabSelected{
+            case .info:
+                infoBottomLine.backgroundColor = .white
+                actBottomLine.backgroundColor = .lightGray
+                ClinEpBottom.backgroundColor = .lightGray
+            case .act:
+                infoBottomLine.backgroundColor = .lightGray
+                actBottomLine.backgroundColor = .white
+                ClinEpBottom.backgroundColor = .lightGray
+            case .episode:
+                infoBottomLine.backgroundColor = .lightGray
+                actBottomLine.backgroundColor = .lightGray
+                ClinEpBottom.backgroundColor = .white
+            }
+        }
+    }
     
     var nameEntry: String? {
         didSet{
@@ -68,7 +91,7 @@ class PatientForm2: KarlaForm {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Patient form"
+        self.title = existingPatient?.name
         initializeForm()
         quickParser = QuickParser(form: self.form)
         setupTabTables()
@@ -95,15 +118,16 @@ class PatientForm2: KarlaForm {
 
 extension PatientForm2{
     private func setupTabTables(){
+        
         let nib = UINib(nibName: ActTableViewCell.nibName, bundle: nil)
         let nib2 = UINib(nibName: DiagnosticEpisodeTableViewCell.nibName, bundle: nil)
+        
         self.tableView.register(nib, forCellReuseIdentifier: ActTableViewCell.reuseID)
         self.tableView.register(nib2, forCellReuseIdentifier: DiagnosticEpisodeTableViewCell.reuseID)
         self.tableView.tableFooterView = UIView(frame: .zero)
         
         initializeActAndEpisodeModels()
         setupTabButtons()
-        
     }
     
     private func initializeActAndEpisodeModels(){
@@ -145,17 +169,29 @@ extension PatientForm2{
     
     @objc private func switchTabButtons(sender: UIButton){
         if sender === actTabButton{
-            actBottomLine.backgroundColor = .white
-            ClinEpBottom.backgroundColor = .lightGray
             tabSelected = .act
         } else if sender === clinicalListTabButton {
-            actBottomLine.backgroundColor = .lightGray
-            ClinEpBottom.backgroundColor = .white
             tabSelected = .episode
         } else if sender === infoTabButton{
             tabSelected = .info
         }
         self.tableView.reloadData()
+    }
+    
+    private func setTabLines(){
+        switch tabSelected {
+        case .info:
+            actBottomLine.backgroundColor = .white
+            ClinEpBottom.backgroundColor = .lightGray
+            infoTabButton.backgroundColor = .lightGray
+        case .act:
+            actBottomLine.backgroundColor = .white
+            ClinEpBottom.backgroundColor = .lightGray
+            infoTabButton.backgroundColor = .lightGray
+        case .episode:
+            actBottomLine.backgroundColor = .lightGray
+            ClinEpBottom.backgroundColor = .white
+        }
     }
     
     //***

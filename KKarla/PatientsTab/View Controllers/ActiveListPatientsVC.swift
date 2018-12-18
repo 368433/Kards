@@ -63,9 +63,9 @@ class ActiveListPatientsVC: BasePatientsListTVC {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        return
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        return
+//    }
     
     @objc override func addNew(){
         let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)

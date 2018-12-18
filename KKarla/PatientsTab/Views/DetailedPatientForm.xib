@@ -18,6 +18,7 @@
                 <outlet property="actTabButton" destination="LHc-nf-eZx" id="7Vg-sc-xjA"/>
                 <outlet property="addToActOrClinicalEpTableButton" destination="9t6-8e-G1q" id="enC-uq-wg7"/>
                 <outlet property="clinicalListTabButton" destination="V3P-9F-b8M" id="hNr-Z4-mbH"/>
+                <outlet property="infoBottomLine" destination="S6H-RS-2o0" id="g8g-RD-Ntt"/>
                 <outlet property="infoTabButton" destination="5pJ-CX-oYd" id="Opw-xk-mzs"/>
                 <outlet property="tableView" destination="Ys9-xy-CYr" id="GeP-fg-NJL"/>
                 <outlet property="view" destination="vaN-0Y-8e0" id="efa-zX-nM0"/>
@@ -32,7 +33,7 @@
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2dC-sb-HpB">
-                            <rect key="frame" x="20" y="20" width="335" height="30"/>
+                            <rect key="frame" x="20" y="80" width="335" height="30"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FML-x8-CNc" userLabel="actClinTabButtons">
                                     <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
@@ -40,7 +41,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="R8u-lH-eTQ">
                                             <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ozD-0Z-oRR">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ozD-0Z-oRR" userLabel="InfoTab">
                                                     <rect key="frame" x="0.0" y="0.0" width="111.5" height="30"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6z-oR-Svm">
@@ -61,7 +62,7 @@
                                                                 </view>
                                                             </subviews>
                                                         </stackView>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S6H-RS-2o0" userLabel="actBottom">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S6H-RS-2o0" userLabel="infoBottom">
                                                             <rect key="frame" x="0.0" y="29" width="111.5" height="1"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="oJE-mI-4uU"/>
@@ -69,7 +70,7 @@
                                                         </view>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="570-hG-kV6">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="570-hG-kV6" userLabel="ActTab">
                                                     <rect key="frame" x="111.5" y="0.0" width="112" height="30"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cV2-Vg-Igc">
@@ -99,7 +100,7 @@
                                                         </view>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pOa-l6-0ix">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pOa-l6-0ix" userLabel="EpisodeTab">
                                                     <rect key="frame" x="223.5" y="0.0" width="111.5" height="30"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3P-9F-b8M">
@@ -132,10 +133,10 @@
                             </subviews>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXA-Ca-pd6" userLabel="ActsAndEpisodes">
-                            <rect key="frame" x="20" y="58" width="335" height="519"/>
+                            <rect key="frame" x="20" y="118" width="335" height="459"/>
                             <subviews>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ys9-xy-CYr">
-                                    <rect key="frame" x="0.0" y="0.0" width="335" height="519"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="335" height="459"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </tableView>
                             </subviews>
@@ -200,7 +201,7 @@
                         <constraint firstAttribute="trailing" secondItem="wAL-JC-YvW" secondAttribute="trailing" id="eha-Pz-Z7g"/>
                         <constraint firstAttribute="bottom" secondItem="wAL-JC-YvW" secondAttribute="bottom" constant="20" symbolic="YES" id="jHV-Gc-urP"/>
                         <constraint firstItem="2dC-sb-HpB" firstAttribute="leading" secondItem="jdJ-oM-uCE" secondAttribute="leading" constant="20" id="qgj-qB-PJv"/>
-                        <constraint firstItem="2dC-sb-HpB" firstAttribute="top" secondItem="jdJ-oM-uCE" secondAttribute="top" constant="20" id="wTg-1w-fPn"/>
+                        <constraint firstItem="2dC-sb-HpB" firstAttribute="top" secondItem="jdJ-oM-uCE" secondAttribute="top" constant="80" id="wTg-1w-fPn"/>
                         <constraint firstItem="GXA-Ca-pd6" firstAttribute="leading" secondItem="jdJ-oM-uCE" secondAttribute="leading" constant="20" id="y0t-E5-eCg"/>
                     </constraints>
                 </view>

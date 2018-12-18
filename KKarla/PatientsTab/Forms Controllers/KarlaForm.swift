@@ -26,6 +26,7 @@ class KarlaForm: FormViewController, Storyboarded, UIImagePickerControllerDelega
     override init(nibName: String?, bundle: Bundle?){
         super.init(nibName: nibName, bundle: bundle)
         self.navCont.pushViewController(self, animated: false)
+        self.navCont.navigationBar.barTintColor = .white
     }
     
 //    override convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -42,10 +43,23 @@ class KarlaForm: FormViewController, Storyboarded, UIImagePickerControllerDelega
 //        self.navigationController = UINavigationController()
         self.tableView.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = false
-        saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveEntries))
-        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissForm))
+        saveButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(saveEntries))
+//        let crossCancelButton = UIBarButtonItem(image: UIImage(named: "icons8-multiply"), style: .plain, target: self, action: #selector(dismissForm))
+        let crossCancel = UIButton(type: .custom)
+        crossCancel.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+        crossCancel.setImage(UIImage(named: "icons8-multiply"), for: .normal)
+        crossCancel.addTarget(self, action: #selector(dismissForm), for: .touchUpInside)
+        
+        let leftMenuBarItem = UIBarButtonItem(customView: crossCancel)
+        let currWidth = leftMenuBarItem.customView?.widthAnchor.constraint(equalToConstant: 36)
+        currWidth?.isActive = true
+        let currHeight = leftMenuBarItem.customView?.heightAnchor.constraint(equalToConstant: 36)
+        currHeight?.isActive = true
+        
+//        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissForm))
         self.navigationItem.rightBarButtonItems = [saveButton]
-        self.navigationItem.leftBarButtonItems = [cancelButton]
+        self.navigationItem.leftBarButtonItem = leftMenuBarItem
+//        self.navigationItem.leftBarButtonItems = [crossCancelButton]
         self.tableView.tableFooterView = UIView(frame: .zero)
 //        self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.rowHeight = 44
