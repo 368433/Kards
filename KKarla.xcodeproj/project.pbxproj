@@ -50,6 +50,7 @@
 		6A816EEE21AC2AF800031BAB /* BillingCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A816EED21AC2AF800031BAB /* BillingCodes.swift */; };
 		6A82B7F421C9245C0035ED0D /* PatientForm2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A82B7F321C9245C0035ED0D /* PatientForm2.swift */; };
 		6A82B7F621C973210035ED0D /* DetailedPatientForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A82B7F521C973200035ED0D /* DetailedPatientForm.xib */; };
+		6A82B7F921C99B2A0035ED0D /* PatientTableCell5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A82B7F821C99B2A0035ED0D /* PatientTableCell5.xib */; };
 		6A834AB521ADB9B900451E0D /* TagForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A834AB421ADB9B900451E0D /* TagForm.swift */; };
 		6A868E9221C7810500ECA7BD /* PatientTableCell4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A868E9121C7810500ECA7BD /* PatientTableCell4.xib */; };
 		6A868E9721C7F88F00ECA7BD /* BasePatientTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A868E9621C7F88F00ECA7BD /* BasePatientTableCell.xib */; };
@@ -184,6 +185,7 @@
 		6A816EED21AC2AF800031BAB /* BillingCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingCodes.swift; sourceTree = "<group>"; };
 		6A82B7F321C9245C0035ED0D /* PatientForm2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientForm2.swift; sourceTree = "<group>"; };
 		6A82B7F521C973200035ED0D /* DetailedPatientForm.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailedPatientForm.xib; sourceTree = "<group>"; };
+		6A82B7F821C99B2A0035ED0D /* PatientTableCell5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatientTableCell5.xib; sourceTree = "<group>"; };
 		6A834AB421ADB9B900451E0D /* TagForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagForm.swift; sourceTree = "<group>"; };
 		6A868E9121C7810500ECA7BD /* PatientTableCell4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatientTableCell4.xib; sourceTree = "<group>"; };
 		6A868E9621C7F88F00ECA7BD /* BasePatientTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasePatientTableCell.xib; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 				6A4ED3D621BDB49800935C0A /* PatientTableCell2.xib */,
 				6AADF72721C0B5EC00DFD0B9 /* PatientTableCell3.xib */,
 				6A868E9121C7810500ECA7BD /* PatientTableCell4.xib */,
+				6A82B7F821C99B2A0035ED0D /* PatientTableCell5.xib */,
 				6ADCB58F21AAFE320005BBE3 /* PatientTableViewCell.swift */,
 				6A868E9621C7F88F00ECA7BD /* BasePatientTableCell.xib */,
 				6A868E9821C7F93500ECA7BD /* BasePatientTableViewCell.swift */,
@@ -710,6 +713,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A32F93921B6088D00BB1234 /* DiagnosticEpisodeTableViewCell.xib in Resources */,
+				6A82B7F921C99B2A0035ED0D /* PatientTableCell5.xib in Resources */,
 				E859A7A82182B21C007BF751 /* BadgeWithCounterViewStandardSized.xib in Resources */,
 				6A868E9721C7F88F00ECA7BD /* BasePatientTableCell.xib in Resources */,
 				6A36B05221AB97CE00C4F9A8 /* ClinicalListTVC.xib in Resources */,
