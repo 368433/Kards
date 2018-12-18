@@ -37,7 +37,7 @@ class PatientTableViewCell: UITableViewCell {
     var patient: Patient?
     var coordinator : PatientsCoordinator?
     
-    static var nibName = "PatientTableCell4"
+    static var nibName = "PatientTableCell5"
     static var reuseID = "cell"
     
     override func awakeFromNib() {
