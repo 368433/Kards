@@ -7,8 +7,10 @@
 //
 
 import Foundation
-
 import UIKit
+import SJFluidSegmentedControl
+
+//import BTNavigationDropdownMenu
 
 class ActiveListPatientsVC: BasePatientsListTVC {
     
@@ -18,6 +20,17 @@ class ActiveListPatientsVC: BasePatientsListTVC {
 
     var headerFrame = CGRect()
     var headerView = UIView()
+    
+//    let menuItems = ["Most Popular", "Latest", "Trending", "Nearest", "Top Picks"]
+//    var menuView: BTNavigationDropdownMenu!
+    
+    lazy var segmentedControl: SJFluidSegmentedControl = {
+        [unowned self] in
+        // Setup the frame per your needs
+        let segmentedControl = SJFluidSegmentedControl(frame: CGRect(x: 0, y: 0, width: 300, height: 25))
+        segmentedControl.dataSource = self
+        return segmentedControl
+        }()
     
     init(ClinicalList: ClinicalList){
         self.activeList = ClinicalList
@@ -35,7 +48,23 @@ class ActiveListPatientsVC: BasePatientsListTVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = activeList.clinicalListTitle
+//        view.addSubview(segmentedControl)
+        self.headerView = segmentedControl
+        
+//        self.title = activeList.clinicalListTitle
+//        menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: BTTitle.title("Active Lists"), items: menuItems)
+//        self.navigationItem.titleView = menuView
+//        menuView.didSelectItemAtIndexHandler = { (indexPath: Int) -> () in
+//            print("Did select item at index: \(indexPath)")
+//        }
+//        menuView.arrowPadding = 15
+//        menuView.navigationBarTitleFont = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.regular)
+////        menuView.cellSelectionColor = StyleKit.getSeparatorColor()
+//        menuView.shouldKeepSelectedCellColor = true
+//        menuView.arrowTintColor = UIColor.black
+//        menuView.cellSeparatorColor = menuView.cellBackgroundColor
+//        menuView.cellTextLabelFont = UIFont.systemFont(ofSize: 16)
+//        menuView.checkMarkImage = nil
         
         // Make the search bar visible when scrolling - default is false
         navigationItem.hidesSearchBarWhenScrolling = true
@@ -82,5 +111,39 @@ class ActiveListPatientsVC: BasePatientsListTVC {
         astSegment = ASTSegment(rawValue: sender.selectedSegmentIndex) ?? .Active
         self.searchCriteria = astSegment.searchPredicate(clinicalList: activeList)
         self.tableView.reloadData()
+    }
+}
+
+extension ActiveListPatientsVC: SJFluidSegmentedControlDataSource{
+    func numberOfSegmentsInSegmentedControl(_ segmentedControl: SJFluidSegmentedControl) -> Int {
+        return 3
+    }
+    
+    @objc func segmentedControl(_ segmentedControl: SJFluidSegmentedControl,
+                                         titleForSegmentAtIndex index: Int) -> String?{
+        switch index {
+        case 0:
+            return "a test"
+        case 1:
+            return "first"
+        case 2:
+            return "third"
+        default:
+            return nil
+        }
+    }
+    
+    @objc func segmentedControl(_ segmentedControl: SJFluidSegmentedControl,
+                                titleColorForSelectedSegmentAtIndex index: Int) -> UIColor {
+        return UIColor.white
+    }
+    
+    @objc func segmentedControl(_ segmentedControl: SJFluidSegmentedControl,
+                                gradientColorsForSelectedSegmentAtIndex index: Int) -> [UIColor]{
+        return [UIColor.blue, UIColor.cyan, UIColor.blue]
+    }
+    @objc func segmentedControl(_ segmentedControl: SJFluidSegmentedControl,
+                                gradientColorsForBounce bounce: SJFluidSegmentedControlBounce) -> [UIColor]{
+        return [UIColor.black, UIColor.green]
     }
 }

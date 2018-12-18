@@ -29,7 +29,7 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
         super.viewDidLoad()
         
         self.title = "Patients database"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.prefersLargeTitles = false
         
         // Make the search bar visible when scrolling - default is false
         navigationItem.hidesSearchBarWhenScrolling = false
