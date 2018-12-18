@@ -20,27 +20,27 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iy8-YJ-5qK">
-                    <rect key="frame" x="0.0" y="70" width="375" height="200"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iy8-YJ-5qK">
+                    <rect key="frame" x="0.0" y="60" width="375" height="132"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="UeV-QJ-qG0"/>
+                        <constraint firstAttribute="height" constant="132" id="Zcr-Ls-Jm7"/>
                     </constraints>
                 </tableView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gPs-Xe-iBq">
-                    <rect key="frame" x="0.0" y="320" width="375" height="347"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gPs-Xe-iBq">
+                    <rect key="frame" x="0.0" y="252" width="375" height="415"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
-                <constraint firstItem="xdT-ES-dJs" firstAttribute="bottom" secondItem="gPs-Xe-iBq" secondAttribute="bottom" id="0Hc-hD-jZu"/>
-                <constraint firstItem="xdT-ES-dJs" firstAttribute="trailing" secondItem="gPs-Xe-iBq" secondAttribute="trailing" id="863-VJ-hji"/>
-                <constraint firstItem="xdT-ES-dJs" firstAttribute="trailing" secondItem="iy8-YJ-5qK" secondAttribute="trailing" id="C6Z-Wv-ZdN"/>
-                <constraint firstItem="iy8-YJ-5qK" firstAttribute="top" secondItem="xdT-ES-dJs" secondAttribute="top" constant="50" id="F2Y-Yb-UYc"/>
-                <constraint firstItem="gPs-Xe-iBq" firstAttribute="leading" secondItem="xdT-ES-dJs" secondAttribute="leading" id="dsI-BD-ZyZ"/>
-                <constraint firstItem="gPs-Xe-iBq" firstAttribute="top" secondItem="iy8-YJ-5qK" secondAttribute="bottom" constant="50" id="iQQ-kj-eY5"/>
-                <constraint firstItem="iy8-YJ-5qK" firstAttribute="leading" secondItem="xdT-ES-dJs" secondAttribute="leading" id="nqZ-VL-HLC"/>
+                <constraint firstItem="xdT-ES-dJs" firstAttribute="trailing" secondItem="iy8-YJ-5qK" secondAttribute="trailing" id="5ra-XK-375"/>
+                <constraint firstItem="gPs-Xe-iBq" firstAttribute="leading" secondItem="xdT-ES-dJs" secondAttribute="leading" id="AUc-UX-jL9"/>
+                <constraint firstItem="iy8-YJ-5qK" firstAttribute="leading" secondItem="xdT-ES-dJs" secondAttribute="leading" id="BHd-zP-hFi"/>
+                <constraint firstItem="iy8-YJ-5qK" firstAttribute="top" secondItem="xdT-ES-dJs" secondAttribute="top" constant="40" id="EtJ-ux-Cxp"/>
+                <constraint firstItem="gPs-Xe-iBq" firstAttribute="top" secondItem="iy8-YJ-5qK" secondAttribute="bottom" constant="60" id="I9R-I4-OxV"/>
+                <constraint firstItem="xdT-ES-dJs" firstAttribute="bottom" secondItem="gPs-Xe-iBq" secondAttribute="bottom" id="bHq-Wh-btc"/>
+                <constraint firstItem="xdT-ES-dJs" firstAttribute="trailing" secondItem="gPs-Xe-iBq" secondAttribute="trailing" id="qtt-vf-m29"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="xdT-ES-dJs"/>
         </view>

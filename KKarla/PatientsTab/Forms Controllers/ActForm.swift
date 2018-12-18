@@ -87,7 +87,7 @@ class ActForm: KarlaForm {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "New Act"
+        self.title = "Act Form"
         initializeForm()
         initializeBillingSegments()
         
@@ -178,8 +178,9 @@ class ActForm: KarlaForm {
             }
             
             <<< ButtonRow() { row in
-                row.title = "New"
+                row.title = "Create New"
                 row.onCellSelection(self.createNewDiagnosticEpisode)
+
             }
             
             +++ Section("Details")
@@ -231,7 +232,7 @@ class ActForm: KarlaForm {
                 row.add(rule: RuleRequired())
                 row.validationOptions = .validatesOnChange
             }
-            +++ Section("Dates & other")
+//            +++ Section("Dates & other")
             <<< DateTimeRow(){ row in
                 row.title = "Start Date"
                 row.value = existingActToUpdate?.actStartDate ?? Date(timeIntervalSinceNow: 0)
@@ -240,13 +241,14 @@ class ActForm: KarlaForm {
                 row.validationOptions = .validatesOnChange
             }
             <<< TextRow() { row in
-                row.title = "Bedside Location"
+                row.title = "Bed"
                 row.value = existingActToUpdate?.actBednumber ?? actToPrePopSomeFields?.actBednumber
                 row.placeholder = "Bed number"
                 row.tag = Act.bedNumberTag
                 row.add(rule: RuleRequired())
                 row.validationOptions = .validatesOnChange
             }
+            
             <<< TextAreaRow() { row in
                 row.title = "Blurb"
                 row.placeholder = "Enter act note. Using dictation speeds up entry"

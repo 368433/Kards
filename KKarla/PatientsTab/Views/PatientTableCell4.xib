@@ -58,7 +58,7 @@
                                                     <constraint firstAttribute="width" secondItem="eVY-oH-Fnz" secondAttribute="height" multiplier="1:1" id="2HV-Up-0od"/>
                                                     <constraint firstAttribute="width" constant="24" id="JSg-S5-HjC"/>
                                                 </constraints>
-                                                <state key="normal" image="icons8-installing-updates"/>
+                                                <state key="normal" image="icons8-add-list"/>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -171,7 +171,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="icons8-add-list" width="75" height="75"/>
         <image name="icons8-female" width="75" height="75"/>
-        <image name="icons8-installing-updates" width="75" height="75"/>
     </resources>
 </document>

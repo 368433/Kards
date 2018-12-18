@@ -44,8 +44,6 @@ class LandingCardViewController: UIViewController, Storyboarded {
         setupButtons()
         setupSearch()
     }
-    
-    
 }
 
 extension LandingCardViewController{
@@ -75,6 +73,7 @@ extension LandingCardViewController {
         showAllPatientsButton.addTarget(self, action: #selector(showAllPatients), for: .touchUpInside)
         showAllTagsButton.addTarget(self, action: #selector(showAllTags), for: .touchUpInside)
         showArchivedListsButton.addTarget(self, action: #selector(showAllWorklists), for: .touchUpInside)
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: ., target: <#T##Any?#>, action: <#T##Selector?#>)
     }
     
     @objc func createList(){

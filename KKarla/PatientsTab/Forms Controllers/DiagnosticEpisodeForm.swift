@@ -40,6 +40,8 @@ class DiagnosticEpisodeForm: KarlaForm{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Episode Form"
+        
         let nib = UINib(nibName: ActTableViewCell.nibName, bundle: nil)
         self.actListTableView.register(nib, forCellReuseIdentifier: ActTableViewCell.reuseID)
         

@@ -331,7 +331,7 @@ extension PatientForm2{
                     self.genderValue = self.quickParser.gender
             }
             
-            +++ Section("Direct form entry")
+//            +++ Section("Direct form entry")
             <<< ImageRow(){ row in
                 row.title = "Photo ID"
                 row.sourceTypes = [.PhotoLibrary, .Camera]
