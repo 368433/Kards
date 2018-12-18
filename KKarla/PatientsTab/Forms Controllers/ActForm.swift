@@ -150,12 +150,12 @@ class ActForm: KarlaForm {
     
     private func initializeForm(){
         
-        form +++ Section("Link To Diagnostic Episode")
+        form +++ Section()
             
             // Clinical Episode selection
             
             <<< PushRow<DiagnosticEpisode>() { row in
-                row.title = "Diagnotic Episode"
+                row.title = "Diagnosis"
                 row.tag = "diagnosticEpisode"
                 row.value = actToPrePopSomeFields?.diagnosticEpisode
                 row.add(rule: RuleRequired())
@@ -178,11 +178,11 @@ class ActForm: KarlaForm {
             }
             
             <<< ButtonRow() { row in
-                row.title = "Create new Diagnostic Episode"
+                row.title = "New"
                 row.onCellSelection(self.createNewDiagnosticEpisode)
             }
             
-            +++ Section("Act Parameters")
+            +++ Section("Details")
             
             // MARK : BILLING SEGMENTS CREATION
             

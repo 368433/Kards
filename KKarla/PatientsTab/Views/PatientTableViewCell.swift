@@ -64,7 +64,7 @@ class PatientTableViewCell: UITableViewCell {
         
         setupLabels()
         setupButtons()
-//        setupTags()
+        setupTags()
     }
     
     private func setupLabels(){
@@ -84,7 +84,7 @@ class PatientTableViewCell: UITableViewCell {
     }
     
     private func setupButtons(){
-        //self.addActButton.addTarget(self, action: #selector(showActForm), for: .touchUpInside)
+        self.addActButton.addTarget(self, action: #selector(showActForm), for: .touchUpInside)
         //        self.addTagButton.addTarget(self, action: #selector(showTagForm), for: .touchUpInside)
 //        self.editPatientButton.addTarget(self, action: #selector(editPatient), for: .touchUpInside)
 //        self.actListButton.addTarget(self, action: #selector(showActList), for: .touchUpInside)
