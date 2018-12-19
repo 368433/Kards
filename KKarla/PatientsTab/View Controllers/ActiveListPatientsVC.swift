@@ -26,8 +26,9 @@ class ActiveListPatientsVC: BasePatientsListTVC {
     
     lazy var segmentedControl: SJFluidSegmentedControl = {
         [unowned self] in
-        // Setup the frame per your needs
-        let segmentedControl = SJFluidSegmentedControl(frame: CGRect(x: 0, y: 0, width: 300, height: 25))
+        // Setup the frame
+        let segmentedControl = SJFluidSegmentedControl(frame: CGRect(x: 0, y: 15, width: headerFrame.width, height: 30))
+        segmentedControl.textFont = .systemFont(ofSize: 14, weight: UIFont.Weight.semibold)
         segmentedControl.dataSource = self
         return segmentedControl
         }()
@@ -48,8 +49,13 @@ class ActiveListPatientsVC: BasePatientsListTVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.headerFrame = CGRect(x: 0, y: 0, width: super.view.frame.width, height: 50)
+        self.headerView = UIView(frame:headerFrame )
+        self.tableView.tableHeaderView = headerView
+        self.headerView.addSubview(segmentedControl)
+        
 //        view.addSubview(segmentedControl)
-        self.headerView = segmentedControl
+//        self.headerView = segmentedControl
         
 //        self.title = activeList.clinicalListTitle
 //        menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: BTTitle.title("Active Lists"), items: menuItems)
@@ -69,9 +75,6 @@ class ActiveListPatientsVC: BasePatientsListTVC {
         // Make the search bar visible when scrolling - default is false
         navigationItem.hidesSearchBarWhenScrolling = true
         
-        //self.headerFrame = CGRect(x: 0, y: 0, width: super.view.frame.width, height: 80)
-        //self.headerView = UIView(frame:headerFrame )
-        self.tableView.tableHeaderView = headerView
         self.tableView.register(nib, forCellReuseIdentifier: reuseID)
        
 //        self.kSeg.parentView = headerView
@@ -116,34 +119,53 @@ class ActiveListPatientsVC: BasePatientsListTVC {
 
 extension ActiveListPatientsVC: SJFluidSegmentedControlDataSource{
     func numberOfSegmentsInSegmentedControl(_ segmentedControl: SJFluidSegmentedControl) -> Int {
-        return 3
+        return 4
     }
     
     @objc func segmentedControl(_ segmentedControl: SJFluidSegmentedControl,
                                          titleForSegmentAtIndex index: Int) -> String?{
         switch index {
         case 0:
-            return "a test"
+            return "To See".uppercased()
         case 1:
-            return "first"
+            return "Seen".uppercased()
         case 2:
-            return "third"
+            return "Signed off".uppercased()
+        case 3:
+            return "Transfered".uppercased()
         default:
             return nil
         }
     }
     
-    @objc func segmentedControl(_ segmentedControl: SJFluidSegmentedControl,
-                                titleColorForSelectedSegmentAtIndex index: Int) -> UIColor {
-        return UIColor.white
+    func segmentedControl(_ segmentedControl: SJFluidSegmentedControl,
+                          gradientColorsForSelectedSegmentAtIndex index: Int) -> [UIColor] {
+        switch index {
+        case 0:
+            return [UIColor(red: 51 / 255.0, green: 149 / 255.0, blue: 182 / 255.0, alpha: 1.0),
+                    UIColor(red: 97 / 255.0, green: 199 / 255.0, blue: 234 / 255.0, alpha: 1.0)]
+        case 1:
+            return [UIColor(red: 227 / 255.0, green: 206 / 255.0, blue: 160 / 255.0, alpha: 1.0),
+                    UIColor(red: 225 / 255.0, green: 195 / 255.0, blue: 128 / 255.0, alpha: 1.0)]
+        case 2:
+            return [UIColor(red: 21 / 255.0, green: 94 / 255.0, blue: 119 / 255.0, alpha: 1.0),
+                    UIColor(red: 9 / 255.0, green: 82 / 255.0, blue: 107 / 255.0, alpha: 1.0)]
+        case 3:
+            return [UIColor(red: 11 / 255.0, green: 199 / 255.0, blue: 250 / 255.0, alpha: 1.0),
+                    UIColor(red: 23 / 255.0, green: 182 / 255.0, blue: 178 / 255.0, alpha: 1.0)]
+        default:
+            break
+        }
+        return [.clear]
     }
     
-    @objc func segmentedControl(_ segmentedControl: SJFluidSegmentedControl,
-                                gradientColorsForSelectedSegmentAtIndex index: Int) -> [UIColor]{
-        return [UIColor.blue, UIColor.cyan, UIColor.blue]
-    }
-    @objc func segmentedControl(_ segmentedControl: SJFluidSegmentedControl,
-                                gradientColorsForBounce bounce: SJFluidSegmentedControlBounce) -> [UIColor]{
-        return [UIColor.black, UIColor.green]
+    func segmentedControl(_ segmentedControl: SJFluidSegmentedControl,
+                          gradientColorsForBounce bounce: SJFluidSegmentedControlBounce) -> [UIColor] {
+        switch bounce {
+        case .left:
+            return [UIColor(red: 51 / 255.0, green: 149 / 255.0, blue: 182 / 255.0, alpha: 1.0)]
+        case .right:
+            return [UIColor(red: 9 / 255.0, green: 82 / 255.0, blue: 107 / 255.0, alpha: 1.0)]
+        }
     }
 }
