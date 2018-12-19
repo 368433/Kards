@@ -28,7 +28,7 @@ class ActiveListPatientsVC: BasePatientsListTVC {
         [unowned self] in
         // Setup the frame
         let segmentedControl = SJFluidSegmentedControl(frame: CGRect(x: 0, y: 15, width: headerFrame.width, height: 30))
-        segmentedControl.textFont = .systemFont(ofSize: 14, weight: UIFont.Weight.semibold)
+        segmentedControl.textFont = .systemFont(ofSize: 12, weight: UIFont.Weight.semibold)
         segmentedControl.dataSource = self
         return segmentedControl
         }()
