@@ -97,10 +97,12 @@ extension LandingCardViewController {
 extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return model?.resultController.sections?.count ?? 0
+        
+//        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model?.resultController.sections![section].numberOfObjects ?? 0
+        return model?.resultController.sections?[section].numberOfObjects ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -39,7 +39,8 @@ class ClinicalListModel{
         let sort = NSSortDescriptor(key: ClinicalList.titleTag, ascending: true)
         request.sortDescriptors = [sort]
         request.fetchBatchSize = 20
-        return NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataCoordinator.persistentContainer.viewContext, sectionNameKeyPath: ClinicalList.titleTag, cacheName: nil)
+        return NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataCoordinator.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+//        return NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataCoordinator.persistentContainer.viewContext, sectionNameKeyPath: ClinicalList.titleTag, cacheName: nil)
     }
 }
 

@@ -21,7 +21,7 @@ class ActiveListPatientsVC: BasePatientsListTVC {
     var headerFrame = CGRect()
     var headerView = UIView()
     
-    let backgroundLayer = Gradients.amourAmour.layer
+    let backgroundLayer = Gradients.aboveTheSky.layer
     
 //    let menuItems = ["Most Popular", "Latest", "Trending", "Nearest", "Top Picks"]
 //    var menuView: BTNavigationDropdownMenu!
@@ -52,20 +52,22 @@ class ActiveListPatientsVC: BasePatientsListTVC {
         super.viewDidLoad()
         
 //        self.view.layer.addSublayer(backgroundLayer)
-        let bgView = UIView(frame: self.tableView.frame)
-        bgView.layer.addSublayer(backgroundLayer)
-        let bgImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        bgImage.layer.addSublayer(backgroundLayer)
-        
+//        let bgView = UIView(frame: self.view.frame)
+//        bgView.layer.addSublayer(backgroundLayer)
+//        self.view.addSubview(bgView)
 //        self.tableView.backgroundView = bgView
-//        self.tableView.backgroundColor = .clear
+        self.tableView.backgroundColor = .clear
 //        self.tableView.layer.insertSublayer(backgroundLayer, at: 0)
 //        print(self.view.layer.sublayers)
+//        self.view.layer.insertSublayer(backgroundLayer, at: 0)
+        print(self.tableView.superclass)
+        self.tableView.superview?.layer.mask = backgroundLayer
         self.headerFrame = CGRect(x: 0, y: 0, width: super.view.frame.width, height: 50)
         self.headerView = UIView(frame:headerFrame )
         self.tableView.tableHeaderView = headerView
         self.headerView.addSubview(segmentedControl)
         self.tableView.separatorStyle = .none
+        
         
 //        view.addSubview(segmentedControl)
 //        self.headerView = segmentedControl
@@ -99,7 +101,8 @@ class ActiveListPatientsVC: BasePatientsListTVC {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        backgroundLayer.frame = view.bounds
+//        backgroundLayer.frame = view.bounds
+        backgroundLayer.frame = self.tableView.superview?.bounds ?? CGRect.null
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
