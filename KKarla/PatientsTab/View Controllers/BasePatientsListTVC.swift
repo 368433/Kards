@@ -8,10 +8,11 @@
 
 import UIKit
 
-class BasePatientsListTVC: UITableViewController, Storyboarded{
+class BasePatientsListTVC: UIViewController, Storyboarded{
 
     var nib = UINib(nibName: BasePatientTableViewCell.nibName, bundle: nil)
     var reuseID = BasePatientTableViewCell.reuseID
+    var tableView: UITableView!
     
     
     weak var coordinator: PatientsCoordinator?
@@ -28,6 +29,16 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let barHeight: CGFloat = UIApplication.shared.statusBarFrame.size.height
+        let displayWidth: CGFloat = self.view.frame.width
+        let displayHeight: CGFloat = self.view.frame.height
+        
+        tableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
+        tableView.register(nib, forCellReuseIdentifier: reuseID)
+        tableView.dataSource = self
+        tableView.delegate = self
+        self.view.addSubview(tableView)
+        
         self.title = "Patients database"
         self.navigationController?.navigationBar.prefersLargeTitles = false
         
@@ -39,7 +50,7 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
         model.resultController.delegate = resultsControllerDelegate
         
         
-        self.tableView.register(nib, forCellReuseIdentifier: reuseID)
+//        self.tableView.register(nib, forCellReuseIdentifier: reuseID)
         self.tableView.tableFooterView = UIView(frame: .zero)
         self.tableView.rowHeight = UITableView.automaticDimension
         
@@ -61,18 +72,24 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
     @objc func addNew(){
         coordinator?.showPatientForm(existingPatient: nil, list: nil)
     }
+
+}
+
+//**
+//MARK: Table DATASOURCE AND DELEGATE
+extension BasePatientsListTVC: UITableViewDelegate, UITableViewDataSource{
     
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return model.resultController.sections?.count ?? 0
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.resultController.sections![section].numberOfObjects
     }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath) as! BasePatientTableViewCell
         
@@ -82,12 +99,14 @@ class BasePatientsListTVC: UITableViewController, Storyboarded{
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        coordinator?.showDetailedPatientView(for: model?.resultController.object(at: indexPath))
+    
+    //MARK: - Table view delegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //        coordinator?.showDetailedPatientView(for: model?.resultController.object(at: indexPath))
         coordinator?.showDetailedPatientView2(for: model.resultController.object(at: indexPath))
     }
 }
-
 //extension BasePatientsListTVC{
 //    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
 //        let cell = self.tableView.cellForRow(at: indexPath) as? PatientTableViewCell

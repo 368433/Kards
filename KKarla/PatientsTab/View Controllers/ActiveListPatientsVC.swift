@@ -21,7 +21,11 @@ class ActiveListPatientsVC: BasePatientsListTVC {
     var headerFrame = CGRect()
     var headerView = UIView()
     
-    let backgroundLayer = Gradients.aboveTheSky.layer
+//    let backgroundLayer = Gradients.frozenDreams.layer
+//    let backgroundLayer = Gradients.cloudyKnoxville.layer
+//    let backgroundLayer = Gradients.saintPetersburg.layer
+//    let backgroundLayer = Gradients.freshMilk.layer
+    let backgroundLayer = Gradients.softGrass.layer
     
 //    let menuItems = ["Most Popular", "Latest", "Trending", "Nearest", "Top Picks"]
 //    var menuView: BTNavigationDropdownMenu!
@@ -59,9 +63,8 @@ class ActiveListPatientsVC: BasePatientsListTVC {
         self.tableView.backgroundColor = .clear
 //        self.tableView.layer.insertSublayer(backgroundLayer, at: 0)
 //        print(self.view.layer.sublayers)
-//        self.view.layer.insertSublayer(backgroundLayer, at: 0)
-        print(self.tableView.superclass)
-        self.tableView.superview?.layer.mask = backgroundLayer
+        self.view.layer.insertSublayer(backgroundLayer, at: 0)
+        
         self.headerFrame = CGRect(x: 0, y: 0, width: super.view.frame.width, height: 50)
         self.headerView = UIView(frame:headerFrame )
         self.tableView.tableHeaderView = headerView
@@ -105,7 +108,7 @@ class ActiveListPatientsVC: BasePatientsListTVC {
         backgroundLayer.frame = self.tableView.superview?.bounds ?? CGRect.null
     }
     
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let thisPatient = self.model.resultController.object(at: indexPath)
         return astSegment.swipeActions(thisPatient: thisPatient, activeList: activeList)
     }

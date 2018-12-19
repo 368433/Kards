@@ -31,6 +31,7 @@ class PatientTableViewCell: UITableViewCell {
     @IBOutlet weak var genderImage: UIImageView!
     
     @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var sideView: UIView!
     
     
     // MARK: other variables:
@@ -53,6 +54,8 @@ class PatientTableViewCell: UITableViewCell {
     }
     
     private func setupCardBackground(){
+//        let sidePattern = UIImage(named: "what-the-hex")
+        self.sideView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "qbkls"))
         self.cardBackgroundView.layer.cornerRadius = 10
         self.cardBackgroundView.layer.masksToBounds = true
         self.cardBackgroundView.layer.borderWidth = 0.5
