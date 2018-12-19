@@ -35,6 +35,11 @@ class PatientsCoordinator: Coordinator {
         navigationController.pushViewController(patientsListVC, animated: true)
     }
 
+    func showPatients2(for ClinicalList: ClinicalList){
+        let patientsListVC = ActiveListPatientsVC(ClinicalList: ClinicalList)
+        patientsListVC.coordinator = self
+        navigationController.present(patientsListVC.navCont, animated: true)
+    }
     
     func showAllPatients(predicate: NSPredicate?) {
         let patientListVC = AllPatientsListVC()
@@ -93,8 +98,8 @@ class PatientsCoordinator: Coordinator {
     }
     
     func showPatientForm(existingPatient: Patient?, list: ClinicalList? = nil, delegate: PatientFormDelegate? = nil){
-        let newPatientForm = PatientForm(existingPatient: existingPatient)
-        if let list = list {newPatientForm.listToLink = list}
+        let newPatientForm = PatientForm(existingPatient: existingPatient, listToLink: list)
+//        if let list = list {newPatientForm.listToLink = list}
         if let delegate = delegate {newPatientForm.delegate = delegate}
         presentDataForm(for: newPatientForm)
     }

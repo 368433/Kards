@@ -23,9 +23,9 @@ class ActiveListPatientsVC: BasePatientsListTVC {
     
 //    let backgroundLayer = Gradients.frozenDreams.layer
 //    let backgroundLayer = Gradients.cloudyKnoxville.layer
-//    let backgroundLayer = Gradients.saintPetersburg.layer
+    let backgroundLayer = Gradients.saintPetersburg.layer
 //    let backgroundLayer = Gradients.freshMilk.layer
-    let backgroundLayer = Gradients.softGrass.layer
+//    let backgroundLayer = Gradients.softGrass.layer
     
 //    let menuItems = ["Most Popular", "Latest", "Trending", "Nearest", "Top Picks"]
 //    var menuView: BTNavigationDropdownMenu!
@@ -33,11 +33,13 @@ class ActiveListPatientsVC: BasePatientsListTVC {
     lazy var segmentedControl: SJFluidSegmentedControl = {
         [unowned self] in
         // Setup the frame
-        let segmentedControl = SJFluidSegmentedControl(frame: CGRect(x: 0, y: 15, width: headerFrame.width, height: 30))
+        let segmentedControl = SJFluidSegmentedControl(frame: CGRect(x: 0, y: 0, width: headerFrame.width, height: 30))
         segmentedControl.textFont = .systemFont(ofSize: 12, weight: UIFont.Weight.semibold)
         segmentedControl.dataSource = self
         return segmentedControl
         }()
+    
+    let navCont = UINavigationController()
     
     init(ClinicalList: ClinicalList){
         self.activeList = ClinicalList
@@ -46,15 +48,26 @@ class ActiveListPatientsVC: BasePatientsListTVC {
         
         self.nib = UINib(nibName: PatientTableViewCell.nibName, bundle: nil)
         self.reuseID = PatientTableViewCell.reuseID
+        
+        self.navCont.pushViewController(self, animated: false)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(dismissForm))
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        
     }
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc func dismissForm(){
+        dismiss(animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
+        self.title = activeList.clinicalListTitle
 //        self.view.layer.addSublayer(backgroundLayer)
 //        let bgView = UIView(frame: self.view.frame)
 //        bgView.layer.addSublayer(backgroundLayer)
@@ -63,14 +76,23 @@ class ActiveListPatientsVC: BasePatientsListTVC {
         self.tableView.backgroundColor = .clear
 //        self.tableView.layer.insertSublayer(backgroundLayer, at: 0)
 //        print(self.view.layer.sublayers)
-        self.view.layer.insertSublayer(backgroundLayer, at: 0)
         
-        self.headerFrame = CGRect(x: 0, y: 0, width: super.view.frame.width, height: 50)
+        self.tableView.register(nib, forCellReuseIdentifier: reuseID)
+        
+        self.headerFrame = CGRect(x: 0, y: 0, width: super.view.frame.width, height: 30)
         self.headerView = UIView(frame:headerFrame )
-        self.tableView.tableHeaderView = headerView
+//        self.tableView.tableHeaderView = headerView
         self.headerView.addSubview(segmentedControl)
+        let testView = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 100))
+        testView.backgroundColor = .black
+        mainStack.addArrangedSubview(testView)
+        
+        print(self.mainStack.arrangedSubviews.count)
+//        self.mainStack.insertArrangedSubview(headerView, at: 0)
+        
         self.tableView.separatorStyle = .none
         
+        self.view.layer.insertSublayer(backgroundLayer, at: 0)
         
 //        view.addSubview(segmentedControl)
 //        self.headerView = segmentedControl
@@ -93,13 +115,13 @@ class ActiveListPatientsVC: BasePatientsListTVC {
         // Make the search bar visible when scrolling - default is false
         navigationItem.hidesSearchBarWhenScrolling = true
         
-        self.tableView.register(nib, forCellReuseIdentifier: reuseID)
+        
        
 //        self.kSeg.parentView = headerView
 //        self.kSeg.addTarget(self, action: #selector(updateModel), for: .valueChanged)
         
         searchModule = PatientSearcher(requiredPredicate: self.searchCriteria, ptCoordinator: self.coordinator)
-        setupSearch()
+//        setupSearch()
     }
     
     override func viewDidLayoutSubviews() {
@@ -119,9 +141,11 @@ class ActiveListPatientsVC: BasePatientsListTVC {
         return cell
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        return
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        coordinator?.showDetailedPatientView2(for: model.resultController.object(at: indexPath))
+        let detailedForm = PatientForm2(existingPatient: model.resultController.object(at: indexPath))
+        navCont.present(detailedForm.navCont, animated: true)
+    }
     
     @objc override func addNew(){
         let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -129,9 +153,13 @@ class ActiveListPatientsVC: BasePatientsListTVC {
             // show search window
         })
         ac.addAction(UIAlertAction(title: "New Patient", style: .default) { _ in
-            self.coordinator?.showPatientForm(existingPatient: nil, list: self.activeList)
+//            self.coordinator?.showPatientForm(existingPatient: nil, list: self.activeList)
+            let newPatientForm = PatientForm(existingPatient: nil, listToLink: self.activeList)
+            newPatientForm.coordinator = self.coordinator
+            self.navCont.present(newPatientForm.navCont, animated: true)
         })
-        coordinator?.showAlertController(for: ac)
+//        coordinator?.showAlertController(for: ac)
+        navCont.present(ac, animated: true)
     }
     
     @objc private func updateModel(sender: UISegmentedControl){

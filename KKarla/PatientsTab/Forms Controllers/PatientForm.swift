@@ -42,8 +42,9 @@ class PatientForm: KarlaForm {
     var quickParser: QuickParser!
     var delegate: PatientFormDelegate?
     
-    init(existingPatient: Patient?){
+    init(existingPatient: Patient?, listToLink: ClinicalList?){
         self.existingPatient = existingPatient
+        self.listToLink = listToLink
         super.init(nibName: nil, bundle: nil)
     }
     

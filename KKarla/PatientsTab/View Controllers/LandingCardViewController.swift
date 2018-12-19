@@ -113,7 +113,7 @@ extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let list = model?.resultController.object(at: indexPath) {
-            coordinator?.showPatients(for: list)
+            coordinator?.showPatients2(for: list)
             self.listsTableView.cellForRow(at: indexPath)?.isSelected = false
         }
     }
