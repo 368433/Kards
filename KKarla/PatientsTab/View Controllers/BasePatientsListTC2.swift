@@ -8,13 +8,16 @@
 
 import UIKit
 
-class BasePatientsListTVC: UIViewController, Storyboarded{
+class BasePatientsListTC2: UIViewController, Storyboarded{
 
     var nib = UINib(nibName: BasePatientTableViewCell.nibName, bundle: nil)
     var reuseID = BasePatientTableViewCell.reuseID
-    var tableView: UITableView!
-    var mainStack: UIStackView!
-    
+//    var tableView: UITableView!
+//    var mainStack: UIStackView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var mainStack: UIStackView!
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var segmentedView: UIView!
     
     
     weak var coordinator: PatientsCoordinator?
@@ -31,18 +34,20 @@ class BasePatientsListTVC: UIViewController, Storyboarded{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.segmentedView.backgroundColor = .clear
+        self.topView.backgroundColor = .clear
 //        let barHeight: CGFloat = UIApplication.shared.statusBarFrame.size.height
-        let displayWidth: CGFloat = self.view.frame.width
-        let displayHeight: CGFloat = self.view.frame.height
+//        let displayWidth: CGFloat = self.view.frame.width
+//        let displayHeight: CGFloat = self.view.frame.height
         
-        mainStack = UIStackView(frame: CGRect(x: 0, y: 0, width: displayWidth, height: displayHeight))
-        mainStack.axis = .vertical
-        mainStack.alignment = .fill
-        mainStack.distribution = .fill
+//        mainStack = UIStackView(frame: CGRect(x: 0, y: 0, width: displayWidth, height: displayHeight))
+//        mainStack.axis = .vertical
+//        mainStack.alignment = .fill
+//        mainStack.distribution = .fill
         
 //        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: displayWidth, height: displayHeight - barHeight))
-        tableView = UITableView()
-        mainStack.addArrangedSubview(tableView)
+//        tableView = UITableView()
+//        mainStack.addArrangedSubview(tableView)
         
         
 //        tableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
@@ -50,7 +55,7 @@ class BasePatientsListTVC: UIViewController, Storyboarded{
         tableView.dataSource = self
         tableView.delegate = self
 //        self.view.addSubview(tableView)
-        self.view.addSubview(mainStack)
+//        self.view.addSubview(mainStack)
         
 //        self.title = "Patients database"
         self.navigationController?.navigationBar.prefersLargeTitles = false
@@ -91,7 +96,7 @@ class BasePatientsListTVC: UIViewController, Storyboarded{
 
 //**
 //MARK: Table DATASOURCE AND DELEGATE
-extension BasePatientsListTVC: UITableViewDelegate, UITableViewDataSource{
+extension BasePatientsListTC2: UITableViewDelegate, UITableViewDataSource{
     
     // MARK: - Table view data source
     

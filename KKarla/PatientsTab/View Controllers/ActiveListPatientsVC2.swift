@@ -12,7 +12,7 @@ import SJFluidSegmentedControl
 
 //import BTNavigationDropdownMenu
 
-class ActiveListPatientsVC: BasePatientsListTVC {
+class ActiveListPatientsVC2: BasePatientsListTC2 {
     
     var activeList: ClinicalList
     var astSegment: ASTSegment = .Active
@@ -43,7 +43,8 @@ class ActiveListPatientsVC: BasePatientsListTVC {
     
     init(ClinicalList: ClinicalList){
         self.activeList = ClinicalList
-        super.init(nibName:nil, bundle:nil)
+        super.init(nibName: "PatientListView", bundle:nil)
+        
         self.searchCriteria = astSegment.searchPredicate(clinicalList: activeList)
         
         self.nib = UINib(nibName: PatientTableViewCell.nibName, bundle: nil)
@@ -83,12 +84,14 @@ class ActiveListPatientsVC: BasePatientsListTVC {
         self.headerView = UIView(frame:headerFrame )
 //        self.tableView.tableHeaderView = headerView
         self.headerView.addSubview(segmentedControl)
-        let testView = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 100))
-        testView.backgroundColor = .black
-        mainStack.addArrangedSubview(testView)
+//        let testView = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 100))
+//        testView.backgroundColor = .black
+//        mainStack.addArrangedSubview(testView)
         
 //        print(self.mainStack.arrangedSubviews.count)
 //        self.mainStack.insertArrangedSubview(headerView, at: 0)
+        
+        self.segmentedView.addSubview(headerView)
         
         self.tableView.separatorStyle = .none
         
@@ -169,7 +172,7 @@ class ActiveListPatientsVC: BasePatientsListTVC {
     }
 }
 
-extension ActiveListPatientsVC: SJFluidSegmentedControlDataSource{
+extension ActiveListPatientsVC2: SJFluidSegmentedControlDataSource{
     func numberOfSegmentsInSegmentedControl(_ segmentedControl: SJFluidSegmentedControl) -> Int {
         return 4
     }

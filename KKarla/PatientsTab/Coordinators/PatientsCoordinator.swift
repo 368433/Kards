@@ -36,7 +36,7 @@ class PatientsCoordinator: Coordinator {
     }
 
     func showPatients2(for ClinicalList: ClinicalList){
-        let patientsListVC = ActiveListPatientsVC(ClinicalList: ClinicalList)
+        let patientsListVC = ActiveListPatientsVC2(ClinicalList: ClinicalList)
         patientsListVC.coordinator = self
         navigationController.present(patientsListVC.navCont, animated: true)
     }
