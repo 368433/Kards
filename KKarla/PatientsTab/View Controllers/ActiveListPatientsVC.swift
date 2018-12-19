@@ -54,7 +54,11 @@ class ActiveListPatientsVC: BasePatientsListTVC {
 //        self.view.layer.addSublayer(backgroundLayer)
         let bgView = UIView(frame: self.tableView.frame)
         bgView.layer.addSublayer(backgroundLayer)
+        let bgImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        bgImage.layer.addSublayer(backgroundLayer)
+        
 //        self.tableView.backgroundView = bgView
+//        self.tableView.backgroundColor = .clear
 //        self.tableView.layer.insertSublayer(backgroundLayer, at: 0)
 //        print(self.view.layer.sublayers)
         self.headerFrame = CGRect(x: 0, y: 0, width: super.view.frame.width, height: 50)

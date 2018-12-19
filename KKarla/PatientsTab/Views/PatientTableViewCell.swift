@@ -55,11 +55,11 @@ class PatientTableViewCell: UITableViewCell {
     private func setupCardBackground(){
         self.cardBackgroundView.layer.cornerRadius = 10
         self.cardBackgroundView.layer.masksToBounds = true
-//        self.cardBackgroundView.layer.borderWidth = 0.5
-//        self.cardBackgroundView.layer.borderColor = UIColor.lightGray.cgColor
-        self.cardBackgroundView.layer.shadowOpacity = 0.5
-//        self.cardBackgroundView.layer.shadowRadius = 1
-        self.cardBackgroundView.layer.shadowOffset = CGSize(width: 5, height: 2)
+        self.cardBackgroundView.layer.borderWidth = 0.5
+        self.cardBackgroundView.layer.borderColor = UIColor.lightGray.cgColor
+//        self.cardBackgroundView.layer.shadowOpacity = 1
+//        self.cardBackgroundView.layer.shadowRadius = 5
+//        self.cardBackgroundView.layer.shadowOffset = CGSize(width: 5, height: 2)
         
 //        self.mainView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "qbkls"))
     }
