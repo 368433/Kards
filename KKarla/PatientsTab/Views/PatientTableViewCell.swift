@@ -12,7 +12,7 @@ import CoreData
 class PatientTableViewCell: UITableViewCell {
     
     // MARK: IBOUTLETS
-    @IBOutlet weak var mainBackgroundView: UIView!
+    @IBOutlet weak var cardBackgroundView: UIView!
     //    @IBOutlet weak var UserImageIcon: UIImageView!
     @IBOutlet weak var actBedNumber: UILabel!
     @IBOutlet weak var patientNameLabel: UILabel!
@@ -37,12 +37,14 @@ class PatientTableViewCell: UITableViewCell {
     var patient: Patient?
     var coordinator : PatientsCoordinator?
     
-    static var nibName = "PatientTableCell5"
+    static var nibName = "PatientTableCell6"
     static var reuseID = "cell"
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = UITableViewCell.SelectionStyle.none
+        setupCardBackground()
+        self.backgroundColor = .clear
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -50,12 +52,16 @@ class PatientTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    private func setupBackground(){
-        self.mainBackgroundView.layer.cornerRadius = 5.0
-        self.mainBackgroundView.layer.masksToBounds = true
-        self.mainBackgroundView.layer.borderWidth = 0.5
-        self.mainBackgroundView.layer.borderColor = UIColor.lightGray.cgColor
-        self.mainView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "qbkls"))
+    private func setupCardBackground(){
+        self.cardBackgroundView.layer.cornerRadius = 10
+        self.cardBackgroundView.layer.masksToBounds = true
+//        self.cardBackgroundView.layer.borderWidth = 0.5
+//        self.cardBackgroundView.layer.borderColor = UIColor.lightGray.cgColor
+        self.cardBackgroundView.layer.shadowOpacity = 0.5
+//        self.cardBackgroundView.layer.shadowRadius = 1
+        self.cardBackgroundView.layer.shadowOffset = CGSize(width: 5, height: 2)
+        
+//        self.mainView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "qbkls"))
     }
     
     func configure(patient: Patient, coordinator: PatientsCoordinator?){

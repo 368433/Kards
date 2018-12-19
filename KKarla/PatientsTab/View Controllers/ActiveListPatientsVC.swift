@@ -21,6 +21,8 @@ class ActiveListPatientsVC: BasePatientsListTVC {
     var headerFrame = CGRect()
     var headerView = UIView()
     
+    let backgroundLayer = Gradients.amourAmour.layer
+    
 //    let menuItems = ["Most Popular", "Latest", "Trending", "Nearest", "Top Picks"]
 //    var menuView: BTNavigationDropdownMenu!
     
@@ -49,10 +51,17 @@ class ActiveListPatientsVC: BasePatientsListTVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        self.view.layer.addSublayer(backgroundLayer)
+        let bgView = UIView(frame: self.tableView.frame)
+        bgView.layer.addSublayer(backgroundLayer)
+//        self.tableView.backgroundView = bgView
+//        self.tableView.layer.insertSublayer(backgroundLayer, at: 0)
+//        print(self.view.layer.sublayers)
         self.headerFrame = CGRect(x: 0, y: 0, width: super.view.frame.width, height: 50)
         self.headerView = UIView(frame:headerFrame )
         self.tableView.tableHeaderView = headerView
         self.headerView.addSubview(segmentedControl)
+        self.tableView.separatorStyle = .none
         
 //        view.addSubview(segmentedControl)
 //        self.headerView = segmentedControl
@@ -82,6 +91,11 @@ class ActiveListPatientsVC: BasePatientsListTVC {
         
         searchModule = PatientSearcher(requiredPredicate: self.searchCriteria, ptCoordinator: self.coordinator)
         setupSearch()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        backgroundLayer.frame = view.bounds
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
