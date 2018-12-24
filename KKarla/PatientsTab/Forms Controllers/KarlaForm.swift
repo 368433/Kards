@@ -44,7 +44,7 @@ class KarlaForm: FormViewController, Storyboarded, UIImagePickerControllerDelega
         
 //        self.navigationController = UINavigationController()
 //        self.tableView.backgroundColor = .white
-        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.prefersLargeTitles = true
         saveButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(saveEntries))
 //        let crossCancelButton = UIBarButtonItem(image: UIImage(named: "icons8-multiply"), style: .plain, target: self, action: #selector(dismissForm))
 //        let crossCancel = UIButton(type: .custom)

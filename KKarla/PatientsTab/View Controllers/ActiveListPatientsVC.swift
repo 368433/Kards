@@ -49,8 +49,8 @@ class ActiveListPatientsVC: BasePatientsListTVC {
         self.nib = UINib(nibName: PatientTableViewCell.nibName, bundle: nil)
         self.reuseID = PatientTableViewCell.reuseID
         
-        self.navCont.pushViewController(self, animated: false)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(dismissForm))
+        //self.navCont.pushViewController(self, animated: false)
+        //self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(dismissForm))
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         
     }

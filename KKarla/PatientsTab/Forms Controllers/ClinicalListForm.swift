@@ -63,4 +63,11 @@ class ClinicalListForm: KarlaForm {
         dataCoordinator.persistentContainer.viewContext.insert(newPatientList)
         return newPatientList
     }
+    
+    func weeks(in year: Int) -> Int {
+        let cal = Calendar(identifier: .iso8601)
+        let date = DateComponents(calendar: cal, year: year, month: 2, day: 1).date!
+        let weeksRange = cal.range(of: .weekOfYear, in: .yearForWeekOfYear, for: date)!
+        return weeksRange.count
+    }
 }

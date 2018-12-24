@@ -42,16 +42,25 @@ class PatientsCoordinator: Coordinator {
         navigationController.present(patientsListVC.navCont, animated: true)
     }
     
-    func showAllPatients(predicate: NSPredicate?) {
+    func showAllPatients(predicate: NSPredicate?, vcTitle: String?) {
         let patientListVC = AllPatientsListVC()
         patientListVC.searchCriteria = predicate
         patientListVC.coordinator = self
+        patientListVC.title = vcTitle
         navigationController.pushViewController(patientListVC, animated: true)
     }
 
     func showArchivedWorklists() {
         let wlVC = BaseWorkListsListTVC() //.instantiate()
         wlVC.coordinator = self
+        wlVC.predicate = NSPredicate(format: "isActive == false")
+        navigationController.pushViewController(wlVC, animated: true)
+    }
+    
+    func showWorklists(filter: WorkListStatus) {
+        let wlVC = BaseWorkListsListTVC()
+        wlVC.coordinator = self
+        wlVC.filter = filter
         navigationController.pushViewController(wlVC, animated: true)
     }
     

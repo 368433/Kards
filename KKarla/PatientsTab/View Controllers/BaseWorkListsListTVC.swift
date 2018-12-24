@@ -16,12 +16,14 @@ class BaseWorkListsListTVC: UITableViewController, Storyboarded{
     var predicate: NSPredicate?
     var dataCoordinator = AppDelegate.dataCoordinator
     var resultsControllerDelegate: TableViewFetchResultAdapter!
+    var filter: WorkListStatus?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Archived Lists"
-        self.predicate = NSPredicate(format: "isActive == false")
+        self.title = filter?.typeDescription
+        self.predicate = filter?.filterPredicate
+//        self.predicate = NSPredicate(format: "isActive == false")
         model = ClinicalListModel(searchPredicate: predicate)
         resultsControllerDelegate = TableViewFetchResultAdapter(tableView: self.tableView)
         model.resultController.delegate = resultsControllerDelegate

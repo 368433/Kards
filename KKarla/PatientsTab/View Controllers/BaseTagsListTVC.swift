@@ -21,6 +21,7 @@ class BaseTagsListTVC: UITableViewController {
         super.viewDidLoad()
 
         self.title = "All tags"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         model = TagsListModel(searchPredicate: predicate)
         resultsControllerDelegate = TableViewFetchResultAdapter(tableView: self.tableView)
         model.resultController.delegate = resultsControllerDelegate
@@ -60,7 +61,7 @@ class BaseTagsListTVC: UITableViewController {
                                   modifier: .direct,
                                   type: .contains,
                                   options: [.caseInsensitive, .diacriticInsensitive])
-        
-        coordinator?.showAllPatients(predicate: ComparisonPredicate)
+        let vcTitle = model.resultController.object(at: indexPath).tagTitle ?? "n/a"
+        coordinator?.showAllPatients(predicate: ComparisonPredicate, vcTitle: "Patients :: \(vcTitle)")
     }
 }

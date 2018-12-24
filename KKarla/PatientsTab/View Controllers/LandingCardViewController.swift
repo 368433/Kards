@@ -78,7 +78,7 @@ extension LandingCardViewController {
     }
     
     @objc func showAllPatients(){
-        coordinator?.showAllPatients(predicate: nil)
+        coordinator?.showAllPatients(predicate: nil, vcTitle: "boo")
     }
     @objc func showAllTags(){
         coordinator?.showTagsListsTVC()

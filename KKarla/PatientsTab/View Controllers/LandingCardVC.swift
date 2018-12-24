@@ -15,6 +15,7 @@ class LandingCardVC: UIViewController, Storyboarded{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var starredView: UIView!
     @IBOutlet weak var toCallView: UIView!
+    @IBOutlet weak var contributionStack: UIStackView!
     
     weak var coordinator: PatientsCoordinator?
     var dataCoordinator = AppDelegate.dataCoordinator
@@ -29,9 +30,32 @@ class LandingCardVC: UIViewController, Storyboarded{
         tableView.delegate = self
         tableView.rowHeight = 55
         
-        setupSticker(view: starredView, backgroundLayer: Gradients.springWarmth.layer)
-        setupSticker(view: toCallView, backgroundLayer: Gradients.springWarmth.layer)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         
+//        setupSticker(view: starredView, backgroundLayer: Gradients.springWarmth.layer)
+//        setupSticker(view: toCallView, backgroundLayer: Gradients.springWarmth.layer)
+        
+        for _ in 0..<13 {
+            let monthStack = UIStackView()
+            monthStack.axis = .vertical
+            monthStack.alignment = .top
+            monthStack.spacing = 4
+            contributionStack.addArrangedSubview(monthStack)
+            for _ in 0..<4 {
+                let weekStack = UIStackView()
+                weekStack.axis = .horizontal
+                weekStack.spacing = 1
+                weekStack.alignment = .top
+                monthStack.addArrangedSubview(weekStack)
+                for _ in 0..<7 {
+                    let testview = UIView()
+                    testview.widthAnchor.constraint(equalToConstant: 3).isActive = true
+                    testview.heightAnchor.constraint(equalToConstant: 4).isActive = true
+                    testview.backgroundColor = UIColor.groupTableViewBackground
+                    weekStack.addArrangedSubview(testview)
+                }
+            }
+        }
     }
     
     private func setupSticker(view: UIView, backgroundLayer: CALayer?){
@@ -39,15 +63,6 @@ class LandingCardVC: UIViewController, Storyboarded{
         view.layer.borderColor = UIColor.lightGray.cgColor
         view.layer.borderWidth = 1
         view.layer.masksToBounds = true
-//        if let bg = backgroundLayer {
-//            backgroundLayer!.frame = view.bounds
-//            view.layer.insertSublayer(bg, at: 0)
-//        }
-//        view.layer.shadowColor = UIColor.darkGray.cgColor
-//        view.layer.shadowOffset = CGSize(width: 2, height: 5)
-//        view.layer.shadowRadius = 5
-//        view.layer.shadowOpacity = 0.2
-//        view.layer.shadowPath = UIBezierPath(rect: view.bounds).cgPath
     }
 
 }
@@ -68,13 +83,14 @@ extension LandingCardVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch model[indexPath.row] {
         case .AllPatients:
-            coordinator?.showAllPatients(predicate: nil)
+            coordinator?.showAllPatients(predicate: nil, vcTitle: "All Patients")
         case .TagsList:
             coordinator?.showTagsListsTVC()
         case .ArchivedWorklists:
-            coordinator?.showArchivedWorklists()
+//            coordinator?.showArchivedWorklists()
+            coordinator?.showWorklists(filter: .Archived)
         case .ActiveWorklists:
-            break
+            coordinator?.showWorklists(filter: .Active)
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }

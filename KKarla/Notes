@@ -14,3 +14,15 @@ capture precropped reduced size image for  patient card
 later:
 encrypt patient NAM
 optimize database
+
+
+
+//        if let bg = backgroundLayer {
+//            backgroundLayer!.frame = view.bounds
+//            view.layer.insertSublayer(bg, at: 0)
+//        }
+//        view.layer.shadowColor = UIColor.darkGray.cgColor
+//        view.layer.shadowOffset = CGSize(width: 2, height: 5)
+//        view.layer.shadowRadius = 5
+//        view.layer.shadowOpacity = 0.2
+//        view.layer.shadowPath = UIBezierPath(rect: view.bounds).cgPath

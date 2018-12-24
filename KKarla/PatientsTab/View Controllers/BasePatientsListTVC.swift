@@ -50,8 +50,8 @@ class BasePatientsListTVC: UIViewController, Storyboarded{
 //        self.view.addSubview(tableView)
         self.view.addSubview(mainStack)
         
-//        self.title = "Patients database"
-        self.navigationController?.navigationBar.prefersLargeTitles = false
+//        self.title = "All Patients"
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
         
         // Make the search bar visible when scrolling - default is false
         navigationItem.hidesSearchBarWhenScrolling = false

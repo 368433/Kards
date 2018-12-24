@@ -45,16 +45,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="YkN-Cb-WUb">
-                                <rect key="frame" x="12" y="40" width="351" height="558"/>
+                                <rect key="frame" x="12" y="100" width="351" height="505"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vJD-6t-VaN">
-                                        <rect key="frame" x="0.0" y="0.0" width="351" height="110"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="110" id="prY-h0-b5h"/>
-                                        </constraints>
-                                    </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RTX-gl-ae6">
-                                        <rect key="frame" x="0.0" y="145" width="351" height="220"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="351" height="220"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="220" id="SRb-Jd-5er"/>
@@ -112,7 +106,7 @@
                                         </prototypes>
                                     </tableView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="cIC-Vx-WMe">
-                                        <rect key="frame" x="25.5" y="400" width="300" height="158"/>
+                                        <rect key="frame" x="25.5" y="255" width="300" height="135"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="trr-Ym-1RL">
                                                 <rect key="frame" x="0.0" y="0.0" width="125" height="135"/>
@@ -174,6 +168,12 @@
                                             </view>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="vJD-6t-VaN">
+                                        <rect key="frame" x="150.5" y="425" width="50" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="prY-h0-b5h"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="RTX-gl-ae6" firstAttribute="width" secondItem="YkN-Cb-WUb" secondAttribute="width" id="67a-Lb-IBH"/>
@@ -182,9 +182,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="KkN-Cz-WIM" firstAttribute="bottom" secondItem="YkN-Cb-WUb" secondAttribute="bottom" constant="20" id="2Nn-y4-jpg"/>
                             <constraint firstItem="YkN-Cb-WUb" firstAttribute="leading" secondItem="KkN-Cz-WIM" secondAttribute="leading" constant="12" id="PyR-Xn-E7X"/>
-                            <constraint firstItem="YkN-Cb-WUb" firstAttribute="top" secondItem="KkN-Cz-WIM" secondAttribute="top" constant="20" id="StJ-5G-o3X"/>
+                            <constraint firstItem="YkN-Cb-WUb" firstAttribute="top" secondItem="KkN-Cz-WIM" secondAttribute="top" constant="80" id="StJ-5G-o3X"/>
                             <constraint firstItem="KkN-Cz-WIM" firstAttribute="trailing" secondItem="YkN-Cb-WUb" secondAttribute="trailing" constant="12" id="vdo-6p-CzS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KkN-Cz-WIM"/>
@@ -192,6 +191,7 @@
                     <tabBarItem key="tabBarItem" title="Patients" image="hospital-3" id="jRp-hL-FFN"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="contributionStack" destination="vJD-6t-VaN" id="WEc-wc-lwo"/>
                         <outlet property="starredView" destination="trr-Ym-1RL" id="T7e-eJ-Ds0"/>
                         <outlet property="tableView" destination="RTX-gl-ae6" id="CLx-Zd-pFg"/>
                         <outlet property="toCallView" destination="Y0p-n7-zwc" id="Z6p-jY-S5E"/>
