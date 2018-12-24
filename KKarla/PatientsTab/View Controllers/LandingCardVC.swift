@@ -16,25 +16,53 @@ class LandingCardVC: UIViewController, Storyboarded{
     @IBOutlet weak var starredView: UIView!
     @IBOutlet weak var toCallView: UIView!
     @IBOutlet weak var contributionStack: UIStackView!
+    @IBOutlet weak var tableCardView: UIView!
+    @IBOutlet weak var contributionCardView: UIView!
     
     weak var coordinator: PatientsCoordinator?
     var dataCoordinator = AppDelegate.dataCoordinator
     var model: [LandingCardViewModel] = [.AllPatients, .TagsList, .ArchivedWorklists, .ActiveWorklists]
+    let mainBgGradient = Gradients.frozenDreams.layer
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "Patients"
+        self.view.layer.insertSublayer(mainBgGradient, at: 0)
         self.navigationController?.navigationBar.prefersLargeTitles = true
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 55
+        tableView.rowHeight = 44
+        tableView.tableFooterView = UIView()
+        tableView.isScrollEnabled = false
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         
+        setupSticker(view: tableCardView, backgroundLayer: nil)
+        setupSticker(view: contributionCardView, backgroundLayer: nil)
 //        setupSticker(view: starredView, backgroundLayer: Gradients.springWarmth.layer)
 //        setupSticker(view: toCallView, backgroundLayer: Gradients.springWarmth.layer)
         
+        layoutGrid()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        mainBgGradient.frame = self.view.bounds
+    }
+    
+    private func setupSticker(view: UIView, backgroundLayer: CALayer?){
+//        view.layer.cornerRadius = 5
+        view.layer.borderColor = UIColor.lightGray.cgColor
+//        view.layer.borderWidth = 1
+//        view.layer.masksToBounds = true
+        view.layer.shadowColor = UIColor.darkGray.cgColor
+        view.layer.shadowOffset = CGSize(width: 2, height: 5)
+        view.layer.shadowRadius = 5
+        view.layer.shadowOpacity = 0.2
+    }
+    
+    private func layoutGrid(){
+        contributionStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
         for _ in 0..<13 {
             let monthStack = UIStackView()
             monthStack.axis = .vertical
@@ -49,20 +77,13 @@ class LandingCardVC: UIViewController, Storyboarded{
                 monthStack.addArrangedSubview(weekStack)
                 for _ in 0..<7 {
                     let testview = UIView()
-                    testview.widthAnchor.constraint(equalToConstant: 3).isActive = true
-                    testview.heightAnchor.constraint(equalToConstant: 4).isActive = true
+                    testview.widthAnchor.constraint(equalToConstant: 7).isActive = true
+                    testview.heightAnchor.constraint(equalToConstant: 10).isActive = true
                     testview.backgroundColor = UIColor.groupTableViewBackground
                     weekStack.addArrangedSubview(testview)
                 }
             }
         }
-    }
-    
-    private func setupSticker(view: UIView, backgroundLayer: CALayer?){
-        view.layer.cornerRadius = 5
-        view.layer.borderColor = UIColor.lightGray.cgColor
-        view.layer.borderWidth = 1
-        view.layer.masksToBounds = true
     }
 
 }
