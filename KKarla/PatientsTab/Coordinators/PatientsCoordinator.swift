@@ -19,7 +19,8 @@ class PatientsCoordinator: Coordinator {
     }
     
     func start() {
-        let landingCardVC = LandingCardViewController.instantiate()
+//        let landingCardVC = LandingCardViewController.instantiate()
+        let landingCardVC = LandingCardVC.instantiate()
         landingCardVC.coordinator = self
         navigationController.pushViewController(landingCardVC, animated: false)
     }

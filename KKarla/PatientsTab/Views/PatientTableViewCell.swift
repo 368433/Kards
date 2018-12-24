@@ -13,24 +13,18 @@ class PatientTableViewCell: UITableViewCell {
     
     // MARK: IBOUTLETS
     @IBOutlet weak var cardBackgroundView: UIView!
-    //    @IBOutlet weak var UserImageIcon: UIImageView!
     @IBOutlet weak var actBedNumber: UILabel!
     @IBOutlet weak var patientNameLabel: UILabel!
     @IBOutlet weak var patientDetailsLabel: UILabel!
     @IBOutlet weak var tagListStack: UIStackView!
     
     @IBOutlet weak var addActButton: UIButton!
-    @IBOutlet weak var addTagButton: UIButton!
-    @IBOutlet weak var changeBedButton: UIButton!
-//    @IBOutlet weak var actListButton: UIButton!
-//    @IBOutlet weak var editPatientButton: UIButton!
     @IBOutlet weak var diagnosisLabel: UILabel!
     @IBOutlet weak var caseDescriptionLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     
     @IBOutlet weak var genderImage: UIImageView!
     
-    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var sideView: UIView!
     
     
@@ -45,7 +39,7 @@ class PatientTableViewCell: UITableViewCell {
         super.awakeFromNib()
         self.selectionStyle = UITableViewCell.SelectionStyle.none
         setupCardBackground()
-        self.backgroundColor = .clear
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -54,20 +48,19 @@ class PatientTableViewCell: UITableViewCell {
     }
     
     private func setupCardBackground(){
-//        let sidePattern = UIImage(named: "what-the-hex")
+
+        self.backgroundColor = .clear
+
         self.sideView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "qbkls"))
-        self.cardBackgroundView.layer.cornerRadius = 10
+
         self.cardBackgroundView.layer.masksToBounds = true
         self.cardBackgroundView.layer.borderWidth = 0.5
         self.cardBackgroundView.layer.borderColor = UIColor.lightGray.cgColor
-//        self.cardBackgroundView.layer.shadowOpacity = 1
-//        self.cardBackgroundView.layer.shadowRadius = 5
-//        self.cardBackgroundView.layer.shadowOffset = CGSize(width: 5, height: 2)
-        
-//        self.mainView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "qbkls"))
     }
+
     
     func configure(patient: Patient, coordinator: PatientsCoordinator?){
+
         self.patient = patient
         self.coordinator = coordinator
         
@@ -77,6 +70,7 @@ class PatientTableViewCell: UITableViewCell {
     }
     
     private func setupLabels(){
+
         guard let patient = patient else {fatalError("patient not initialized")}
         
         self.patientNameLabel.text = patient.name
@@ -85,18 +79,18 @@ class PatientTableViewCell: UITableViewCell {
         self.ageLabel.text = "\(patient.age)"
         self.actBedNumber.text = patient.activeDiagnosticEpisode?.getLatestAct()?.actBednumber
         
-        if self.patient?.patientGender == "M"{
-            self.genderImage.image = UIImage(named: "icons8-male")
-        } else {
-            self.genderImage.image = UIImage(named: "icons8-female")
+        if let gender = patient.gender {
+            switch gender{
+            case .female:
+                self.genderImage.image = UIImage(named: "icons8-female")
+            case .male:
+                self.genderImage.image = UIImage(named: "icons8-male")
+            }
         }
     }
     
     private func setupButtons(){
         self.addActButton.addTarget(self, action: #selector(showActForm), for: .touchUpInside)
-        //        self.addTagButton.addTarget(self, action: #selector(showTagForm), for: .touchUpInside)
-//        self.editPatientButton.addTarget(self, action: #selector(editPatient), for: .touchUpInside)
-//        self.actListButton.addTarget(self, action: #selector(showActList), for: .touchUpInside)
     }
     
     private func setupTags(){

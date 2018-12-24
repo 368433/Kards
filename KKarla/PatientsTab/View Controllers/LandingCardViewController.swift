@@ -29,9 +29,6 @@ class LandingCardViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.title = "Active Lists"
-        
         let predicate = NSPredicate(format: "isActive == true")
         model = ClinicalListModel(searchPredicate: predicate)
         resultsControllerDelegate = TableViewFetchResultAdapter(tableView: listsTableView)
@@ -42,7 +39,7 @@ class LandingCardViewController: UIViewController, Storyboarded {
         self.listsTableView.emptyDataSetDelegate = self
         self.listsTableView.emptyDataSetSource = self
         setupButtons()
-        setupSearch()
+//        setupSearch()
     }
 }
 
@@ -97,8 +94,6 @@ extension LandingCardViewController {
 extension LandingCardViewController: UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return model?.resultController.sections?.count ?? 0
-        
-//        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

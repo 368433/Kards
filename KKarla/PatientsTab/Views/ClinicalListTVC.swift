@@ -10,6 +10,9 @@ import UIKit
 
 class ClinicalListTVC: UITableViewCell {
     
+    @IBOutlet weak var listTitleLabel: UILabel!
+    @IBOutlet weak var listDescriptionLabel: UILabel!
+    
     static var reuseID = "cell"
     static var nibName = "ClinicalListTVC"
     
@@ -30,10 +33,10 @@ class ClinicalListTVC: UITableViewCell {
 
     func configure(workList: ClinicalList?){
         if let list = workList {
-            self.textLabel?.text = list.clinicalListTitle
+            self.listTitleLabel?.text = list.clinicalListTitle
             let dateCreated = list.clinicalListCreateDate?.dayMonthYear() ?? "Not entered"
             let numbOfPatients = String(list.totalPatients)
-            self.detailTextLabel?.text = "CREATED: " + dateCreated + "   |   Number of Patients: " + numbOfPatients
+            self.listDescriptionLabel?.text = "CREATED: " + dateCreated + "   |   Number of Patients: " + numbOfPatients
         }
     }
 }

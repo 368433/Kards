@@ -15,8 +15,6 @@ class BasePatientsListTVC: UIViewController, Storyboarded{
     var tableView: UITableView!
     var mainStack: UIStackView!
     
-    
-    
     weak var coordinator: PatientsCoordinator?
     var model: PatientListModel!
     var dataCoordinator = AppDelegate.dataCoordinator

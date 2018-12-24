@@ -38,4 +38,16 @@ public class Patient: NSManagedObject {
             return "n/a"
         }
     }
+    
+    var gender: Gender? {
+        if patientGender == "M" { return .male }
+        else if patientGender == "F" { return .female }
+        else { return nil }
+    }
+    
+}
+
+enum Gender{
+    case male
+    case female
 }
