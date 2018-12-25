@@ -91,6 +91,9 @@ class PatientForm2: KarlaForm {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.groupTableViewBackground
+        
         self.title = existingPatient?.name
         initializeForm()
         quickParser = QuickParser(form: self.form)

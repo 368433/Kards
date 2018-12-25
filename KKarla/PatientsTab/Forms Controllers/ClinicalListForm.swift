@@ -13,9 +13,10 @@ class ClinicalListForm: KarlaForm {
     
     var existingClinicalList: ClinicalList?
     
-    init(existingClinicalList: ClinicalList?){
+    init(existingClinicalList: ClinicalList?, formTitle: String?){
         self.existingClinicalList = existingClinicalList
         super.init(nibName: nil, bundle: nil)
+        self.title = formTitle
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -24,11 +25,7 @@ class ClinicalListForm: KarlaForm {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tableView?.backgroundColor = .white
-        
-        self.title = "Create New List"
-        
+                
         form +++ Section("")
             <<< TextRow(){ row in
                 row.title = "List title"

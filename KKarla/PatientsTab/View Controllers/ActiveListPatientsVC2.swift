@@ -39,7 +39,7 @@ class ActiveListPatientsVC2: BasePatientsListTC2 {
         return segmentedControl
         }()
     
-    let navCont = UINavigationController()
+//    let navCont = UINavigationController()
     
     init(ClinicalList: ClinicalList){
         self.activeList = ClinicalList
@@ -51,7 +51,7 @@ class ActiveListPatientsVC2: BasePatientsListTC2 {
         self.reuseID = PatientTableViewCell.reuseID
         
         //self.navCont.pushViewController(self, animated: false)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(dismissForm))
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(dismissForm))
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         
     }
@@ -147,7 +147,7 @@ class ActiveListPatientsVC2: BasePatientsListTC2 {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        coordinator?.showDetailedPatientView2(for: model.resultController.object(at: indexPath))
         let detailedForm = PatientForm2(existingPatient: model.resultController.object(at: indexPath))
-        navCont.present(detailedForm.navCont, animated: true)
+        self.navigationController?.present(detailedForm.navCont, animated: true)
     }
     
     @objc override func addNew(){
@@ -159,10 +159,10 @@ class ActiveListPatientsVC2: BasePatientsListTC2 {
 //            self.coordinator?.showPatientForm(existingPatient: nil, list: self.activeList)
             let newPatientForm = PatientForm(existingPatient: nil, listToLink: self.activeList)
             newPatientForm.coordinator = self.coordinator
-            self.navCont.present(newPatientForm.navCont, animated: true)
+            self.navigationController?.present(newPatientForm.navCont, animated: true)
         })
 //        coordinator?.showAlertController(for: ac)
-        navCont.present(ac, animated: true)
+        self.navigationController?.present(ac, animated: true)
     }
     
     @objc private func updateModel(sender: UISegmentedControl){

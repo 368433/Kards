@@ -16,7 +16,7 @@ class BasePatientsListTC2: UIViewController, Storyboarded{
 //    var mainStack: UIStackView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mainStack: UIStackView!
-    @IBOutlet weak var topView: UIView!
+//    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var segmentedView: UIView!
     
     
@@ -35,7 +35,7 @@ class BasePatientsListTC2: UIViewController, Storyboarded{
         super.viewDidLoad()
         
         self.segmentedView.backgroundColor = .clear
-        self.topView.backgroundColor = .clear
+//        self.topView.backgroundColor = .clear
 //        let barHeight: CGFloat = UIApplication.shared.statusBarFrame.size.height
 //        let displayWidth: CGFloat = self.view.frame.width
 //        let displayHeight: CGFloat = self.view.frame.height

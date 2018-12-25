@@ -32,7 +32,7 @@ class LandingCardTableViewCell: UITableViewCell {
         self.countLabel.text = count
         self.titleLabel.text = title
         
-        stickerMaker.setupSticker(view: countViewSticker, backgroundLayer: Gradients.frozenDreams.layer, cornerRadius: 5, borderWidth: 0, masksToBounds: true)
+        stickerMaker.setupSticker(view: countViewSticker, backgroundLayer: Gradients.freshMilk.layer, cornerRadius: 5, borderWidth: 0, masksToBounds: true)
     }
     
 }

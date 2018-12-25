@@ -14,7 +14,6 @@
                 <outlet property="mainStack" destination="Vfb-SF-dz8" id="rbA-cG-128"/>
                 <outlet property="segmentedView" destination="GON-qo-dc7" id="gZC-m5-1ce"/>
                 <outlet property="tableView" destination="37o-bf-eiR" id="uv7-s8-ZtR"/>
-                <outlet property="topView" destination="dLV-3M-coJ" id="xD9-1m-ruT"/>
                 <outlet property="view" destination="iN0-l3-epB" id="UZx-dr-dfB"/>
             </connections>
         </placeholder>
@@ -24,24 +23,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Vfb-SF-dz8">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLV-3M-coJ">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="80" id="Cpn-E2-6kf"/>
-                            </constraints>
-                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GON-qo-dc7">
-                            <rect key="frame" x="0.0" y="80" width="375" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="30" id="z85-9n-Omm"/>
+                                <constraint firstAttribute="height" constant="50" id="z85-9n-Omm"/>
                             </constraints>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="37o-bf-eiR">
-                            <rect key="frame" x="0.0" y="110" width="375" height="557"/>
+                            <rect key="frame" x="0.0" y="50" width="375" height="597"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tableView>
                     </subviews>
@@ -51,7 +43,7 @@
             <constraints>
                 <constraint firstItem="Vfb-SF-dz8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="2jL-s3-CUR"/>
                 <constraint firstItem="Vfb-SF-dz8" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="ULk-Ve-PgM"/>
-                <constraint firstItem="Vfb-SF-dz8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ozX-vn-0lF"/>
+                <constraint firstItem="Vfb-SF-dz8" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ozX-vn-0lF"/>
                 <constraint firstItem="Vfb-SF-dz8" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="vKH-2h-4ZK"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

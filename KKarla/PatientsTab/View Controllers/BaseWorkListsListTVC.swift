@@ -45,7 +45,7 @@ class BaseWorkListsListTVC: UITableViewController, Storyboarded{
     }
     
     @objc func createList(){
-        coordinator?.showClinicalkListForm()
+        coordinator?.showClinicalkListForm(existingList: nil, formTitle: "Create New List")
     }
     
     // MARK: - Table view data source
@@ -83,7 +83,7 @@ class BaseWorkListsListTVC: UITableViewController, Storyboarded{
         let edit = UITableViewRowAction(style: .default, title: "Edit") { (action, indexPath) in
             // share item at indexPath
             let list = self.model.resultController.object(at: indexPath)
-            self.coordinator?.showClinicalkListForm(existingList: list)
+            self.coordinator?.showClinicalkListForm(existingList: list, formTitle: "Edit List")
         }
         
         archive.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
@@ -99,6 +99,6 @@ class BaseWorkListsListTVC: UITableViewController, Storyboarded{
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinator?.showPatients(for: model.resultController.object(at: indexPath))
+        coordinator?.showPatients2(for: model.resultController.object(at: indexPath))
     }
 }

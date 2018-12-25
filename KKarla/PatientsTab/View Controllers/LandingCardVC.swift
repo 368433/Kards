@@ -22,7 +22,7 @@ class LandingCardVC: UIViewController, Storyboarded{
     weak var coordinator: PatientsCoordinator?
     var dataCoordinator = AppDelegate.dataCoordinator
     var model: [LandingCardViewModel] = [.AllPatients, .TagsList, .ArchivedWorklists, .ActiveWorklists]
-    let mainBgGradient = Gradients.ladogaBottom.layer
+    let mainBgGradient = Gradients.februaryInk.layer
     
     override func viewDidLoad() {
         super.viewDidLoad()

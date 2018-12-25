@@ -39,7 +39,7 @@ class PatientsCoordinator: Coordinator {
     func showPatients2(for ClinicalList: ClinicalList){
         let patientsListVC = ActiveListPatientsVC2(ClinicalList: ClinicalList)
         patientsListVC.coordinator = self
-        navigationController.present(patientsListVC.navCont, animated: true)
+        navigationController.pushViewController(patientsListVC, animated: true)
     }
     
     func showAllPatients(predicate: NSPredicate?, vcTitle: String?) {
@@ -110,8 +110,8 @@ class PatientsCoordinator: Coordinator {
         presentDataForm(for: newPatientForm)
     }
     
-    func showClinicalkListForm(existingList: ClinicalList? = nil){
-        let newListFormVC = ClinicalListForm(existingClinicalList: existingList)
+    func showClinicalkListForm(existingList: ClinicalList? = nil, formTitle: String){
+        let newListFormVC = ClinicalListForm(existingClinicalList: existingList, formTitle: formTitle)
         presentDataForm(for: newListFormVC)
     }
     

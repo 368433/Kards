@@ -188,7 +188,7 @@
                                                         <rect key="frame" x="0.0" y="371" width="335" height="80"/>
                                                         <subviews>
                                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6f9-m9-ycx">
-                                                                <rect key="frame" x="0.0" y="5" width="335" height="70"/>
+                                                                <rect key="frame" x="20" y="5" width="295" height="70"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tBv-i0-pOH">
                                                                         <rect key="frame" x="0.0" y="0.0" width="42" height="70"/>
@@ -226,10 +226,10 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstItem="6f9-m9-ycx" firstAttribute="leading" secondItem="d9j-Ai-Zlm" secondAttribute="leading" id="GYj-MV-ouo"/>
+                                                            <constraint firstItem="6f9-m9-ycx" firstAttribute="leading" secondItem="d9j-Ai-Zlm" secondAttribute="leading" constant="20" symbolic="YES" id="GYj-MV-ouo"/>
                                                             <constraint firstItem="6f9-m9-ycx" firstAttribute="centerY" secondItem="d9j-Ai-Zlm" secondAttribute="centerY" id="HBn-hf-0Va"/>
                                                             <constraint firstAttribute="height" constant="80" id="Wu8-GV-alw"/>
-                                                            <constraint firstAttribute="trailing" secondItem="6f9-m9-ycx" secondAttribute="trailing" id="bel-VC-Re3"/>
+                                                            <constraint firstAttribute="trailing" secondItem="6f9-m9-ycx" secondAttribute="trailing" constant="20" symbolic="YES" id="bel-VC-Re3"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
