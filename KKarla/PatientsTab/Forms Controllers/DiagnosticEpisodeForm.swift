@@ -20,11 +20,12 @@ class DiagnosticEpisodeForm: KarlaForm{
     @IBOutlet weak var actListTableView: UITableView!
 
     
-    init(patient: Patient, existingAct: Act?, existingDiagnosticEpisode: DiagnosticEpisode?){
+    init(patient: Patient, existingAct: Act?, existingDiagnosticEpisode: DiagnosticEpisode?, coordinator: PatientsCoordinator?){
         self.patient = patient
         self.existingAct = existingAct
         self.existingDiagnosticEpisode = existingDiagnosticEpisode
         super.init(nibName: "DiagnosticEpisodeFormView", bundle: nil)
+        self.coordinator = coordinator
         if let existingEpi = existingDiagnosticEpisode{
             let rightExpression = NSExpression(forConstantValue: existingEpi)
             let leftExpression = NSExpression(forKeyPath: Act.dxEpisodeTag)

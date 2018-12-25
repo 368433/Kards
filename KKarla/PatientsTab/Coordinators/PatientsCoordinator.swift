@@ -103,6 +103,8 @@ class PatientsCoordinator: Coordinator {
 //        navigationController.present(form, animated: true, completion: nil)
     }
     
+    
+    
     func showPatientForm(existingPatient: Patient?, list: ClinicalList? = nil, delegate: PatientFormDelegate? = nil){
         let newPatientForm = PatientForm(existingPatient: existingPatient, listToLink: list)
 //        if let list = list {newPatientForm.listToLink = list}
@@ -116,19 +118,18 @@ class PatientsCoordinator: Coordinator {
     }
     
     func showActForm(patient: Patient, existingAct: Act?, actToPrePopSomeFields: Act?, existingDiagnosticEpisode: DiagnosticEpisode?){
-        let actForm = ActForm(patient: patient, existingAct: existingAct, actToPrePopSomeFields: actToPrePopSomeFields, existingDiagnosticEpisode: existingDiagnosticEpisode)
+        let actForm = ActForm(patient: patient, existingAct: existingAct, actToPrePopSomeFields: actToPrePopSomeFields, coordinator: self)
         presentDataForm(for: actForm)
     }
     
-    func showActForm2(nc: UINavigationController?, patient: Patient, existingAct: Act?, actToPrePopSomeFields: Act?, existingDiagnosticEpisode: DiagnosticEpisode?){
-        let actForm = ActForm(patient: patient, existingAct: existingAct, actToPrePopSomeFields: actToPrePopSomeFields, existingDiagnosticEpisode: existingDiagnosticEpisode)
-        actForm.coordinator = self
-        nc?.present(actForm, animated: true)
+    func showActForm2(nc: UINavigationController?, patient: Patient, existingAct: Act?, actToPrePopSomeFields: Act?){
+        let actForm = ActForm(patient: patient, existingAct: existingAct, actToPrePopSomeFields: actToPrePopSomeFields, coordinator: self)
+        nc?.present(actForm.navCont, animated: true)
     }
     
     func showDiagnosticEpisodeForm2(nc: UINavigationController?, for patient: Patient, existingAct: Act?, existingDiagnosticEpisode: DiagnosticEpisode?){
-        let dxEpisode = DiagnosticEpisodeForm(patient: patient, existingAct: existingAct, existingDiagnosticEpisode: existingDiagnosticEpisode)
-        nc?.present(dxEpisode, animated: true)
+        let dxEpisode = DiagnosticEpisodeForm(patient: patient, existingAct: existingAct, existingDiagnosticEpisode: existingDiagnosticEpisode, coordinator: self)
+        nc?.present(dxEpisode.navCont, animated: true)
 //        presentDataForm(for: dxEpisode)
     }
     
@@ -138,7 +139,7 @@ class PatientsCoordinator: Coordinator {
     }
     
     func showDiagnosticEpisodeForm(for patient: Patient, existingAct: Act?, existingDiagnosticEpisode: DiagnosticEpisode?){
-        let dxEpisode = DiagnosticEpisodeForm(patient: patient, existingAct: existingAct, existingDiagnosticEpisode: existingDiagnosticEpisode)
+        let dxEpisode = DiagnosticEpisodeForm(patient: patient, existingAct: existingAct, existingDiagnosticEpisode: existingDiagnosticEpisode, coordinator: self)
         presentDataForm(for: dxEpisode)
         
 //        let vc = DiagnosticEpisodeForm.instantiate()

@@ -28,12 +28,7 @@ class LandingCardTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    func configureCell(title: String, count: String) {
-        self.countLabel.text = count
-        self.titleLabel.text = title
-        stickerMaker.setupSticker(view: countViewSticker, backgroundLayer: Gradients.freshMilk.layer, cornerRadius: 5, borderWidth: 0, masksToBounds: true)
-    }
+
     
     func configureCell(model: LandingCardViewModel) {
         self.countLabel.text = model.count

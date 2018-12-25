@@ -29,7 +29,6 @@ class ActForm: KarlaForm {
     var patient: Patient
     var existingActToUpdate: Act?
     var actToPrePopSomeFields: Act?
-    //    var existingDiagnosticEpisode: DiagnosticEpisode?
     
     var actSites = ["HPB":ramqCodes().hospitalDict, "ICM":ramqCodes().hospitalDict, "PCV":ramqCodes().clinicDict]
     
@@ -72,12 +71,14 @@ class ActForm: KarlaForm {
         }
     }
     
-    init(patient: Patient, existingAct: Act?, actToPrePopSomeFields: Act?, existingDiagnosticEpisode: DiagnosticEpisode?){
+    init(patient: Patient, existingAct: Act?, actToPrePopSomeFields: Act?, coordinator: PatientsCoordinator){
         self.patient = patient
         self.existingActToUpdate = existingAct
-        //        self.existingDiagnosticEpisode = existingDiagnosticEpisode
         self.actToPrePopSomeFields = actToPrePopSomeFields
+        
         super.init(nibName: nil, bundle: nil)
+        
+        self.coordinator = coordinator
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -142,7 +143,7 @@ class ActForm: KarlaForm {
     }
     
     private func createNewDiagnosticEpisode(){
-        let dxEpisode = DiagnosticEpisodeForm(patient: patient, existingAct: nil, existingDiagnosticEpisode: nil)
+        let dxEpisode = DiagnosticEpisodeForm(patient: patient, existingAct: nil, existingDiagnosticEpisode: nil, coordinator: self.coordinator)
         let nc = UINavigationController()
         nc.pushViewController(dxEpisode, animated: false)
         self.navigationController?.present(nc, animated: true, completion: nil)

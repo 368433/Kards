@@ -165,12 +165,12 @@ extension PatientForm2{
             return
         case .act:
 //            coordinator?.showActForm(patient: patient, existingAct: nil, actToPrePopSomeFields: nil, existingDiagnosticEpisode: nil)
-            let actForm = ActForm(patient: patient, existingAct: nil, actToPrePopSomeFields: nil, existingDiagnosticEpisode: nil)
-            actForm.coordinator = self.coordinator
-            navCont.present(actForm.navCont, animated: true)
-//            coordinator?.showActForm2(nc: self.navCont, patient: patient, existingAct: nil, actToPrePopSomeFields: nil, existingDiagnosticEpisode: nil)
+//            let actForm = ActForm(patient: patient, existingAct: nil, actToPrePopSomeFields: nil, existingDiagnosticEpisode: nil)
+//            actForm.coordinator = self.coordinator
+//            navCont.present(actForm.navCont, animated: true)
+            coordinator?.showActForm2(nc: self.navCont, patient: patient, existingAct: nil, actToPrePopSomeFields: nil)
         case .episode:
-            coordinator?.showDiagnosticEpisodeForm(for: patient, existingAct: nil, existingDiagnosticEpisode: nil)
+            coordinator?.showDiagnosticEpisodeForm2(nc: self.navCont,for: patient, existingAct: nil, existingDiagnosticEpisode: nil)
         }
     }
     
@@ -259,19 +259,23 @@ extension PatientForm2{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let patient = existingPatient else {fatalError("patient is nil")}
         
+        print("gets here")
         switch tabSelected {
+            
         case .info:
             super.tableView(tableView, didSelectRowAt: indexPath)
         case .act:
             let act = actModel.resultController.object(at: indexPath)
-            let actForm = ActForm(patient: patient, existingAct: act, actToPrePopSomeFields: act, existingDiagnosticEpisode: nil)
-            actForm.coordinator = self.coordinator
-            self.navCont.present(actForm.navCont, animated: true)
+            coordinator?.showActForm2(nc: self.navCont, patient: patient, existingAct: act, actToPrePopSomeFields: act)
+//            let actForm = ActForm(patient: patient, existingAct: act, actToPrePopSomeFields: act, existingDiagnosticEpisode: nil)
+//            actForm.coordinator = self.coordinator
+//            self.navCont.present(actForm.navCont, animated: true)
         case .episode:
             let diagnosticEpisode = diagnosticEpisodeModel.resultController.object(at: indexPath)
-            let episodeForm = DiagnosticEpisodeForm(patient: patient, existingAct: nil, existingDiagnosticEpisode: diagnosticEpisode)
-            episodeForm.coordinator = self.coordinator
-            self.navCont.present(episodeForm.navCont, animated: true)
+            coordinator?.showDiagnosticEpisodeForm2(nc: self.navCont, for: patient, existingAct: nil, existingDiagnosticEpisode: diagnosticEpisode)
+//            let episodeForm = DiagnosticEpisodeForm(patient: patient, existingAct: nil, existingDiagnosticEpisode: diagnosticEpisode)
+//            episodeForm.coordinator = self.coordinator
+//            self.navCont.present(episodeForm.navCont, animated: true)
         }
         self.tableView.deselectRow(at: indexPath, animated: false)
     }

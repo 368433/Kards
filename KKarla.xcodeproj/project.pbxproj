@@ -356,14 +356,10 @@
 			children = (
 				E822210D217CFB0700CEE16C /* KarlaForm.swift */,
 				E822210B217CF73000CEE16C /* ClinicalListForm.swift */,
-				E8D98666217D7DF900EFE369 /* PatientForm.swift */,
 				6A82B7F321C9245C0035ED0D /* PatientForm2.swift */,
-				6A534AC421D1D49900555993 /* TabButton.swift */,
 				E8C84CA121800F4500D77649 /* ActForm.swift */,
 				6A834AB421ADB9B900451E0D /* TagForm.swift */,
 				6A4ED3D321B84D7B00935C0A /* PatientFormDelegate.swift */,
-				6A32F92621B46DA900BB1234 /* QuickParser.swift */,
-				6A32F92A21B4EFAD00BB1234 /* SegmentedCellWidth.swift */,
 				6A32F91621B2D9B000BB1234 /* DiagnosticEpisodeForm.swift */,
 			);
 			path = "Forms Controllers";
@@ -385,18 +381,11 @@
 		6A3BF0E521AB161D00CA0A71 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E88920A5217BD50C004216F1 /* LandingCardViewController.swift */,
 				6A534AB621D117EB00555993 /* LandingCardVC.swift */,
-				6A534ACA21D209FC00555993 /* CircularGraph.swift */,
-				6A534AC821D2095200555993 /* ContributionGraph.swift */,
-				6A534AC221D195CB00555993 /* StickerMaker.swift */,
-				6A3BF0E721AB1D4200CA0A71 /* BasePatientsListTVC.swift */,
 				6A2884E721CAB97100775C4C /* BasePatientsListTC2.swift */,
 				6A58514621AF551500EE6943 /* BaseTagsListTVC.swift */,
 				6A36B04D21AB972300C4F9A8 /* BaseWorkListsListTVC.swift */,
-				6A534AC021D1727E00555993 /* WorkListStatus.swift */,
 				6A806D6121B1D6F2004E85A2 /* DetailedPatientViewVC.swift */,
-				6A533A9521AB665D000FB93E /* ActiveListPatientsVC.swift */,
 				6A2884E921CABAAD00775C4C /* ActiveListPatientsVC2.swift */,
 				6A806D5321B09A04004E85A2 /* AllPatientsListVC.swift */,
 			);
@@ -406,6 +395,13 @@
 		6A3BF0E621AB1C9600CA0A71 /* PtTabHelpers */ = {
 			isa = PBXGroup;
 			children = (
+				6A534ACA21D209FC00555993 /* CircularGraph.swift */,
+				6A534AC821D2095200555993 /* ContributionGraph.swift */,
+				6A534AC221D195CB00555993 /* StickerMaker.swift */,
+				6A534AC021D1727E00555993 /* WorkListStatus.swift */,
+				6A534AC421D1D49900555993 /* TabButton.swift */,
+				6A32F92621B46DA900BB1234 /* QuickParser.swift */,
+				6A32F92A21B4EFAD00BB1234 /* SegmentedCellWidth.swift */,
 				6A32F91421B2D27600BB1234 /* dayMonthYear.swift */,
 				E859A7802182A9B1007BF751 /* ImageRow */,
 				E8C84C9A217FC54B00D77649 /* Labels */,
@@ -433,6 +429,17 @@
 				E8C84C9D217FCFD800D77649 /* AllPatientsList.swift */,
 			);
 			path = Oldies;
+			sourceTree = "<group>";
+		};
+		6A534ACC21D26DE400555993 /* old To disable */ = {
+			isa = PBXGroup;
+			children = (
+				E88920A5217BD50C004216F1 /* LandingCardViewController.swift */,
+				E8D98666217D7DF900EFE369 /* PatientForm.swift */,
+				6A3BF0E721AB1D4200CA0A71 /* BasePatientsListTVC.swift */,
+				6A533A9521AB665D000FB93E /* ActiveListPatientsVC.swift */,
+			);
+			path = "old To disable";
 			sourceTree = "<group>";
 		};
 		6A8E377321AAE130004F1EFF /* Views */ = {
@@ -687,6 +694,7 @@
 		E8C84C99217FC50200D77649 /* PatientsTab */ = {
 			isa = PBXGroup;
 			children = (
+				6A534ACC21D26DE400555993 /* old To disable */,
 				6A3BF0E621AB1C9600CA0A71 /* PtTabHelpers */,
 				E84114C321721C3900C5E9D9 /* Coordinators */,
 				6A8E377321AAE130004F1EFF /* Views */,

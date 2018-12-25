@@ -28,7 +28,7 @@ class LandingCardVC: UIViewController, Storyboarded{
     var model: [LandingCardViewModel] = [.AllPatients, .TagsList, .ArchivedWorklists, .ActiveWorklists]
     let mainBgGradient = Gradients.februaryInk.layer
     let listgb = Gradients.februaryInk.layer
-    
+    var topCircle: CAShapeLayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class LandingCardVC: UIViewController, Storyboarded{
         self.navigationController?.navigationBar.prefersLargeTitles = true
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 44
+        tableView.rowHeight = 55
         tableView.tableFooterView = UIView()
         tableView.isScrollEnabled = false
         tableView.backgroundColor = .clear
@@ -53,6 +53,26 @@ class LandingCardVC: UIViewController, Storyboarded{
         let contributionDrawer = ContributionGraph()
         contributionDrawer.layoutGrid(contributionStack: contributionStack)
         
+        let circularDrawer = CircularGraph()
+        leftDataView.backgroundColor = .clear
+        
+        topCircle = circularDrawer.drawCercle(inside: leftDataView, radius: 30, strokeEnd: 0, strokeColor: UIColor.yellow.cgColor)
+        let trackCircle = circularDrawer.drawCercle(inside: leftDataView,  radius: 30, strokeEnd: 1, strokeColor: UIColor.lightGray.cgColor)
+        leftDataView.layer.addSublayer(trackCircle)
+        leftDataView.layer.addSublayer(topCircle!)
+        leftDataView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
+    }
+
+    @objc private func moreOptions(){
+    }
+
+    @objc private func handleTap(){
+        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        basicAnimation.toValue = 1
+        basicAnimation.duration = 1
+        basicAnimation.fillMode = CAMediaTimingFillMode.forwards
+        basicAnimation.isRemovedOnCompletion = false
+        topCircle!.add(basicAnimation, forKey: "urSoBasic")
     }
     
     override func viewDidLayoutSubviews() {
