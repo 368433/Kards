@@ -11,13 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PatientForm2" customModule="KKarla" customModuleProvider="target">
             <connections>
-                <outlet property="ClinEpBottom" destination="7ye-Gp-gLC" id="Kbn-md-6eH"/>
-                <outlet property="actBottomLine" destination="7aC-BT-6bw" id="ypn-6A-gtS"/>
-                <outlet property="actRightView" destination="O3g-Gm-buH" id="wWY-JW-ANX"/>
                 <outlet property="actTabButton" destination="LHc-nf-eZx" id="7Vg-sc-xjA"/>
                 <outlet property="addToActOrClinicalEpTableButton" destination="9t6-8e-G1q" id="enC-uq-wg7"/>
                 <outlet property="clinicalListTabButton" destination="V3P-9F-b8M" id="hNr-Z4-mbH"/>
-                <outlet property="infoBottomLine" destination="S6H-RS-2o0" id="g8g-RD-Ntt"/>
                 <outlet property="infoTabButton" destination="5pJ-CX-oYd" id="Opw-xk-mzs"/>
                 <outlet property="tableView" destination="Ys9-xy-CYr" id="GeP-fg-NJL"/>
                 <outlet property="view" destination="vaN-0Y-8e0" id="efa-zX-nM0"/>
@@ -43,11 +39,14 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="p6z-oR-Svm">
                                                     <rect key="frame" x="0.0" y="0.0" width="124" height="40"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pJ-CX-oYd">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pJ-CX-oYd" customClass="TabButton" customModule="KKarla" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="124" height="39"/>
                                                             <state key="normal" title="Info">
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <outlet property="bottomLine" destination="S6H-RS-2o0" id="vab-1J-W5w"/>
+                                                            </connections>
                                                         </button>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S6H-RS-2o0" userLabel="infoBottom">
                                                             <rect key="frame" x="0.0" y="39" width="124" height="1"/>
@@ -72,11 +71,14 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cV2-Vg-Igc">
                                                     <rect key="frame" x="0.0" y="0.0" width="124" height="40"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHc-nf-eZx">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHc-nf-eZx" customClass="TabButton" customModule="KKarla" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="124" height="39"/>
                                                             <state key="normal" title="Act List">
-                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             </state>
+                                                            <connections>
+                                                                <outlet property="bottomLine" destination="7aC-BT-6bw" id="eaw-yV-Hsl"/>
+                                                            </connections>
                                                         </button>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7aC-BT-6bw" userLabel="actBottom">
                                                             <rect key="frame" x="0.0" y="39" width="124" height="1"/>
@@ -99,11 +101,14 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pOa-l6-0ix" userLabel="EpisodeTab">
                                             <rect key="frame" x="250" y="0.0" width="125" height="40"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3P-9F-b8M">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3P-9F-b8M" customClass="TabButton" customModule="KKarla" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="125" height="39"/>
                                                     <state key="normal" title="Episodes">
-                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     </state>
+                                                    <connections>
+                                                        <outlet property="bottomLine" destination="7ye-Gp-gLC" id="USV-Uz-jhO"/>
+                                                    </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ye-Gp-gLC" userLabel="ClinEpBottom">
                                                     <rect key="frame" x="0.0" y="39" width="125" height="1"/>

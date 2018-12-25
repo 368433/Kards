@@ -30,6 +30,8 @@ class BaseTagsListTVC: UITableViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewTag))
         self.tableView.tableFooterView = UIView(frame: .zero)
         self.tableView.rowHeight = 44
+        
+        self.tabBarController?.tabBar.isHidden = false
     }
 
     @objc func addNewTag(){
@@ -63,5 +65,6 @@ class BaseTagsListTVC: UITableViewController {
                                   options: [.caseInsensitive, .diacriticInsensitive])
         let vcTitle = model.resultController.object(at: indexPath).tagTitle ?? "n/a"
         coordinator?.showAllPatients(predicate: ComparisonPredicate, vcTitle: "Patients :: \(vcTitle)")
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

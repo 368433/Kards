@@ -12,12 +12,8 @@ class BasePatientsListTC2: UIViewController, Storyboarded{
 
     var nib = UINib(nibName: BasePatientTableViewCell.nibName, bundle: nil)
     var reuseID = BasePatientTableViewCell.reuseID
-//    var tableView: UITableView!
-//    var mainStack: UIStackView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mainStack: UIStackView!
-//    @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var segmentedView: UIView!
     
     
     weak var coordinator: PatientsCoordinator?
@@ -34,31 +30,12 @@ class BasePatientsListTC2: UIViewController, Storyboarded{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.segmentedView.backgroundColor = .clear
-//        self.topView.backgroundColor = .clear
-//        let barHeight: CGFloat = UIApplication.shared.statusBarFrame.size.height
-//        let displayWidth: CGFloat = self.view.frame.width
-//        let displayHeight: CGFloat = self.view.frame.height
         
-//        mainStack = UIStackView(frame: CGRect(x: 0, y: 0, width: displayWidth, height: displayHeight))
-//        mainStack.axis = .vertical
-//        mainStack.alignment = .fill
-//        mainStack.distribution = .fill
-        
-//        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: displayWidth, height: displayHeight - barHeight))
-//        tableView = UITableView()
-//        mainStack.addArrangedSubview(tableView)
-        
-        
-//        tableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
         tableView.register(nib, forCellReuseIdentifier: reuseID)
         tableView.dataSource = self
         tableView.delegate = self
-//        self.view.addSubview(tableView)
-//        self.view.addSubview(mainStack)
         
         self.title = "All Patients"
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
         
         // Make the search bar visible when scrolling - default is false
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -67,19 +44,18 @@ class BasePatientsListTC2: UIViewController, Storyboarded{
         resultsControllerDelegate = TableViewFetchResultAdapter(tableView: self.tableView)
         model.resultController.delegate = resultsControllerDelegate
         
-        
-//        self.tableView.register(nib, forCellReuseIdentifier: reuseID)
         self.tableView.tableFooterView = UIView(frame: .zero)
         self.tableView.rowHeight = UITableView.automaticDimension
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNew))
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     func setupSearch(){
         navigationItem.searchController = searchModule.searchController
         definesPresentationContext = true
-
         let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(invokeSearch))
         self.navigationItem.rightBarButtonItems?.append(searchButton)
     }
@@ -123,16 +99,10 @@ extension BasePatientsListTC2: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //        coordinator?.showDetailedPatientView(for: model?.resultController.object(at: indexPath))
-        coordinator?.showDetailedPatientView2(for: model.resultController.object(at: indexPath))
+        print("here")
+        let detailedForm = PatientForm2(existingPatient: model.resultController.object(at: indexPath))
+        detailedForm.coordinator = self.coordinator
+        self.navigationController?.present(detailedForm.navCont, animated: true)
+//        coordinator?.showDetailedPatientView2(for: model.resultController.object(at: indexPath))
     }
 }
-//extension BasePatientsListTVC{
-//    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-//        let cell = self.tableView.cellForRow(at: indexPath) as? PatientTableViewCell
-//        cell?.mainBackgroundView.layer.borderWidth = 2
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-//            cell?.mainBackgroundView.layer.borderWidth = 0.5
-//        }
-//        return indexPath
-//    }
-//}

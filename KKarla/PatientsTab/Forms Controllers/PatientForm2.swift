@@ -13,18 +13,11 @@ import Eureka
 import EmptyDataSet_Swift
 
 class PatientForm2: KarlaForm {
-
-    // lines
-    @IBOutlet weak var actBottomLine: UIView!
-    @IBOutlet weak var actRightView: UIView!
-    @IBOutlet weak var ClinEpBottom: UIView!
-    @IBOutlet weak var infoBottomLine: UIView!
-    
     
     // buttons
-    @IBOutlet weak var actTabButton: UIButton!
-    @IBOutlet weak var infoTabButton: UIButton!
-    @IBOutlet weak var clinicalListTabButton: UIButton!
+    @IBOutlet weak var actTabButton: TabButton!
+    @IBOutlet weak var infoTabButton: TabButton!
+    @IBOutlet weak var clinicalListTabButton: TabButton!
     @IBOutlet weak var addToActOrClinicalEpTableButton: UIButton!
     
     var actModel: ActListModel!
@@ -39,20 +32,7 @@ class PatientForm2: KarlaForm {
 
     var tabSelected: TabSelection = .info {
         didSet{
-            switch tabSelected{
-            case .info:
-                infoBottomLine.backgroundColor = .white
-                actBottomLine.backgroundColor = .lightGray
-                ClinEpBottom.backgroundColor = .lightGray
-            case .act:
-                infoBottomLine.backgroundColor = .lightGray
-                actBottomLine.backgroundColor = .white
-                ClinEpBottom.backgroundColor = .lightGray
-            case .episode:
-                infoBottomLine.backgroundColor = .lightGray
-                actBottomLine.backgroundColor = .lightGray
-                ClinEpBottom.backgroundColor = .white
-            }
+            setTabsColor()
         }
     }
     
@@ -75,13 +55,13 @@ class PatientForm2: KarlaForm {
             guard let genderRow = form.rowBy(tag: Patient.genderTag) as? SegmentedRow<String> else {return}
             genderRow.value = genderValue
             genderRow.reload()
-            
         }
     }
     
     init(existingPatient: Patient?){
         self.existingPatient = existingPatient
         super.init(nibName: "DetailedPatientForm", bundle: nil)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -93,12 +73,15 @@ class PatientForm2: KarlaForm {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.groupTableViewBackground
-        
         self.title = existingPatient?.name
         initializeForm()
         quickParser = QuickParser(form: self.form)
         setupTabTables()
         setupEmptyDataScreensModule()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setTabsColor()
     }
     
     @objc override func saveEntries(){
@@ -112,6 +95,23 @@ class PatientForm2: KarlaForm {
         let newPatient = Patient(context: dataCoordinator.persistentContainer.viewContext)
         dataCoordinator.persistentContainer.viewContext.insert(newPatient)
         return newPatient
+    }
+    
+    private func setTabsColor(){
+        switch tabSelected{
+        case .info:
+            infoTabButton.activateTab()
+            actTabButton.inactivateTab()
+            clinicalListTabButton.inactivateTab()
+        case .act:
+            infoTabButton.inactivateTab()
+            actTabButton.activateTab()
+            clinicalListTabButton.inactivateTab()
+        case .episode:
+            infoTabButton.inactivateTab()
+            actTabButton.inactivateTab()
+            clinicalListTabButton.activateTab()
+        }
     }
 }
 
@@ -135,7 +135,7 @@ extension PatientForm2{
     
     private func initializeActAndEpisodeModels(){
         resultsControllerDelegateAct = TableViewFetchResultAdapter(tableView: self.tableView)
-        print("huhuhuh")
+        
         // Setting up actModel
         let rightExpression = NSExpression(forConstantValue: existingPatient)
         let leftExpression = NSExpression(forKeyPath: Act.patientTag)
@@ -164,7 +164,11 @@ extension PatientForm2{
         case .info:
             return
         case .act:
-            coordinator?.showActForm(patient: patient, existingAct: nil, actToPrePopSomeFields: nil, existingDiagnosticEpisode: nil)
+//            coordinator?.showActForm(patient: patient, existingAct: nil, actToPrePopSomeFields: nil, existingDiagnosticEpisode: nil)
+            let actForm = ActForm(patient: patient, existingAct: nil, actToPrePopSomeFields: nil, existingDiagnosticEpisode: nil)
+            actForm.coordinator = self.coordinator
+            navCont.present(actForm.navCont, animated: true)
+//            coordinator?.showActForm2(nc: self.navCont, patient: patient, existingAct: nil, actToPrePopSomeFields: nil, existingDiagnosticEpisode: nil)
         case .episode:
             coordinator?.showDiagnosticEpisodeForm(for: patient, existingAct: nil, existingDiagnosticEpisode: nil)
         }
@@ -179,22 +183,6 @@ extension PatientForm2{
             tabSelected = .info
         }
         self.tableView.reloadData()
-    }
-    
-    private func setTabLines(){
-        switch tabSelected {
-        case .info:
-            actBottomLine.backgroundColor = .white
-            ClinEpBottom.backgroundColor = .lightGray
-            infoTabButton.backgroundColor = .lightGray
-        case .act:
-            actBottomLine.backgroundColor = .white
-            ClinEpBottom.backgroundColor = .lightGray
-            infoTabButton.backgroundColor = .lightGray
-        case .episode:
-            actBottomLine.backgroundColor = .lightGray
-            ClinEpBottom.backgroundColor = .white
-        }
     }
     
     //***

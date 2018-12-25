@@ -23,12 +23,14 @@ class LandingCardVC: UIViewController, Storyboarded{
     var dataCoordinator = AppDelegate.dataCoordinator
     var model: [LandingCardViewModel] = [.AllPatients, .TagsList, .ArchivedWorklists, .ActiveWorklists]
     let mainBgGradient = Gradients.februaryInk.layer
+    let listgb = Gradients.februaryInk.layer
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Patients"
-        self.view.layer.insertSublayer(mainBgGradient, at: 0)
+//        self.view.layer.insertSublayer(mainBgGradient, at: 0)
         self.navigationController?.navigationBar.prefersLargeTitles = true
         tableView.dataSource = self
         tableView.delegate = self
@@ -38,9 +40,10 @@ class LandingCardVC: UIViewController, Storyboarded{
         tableView.backgroundColor = .clear
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        
+
+        self.view.backgroundColor = UIColor.groupTableViewBackground
+        self.tableCardView.backgroundColor = .clear
         setupSticker(view: tableCardView, backgroundLayer: nil)
-        tableCardView.backgroundColor = .clear
         setupSticker(view: contributionCardView, backgroundLayer: nil)
 //        setupSticker(view: starredView, backgroundLayer: Gradients.springWarmth.layer)
 //        setupSticker(view: toCallView, backgroundLayer: Gradients.springWarmth.layer)
@@ -50,6 +53,7 @@ class LandingCardVC: UIViewController, Storyboarded{
     
     override func viewDidLayoutSubviews() {
         mainBgGradient.frame = self.view.bounds
+        listgb.frame = CGRect(x: 0, y: 0, width: 335, height: 220)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,13 +61,17 @@ class LandingCardVC: UIViewController, Storyboarded{
     }
     
     private func setupSticker(view: UIView, backgroundLayer: CALayer?){
-//        view.layer.cornerRadius = 5
+        view.layer.cornerRadius = 5
         view.layer.borderColor = UIColor.lightGray.cgColor
 //        view.layer.borderWidth = 1
 //        view.layer.masksToBounds = true
+        if let bg = backgroundLayer {
+//            bg.frame = view.layer.frame
+            view.layer.insertSublayer(bg, at: 0)
+        }
         view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = CGSize(width: 2, height: 5)
-        view.layer.shadowRadius = 5
+        view.layer.shadowOffset = CGSize(width: 0, height: 10)
+        view.layer.shadowRadius = 20
         view.layer.shadowOpacity = 0.2
     }
     

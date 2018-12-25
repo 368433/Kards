@@ -96,11 +96,11 @@ class PatientsCoordinator: Coordinator {
     //A helper function
     func presentDataForm(for form: KarlaForm) {
         print("calledEE")
-//        let nc = UINavigationController()
+        let nc = UINavigationController()
         form.coordinator = self
-//        nc.pushViewController(form, animated: false)
-//        navigationController.present(nc, animated: true, completion: nil)
-        navigationController.present(form.navCont, animated: true, completion: nil)
+        nc.pushViewController(form, animated: false)
+        navigationController.present(nc, animated: true, completion: nil)
+//        navigationController.present(form, animated: true, completion: nil)
     }
     
     func showPatientForm(existingPatient: Patient?, list: ClinicalList? = nil, delegate: PatientFormDelegate? = nil){
@@ -122,7 +122,7 @@ class PatientsCoordinator: Coordinator {
     
     func showActForm2(nc: UINavigationController?, patient: Patient, existingAct: Act?, actToPrePopSomeFields: Act?, existingDiagnosticEpisode: DiagnosticEpisode?){
         let actForm = ActForm(patient: patient, existingAct: existingAct, actToPrePopSomeFields: actToPrePopSomeFields, existingDiagnosticEpisode: existingDiagnosticEpisode)
-//        presentDataForm(for: actForm)
+        actForm.coordinator = self
         nc?.present(actForm, animated: true)
     }
     

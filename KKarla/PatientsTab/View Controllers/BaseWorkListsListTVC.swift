@@ -20,7 +20,7 @@ class BaseWorkListsListTVC: UITableViewController, Storyboarded{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         self.title = filter.typeDescription
         model = ClinicalListModel(searchPredicate: predicate)
         resultsControllerDelegate = TableViewFetchResultAdapter(tableView: self.tableView)
@@ -31,6 +31,11 @@ class BaseWorkListsListTVC: UITableViewController, Storyboarded{
         self.tableView.tableFooterView = UIView(frame: .zero)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.rowHeight = 44
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     init(filter: WorkListStatus, coordinator: PatientsCoordinator){
@@ -100,5 +105,6 @@ class BaseWorkListsListTVC: UITableViewController, Storyboarded{
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         coordinator?.showPatients2(for: model.resultController.object(at: indexPath))
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

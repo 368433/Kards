@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BasePatientsListTC2" customModule="KKarla" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActiveListPatientsVC2" customModule="KKarla" customModuleProvider="target">
             <connections>
                 <outlet property="mainStack" destination="Vfb-SF-dz8" id="rbA-cG-128"/>
-                <outlet property="segmentedView" destination="GON-qo-dc7" id="gZC-m5-1ce"/>
+                <outlet property="segmentedView" destination="GON-qo-dc7" id="S67-B8-7Pm"/>
                 <outlet property="tableView" destination="37o-bf-eiR" id="uv7-s8-ZtR"/>
                 <outlet property="view" destination="iN0-l3-epB" id="UZx-dr-dfB"/>
             </connections>
@@ -26,14 +26,14 @@
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GON-qo-dc7">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="z85-9n-Omm"/>
+                                <constraint firstAttribute="height" constant="40" id="z85-9n-Omm"/>
                             </constraints>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="37o-bf-eiR">
-                            <rect key="frame" x="0.0" y="50" width="375" height="597"/>
+                            <rect key="frame" x="0.0" y="40" width="375" height="607"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tableView>
                     </subviews>

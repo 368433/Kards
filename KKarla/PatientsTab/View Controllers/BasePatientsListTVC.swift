@@ -116,7 +116,10 @@ extension BasePatientsListTVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //        coordinator?.showDetailedPatientView(for: model?.resultController.object(at: indexPath))
-        coordinator?.showDetailedPatientView2(for: model.resultController.object(at: indexPath))
+//        coordinator?.showDetailedPatientView2(for: model.resultController.object(at: indexPath))
+        let detailedForm = PatientForm2(existingPatient: model.resultController.object(at: indexPath))
+        detailedForm.coordinator = self.coordinator
+        self.navigationController?.present(detailedForm.navCont, animated: true)
     }
 }
 //extension BasePatientsListTVC{

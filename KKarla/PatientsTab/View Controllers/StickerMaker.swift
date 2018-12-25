@@ -19,7 +19,7 @@ struct StickerMaker {
         view.layer.borderWidth = borderWidth
         
         if let bg = backgroundLayer {
-            bg.frame = view.bounds
+            bg.frame = view.frame
             view.layer.insertSublayer(bg, at: 0)
         }
         

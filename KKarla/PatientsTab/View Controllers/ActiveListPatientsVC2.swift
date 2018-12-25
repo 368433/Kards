@@ -14,6 +14,8 @@ import SJFluidSegmentedControl
 
 class ActiveListPatientsVC2: BasePatientsListTC2 {
     
+    @IBOutlet weak var segmentedView: UIView!
+    
     var activeList: ClinicalList
     var astSegment: ASTSegment = .Active
     let kSeg = KKSegments(options: [ASTSegment.Active, ASTSegment.SignedOff,ASTSegment.Transferred])
@@ -27,9 +29,6 @@ class ActiveListPatientsVC2: BasePatientsListTC2 {
 //    let backgroundLayer = Gradients.freshMilk.layer
 //    let backgroundLayer = Gradients.softGrass.layer
     
-//    let menuItems = ["Most Popular", "Latest", "Trending", "Nearest", "Top Picks"]
-//    var menuView: BTNavigationDropdownMenu!
-    
     lazy var segmentedControl: SJFluidSegmentedControl = {
         [unowned self] in
         // Setup the frame
@@ -39,21 +38,14 @@ class ActiveListPatientsVC2: BasePatientsListTC2 {
         return segmentedControl
         }()
     
-//    let navCont = UINavigationController()
-    
     init(ClinicalList: ClinicalList){
+        
         self.activeList = ClinicalList
         super.init(nibName: "PatientListView", bundle:nil)
-        
         self.searchCriteria = astSegment.searchPredicate(clinicalList: activeList)
-        
         self.nib = UINib(nibName: PatientTableViewCell.nibName, bundle: nil)
         self.reuseID = PatientTableViewCell.reuseID
-        
-        //self.navCont.pushViewController(self, animated: false)
-//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(dismissForm))
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -67,61 +59,24 @@ class ActiveListPatientsVC2: BasePatientsListTC2 {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.segmentedView.backgroundColor = .clear
         
         self.title = activeList.clinicalListTitle
-//        self.view.layer.addSublayer(backgroundLayer)
-//        let bgView = UIView(frame: self.view.frame)
-//        bgView.layer.addSublayer(backgroundLayer)
-//        self.view.addSubview(bgView)
-//        self.tableView.backgroundView = bgView
+        navigationController?.navigationBar.prefersLargeTitles = false
         self.tableView.backgroundColor = .clear
-//        self.tableView.layer.insertSublayer(backgroundLayer, at: 0)
-//        print(self.view.layer.sublayers)
-        
         self.tableView.register(nib, forCellReuseIdentifier: reuseID)
+        
+        self.tabBarController?.tabBar.isHidden = true
         
         self.headerFrame = CGRect(x: 0, y: 0, width: super.view.frame.width, height: 30)
         self.headerView = UIView(frame:headerFrame )
-//        self.tableView.tableHeaderView = headerView
         self.headerView.addSubview(segmentedControl)
-//        let testView = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 100))
-//        testView.backgroundColor = .black
-//        mainStack.addArrangedSubview(testView)
-        
-//        print(self.mainStack.arrangedSubviews.count)
-//        self.mainStack.insertArrangedSubview(headerView, at: 0)
-        
         self.segmentedView.addSubview(headerView)
         
         self.tableView.separatorStyle = .none
         
         self.view.layer.insertSublayer(backgroundLayer, at: 0)
-        
-//        view.addSubview(segmentedControl)
-//        self.headerView = segmentedControl
-        
-//        self.title = activeList.clinicalListTitle
-//        menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: BTTitle.title("Active Lists"), items: menuItems)
-//        self.navigationItem.titleView = menuView
-//        menuView.didSelectItemAtIndexHandler = { (indexPath: Int) -> () in
-//            print("Did select item at index: \(indexPath)")
-//        }
-//        menuView.arrowPadding = 15
-//        menuView.navigationBarTitleFont = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.regular)
-////        menuView.cellSelectionColor = StyleKit.getSeparatorColor()
-//        menuView.shouldKeepSelectedCellColor = true
-//        menuView.arrowTintColor = UIColor.black
-//        menuView.cellSeparatorColor = menuView.cellBackgroundColor
-//        menuView.cellTextLabelFont = UIFont.systemFont(ofSize: 16)
-//        menuView.checkMarkImage = nil
-        
-        // Make the search bar visible when scrolling - default is false
         navigationItem.hidesSearchBarWhenScrolling = true
-        
-        
-       
-//        self.kSeg.parentView = headerView
-//        self.kSeg.addTarget(self, action: #selector(updateModel), for: .valueChanged)
         
         searchModule = PatientSearcher(requiredPredicate: self.searchCriteria, ptCoordinator: self.coordinator)
 //        setupSearch()
@@ -129,8 +84,7 @@ class ActiveListPatientsVC2: BasePatientsListTC2 {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-//        backgroundLayer.frame = view.bounds
-        backgroundLayer.frame = self.tableView.superview?.bounds ?? CGRect.null
+        backgroundLayer.frame = self.view.bounds
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -147,6 +101,7 @@ class ActiveListPatientsVC2: BasePatientsListTC2 {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        coordinator?.showDetailedPatientView2(for: model.resultController.object(at: indexPath))
         let detailedForm = PatientForm2(existingPatient: model.resultController.object(at: indexPath))
+        detailedForm.coordinator = self.coordinator
         self.navigationController?.present(detailedForm.navCont, animated: true)
     }
     

@@ -48,7 +48,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PXG-fu-uRv">
-                                        <rect key="frame" x="0.0" y="20" width="375" height="471"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="471"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YkN-Cb-WUb">
                                                 <rect key="frame" x="20" y="0.0" width="335" height="451"/>
@@ -113,6 +113,7 @@
                                                                 </prototypes>
                                                             </tableView>
                                                         </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="RTX-gl-ae6" firstAttribute="top" secondItem="6Cs-mc-rfu" secondAttribute="top" constant="20" symbolic="YES" id="2Kt-T5-Z2r"/>
                                                             <constraint firstItem="RTX-gl-ae6" firstAttribute="leading" secondItem="6Cs-mc-rfu" secondAttribute="leading" id="NFu-0A-UVA"/>
@@ -121,8 +122,8 @@
                                                             <constraint firstAttribute="trailing" secondItem="RTX-gl-ae6" secondAttribute="trailing" id="ry9-AJ-MXl"/>
                                                         </constraints>
                                                     </view>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="cIC-Vx-WMe">
-                                                        <rect key="frame" x="17.5" y="228" width="300" height="135"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cIC-Vx-WMe">
+                                                        <rect key="frame" x="42.5" y="228" width="250" height="135"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="trr-Ym-1RL">
                                                                 <rect key="frame" x="0.0" y="0.0" width="125" height="135"/>
@@ -154,7 +155,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y0p-n7-zwc">
-                                                                <rect key="frame" x="175" y="0.0" width="125" height="135"/>
+                                                                <rect key="frame" x="125" y="0.0" width="125" height="135"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0Kx-hw-VrG">
                                                                         <rect key="frame" x="0.0" y="21.5" width="125" height="92.5"/>
@@ -235,15 +236,16 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="d9j-Ai-Zlm" firstAttribute="width" secondItem="YkN-Cb-WUb" secondAttribute="width" id="bbn-db-fm3"/>
-                                                    <constraint firstItem="6Cs-mc-rfu" firstAttribute="width" secondItem="YkN-Cb-WUb" secondAttribute="width" id="u5m-Ht-uTt"/>
+                                                    <constraint firstAttribute="trailing" secondItem="6Cs-mc-rfu" secondAttribute="trailing" id="ftI-r7-cQy"/>
+                                                    <constraint firstItem="6Cs-mc-rfu" firstAttribute="leading" secondItem="YkN-Cb-WUb" secondAttribute="leading" id="x9V-Z3-A1x"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="YkN-Cb-WUb" firstAttribute="top" secondItem="PXG-fu-uRv" secondAttribute="top" id="7ru-BI-VF3"/>
                                             <constraint firstItem="YkN-Cb-WUb" firstAttribute="leading" secondItem="PXG-fu-uRv" secondAttribute="leading" constant="20" symbolic="YES" id="AAi-CP-Xd3"/>
+                                            <constraint firstAttribute="trailing" secondItem="YkN-Cb-WUb" secondAttribute="trailing" constant="20" symbolic="YES" id="EED-PK-ESr"/>
                                             <constraint firstAttribute="bottom" secondItem="YkN-Cb-WUb" secondAttribute="bottom" constant="20" symbolic="YES" id="FfI-EF-kpa"/>
-                                            <constraint firstAttribute="trailing" secondItem="YkN-Cb-WUb" secondAttribute="trailing" constant="20" symbolic="YES" id="yTa-cm-K4P"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -252,7 +254,7 @@
                                     <constraint firstItem="PXG-fu-uRv" firstAttribute="width" secondItem="sBY-it-tOx" secondAttribute="width" id="alY-uJ-vIZ"/>
                                     <constraint firstAttribute="bottom" secondItem="PXG-fu-uRv" secondAttribute="bottom" id="bAV-Ph-OUg"/>
                                     <constraint firstItem="PXG-fu-uRv" firstAttribute="trailing" secondItem="sBY-it-tOx" secondAttribute="trailing" id="dyI-Kr-HtS"/>
-                                    <constraint firstItem="PXG-fu-uRv" firstAttribute="top" secondItem="sBY-it-tOx" secondAttribute="top" constant="20" symbolic="YES" id="p5u-45-BwA"/>
+                                    <constraint firstItem="PXG-fu-uRv" firstAttribute="top" secondItem="sBY-it-tOx" secondAttribute="top" id="p5u-45-BwA"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
