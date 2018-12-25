@@ -15,6 +15,7 @@ import SJFluidSegmentedControl
 class ActiveListPatientsVC2: BasePatientsListTC2 {
     
     @IBOutlet weak var segmentedView: UIView!
+//    @IBOutlet weak var mainStack: UIStackView!
     
     var activeList: ClinicalList
     var astSegment: ASTSegment = .Active
@@ -28,7 +29,7 @@ class ActiveListPatientsVC2: BasePatientsListTC2 {
     lazy var segmentedControl: SJFluidSegmentedControl = {
         [unowned self] in
         // Setup the frame
-        let segmentedControl = SJFluidSegmentedControl(frame: CGRect(x: 0, y: 0, width: headerFrame.width, height: 30))
+        let segmentedControl = SJFluidSegmentedControl(frame: CGRect(x: 0, y: 0, width: headerView.frame.width, height: 30))
         segmentedControl.textFont = .systemFont(ofSize: 12, weight: UIFont.Weight.semibold)
         segmentedControl.dataSource = self
         return segmentedControl
@@ -54,19 +55,16 @@ class ActiveListPatientsVC2: BasePatientsListTC2 {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.segmentedView.backgroundColor = .clear
+        headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
+        headerView.backgroundColor = .clear
+        headerView.addSubview(segmentedControl)
+        self.tableView.tableHeaderView = headerView
         
         self.title = activeList.clinicalListTitle
         navigationController?.navigationBar.prefersLargeTitles = false
         self.tableView.backgroundColor = UIColor.groupTableViewBackground
         self.tableView.register(nib, forCellReuseIdentifier: reuseID)
-        
         self.tabBarController?.tabBar.isHidden = true
-        
-        self.headerFrame = CGRect(x: 0, y: 0, width: super.view.frame.width, height: 30)
-        self.headerView = UIView(frame:headerFrame )
-        self.headerView.addSubview(segmentedControl)
-        self.segmentedView.addSubview(headerView)
         
         self.tableView.separatorStyle = .none
         
@@ -82,7 +80,7 @@ class ActiveListPatientsVC2: BasePatientsListTC2 {
         backgroundLayer.frame = self.view.bounds
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let thisPatient = self.model.resultController.object(at: indexPath)
         return astSegment.swipeActions(thisPatient: thisPatient, activeList: activeList)
     }
@@ -99,12 +97,10 @@ class ActiveListPatientsVC2: BasePatientsListTC2 {
             // show search window
         })
         ac.addAction(UIAlertAction(title: "New Patient", style: .default) { _ in
-//            self.coordinator?.showPatientForm(existingPatient: nil, list: self.activeList)
             let newPatientForm = PatientForm(existingPatient: nil, listToLink: self.activeList)
             newPatientForm.coordinator = self.coordinator
             self.navigationController?.present(newPatientForm.navCont, animated: true)
         })
-//        coordinator?.showAlertController(for: ac)
         self.navigationController?.present(ac, animated: true)
     }
     

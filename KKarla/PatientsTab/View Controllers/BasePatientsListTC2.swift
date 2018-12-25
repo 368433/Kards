@@ -8,12 +8,10 @@
 
 import UIKit
 
-class BasePatientsListTC2: UIViewController, Storyboarded{
+class BasePatientsListTC2: UITableViewController, Storyboarded{
 
     var nib = UINib(nibName: BasePatientTableViewCell.nibName, bundle: nil)
     var reuseID = BasePatientTableViewCell.reuseID
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var mainStack: UIStackView!
     
     weak var coordinator: PatientsCoordinator?
     var model: PatientListModel!
@@ -47,8 +45,6 @@ class BasePatientsListTC2: UIViewController, Storyboarded{
         super.viewDidLoad()
         
         tableView.register(nib, forCellReuseIdentifier: reuseID)
-        tableView.dataSource = self
-        tableView.delegate = self
         
         // Make the search bar visible when scrolling - default is false
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -89,19 +85,19 @@ class BasePatientsListTC2: UIViewController, Storyboarded{
 
 //**
 //MARK: Table DATASOURCE AND DELEGATE
-extension BasePatientsListTC2: UITableViewDelegate, UITableViewDataSource{
+extension BasePatientsListTC2{
     
     // MARK: - Table view data source
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return model.resultController.sections?.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.resultController.sections![section].numberOfObjects
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath) as! BasePatientTableViewCell
         
@@ -114,7 +110,7 @@ extension BasePatientsListTC2: UITableViewDelegate, UITableViewDataSource{
     
     //MARK: - Table view delegate
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         coordinator?.showDetailedPatientForm(patient: model.resultController.object(at: indexPath))
     }
     

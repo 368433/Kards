@@ -11,10 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActiveListPatientsVC2" customModule="KKarla" customModuleProvider="target">
             <connections>
-                <outlet property="mainStack" destination="Vfb-SF-dz8" id="rbA-cG-128"/>
                 <outlet property="segmentedView" destination="GON-qo-dc7" id="S67-B8-7Pm"/>
-                <outlet property="tableView" destination="37o-bf-eiR" id="uv7-s8-ZtR"/>
-                <outlet property="view" destination="iN0-l3-epB" id="UZx-dr-dfB"/>
+                <outlet property="view" destination="37o-bf-eiR" id="wcV-Qk-q8b"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -37,6 +35,9 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tableView>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="GON-qo-dc7" firstAttribute="width" secondItem="Vfb-SF-dz8" secondAttribute="width" id="aPH-Rt-nvF"/>
+                    </constraints>
                 </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

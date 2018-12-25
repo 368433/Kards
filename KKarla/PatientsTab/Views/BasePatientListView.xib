@@ -11,8 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BasePatientsListTC2" customModule="KKarla" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="8Xl-F4-vmU" id="7eD-05-DN1"/>
-                <outlet property="view" destination="iN0-l3-epB" id="oL5-35-VYh"/>
+                <outlet property="view" destination="8Xl-F4-vmU" id="nGD-x3-V2t"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
