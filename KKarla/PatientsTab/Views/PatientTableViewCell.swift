@@ -12,7 +12,7 @@ import CoreData
 class PatientTableViewCell: UITableViewCell {
     
     // MARK: IBOUTLETS
-    @IBOutlet weak var cardBackgroundView: UIView!
+    
     @IBOutlet weak var actBedNumber: UILabel!
     @IBOutlet weak var patientNameLabel: UILabel!
     @IBOutlet weak var tagListStack: UIStackView!
@@ -28,11 +28,16 @@ class PatientTableViewCell: UITableViewCell {
     
     //VIEWS TURNED STICKERS
     @IBOutlet weak var buttonsCardView: UIView!
+    @IBOutlet weak var idCardView:UIView!
+    @IBOutlet weak var mainDataCardView:UIView!
+    @IBOutlet weak var cardBackgroundView: UIView!
+    
     
     //BUTTONS TOTAL 3
     @IBOutlet weak var addActButton: UIButton!
     @IBOutlet weak var showFullButton: UIButton!
     @IBOutlet weak var signoffTxButton: UIButton!
+    @IBOutlet weak var topRightButton: UIButton!
     
     // MARK: other variables:
     var patient: Patient?
@@ -53,23 +58,33 @@ class PatientTableViewCell: UITableViewCell {
         self.patient = patient
         self.coordinator = coordinator
         
-        setupButtons()
         setupLabels()
         setupTags()
-        setupMainCardBorder()
+        setupCardsView()
+        setupButtons()
     }
     
     private func setupButtons(){
         for case let button? in [addActButton, showFullButton, signoffTxButton]{
-            button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-            self.stickerMaker.setupSticker(view: button, backgroundLayer: nil, backgroundColor: #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1), cornerRadius: 3, borderWidth: 0, masksToBounds: true)
+            button.contentEdgeInsets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+            button.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
             button.setTitleColor(.white, for: .normal)
         }
         self.addActButton.addTarget(self, action: #selector(showActForm), for: .touchUpInside)
+        self.showFullButton.addTarget(self, action: #selector(showFullPatientDetails), for: .touchUpInside)
+        
+        // SETUP TOPRIGHT BUTTON
+        for case let button? in [topRightButton]{
+            button.backgroundColor = #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)
+            button.setTitleColor(.white, for: .normal)
+        }
     }
     
-    private func setupMainCardBorder(){
-        stickerMaker.setupSticker(view: buttonsCardView, backgroundLayer: nil, cornerRadius: 0, borderWidth: 0, masksToBounds: false, shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 2, height: 5), shadowRadius: 3, shadowOpacity: 0.1)
+    private func setupCardsView(){
+        for case let cardView? in [addActButton, showFullButton, signoffTxButton, idCardView, topRightButton, mainDataCardView]{
+            self.stickerMaker.setupSticker(view: cardView, backgroundLayer: nil, backgroundColor: .white, cornerRadius: 3, borderWidth: 0, masksToBounds: false, shadowColor: UIColor.darkGray.cgColor, shadowOffset: CGSize(width: 2, height: 5), shadowRadius: 10, shadowOpacity: 0.1)
+        }
+        self.stickerMaker.setupSticker(view: cardBackgroundView, backgroundLayer: nil, backgroundColor: .white, cornerRadius: 5, borderWidth: 0, masksToBounds: true, shadowColor: UIColor.darkGray.cgColor, shadowOffset: CGSize(width: 2, height: 5), shadowRadius: 10, shadowOpacity: 0.1)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -98,49 +113,21 @@ class PatientTableViewCell: UITableViewCell {
         let labelsList = tagsTitlesList?.compactMap { (LabelType.tagLabel, $0) }
         if let labelsList = labelsList {
             tagStackList.setLabels(for: labelsList)
-            tagStackList.tagStack.arrangedSubviews.forEach {($0 as! UIButton).addTarget(self, action: #selector(tagButtonAction), for: .touchUpInside)}
         }
     }
     
     
     @objc func showActForm(){
         guard let patient = patient else {fatalError("patient not initialized")}
-        
         let latestAct = patient.activeDiagnosticEpisode?.getLatestAct()
         coordinator?.showActForm2(nc: coordinator?.navigationController, patient: patient, existingAct: nil, actToPrePopSomeFields: latestAct)
-//        coordinator?.showActForm(patient: patient, existingAct: nil, actToPrePopSomeFields: latestAct, existingDiagnosticEpisode: patient.activeDiagnosticEpisode)
+    }
+    
+    @objc private func showFullPatientDetails(){
+        coordinator?.showDetailedPatientForm(patient: patient)
     }
     
     @objc func showTagForm(){
         coordinator?.showTagForm(for: patient!, existingTag: nil)
-    }
-//    @objc func showActList(){
-//        coordinator?.showDetailedPatientView(for: patient!)
-//    }
-    @objc func editPatient(){
-        coordinator?.showPatientForm(existingPatient: patient)
-    }
-}
-
-extension PatientTableViewCell{
-    
-    @objc func tagButtonAction(sender: UIButton){
-        
-        // get tag corresponding to the button
-        if let buttonTitle = sender.titleLabel?.text, let tag = patient!.tags?.first(where: { ($0 as! Tag).tagTitle == buttonTitle }) as? Tag{
-            
-            let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            
-            ac.addAction(UIAlertAction(title: "Edit tag title", style: .default) {_ in
-                self.coordinator?.showTagForm(for: self.patient!, existingTag: tag)
-            })
-            
-            ac.addAction(UIAlertAction(title: "Delete tag", style: .destructive) {_ in
-                self.patient!.removeFromTags(tag)
-            })
-            
-            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            coordinator?.navigationController.present(ac, animated: true)
-        }
     }
 }
