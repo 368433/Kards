@@ -29,6 +29,7 @@ class LandingCardVC: UIViewController, Storyboarded{
     let mainBgGradient = Gradients.februaryInk.layer
     let listgb = Gradients.februaryInk.layer
     var topCircle: CAShapeLayer?
+    let stickerMaker = StickerMaker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +47,8 @@ class LandingCardVC: UIViewController, Storyboarded{
 
         self.view.backgroundColor = UIColor.groupTableViewBackground
         self.tableCardView.backgroundColor = .clear
-        setupSticker(view: tableCardView, backgroundLayer: nil)
-        setupSticker(view: contributionCardView, backgroundLayer: nil)
+        stickerMaker.setupSticker(view: tableCardView, backgroundLayer: nil, cornerRadius: 0, borderWidth: 0, masksToBounds: false, shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 10), shadowRadius: 20, shadowOpacity: 0.2)
+        stickerMaker.setupSticker(view: contributionCardView, backgroundLayer: nil, cornerRadius: 5, borderWidth: 0, masksToBounds: false, shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 10), shadowRadius: 20, shadowOpacity: 0.2)
         
         let contributionDrawer = ContributionGraph()
         contributionDrawer.layoutGrid(contributionStack: contributionStack)
@@ -81,20 +82,6 @@ class LandingCardVC: UIViewController, Storyboarded{
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
-    }
-    
-    private func setupSticker(view: UIView, backgroundLayer: CALayer?){
-        view.layer.cornerRadius = 5
-        view.layer.borderColor = UIColor.lightGray.cgColor
-//        view.layer.borderWidth = 1
-//        view.layer.masksToBounds = true
-        if let bg = backgroundLayer {
-            view.layer.insertSublayer(bg, at: 0)
-        }
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = CGSize(width: 0, height: 10)
-        view.layer.shadowRadius = 20
-        view.layer.shadowOpacity = 0.2
     }
 
 }

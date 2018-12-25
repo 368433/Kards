@@ -62,7 +62,7 @@ class ActiveListPatientsVC2: BasePatientsListTC2 {
         
         self.title = activeList.clinicalListTitle
         navigationController?.navigationBar.prefersLargeTitles = false
-        self.tableView.backgroundColor = UIColor.groupTableViewBackground
+        self.tableView.backgroundColor = #colorLiteral(red: 0.4513868093, green: 0.9930960536, blue: 1, alpha: 1)
         self.tableView.register(nib, forCellReuseIdentifier: reuseID)
         self.tabBarController?.tabBar.isHidden = true
         

@@ -17,7 +17,7 @@ class PatientTableViewCell: UITableViewCell {
     @IBOutlet weak var patientNameLabel: UILabel!
     @IBOutlet weak var tagListStack: UIStackView!
     
-    @IBOutlet weak var addActButton: UIButton!
+    
     @IBOutlet weak var diagnosisLabel: UILabel!
     @IBOutlet weak var caseDescriptionLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
@@ -26,6 +26,13 @@ class PatientTableViewCell: UITableViewCell {
     
     @IBOutlet weak var sideView: UIView!
     
+    //VIEWS TURNED STICKERS
+    @IBOutlet weak var buttonsCardView: UIView!
+    
+    //BUTTONS TOTAL 3
+    @IBOutlet weak var addActButton: UIButton!
+    @IBOutlet weak var showFullButton: VignetteButton!
+    @IBOutlet weak var signoffTxButton: VignetteButton!
     
     // MARK: other variables:
     var patient: Patient?
@@ -34,12 +41,15 @@ class PatientTableViewCell: UITableViewCell {
     static var nibName = "PatientTableCell7"
     static var reuseID = "cell"
     static var cellHeight: CGFloat = 403
+    let stickerMaker = StickerMaker()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = UITableViewCell.SelectionStyle.none
+        self.backgroundColor = .clear
         setupCardBackground()
-        
+//        stickerMaker.setupSticker(view: buttonsCardView, backgroundLayer: nil, cornerRadius: 0, borderWidth: 0, masksToBounds: false, shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 2, height: 5), shadowRadius: 5, shadowOpacity: 0.2)
+        stickerMaker.setupSticker(view: buttonsCardView, backgroundLayer: nil, cornerRadius: 0, borderWidth: 0, masksToBounds: false)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -49,13 +59,13 @@ class PatientTableViewCell: UITableViewCell {
     
     private func setupCardBackground(){
 
-        self.backgroundColor = .clear
+//        self.backgroundColor = .clear
 
 //        self.sideView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "qbkls"))
 
-        self.cardBackgroundView.layer.masksToBounds = true
-        self.cardBackgroundView.layer.borderWidth = 0.5
-        self.cardBackgroundView.layer.borderColor = UIColor.lightGray.cgColor
+//        self.cardBackgroundView.layer.masksToBounds = true
+//        self.cardBackgroundView.layer.borderWidth = 0.5
+//        self.cardBackgroundView.layer.borderColor = UIColor.lightGray.cgColor
     }
 
     

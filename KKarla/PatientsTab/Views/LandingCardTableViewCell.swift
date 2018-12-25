@@ -34,7 +34,7 @@ class LandingCardTableViewCell: UITableViewCell {
         self.countLabel.text = model.count
         self.titleLabel.text = model.title
         self.iconImage?.image = model.iconImage
-        stickerMaker.setupSticker(view: countViewSticker, backgroundLayer: model.gradient, cornerRadius: 5, borderWidth: 0, masksToBounds: true)
+        stickerMaker.setupSticker(view: countViewSticker, backgroundLayer: model.gradient, cornerRadius: 5, borderWidth: 0, masksToBounds: true, shadowColor: UIColor.darkGray.cgColor, shadowOffset:CGSize(width: 2, height: 5), shadowRadius: 5, shadowOpacity: 0.2 )
     }
     
 }

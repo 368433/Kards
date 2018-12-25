@@ -75,7 +75,7 @@ class PatientTableViewCell6: UITableViewCell {
         
         self.patientNameLabel.text = patient.name
         self.diagnosisLabel.text = patient.activeDiagnosticEpisode?.primaryDiagnosis
-        self.caseDescriptionLabel.text = patient.summaryBlurb ?? "---"
+        self.caseDescriptionLabel.text = patient.summaryBlurb ?? "No description"
         self.ageLabel.text = "\(patient.age)"
         self.actBedNumber.text = patient.activeDiagnosticEpisode?.getLatestAct()?.actBednumber
         
