@@ -22,11 +22,11 @@ class LandingCardVC: UIViewController, Storyboarded{
     weak var coordinator: PatientsCoordinator?
     var dataCoordinator = AppDelegate.dataCoordinator
     var model: [LandingCardViewModel] = [.AllPatients, .TagsList, .ArchivedWorklists, .ActiveWorklists]
-    let mainBgGradient = Gradients.frozenDreams.layer
+    let mainBgGradient = Gradients.ladogaBottom.layer
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.title = "Patients"
         self.view.layer.insertSublayer(mainBgGradient, at: 0)
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -35,10 +35,12 @@ class LandingCardVC: UIViewController, Storyboarded{
         tableView.rowHeight = 44
         tableView.tableFooterView = UIView()
         tableView.isScrollEnabled = false
+        tableView.backgroundColor = .clear
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         
         setupSticker(view: tableCardView, backgroundLayer: nil)
+        tableCardView.backgroundColor = .clear
         setupSticker(view: contributionCardView, backgroundLayer: nil)
 //        setupSticker(view: starredView, backgroundLayer: Gradients.springWarmth.layer)
 //        setupSticker(view: toCallView, backgroundLayer: Gradients.springWarmth.layer)
@@ -50,12 +52,16 @@ class LandingCardVC: UIViewController, Storyboarded{
         mainBgGradient.frame = self.view.bounds
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     private func setupSticker(view: UIView, backgroundLayer: CALayer?){
 //        view.layer.cornerRadius = 5
         view.layer.borderColor = UIColor.lightGray.cgColor
 //        view.layer.borderWidth = 1
 //        view.layer.masksToBounds = true
-        view.layer.shadowColor = UIColor.darkGray.cgColor
+        view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOffset = CGSize(width: 2, height: 5)
         view.layer.shadowRadius = 5
         view.layer.shadowOpacity = 0.2

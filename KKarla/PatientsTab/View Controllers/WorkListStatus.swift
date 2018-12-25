@@ -6,7 +6,7 @@
 //  Copyright © 2018 amir2. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 enum WorkListStatus {
@@ -30,4 +30,14 @@ enum WorkListStatus {
             return "Archived Lists"
         }
     }
+    
+    var listIcon: UIImage? {
+        switch self {
+        case .Active:
+            return #imageLiteral(resourceName: "icons8-caduceus-medical")
+        case .Archived:
+            return #imageLiteral(resourceName: "icons8-binder")
+        }
+    }
+
 }

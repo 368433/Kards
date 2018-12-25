@@ -67,8 +67,8 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="302" height="44"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <subviews>
-                                                                                <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cr5-bC-t9G">
-                                                                                    <rect key="frame" x="20" y="-4" width="180" height="51.5"/>
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cr5-bC-t9G">
+                                                                                    <rect key="frame" x="20" y="-4" width="192" height="51.5"/>
                                                                                     <subviews>
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uw5-ms-NLk">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="40" height="51.5"/>
@@ -88,7 +88,7 @@
                                                                                             </constraints>
                                                                                         </view>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Patients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEy-hi-YFU">
-                                                                                            <rect key="frame" x="48" y="0.0" width="132" height="51.5"/>
+                                                                                            <rect key="frame" x="60" y="0.0" width="132" height="51.5"/>
                                                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                                                             <nil key="textColor"/>
                                                                                             <nil key="highlightedColor"/>
@@ -106,13 +106,13 @@
                                                                         </tableViewCellContentView>
                                                                         <connections>
                                                                             <outlet property="countLabel" destination="wbN-Bh-GEB" id="pXh-9j-gBr"/>
+                                                                            <outlet property="countViewSticker" destination="Uw5-ms-NLk" id="ZSS-30-8ka"/>
                                                                             <outlet property="titleLabel" destination="wEy-hi-YFU" id="Zik-Jd-Kqb"/>
                                                                         </connections>
                                                                     </tableViewCell>
                                                                 </prototypes>
                                                             </tableView>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="RTX-gl-ae6" firstAttribute="top" secondItem="6Cs-mc-rfu" secondAttribute="top" constant="20" symbolic="YES" id="2Kt-T5-Z2r"/>
                                                             <constraint firstItem="RTX-gl-ae6" firstAttribute="leading" secondItem="6Cs-mc-rfu" secondAttribute="leading" id="NFu-0A-UVA"/>

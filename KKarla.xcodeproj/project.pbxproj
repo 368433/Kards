@@ -48,6 +48,7 @@
 		6A534ABD21D1245000555993 /* LandingCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A534ABB21D1245000555993 /* LandingCardTableViewCell.xib */; };
 		6A534ABF21D158E600555993 /* dayBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A534ABE21D158E600555993 /* dayBox.swift */; };
 		6A534AC121D1727E00555993 /* WorkListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A534AC021D1727E00555993 /* WorkListStatus.swift */; };
+		6A534AC321D195CB00555993 /* StickerMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A534AC221D195CB00555993 /* StickerMaker.swift */; };
 		6A58514721AF551500EE6943 /* BaseTagsListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A58514621AF551500EE6943 /* BaseTagsListTVC.swift */; };
 		6A58514A21AF55AF00EE6943 /* TagsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A58514821AF55AF00EE6943 /* TagsListTableViewCell.swift */; };
 		6A58514B21AF55AF00EE6943 /* TagsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A58514921AF55AF00EE6943 /* TagsListTableViewCell.xib */; };
@@ -195,6 +196,7 @@
 		6A534ABB21D1245000555993 /* LandingCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LandingCardTableViewCell.xib; sourceTree = "<group>"; };
 		6A534ABE21D158E600555993 /* dayBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dayBox.swift; sourceTree = "<group>"; };
 		6A534AC021D1727E00555993 /* WorkListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkListStatus.swift; sourceTree = "<group>"; };
+		6A534AC221D195CB00555993 /* StickerMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerMaker.swift; sourceTree = "<group>"; };
 		6A58514621AF551500EE6943 /* BaseTagsListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTagsListTVC.swift; sourceTree = "<group>"; };
 		6A58514821AF55AF00EE6943 /* TagsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsListTableViewCell.swift; sourceTree = "<group>"; };
 		6A58514921AF55AF00EE6943 /* TagsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagsListTableViewCell.xib; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 			children = (
 				E88920A5217BD50C004216F1 /* LandingCardViewController.swift */,
 				6A534AB621D117EB00555993 /* LandingCardVC.swift */,
+				6A534AC221D195CB00555993 /* StickerMaker.swift */,
 				6A3BF0E721AB1D4200CA0A71 /* BasePatientsListTVC.swift */,
 				6A2884E721CAB97100775C4C /* BasePatientsListTC2.swift */,
 				6A58514621AF551500EE6943 /* BaseTagsListTVC.swift */,
@@ -949,6 +952,7 @@
 				6A58515921AF63E500EE6943 /* ClinicalList+CoreDataProperties.swift in Sources */,
 				6A58514A21AF55AF00EE6943 /* TagsListTableViewCell.swift in Sources */,
 				6A32F91721B2D9B000BB1234 /* DiagnosticEpisodeForm.swift in Sources */,
+				6A534AC321D195CB00555993 /* StickerMaker.swift in Sources */,
 				E859A7A12182B21C007BF751 /* SegmentioCellWithImageOverLabel.swift in Sources */,
 				6A806D5221B04371004E85A2 /* PatientsFilterSegmentedControl.swift in Sources */,
 				E84114FE21758C8D00C5E9D9 /* FoldingTestTableViewController.swift in Sources */,

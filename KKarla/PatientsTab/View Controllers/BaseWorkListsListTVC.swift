@@ -16,14 +16,12 @@ class BaseWorkListsListTVC: UITableViewController, Storyboarded{
     var predicate: NSPredicate?
     var dataCoordinator = AppDelegate.dataCoordinator
     var resultsControllerDelegate: TableViewFetchResultAdapter!
-    var filter: WorkListStatus?
+    var filter: WorkListStatus
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = filter?.typeDescription
-        self.predicate = filter?.filterPredicate
-//        self.predicate = NSPredicate(format: "isActive == false")
+        self.title = filter.typeDescription
         model = ClinicalListModel(searchPredicate: predicate)
         resultsControllerDelegate = TableViewFetchResultAdapter(tableView: self.tableView)
         model.resultController.delegate = resultsControllerDelegate
@@ -31,7 +29,19 @@ class BaseWorkListsListTVC: UITableViewController, Storyboarded{
         self.tableView.register(UINib(nibName: ClinicalListTVC.nibName, bundle: nil), forCellReuseIdentifier: ClinicalListTVC.reuseID)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(createList))
         self.tableView.tableFooterView = UIView(frame: .zero)
-//        self.tableView.rowHeight = 87
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.rowHeight = 44
+    }
+    
+    init(filter: WorkListStatus, coordinator: PatientsCoordinator){
+        self.filter = filter
+        self.coordinator = coordinator
+        self.predicate = filter.filterPredicate
+        super.init(nibName:nil, bundle:nil)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     @objc func createList(){
@@ -50,12 +60,21 @@ class BaseWorkListsListTVC: UITableViewController, Storyboarded{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ClinicalListTVC.reuseID, for: indexPath) as! ClinicalListTVC
-        cell.configure(workList: model.resultController.object(at: indexPath))
+        cell.configure(workList: model.resultController.object(at: indexPath), filter: filter)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            // delete item at indexPath
+        }
+        let archive = UITableViewRowAction(style: .default, title: "Archive") { (action, indexPath) in
+            if let list = self.model?.resultController.object(at: indexPath) {
+                list.isActive = false
+                self.dataCoordinator.saveContext()
+            }
+        }
         let activate = UITableViewRowAction(style: .default, title: "Activate") { (action, indexPath) in
             let list = self.model.resultController.object(at: indexPath)
             list.isActive = true
@@ -66,26 +85,20 @@ class BaseWorkListsListTVC: UITableViewController, Storyboarded{
             let list = self.model.resultController.object(at: indexPath)
             self.coordinator?.showClinicalkListForm(existingList: list)
         }
+        
+        archive.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
         activate.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
         edit.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
-        return [activate, edit]
+        
+        switch filter {
+        case .Active:
+            return [archive, edit, delete]
+        case .Archived:
+            return [activate, edit, delete]
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-//        let searchKP = [Patient.activeListSKP, Patient.signedOffListSKP, Patient.transferredListSKP]
-//        let leftExpressions = searchKP.compactMap { NSExpression(forKeyPath: $0) }
-//        let tableDerivedExpression = NSExpression(forConstantValue: model.resultController.object(at: indexPath))
-//        let comparisonPredicates = leftExpressions.compactMap {
-//            NSComparisonPredicate(leftExpression: $0,
-//                                  rightExpression: tableDerivedExpression,
-//                                  modifier: .direct,
-//                                  type: .contains,
-//                                  options: [.caseInsensitive, .diacriticInsensitive])
-//        }
-//        let orPredicates = NSCompoundPredicate(orPredicateWithSubpredicates: comparisonPredicates)
-//        coordinator?.showAllPatients(predicate: orPredicates)
-        
         coordinator?.showPatients(for: model.resultController.object(at: indexPath))
     }
 }

@@ -12,10 +12,13 @@ class LandingCardTableViewCell: UITableViewCell {
 
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var countViewSticker: UIView!
     
+    let stickerMaker = StickerMaker()
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.backgroundColor = .clear
         // Initialization code
     }
 
@@ -28,6 +31,8 @@ class LandingCardTableViewCell: UITableViewCell {
     func configureCell(title: String, count: String) {
         self.countLabel.text = count
         self.titleLabel.text = title
+        
+        stickerMaker.setupSticker(view: countViewSticker, backgroundLayer: Gradients.frozenDreams.layer, cornerRadius: 5, borderWidth: 0, masksToBounds: true)
     }
     
 }

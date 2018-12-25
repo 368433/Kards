@@ -51,16 +51,12 @@ class PatientsCoordinator: Coordinator {
     }
 
     func showArchivedWorklists() {
-        let wlVC = BaseWorkListsListTVC() //.instantiate()
-        wlVC.coordinator = self
-        wlVC.predicate = NSPredicate(format: "isActive == false")
+        let wlVC = BaseWorkListsListTVC(filter: .Archived, coordinator: self)
         navigationController.pushViewController(wlVC, animated: true)
     }
     
     func showWorklists(filter: WorkListStatus) {
-        let wlVC = BaseWorkListsListTVC()
-        wlVC.coordinator = self
-        wlVC.filter = filter
+        let wlVC = BaseWorkListsListTVC(filter: filter, coordinator: self)
         navigationController.pushViewController(wlVC, animated: true)
     }
     
