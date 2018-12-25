@@ -15,6 +15,11 @@ later:
 encrypt patient NAM
 optimize database
 
+//    let backgroundLayer = Gradients.frozenDreams.layer
+//    let backgroundLayer = Gradients.cloudyKnoxville.layer
+let backgroundLayer = Gradients.saintPetersburg.layer
+//    let backgroundLayer = Gradients.freshMilk.layer
+//    let backgroundLayer = Gradients.softGrass.layer
 
 
 //        if let bg = backgroundLayer {

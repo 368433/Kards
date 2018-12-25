@@ -33,7 +33,7 @@ class LandingCardTableViewCell: UITableViewCell {
     func configureCell(model: LandingCardViewModel) {
         self.countLabel.text = model.count
         self.titleLabel.text = model.title
-        self.iconImage.image = model.iconImage
+        self.iconImage?.image = model.iconImage
         stickerMaker.setupSticker(view: countViewSticker, backgroundLayer: model.gradient, cornerRadius: 5, borderWidth: 0, masksToBounds: true)
     }
     

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AllPatientsListVC: BasePatientsListTVC {
+class AllPatientsListVC: BasePatientsListTC2 {
     
     // MARK: - Properties
     
@@ -20,5 +20,4 @@ class AllPatientsListVC: BasePatientsListTVC {
         searchModule = PatientSearcher(requiredPredicate: nil, ptCoordinator: self.coordinator)
         setupSearch()
     }
-
 }

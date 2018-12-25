@@ -30,11 +30,11 @@ class PatientsCoordinator: Coordinator {
     // MARK: Presenting View Controllers
     
     //Presenting view controllers
-    func showPatients(for ClinicalList: ClinicalList){
-        let patientsListVC = ActiveListPatientsVC(ClinicalList: ClinicalList)
-        patientsListVC.coordinator = self
-        navigationController.pushViewController(patientsListVC, animated: true)
-    }
+//    func showPatients(for ClinicalList: ClinicalList){
+//        let patientsListVC = ActiveListPatientsVC(ClinicalList: ClinicalList)
+//        patientsListVC.coordinator = self
+//        navigationController.pushViewController(patientsListVC, animated: true)
+//    }
 
     func showPatients2(for ClinicalList: ClinicalList){
         let patientsListVC = ActiveListPatientsVC2(ClinicalList: ClinicalList)
@@ -43,10 +43,7 @@ class PatientsCoordinator: Coordinator {
     }
     
     func showAllPatients(predicate: NSPredicate?, vcTitle: String?) {
-        let patientListVC = AllPatientsListVC()
-        patientListVC.searchCriteria = predicate
-        patientListVC.coordinator = self
-        patientListVC.title = vcTitle
+        let patientListVC = BasePatientsListTC2(searchCriteria: predicate, coordinator: self, title: vcTitle)
         navigationController.pushViewController(patientListVC, animated: true)
     }
 
@@ -70,24 +67,30 @@ class PatientsCoordinator: Coordinator {
         navigationController.pushViewController(tagsListsTVC, animated: true)
     }
     
-    func showDetailedPatientView(for patient: Patient?){
-        let ptDetails = DetailedPatientViewVC.instantiate()
-        ptDetails.patient = patient
-        ptDetails.coordinator = self
-//        let nc = UINavigationController()
-//        nc.pushViewController(ptDetails, animated: false)
-//        navigationController.present(nc, animated: true)
-        navigationController.pushViewController(ptDetails, animated: true)
+//    func showDetailedPatientView(for patient: Patient?){
+//        let ptDetails = DetailedPatientViewVC.instantiate()
+//        ptDetails.patient = patient
+//        ptDetails.coordinator = self
+////        let nc = UINavigationController()
+////        nc.pushViewController(ptDetails, animated: false)
+////        navigationController.present(nc, animated: true)
+//        navigationController.pushViewController(ptDetails, animated: true)
+//    }
+    
+    func showDetailedPatientForm(patient: Patient?){
+        print("herer")
+        let detailedForm = PatientForm2(existingPatient: patient, coordinator: self)
+        navigationController.present(detailedForm.navCont, animated: true)
     }
     
-    func showDetailedPatientView2(for patient: Patient?){
+//    func showDetailedPatientView2(for patient: Patient?){
 //        let form2 = PatientForm2.instantiate()
-        let detailedForm = PatientForm2(existingPatient: patient)
-        presentDataForm(for: detailedForm)
+//        let detailedForm = PatientForm2(existingPatient: patient)
+//        presentDataForm(for: detailedForm)
 //        form2.existingPatient = patient
 //        let form = PatientForm2(existingPatient: patient)
 //        presentDataForm(for: form2)
-    }
+//    }
     
     // MARK: presenting FORMS CONTROLLERS
     

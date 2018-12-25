@@ -20,14 +20,14 @@ class PatientSearcher: NSObject {
     var searchController: UISearchController!
     
     /// Secondary search results table view.
-    private var searchResultsTableController: BasePatientsListTVC!
+    private var searchResultsTableController: BasePatientsListTC2!
     
     var requiredPredicate: NSPredicate?
     
     init(requiredPredicate: NSPredicate?, ptCoordinator: PatientsCoordinator?){
         super.init()
         self.requiredPredicate = requiredPredicate
-        searchResultsTableController = BasePatientsListTVC()
+        searchResultsTableController = BasePatientsListTC2()
         searchResultsTableController.coordinator = ptCoordinator
         searchController = UISearchController (searchResultsController: searchResultsTableController)
         setup()
@@ -160,7 +160,7 @@ extension PatientSearcher: UISearchResultsUpdating {
         let finalCompoundPredicate =
             NSCompoundPredicate(andPredicateWithSubpredicates: andMatchPredicates)
         
-        if let resultsController = searchController.searchResultsController as? BasePatientsListTVC {
+        if let resultsController = searchController.searchResultsController as? BasePatientsListTC2 {
             resultsController.model?.searchPredicate = finalCompoundPredicate
             resultsController.tableView.reloadData()
         }

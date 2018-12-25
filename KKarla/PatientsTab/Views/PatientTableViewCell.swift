@@ -116,9 +116,9 @@ class PatientTableViewCell: UITableViewCell {
     @objc func showTagForm(){
         coordinator?.showTagForm(for: patient!, existingTag: nil)
     }
-    @objc func showActList(){
-        coordinator?.showDetailedPatientView(for: patient!)
-    }
+//    @objc func showActList(){
+//        coordinator?.showDetailedPatientView(for: patient!)
+//    }
     @objc func editPatient(){
         coordinator?.showPatientForm(existingPatient: patient)
     }

@@ -58,10 +58,10 @@ class PatientForm2: KarlaForm {
         }
     }
     
-    init(existingPatient: Patient?){
+    init(existingPatient: Patient?, coordinator: PatientsCoordinator?){
         self.existingPatient = existingPatient
         super.init(nibName: "DetailedPatientForm", bundle: nil)
-        
+        self.coordinator = coordinator
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -164,10 +164,6 @@ extension PatientForm2{
         case .info:
             return
         case .act:
-//            coordinator?.showActForm(patient: patient, existingAct: nil, actToPrePopSomeFields: nil, existingDiagnosticEpisode: nil)
-//            let actForm = ActForm(patient: patient, existingAct: nil, actToPrePopSomeFields: nil, existingDiagnosticEpisode: nil)
-//            actForm.coordinator = self.coordinator
-//            navCont.present(actForm.navCont, animated: true)
             coordinator?.showActForm2(nc: self.navCont, patient: patient, existingAct: nil, actToPrePopSomeFields: nil)
         case .episode:
             coordinator?.showDiagnosticEpisodeForm2(nc: self.navCont,for: patient, existingAct: nil, existingDiagnosticEpisode: nil)

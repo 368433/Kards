@@ -22,12 +22,8 @@ class ActiveListPatientsVC2: BasePatientsListTC2 {
 
     var headerFrame = CGRect()
     var headerView = UIView()
-    
-//    let backgroundLayer = Gradients.frozenDreams.layer
-//    let backgroundLayer = Gradients.cloudyKnoxville.layer
+
     let backgroundLayer = Gradients.saintPetersburg.layer
-//    let backgroundLayer = Gradients.freshMilk.layer
-//    let backgroundLayer = Gradients.softGrass.layer
     
     lazy var segmentedControl: SJFluidSegmentedControl = {
         [unowned self] in
@@ -39,7 +35,6 @@ class ActiveListPatientsVC2: BasePatientsListTC2 {
         }()
     
     init(ClinicalList: ClinicalList){
-        
         self.activeList = ClinicalList
         super.init(nibName: "PatientListView", bundle:nil)
         self.searchCriteria = astSegment.searchPredicate(clinicalList: activeList)
@@ -96,13 +91,6 @@ class ActiveListPatientsVC2: BasePatientsListTC2 {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath) as! PatientTableViewCell
         cell.configure(patient: model.resultController.object(at: indexPath), coordinator: self.coordinator)
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        coordinator?.showDetailedPatientView2(for: model.resultController.object(at: indexPath))
-        let detailedForm = PatientForm2(existingPatient: model.resultController.object(at: indexPath))
-        detailedForm.coordinator = self.coordinator
-        self.navigationController?.present(detailedForm.navCont, animated: true)
     }
     
     @objc override func addNew(){

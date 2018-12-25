@@ -15,27 +15,41 @@ class BasePatientsListTC2: UIViewController, Storyboarded{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mainStack: UIStackView!
     
-    
     weak var coordinator: PatientsCoordinator?
     var model: PatientListModel!
     var dataCoordinator = AppDelegate.dataCoordinator
     var resultsControllerDelegate: TableViewFetchResultAdapter!
     internal var searchModule: PatientSearcher!
+    var searchIsHidden: Bool = true
     var searchCriteria: NSPredicate? {
         didSet{
             model?.searchPredicate = searchCriteria
         }
     }
     
+
+    init(searchCriteria: NSPredicate? = nil, coordinator: PatientsCoordinator? = nil, title: String? = nil){
+        super.init(nibName: "BasePatientListView", bundle:nil)
+        self.searchCriteria = searchCriteria
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.title = title
+        self.coordinator = coordinator
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         tableView.register(nib, forCellReuseIdentifier: reuseID)
         tableView.dataSource = self
         tableView.delegate = self
-        
-        self.title = "All Patients"
         
         // Make the search bar visible when scrolling - default is false
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -51,13 +65,18 @@ class BasePatientsListTC2: UIViewController, Storyboarded{
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
         self.tabBarController?.tabBar.isHidden = false
+        
+        searchModule = PatientSearcher(requiredPredicate: nil, ptCoordinator: self.coordinator)
+        setupSearch()
     }
     
     func setupSearch(){
-        navigationItem.searchController = searchModule.searchController
-        definesPresentationContext = true
-        let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(invokeSearch))
-        self.navigationItem.rightBarButtonItems?.append(searchButton)
+        if !searchIsHidden {
+            navigationItem.searchController = searchModule.searchController
+            definesPresentationContext = true
+            let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(invokeSearch))
+            self.navigationItem.rightBarButtonItems?.append(searchButton)
+        }
     }
     
     @objc func invokeSearch(){
@@ -67,7 +86,6 @@ class BasePatientsListTC2: UIViewController, Storyboarded{
     @objc func addNew(){
         coordinator?.showPatientForm(existingPatient: nil, list: nil)
     }
-
 }
 
 //**
@@ -98,11 +116,6 @@ extension BasePatientsListTC2: UITableViewDelegate, UITableViewDataSource{
     //MARK: - Table view delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //        coordinator?.showDetailedPatientView(for: model?.resultController.object(at: indexPath))
-        print("here")
-        let detailedForm = PatientForm2(existingPatient: model.resultController.object(at: indexPath))
-        detailedForm.coordinator = self.coordinator
-        self.navigationController?.present(detailedForm.navCont, animated: true)
-//        coordinator?.showDetailedPatientView2(for: model.resultController.object(at: indexPath))
+        coordinator?.showDetailedPatientForm(patient: model.resultController.object(at: indexPath))
     }
 }

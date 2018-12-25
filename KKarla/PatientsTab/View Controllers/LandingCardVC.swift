@@ -34,7 +34,6 @@ class LandingCardVC: UIViewController, Storyboarded{
         super.viewDidLoad()
         
         self.title = "Patients"
-//        self.view.layer.insertSublayer(mainBgGradient, at: 0)
         self.navigationController?.navigationBar.prefersLargeTitles = true
         tableView.dataSource = self
         tableView.delegate = self
@@ -56,8 +55,8 @@ class LandingCardVC: UIViewController, Storyboarded{
         let circularDrawer = CircularGraph()
         leftDataView.backgroundColor = .clear
         
-        topCircle = circularDrawer.drawCercle(inside: leftDataView, radius: 30, strokeEnd: 0, strokeColor: UIColor.yellow.cgColor)
-        let trackCircle = circularDrawer.drawCercle(inside: leftDataView,  radius: 30, strokeEnd: 1, strokeColor: UIColor.lightGray.cgColor)
+        topCircle = circularDrawer.drawCercle(inside: leftDataView, radius: 30, lineWidth: 5, strokeEnd: 0, strokeColor: UIColor.yellow.cgColor)
+        let trackCircle = circularDrawer.drawCercle(inside: leftDataView,  radius: 30, lineWidth: 5, strokeEnd: 1, strokeColor: UIColor.lightGray.cgColor)
         leftDataView.layer.addSublayer(trackCircle)
         leftDataView.layer.addSublayer(topCircle!)
         leftDataView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))

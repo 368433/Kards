@@ -52,6 +52,7 @@
 		6A534AC521D1D49900555993 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A534AC421D1D49900555993 /* TabButton.swift */; };
 		6A534AC921D2095200555993 /* ContributionGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A534AC821D2095200555993 /* ContributionGraph.swift */; };
 		6A534ACB21D209FC00555993 /* CircularGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A534ACA21D209FC00555993 /* CircularGraph.swift */; };
+		6A534ACE21D2753900555993 /* BasePatientListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A534ACD21D2753900555993 /* BasePatientListView.xib */; };
 		6A58514721AF551500EE6943 /* BaseTagsListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A58514621AF551500EE6943 /* BaseTagsListTVC.swift */; };
 		6A58514A21AF55AF00EE6943 /* TagsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A58514821AF55AF00EE6943 /* TagsListTableViewCell.swift */; };
 		6A58514B21AF55AF00EE6943 /* TagsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A58514921AF55AF00EE6943 /* TagsListTableViewCell.xib */; };
@@ -203,6 +204,7 @@
 		6A534AC421D1D49900555993 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 		6A534AC821D2095200555993 /* ContributionGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionGraph.swift; sourceTree = "<group>"; };
 		6A534ACA21D209FC00555993 /* CircularGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularGraph.swift; sourceTree = "<group>"; };
+		6A534ACD21D2753900555993 /* BasePatientListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasePatientListView.xib; sourceTree = "<group>"; };
 		6A58514621AF551500EE6943 /* BaseTagsListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTagsListTVC.swift; sourceTree = "<group>"; };
 		6A58514821AF55AF00EE6943 /* TagsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsListTableViewCell.swift; sourceTree = "<group>"; };
 		6A58514921AF55AF00EE6943 /* TagsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagsListTableViewCell.xib; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 			children = (
 				E822210D217CFB0700CEE16C /* KarlaForm.swift */,
 				E822210B217CF73000CEE16C /* ClinicalListForm.swift */,
+				E8D98666217D7DF900EFE369 /* PatientForm.swift */,
 				6A82B7F321C9245C0035ED0D /* PatientForm2.swift */,
 				E8C84CA121800F4500D77649 /* ActForm.swift */,
 				6A834AB421ADB9B900451E0D /* TagForm.swift */,
@@ -385,7 +388,6 @@
 				6A2884E721CAB97100775C4C /* BasePatientsListTC2.swift */,
 				6A58514621AF551500EE6943 /* BaseTagsListTVC.swift */,
 				6A36B04D21AB972300C4F9A8 /* BaseWorkListsListTVC.swift */,
-				6A806D6121B1D6F2004E85A2 /* DetailedPatientViewVC.swift */,
 				6A2884E921CABAAD00775C4C /* ActiveListPatientsVC2.swift */,
 				6A806D5321B09A04004E85A2 /* AllPatientsListVC.swift */,
 			);
@@ -434,8 +436,8 @@
 		6A534ACC21D26DE400555993 /* old To disable */ = {
 			isa = PBXGroup;
 			children = (
+				6A806D6121B1D6F2004E85A2 /* DetailedPatientViewVC.swift */,
 				E88920A5217BD50C004216F1 /* LandingCardViewController.swift */,
-				E8D98666217D7DF900EFE369 /* PatientForm.swift */,
 				6A3BF0E721AB1D4200CA0A71 /* BasePatientsListTVC.swift */,
 				6A533A9521AB665D000FB93E /* ActiveListPatientsVC.swift */,
 			);
@@ -463,6 +465,7 @@
 				6A32F93C21B687C600BB1234 /* DiagnosticEpisodeFormView.xib */,
 				6A82B7F521C973200035ED0D /* DetailedPatientForm.xib */,
 				6A2884E521CAB89700775C4C /* PatientListView.xib */,
+				6A534ACD21D2753900555993 /* BasePatientListView.xib */,
 				6A534AB221D1174400555993 /* LandingCardView.xib */,
 				6A534AB721D117EB00555993 /* LandingCardVC.xib */,
 				6A534ABA21D1245000555993 /* LandingCardTableViewCell.swift */,
@@ -778,6 +781,7 @@
 			files = (
 				6A32F93921B6088D00BB1234 /* DiagnosticEpisodeTableViewCell.xib in Resources */,
 				6A82B7F921C99B2A0035ED0D /* PatientTableCell5.xib in Resources */,
+				6A534ACE21D2753900555993 /* BasePatientListView.xib in Resources */,
 				E859A7A82182B21C007BF751 /* BadgeWithCounterViewStandardSized.xib in Resources */,
 				6A868E9721C7F88F00ECA7BD /* BasePatientTableCell.xib in Resources */,
 				6A36B05221AB97CE00C4F9A8 /* ClinicalListTVC.xib in Resources */,
