@@ -79,14 +79,14 @@ class PatientTableViewCell6: UITableViewCell {
         self.ageLabel.text = "\(patient.age)"
         self.actBedNumber.text = patient.activeDiagnosticEpisode?.getLatestAct()?.actBednumber
         
-        if let gender = patient.gender {
-            switch gender{
-            case .female:
-                self.genderImage.image = UIImage(named: "icons8-female")
-            case .male:
-                self.genderImage.image = UIImage(named: "icons8-male")
-            }
-        }
+//        if let gender = patient.gender {
+//            switch gender{
+//            case .female:
+//                self.genderImage.image = UIImage(named: "icons8-female")
+//            case .male:
+//                self.genderImage.image = UIImage(named: "icons8-male")
+//            }
+//        }
     }
     
     private func setupButtons(){

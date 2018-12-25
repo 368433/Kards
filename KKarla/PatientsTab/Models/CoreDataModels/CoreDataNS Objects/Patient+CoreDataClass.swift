@@ -7,7 +7,7 @@
 //
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 @objc(Patient)
@@ -39,10 +39,10 @@ public class Patient: NSManagedObject {
         }
     }
     
-    var gender: Gender? {
+    var gender: Gender {
         if patientGender == "M" { return .male }
         else if patientGender == "F" { return .female }
-        else { return nil }
+        else { return .none }
     }
     
 }
@@ -50,4 +50,17 @@ public class Patient: NSManagedObject {
 enum Gender{
     case male
     case female
+    case none
+    
+    var genderIconImage: UIImage? {
+        switch self{
+        case .female:
+            return #imageLiteral(resourceName: "icons8-female")
+        case .male:
+            return #imageLiteral(resourceName: "icons8-male")
+        case .none:
+            return #imageLiteral(resourceName: "icons8-gender")
+        }
+
+    }
 }

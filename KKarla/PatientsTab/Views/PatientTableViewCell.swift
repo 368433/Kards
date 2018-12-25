@@ -31,8 +31,8 @@ class PatientTableViewCell: UITableViewCell {
     
     //BUTTONS TOTAL 3
     @IBOutlet weak var addActButton: UIButton!
-    @IBOutlet weak var showFullButton: VignetteButton!
-    @IBOutlet weak var signoffTxButton: VignetteButton!
+    @IBOutlet weak var showFullButton: UIButton!
+    @IBOutlet weak var signoffTxButton: UIButton!
     
     // MARK: other variables:
     var patient: Patient?
@@ -47,36 +47,34 @@ class PatientTableViewCell: UITableViewCell {
         super.awakeFromNib()
         self.selectionStyle = UITableViewCell.SelectionStyle.none
         self.backgroundColor = .clear
-        setupCardBackground()
-//        stickerMaker.setupSticker(view: buttonsCardView, backgroundLayer: nil, cornerRadius: 0, borderWidth: 0, masksToBounds: false, shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 2, height: 5), shadowRadius: 5, shadowOpacity: 0.2)
-        stickerMaker.setupSticker(view: buttonsCardView, backgroundLayer: nil, cornerRadius: 0, borderWidth: 0, masksToBounds: false)
+    }
+    
+    func configure(patient: Patient, coordinator: PatientsCoordinator?){
+        self.patient = patient
+        self.coordinator = coordinator
+        
+        setupButtons()
+        setupLabels()
+        setupTags()
+        setupMainCardBorder()
+    }
+    
+    private func setupButtons(){
+        for case let button? in [addActButton, showFullButton, signoffTxButton]{
+            button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+            self.stickerMaker.setupSticker(view: button, backgroundLayer: nil, backgroundColor: #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1), cornerRadius: 3, borderWidth: 0, masksToBounds: true)
+            button.setTitleColor(.white, for: .normal)
+        }
+        self.addActButton.addTarget(self, action: #selector(showActForm), for: .touchUpInside)
+    }
+    
+    private func setupMainCardBorder(){
+        stickerMaker.setupSticker(view: buttonsCardView, backgroundLayer: nil, cornerRadius: 0, borderWidth: 0, masksToBounds: false, shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 2, height: 5), shadowRadius: 3, shadowOpacity: 0.1)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
-    }
-    
-    private func setupCardBackground(){
-
-//        self.backgroundColor = .clear
-
-//        self.sideView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "qbkls"))
-
-//        self.cardBackgroundView.layer.masksToBounds = true
-//        self.cardBackgroundView.layer.borderWidth = 0.5
-//        self.cardBackgroundView.layer.borderColor = UIColor.lightGray.cgColor
-    }
-
-    
-    func configure(patient: Patient, coordinator: PatientsCoordinator?){
-
-        self.patient = patient
-        self.coordinator = coordinator
-        
-        setupLabels()
-        setupButtons()
-        setupTags()
     }
     
     private func setupLabels(){
@@ -85,22 +83,10 @@ class PatientTableViewCell: UITableViewCell {
         
         self.patientNameLabel.text = patient.name
         self.diagnosisLabel.text = patient.activeDiagnosticEpisode?.primaryDiagnosis
-        self.caseDescriptionLabel.text = patient.summaryBlurb ?? "---"
+        self.caseDescriptionLabel.text = patient.summaryBlurb ?? "No description"
         self.ageLabel.text = "\(patient.age)"
         self.actBedNumber.text = patient.activeDiagnosticEpisode?.getLatestAct()?.actBednumber
-        
-        if let gender = patient.gender {
-            switch gender{
-            case .female:
-                self.genderImage.image = UIImage(named: "icons8-female")
-            case .male:
-                self.genderImage.image = UIImage(named: "icons8-male")
-            }
-        }
-    }
-    
-    private func setupButtons(){
-        self.addActButton.addTarget(self, action: #selector(showActForm), for: .touchUpInside)
+        self.genderImage.image = patient.gender.genderIconImage
     }
     
     private func setupTags(){

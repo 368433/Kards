@@ -27,7 +27,8 @@ class VignetteButton: UIButton{
     }
     
     private func amir(){
-        stickerMaker.setupSticker(view: self, backgroundLayer: Gradients.winterNeva.layer, cornerRadius: 3, borderWidth: 0, masksToBounds: true)
+        self.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        stickerMaker.setupSticker(view: self, backgroundColor: UIColor.groupTableViewBackground, cornerRadius: 3, borderWidth: 0, masksToBounds: true)
     }
     
     private func setup() {
