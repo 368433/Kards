@@ -30,6 +30,33 @@ enum LandingCardViewModel {
         }
     }
     
+    var iconImage: UIImage? {
+        switch self{
+        case .AllPatients:
+            return UIImage(named: "icons8-people")
+        case .TagsList:
+            return UIImage(named: "icons8-tag-window")
+        case .ArchivedWorklists:
+            return UIImage(named: "icons8-binder")
+        case .ActiveWorklists:
+            return UIImage(named: "icons8-caduceus-medical")
+        }
+    }
+    
+    var gradient: CALayer {
+        switch self {
+        case .AllPatients:
+            return Gradients.marbleWall.layer
+        case .TagsList:
+            return Gradients.happyUnicorn.layer
+        case .ArchivedWorklists:
+            return Gradients.confidentCloud.layer
+        case .ActiveWorklists:
+            return Gradients.cheerfulCaramel.layer
+            
+        }
+    }
+    
     var count: String {
         let context = AppDelegate.dataCoordinator.persistentContainer.viewContext
         var request: NSFetchRequest<NSManagedObject>

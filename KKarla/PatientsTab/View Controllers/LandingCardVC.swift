@@ -19,6 +19,10 @@ class LandingCardVC: UIViewController, Storyboarded{
     @IBOutlet weak var tableCardView: UIView!
     @IBOutlet weak var contributionCardView: UIView!
     
+    //DataViews
+    @IBOutlet weak var leftDataView: UIView!
+    @IBOutlet weak var rightDataView: UIView!
+    
     weak var coordinator: PatientsCoordinator?
     var dataCoordinator = AppDelegate.dataCoordinator
     var model: [LandingCardViewModel] = [.AllPatients, .TagsList, .ArchivedWorklists, .ActiveWorklists]
@@ -45,10 +49,10 @@ class LandingCardVC: UIViewController, Storyboarded{
         self.tableCardView.backgroundColor = .clear
         setupSticker(view: tableCardView, backgroundLayer: nil)
         setupSticker(view: contributionCardView, backgroundLayer: nil)
-//        setupSticker(view: starredView, backgroundLayer: Gradients.springWarmth.layer)
-//        setupSticker(view: toCallView, backgroundLayer: Gradients.springWarmth.layer)
         
-        layoutGrid()
+        let contributionDrawer = ContributionGraph()
+        contributionDrawer.layoutGrid(contributionStack: contributionStack)
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -66,38 +70,12 @@ class LandingCardVC: UIViewController, Storyboarded{
 //        view.layer.borderWidth = 1
 //        view.layer.masksToBounds = true
         if let bg = backgroundLayer {
-//            bg.frame = view.layer.frame
             view.layer.insertSublayer(bg, at: 0)
         }
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOffset = CGSize(width: 0, height: 10)
         view.layer.shadowRadius = 20
         view.layer.shadowOpacity = 0.2
-    }
-    
-    private func layoutGrid(){
-        contributionStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
-        for _ in 0..<13 {
-            let monthStack = UIStackView()
-            monthStack.axis = .vertical
-            monthStack.alignment = .top
-            monthStack.spacing = 4
-            contributionStack.addArrangedSubview(monthStack)
-            for _ in 0..<4 {
-                let weekStack = UIStackView()
-                weekStack.axis = .horizontal
-                weekStack.spacing = 1
-                weekStack.alignment = .top
-                monthStack.addArrangedSubview(weekStack)
-                for _ in 0..<7 {
-                    let testview = UIView()
-                    testview.widthAnchor.constraint(equalToConstant: 7).isActive = true
-                    testview.heightAnchor.constraint(equalToConstant: 10).isActive = true
-                    testview.backgroundColor = UIColor.groupTableViewBackground
-                    weekStack.addArrangedSubview(testview)
-                }
-            }
-        }
     }
 
 }
@@ -111,7 +89,8 @@ extension LandingCardVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! LandingCardTableViewCell
         let rowObject = model[indexPath.row]
-        cell.configureCell(title: rowObject.title, count: rowObject.count)
+//        cell.configureCell(title: rowObject.title, count: rowObject.count)
+        cell.configureCell(model: rowObject)
         return cell
     }
     

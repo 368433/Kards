@@ -13,6 +13,7 @@ class LandingCardTableViewCell: UITableViewCell {
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var countViewSticker: UIView!
+    @IBOutlet weak var iconImage: UIImageView!
     
     let stickerMaker = StickerMaker()
     
@@ -31,8 +32,14 @@ class LandingCardTableViewCell: UITableViewCell {
     func configureCell(title: String, count: String) {
         self.countLabel.text = count
         self.titleLabel.text = title
-        
         stickerMaker.setupSticker(view: countViewSticker, backgroundLayer: Gradients.freshMilk.layer, cornerRadius: 5, borderWidth: 0, masksToBounds: true)
+    }
+    
+    func configureCell(model: LandingCardViewModel) {
+        self.countLabel.text = model.count
+        self.titleLabel.text = model.title
+        self.iconImage.image = model.iconImage
+        stickerMaker.setupSticker(view: countViewSticker, backgroundLayer: model.gradient, cornerRadius: 5, borderWidth: 0, masksToBounds: true)
     }
     
 }
