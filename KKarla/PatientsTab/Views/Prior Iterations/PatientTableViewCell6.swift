@@ -9,12 +9,13 @@
 import UIKit
 import CoreData
 
-class PatientTableViewCell: UITableViewCell {
+class PatientTableViewCell6: UITableViewCell {
     
     // MARK: IBOUTLETS
     @IBOutlet weak var cardBackgroundView: UIView!
     @IBOutlet weak var actBedNumber: UILabel!
     @IBOutlet weak var patientNameLabel: UILabel!
+    @IBOutlet weak var patientDetailsLabel: UILabel!
     @IBOutlet weak var tagListStack: UIStackView!
     
     @IBOutlet weak var addActButton: UIButton!
@@ -31,9 +32,8 @@ class PatientTableViewCell: UITableViewCell {
     var patient: Patient?
     var coordinator : PatientsCoordinator?
     
-    static var nibName = "PatientTableCell7"
+    static var nibName = "PatientTableCell6"
     static var reuseID = "cell"
-    static var cellHeight: CGFloat = 403
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,7 +51,7 @@ class PatientTableViewCell: UITableViewCell {
 
         self.backgroundColor = .clear
 
-//        self.sideView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "qbkls"))
+        self.sideView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "qbkls"))
 
         self.cardBackgroundView.layer.masksToBounds = true
         self.cardBackgroundView.layer.borderWidth = 0.5
@@ -126,7 +126,7 @@ class PatientTableViewCell: UITableViewCell {
     }
 }
 
-extension PatientTableViewCell{
+extension PatientTableViewCell6{
     
     @objc func tagButtonAction(sender: UIButton){
         
