@@ -65,6 +65,7 @@ class BaseTagsListTVC: UITableViewController {
                                   options: [.caseInsensitive, .diacriticInsensitive])
         let vcTitle = model.resultController.object(at: indexPath).tagTitle ?? "n/a"
         coordinator?.showAllPatients(predicate: ComparisonPredicate, vcTitle: "Patients :: \(vcTitle)")
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

@@ -111,8 +111,10 @@ class PatientTableViewCell: UITableViewCell {
         guard let patient = patient else {fatalError("patient not initialized")}
         
         let latestAct = patient.activeDiagnosticEpisode?.getLatestAct()
-        coordinator?.showActForm(patient: patient, existingAct: nil, actToPrePopSomeFields: latestAct, existingDiagnosticEpisode: patient.activeDiagnosticEpisode)
+        coordinator?.showActForm2(nc: coordinator?.navigationController, patient: patient, existingAct: nil, actToPrePopSomeFields: latestAct)
+//        coordinator?.showActForm(patient: patient, existingAct: nil, actToPrePopSomeFields: latestAct, existingDiagnosticEpisode: patient.activeDiagnosticEpisode)
     }
+    
     @objc func showTagForm(){
         coordinator?.showTagForm(for: patient!, existingTag: nil)
     }
@@ -142,7 +144,7 @@ extension PatientTableViewCell{
             })
             
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            coordinator?.showAlertController(for: ac)
+            coordinator?.navigationController.present(ac, animated: true)
         }
     }
 }

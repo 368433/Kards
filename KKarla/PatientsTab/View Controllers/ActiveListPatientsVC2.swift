@@ -58,7 +58,7 @@ class ActiveListPatientsVC2: BasePatientsListTC2 {
         
         self.title = activeList.clinicalListTitle
         navigationController?.navigationBar.prefersLargeTitles = false
-        self.tableView.backgroundColor = .clear
+        self.tableView.backgroundColor = UIColor.groupTableViewBackground
         self.tableView.register(nib, forCellReuseIdentifier: reuseID)
         
         self.tabBarController?.tabBar.isHidden = true
@@ -70,7 +70,7 @@ class ActiveListPatientsVC2: BasePatientsListTC2 {
         
         self.tableView.separatorStyle = .none
         
-        self.view.layer.insertSublayer(backgroundLayer, at: 0)
+//        self.view.layer.insertSublayer(backgroundLayer, at: 0)
         navigationItem.hidesSearchBarWhenScrolling = true
         
         searchModule = PatientSearcher(requiredPredicate: self.searchCriteria, ptCoordinator: self.coordinator)

@@ -26,7 +26,6 @@ class BasePatientsListTC2: UIViewController, Storyboarded{
             model?.searchPredicate = searchCriteria
         }
     }
-    
 
     init(searchCriteria: NSPredicate? = nil, coordinator: PatientsCoordinator? = nil, title: String? = nil){
         super.init(nibName: "BasePatientListView", bundle:nil)
@@ -118,4 +117,6 @@ extension BasePatientsListTC2: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         coordinator?.showDetailedPatientForm(patient: model.resultController.object(at: indexPath))
     }
+    
+    
 }

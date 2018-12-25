@@ -58,10 +58,11 @@ class PatientForm2: KarlaForm {
         }
     }
     
-    init(existingPatient: Patient?, coordinator: PatientsCoordinator?){
+    init(existingPatient: Patient?, addToList: ClinicalList? ,coordinator: PatientsCoordinator?){
         self.existingPatient = existingPatient
         super.init(nibName: "DetailedPatientForm", bundle: nil)
         self.coordinator = coordinator
+        self.listToLink = addToList
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -71,7 +72,6 @@ class PatientForm2: KarlaForm {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.backgroundColor = UIColor.groupTableViewBackground
         self.title = existingPatient?.name
         initializeForm()
@@ -80,9 +80,9 @@ class PatientForm2: KarlaForm {
         setupEmptyDataScreensModule()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        setTabsColor()
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        setTabsColor()
+//    }
     
     @objc override func saveEntries(){
         objectToSave = existingPatient ?? getNewPatientInstance()
@@ -121,7 +121,6 @@ class PatientForm2: KarlaForm {
 
 extension PatientForm2{
     private func setupTabTables(){
-        
         let nib = UINib(nibName: ActTableViewCell.nibName, bundle: nil)
         let nib2 = UINib(nibName: DiagnosticEpisodeTableViewCell.nibName, bundle: nil)
         
@@ -263,15 +262,9 @@ extension PatientForm2{
         case .act:
             let act = actModel.resultController.object(at: indexPath)
             coordinator?.showActForm2(nc: self.navCont, patient: patient, existingAct: act, actToPrePopSomeFields: act)
-//            let actForm = ActForm(patient: patient, existingAct: act, actToPrePopSomeFields: act, existingDiagnosticEpisode: nil)
-//            actForm.coordinator = self.coordinator
-//            self.navCont.present(actForm.navCont, animated: true)
         case .episode:
             let diagnosticEpisode = diagnosticEpisodeModel.resultController.object(at: indexPath)
             coordinator?.showDiagnosticEpisodeForm2(nc: self.navCont, for: patient, existingAct: nil, existingDiagnosticEpisode: diagnosticEpisode)
-//            let episodeForm = DiagnosticEpisodeForm(patient: patient, existingAct: nil, existingDiagnosticEpisode: diagnosticEpisode)
-//            episodeForm.coordinator = self.coordinator
-//            self.navCont.present(episodeForm.navCont, animated: true)
         }
         self.tableView.deselectRow(at: indexPath, animated: false)
     }

@@ -120,7 +120,6 @@ extension LandingCardVC: UITableViewDelegate, UITableViewDataSource {
         case .TagsList:
             coordinator?.showTagsListsTVC()
         case .ArchivedWorklists:
-//            coordinator?.showArchivedWorklists()
             coordinator?.showWorklists(filter: .Archived)
         case .ActiveWorklists:
             coordinator?.showWorklists(filter: .Active)

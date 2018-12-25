@@ -89,12 +89,6 @@ class BasePatientTableViewCell: UITableViewCell {
     }
 
 
-    @objc func showActForm(){
-        if let pt = patient {
-            let latestAct = pt.activeDiagnosticEpisode?.getLatestAct()
-            coordinator?.showActForm(patient: pt, existingAct: nil, actToPrePopSomeFields: latestAct, existingDiagnosticEpisode: pt.activeDiagnosticEpisode)
-        }
-    }
     @objc func showTagForm(){
         if let pt = patient {coordinator?.showTagForm(for: pt, existingTag: nil)}
     }
@@ -121,7 +115,7 @@ extension BasePatientTableViewCell{
             })
             
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            coordinator?.showAlertController(for: ac)
+            coordinator?.navigationController.present(ac, animated: true)
         }
     }
 }

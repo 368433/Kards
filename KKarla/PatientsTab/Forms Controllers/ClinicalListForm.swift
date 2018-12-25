@@ -13,7 +13,7 @@ class ClinicalListForm: KarlaForm {
     
     var existingClinicalList: ClinicalList?
     
-    init(existingClinicalList: ClinicalList?, formTitle: String?){
+    init(existingClinicalList: ClinicalList?, formTitle: String?, coordinator: PatientsCoordinator?){
         self.existingClinicalList = existingClinicalList
         super.init(nibName: nil, bundle: nil)
         self.title = formTitle

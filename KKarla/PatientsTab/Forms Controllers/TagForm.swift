@@ -14,10 +14,11 @@ class TagForm: KarlaForm{
     var patient: Patient
     var existingTag: Tag?
     
-    init(patient: Patient, existingTag: Tag?){
+    init(patient: Patient, existingTag: Tag?, coordinator: PatientsCoordinator?){
         self.patient = patient
         self.existingTag = existingTag
         super.init(nibName: nil, bundle: nil)
+        self.coordinator = coordinator
     }
     
     required init?(coder aDecoder: NSCoder) {
