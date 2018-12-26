@@ -20,7 +20,10 @@ class PatientTableViewCell: UITableViewCell {
     @IBOutlet weak var caseDescriptionLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var patientNameLabel: UILabel!
+    
+    // IMAGEVIEWS
     @IBOutlet weak var genderImage: UIImageView!
+    @IBOutlet weak var emptyPhotoImageView: UIImageView!
     
     //VIEWS TURNED STICKERS
     @IBOutlet weak var buttonsCardView: UIView!
@@ -58,24 +61,33 @@ class PatientTableViewCell: UITableViewCell {
     }
     
     private func setupButtons(){
+        
+        for case let buttonView? in [addActButton, showFullButton, signoffTxButton]{
+            self.stickerMaker.setupSticker(view: buttonView, backgroundLayer: nil, backgroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), cornerRadius: 3, borderWidth: 0, masksToBounds: true)
+//            buttonView.setTitleColor(.darkText, for: .normal)
+//            let inset: CGFloat = 8
+//            buttonView.contentEdgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+        }
+        for case let buttonView? in [topRightButton]{
+            self.stickerMaker.setupSticker(view: buttonView, backgroundLayer: nil, backgroundColor:  #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1), cornerRadius: 3, borderWidth: 0, masksToBounds: true)
+            buttonView.setTitleColor(.white, for: .normal)
+            let inset: CGFloat = 8
+            buttonView.contentEdgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+            let title = patient?.activeDiagnosticEpisode?.getLatestAct()?.actBednumber
+            buttonView.setTitle(title ?? "Bed", for: .normal)
+        }
+        
         self.addActButton.addTarget(self, action: #selector(showActForm), for: .touchUpInside)
         self.showFullButton.addTarget(self, action: #selector(showFullPatientDetails), for: .touchUpInside)
-        let title = patient?.activeDiagnosticEpisode?.getLatestAct()?.actBednumber
-        topRightButton.setTitle(title ?? "Bed", for: .normal)
+       
     }
     
     private func setupCardsView(){
-        for case let buttonView? in [addActButton, showFullButton, signoffTxButton, topRightButton]{
-            self.stickerMaker.setupSticker(view: buttonView, backgroundLayer: nil, backgroundColor: #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1), cornerRadius: 3, borderWidth: 0, masksToBounds: true, shadowColor: UIColor.darkGray.cgColor, shadowOffset: CGSize(width: 2, height: 5), shadowRadius: 10, shadowOpacity: 0.1)
-            buttonView.setTitleColor(.white, for: .normal)
-            if buttonView === topRightButton { buttonView.backgroundColor =  #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)}
-            let inset: CGFloat = 8
-            buttonView.contentEdgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+        for case let view? in [cardBackgroundView] {
+            self.stickerMaker.setupSticker(view: view, backgroundLayer: nil, backgroundColor: .white, cornerRadius: 5, borderWidth: 0, masksToBounds: false, shadowColor: UIColor.darkGray.cgColor, shadowOffset: CGSize(width: 2, height: 5), shadowRadius: 8, shadowOpacity: 0.3)
         }
         
-        for case let view? in [idCardView, cardBackgroundView] {
-            self.stickerMaker.setupSticker(view: view, backgroundLayer: nil, backgroundColor: .white, cornerRadius: 5, borderWidth: 0, masksToBounds: false, shadowColor: UIColor.darkGray.cgColor, shadowOffset: CGSize(width: 2, height: 5), shadowRadius: 10, shadowOpacity: 0.3)
-        }
+        stickerMaker.setupSticker(view: emptyPhotoImageView, backgroundLayer: nil, backgroundColor: nil, cornerRadius: 0, borderWidth: 0, masksToBounds: false, shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 2, height: 2), shadowRadius: 5, shadowOpacity: 0.2)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -88,7 +100,7 @@ class PatientTableViewCell: UITableViewCell {
         guard let patient = patient else {fatalError("patient not initialized")}
         
         self.patientNameLabel.text = patient.name
-        self.diagnosisLabel.text = patient.activeDiagnosticEpisode?.primaryDiagnosis
+        self.diagnosisLabel.text = patient.activeDiagnosticEpisode?.primaryDiagnosis ?? "No Diagnosis"
         self.caseDescriptionLabel.text = patient.summaryBlurb ?? "No description"
         self.ageLabel.text = "\(patient.age)"
         self.genderImage.image = patient.gender.genderIconImage
