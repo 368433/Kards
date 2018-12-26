@@ -363,21 +363,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		6A3BF0E321AB11C900CA0A71 /* Forms Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				E822210D217CFB0700CEE16C /* KarlaForm.swift */,
-				E822210B217CF73000CEE16C /* ClinicalListForm.swift */,
-				E8D98666217D7DF900EFE369 /* PatientForm.swift */,
-				6A82B7F321C9245C0035ED0D /* PatientForm2.swift */,
-				E8C84CA121800F4500D77649 /* ActForm.swift */,
-				6A834AB421ADB9B900451E0D /* TagForm.swift */,
-				6A4ED3D321B84D7B00935C0A /* PatientFormDelegate.swift */,
-				6A32F91621B2D9B000BB1234 /* DiagnosticEpisodeForm.swift */,
-			);
-			path = "Forms Controllers";
-			sourceTree = "<group>";
-		};
 		6A3BF0E421AB12DF00CA0A71 /* TRASH */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,46 +376,24 @@
 			path = TRASH;
 			sourceTree = "<group>";
 		};
-		6A3BF0E521AB161D00CA0A71 /* View Controllers */ = {
+		6A3BF0E621AB1C9600CA0A71 /* experimental helpers */ = {
 			isa = PBXGroup;
 			children = (
-				6A534AB621D117EB00555993 /* LandingCardVC.swift */,
-				6A2884E721CAB97100775C4C /* BasePatientsListTC2.swift */,
-				6A58514621AF551500EE6943 /* BaseTagsListTVC.swift */,
-				6A36B04D21AB972300C4F9A8 /* BaseWorkListsListTVC.swift */,
-				6A2884E921CABAAD00775C4C /* ActiveListPatientsVC2.swift */,
-				6AC48DE121D2FD6000C16C1D /* SegmentedControlOptions.swift */,
-			);
-			path = "View Controllers";
-			sourceTree = "<group>";
-		};
-		6A3BF0E621AB1C9600CA0A71 /* PtTabHelpers */ = {
-			isa = PBXGroup;
-			children = (
+				E84115012175A1DF00C5E9D9 /* FoldingCell.swift */,
+				E8C2A9A8217A03B90032EED5 /* To Develop */,
+				E841152B2175A4B900C5E9D9 /* Demos */,
+				6A534ABE21D158E600555993 /* dayBox.swift */,
+				6A534AC421D1D49900555993 /* TabButton.swift */,
 				6A534ACA21D209FC00555993 /* CircularGraph.swift */,
 				6A534AC821D2095200555993 /* ContributionGraph.swift */,
-				6A534AC221D195CB00555993 /* StickerMaker.swift */,
-				6A534AC021D1727E00555993 /* WorkListStatus.swift */,
-				6A534AC421D1D49900555993 /* TabButton.swift */,
-				6A32F92621B46DA900BB1234 /* QuickParser.swift */,
 				6A32F92A21B4EFAD00BB1234 /* SegmentedCellWidth.swift */,
 				6A32F91421B2D27600BB1234 /* dayMonthYear.swift */,
-				E859A7802182A9B1007BF751 /* ImageRow */,
-				E8C84C9A217FC54B00D77649 /* Labels */,
-				6A533A9321AB590F000FB93E /* Populator.swift */,
-				E8861732217F522C0098D3EE /* DataCoordinator.swift */,
-				6A32F91121B2BEF900BB1234 /* ImageService.swift */,
-				E84114BE217211B200C5E9D9 /* Storyboarded.swift */,
-				6A806D5121B04371004E85A2 /* PatientsFilterSegmentedControl.swift */,
-				6A32F91E21B3744200BB1234 /* PatientSearchController.swift */,
-				E8861734217F55E70098D3EE /* TableViewResultAdapter.swift */,
 				6A816EED21AC2AF800031BAB /* BillingCodes.swift */,
 				6A32F93A21B6119700BB1234 /* BorderExtension.swift */,
-				6A32F92821B47AA300BB1234 /* ContainsNumbers.swift */,
 				6A32F92421B45E9D00BB1234 /* KSegmentedControl.swift */,
 				6A32F92221B458F600BB1234 /* ASTSegment.swift */,
 			);
-			path = PtTabHelpers;
+			path = "experimental helpers";
 			sourceTree = "<group>";
 		};
 		6A533A9721AB6B31000FB93E /* Oldies */ = {
@@ -459,31 +422,15 @@
 		6A8E377321AAE130004F1EFF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6ABB314421CF04F7001EA57E /* Prior Iterations */,
-				6AC48DDB21D29DB100C16C1D /* PatientTableCell7.xib */,
-				6ADCB58F21AAFE320005BBE3 /* PatientTableViewCell.swift */,
-				6AC48DDF21D2AD4200C16C1D /* VignetteButton.swift */,
-				6A868E9621C7F88F00ECA7BD /* BasePatientTableCell.xib */,
-				6A868E9821C7F93500ECA7BD /* BasePatientTableViewCell.swift */,
-				6A32F91821B2EC4900BB1234 /* EurekaDxEpisodeChoiceCell.swift */,
-				6A32F91921B2EC4900BB1234 /* EurekaDxEpisodeChoiceCell.xib */,
-				6A36B05121AB97CE00C4F9A8 /* ClinicalListTVC.xib */,
-				6A36B04F21AB97BE00C4F9A8 /* ClinicalListTVC.swift */,
-				6A32F93021B5F7CC00BB1234 /* ActTableViewCell.swift */,
-				6A32F93121B5F7CC00BB1234 /* ActTableViewCell.xib */,
-				6A32F93621B6088D00BB1234 /* DiagnosticEpisodeTableViewCell.swift */,
-				6A32F93721B6088D00BB1234 /* DiagnosticEpisodeTableViewCell.xib */,
-				6A58514821AF55AF00EE6943 /* TagsListTableViewCell.swift */,
-				6A58514921AF55AF00EE6943 /* TagsListTableViewCell.xib */,
-				6A32F93C21B687C600BB1234 /* DiagnosticEpisodeFormView.xib */,
-				6A82B7F521C973200035ED0D /* DetailedPatientForm.xib */,
-				6A2884E521CAB89700775C4C /* PatientListView.xib */,
-				6A534ACD21D2753900555993 /* BasePatientListView.xib */,
-				6A534AB221D1174400555993 /* LandingCardView.xib */,
-				6A534AB721D117EB00555993 /* LandingCardVC.xib */,
-				6A534ABA21D1245000555993 /* LandingCardTableViewCell.swift */,
-				6A534ABB21D1245000555993 /* LandingCardTableViewCell.xib */,
-				6A534ABE21D158E600555993 /* dayBox.swift */,
+				6AC48DE321D3D8D500C16C1D /* Home screen */,
+				6AC48DE421D3D8E900C16C1D /* General Patients list screen */,
+				6AC48DE521D3D91900C16C1D /* WorkList patients Screen */,
+				6AC48DE621D3D94900C16C1D /* Tags list Screen and Form */,
+				6AC48DE721D3D99000C16C1D /* List of Worklists and Form */,
+				6AC48DEC21D3DC9B00C16C1D /* Generic classes */,
+				6AC48DE921D3DA8F00C16C1D /* Detailed Patient Form */,
+				6AC48DEA21D3DB1100C16C1D /* Act Form and views */,
+				6AC48DE821D3DA5000C16C1D /* Dx episode form and view */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -491,6 +438,10 @@
 		6ABB314421CF04F7001EA57E /* Prior Iterations */ = {
 			isa = PBXGroup;
 			children = (
+				6A32F93021B5F7CC00BB1234 /* ActTableViewCell.swift */,
+				6A32F93121B5F7CC00BB1234 /* ActTableViewCell.xib */,
+				6A32F93621B6088D00BB1234 /* DiagnosticEpisodeTableViewCell.swift */,
+				6A32F93721B6088D00BB1234 /* DiagnosticEpisodeTableViewCell.xib */,
 				6AC48DDD21D29DD100C16C1D /* PatientTableViewCell6.swift */,
 				6A44BD1F21C9F2EE00079152 /* PatientTableCell6.xib */,
 				6A8E377421AAE166004F1EFF /* PatientTableCell.xib */,
@@ -500,6 +451,126 @@
 				6A82B7F821C99B2A0035ED0D /* PatientTableCell5.xib */,
 			);
 			path = "Prior Iterations";
+			sourceTree = "<group>";
+		};
+		6AC48DE321D3D8D500C16C1D /* Home screen */ = {
+			isa = PBXGroup;
+			children = (
+				6A534AB621D117EB00555993 /* LandingCardVC.swift */,
+				6A534AB221D1174400555993 /* LandingCardView.xib */,
+				6A534AB721D117EB00555993 /* LandingCardVC.xib */,
+				6A534ABA21D1245000555993 /* LandingCardTableViewCell.swift */,
+				6A534ABB21D1245000555993 /* LandingCardTableViewCell.xib */,
+			);
+			path = "Home screen";
+			sourceTree = "<group>";
+		};
+		6AC48DE421D3D8E900C16C1D /* General Patients list screen */ = {
+			isa = PBXGroup;
+			children = (
+				6A2884E721CAB97100775C4C /* BasePatientsListTC2.swift */,
+				6A534ACD21D2753900555993 /* BasePatientListView.xib */,
+				6A868E9621C7F88F00ECA7BD /* BasePatientTableCell.xib */,
+				6A868E9821C7F93500ECA7BD /* BasePatientTableViewCell.swift */,
+			);
+			path = "General Patients list screen";
+			sourceTree = "<group>";
+		};
+		6AC48DE521D3D91900C16C1D /* WorkList patients Screen */ = {
+			isa = PBXGroup;
+			children = (
+				6AC48DE121D2FD6000C16C1D /* SegmentedControlOptions.swift */,
+				6A2884E921CABAAD00775C4C /* ActiveListPatientsVC2.swift */,
+				6A2884E521CAB89700775C4C /* PatientListView.xib */,
+				6AC48DDB21D29DB100C16C1D /* PatientTableCell7.xib */,
+				6ADCB58F21AAFE320005BBE3 /* PatientTableViewCell.swift */,
+			);
+			path = "WorkList patients Screen";
+			sourceTree = "<group>";
+		};
+		6AC48DE621D3D94900C16C1D /* Tags list Screen and Form */ = {
+			isa = PBXGroup;
+			children = (
+				6A834AB421ADB9B900451E0D /* TagForm.swift */,
+				6A58514621AF551500EE6943 /* BaseTagsListTVC.swift */,
+				6A58514821AF55AF00EE6943 /* TagsListTableViewCell.swift */,
+				6A58514921AF55AF00EE6943 /* TagsListTableViewCell.xib */,
+			);
+			path = "Tags list Screen and Form";
+			sourceTree = "<group>";
+		};
+		6AC48DE721D3D99000C16C1D /* List of Worklists and Form */ = {
+			isa = PBXGroup;
+			children = (
+				6A534AC021D1727E00555993 /* WorkListStatus.swift */,
+				E822210B217CF73000CEE16C /* ClinicalListForm.swift */,
+				6A36B04D21AB972300C4F9A8 /* BaseWorkListsListTVC.swift */,
+				6A36B05121AB97CE00C4F9A8 /* ClinicalListTVC.xib */,
+				6A36B04F21AB97BE00C4F9A8 /* ClinicalListTVC.swift */,
+			);
+			path = "List of Worklists and Form";
+			sourceTree = "<group>";
+		};
+		6AC48DE821D3DA5000C16C1D /* Dx episode form and view */ = {
+			isa = PBXGroup;
+			children = (
+				6A32F93C21B687C600BB1234 /* DiagnosticEpisodeFormView.xib */,
+				6A32F91621B2D9B000BB1234 /* DiagnosticEpisodeForm.swift */,
+			);
+			path = "Dx episode form and view";
+			sourceTree = "<group>";
+		};
+		6AC48DE921D3DA8F00C16C1D /* Detailed Patient Form */ = {
+			isa = PBXGroup;
+			children = (
+				6A32F92621B46DA900BB1234 /* QuickParser.swift */,
+				E8D98666217D7DF900EFE369 /* PatientForm.swift */,
+				6A4ED3D321B84D7B00935C0A /* PatientFormDelegate.swift */,
+				6A82B7F321C9245C0035ED0D /* PatientForm2.swift */,
+				6A82B7F521C973200035ED0D /* DetailedPatientForm.xib */,
+			);
+			path = "Detailed Patient Form";
+			sourceTree = "<group>";
+		};
+		6AC48DEA21D3DB1100C16C1D /* Act Form and views */ = {
+			isa = PBXGroup;
+			children = (
+				E8C84CA121800F4500D77649 /* ActForm.swift */,
+				6A32F91821B2EC4900BB1234 /* EurekaDxEpisodeChoiceCell.swift */,
+				6A32F91921B2EC4900BB1234 /* EurekaDxEpisodeChoiceCell.xib */,
+			);
+			path = "Act Form and views";
+			sourceTree = "<group>";
+		};
+		6AC48DEB21D3DBC700C16C1D /* Archive */ = {
+			isa = PBXGroup;
+			children = (
+				6AC48DDF21D2AD4200C16C1D /* VignetteButton.swift */,
+				6A3BF0E421AB12DF00CA0A71 /* TRASH */,
+				6ABB314421CF04F7001EA57E /* Prior Iterations */,
+				6A534ACC21D26DE400555993 /* old To disable */,
+			);
+			path = Archive;
+			sourceTree = "<group>";
+		};
+		6AC48DEC21D3DC9B00C16C1D /* Generic classes */ = {
+			isa = PBXGroup;
+			children = (
+				E82E17992176A7D400F57761 /* Gradients */,
+				E859A7802182A9B1007BF751 /* ImageRow */,
+				E8C84C9A217FC54B00D77649 /* Labels */,
+				6A32F91121B2BEF900BB1234 /* ImageService.swift */,
+				6A32F92821B47AA300BB1234 /* ContainsNumbers.swift */,
+				6A534AC221D195CB00555993 /* StickerMaker.swift */,
+				6A533A9321AB590F000FB93E /* Populator.swift */,
+				E8861732217F522C0098D3EE /* DataCoordinator.swift */,
+				E84114BE217211B200C5E9D9 /* Storyboarded.swift */,
+				6A806D5121B04371004E85A2 /* PatientsFilterSegmentedControl.swift */,
+				6A32F91E21B3744200BB1234 /* PatientSearchController.swift */,
+				E8861734217F55E70098D3EE /* TableViewResultAdapter.swift */,
+				E822210D217CFB0700CEE16C /* KarlaForm.swift */,
+			);
+			path = "Generic classes";
 			sourceTree = "<group>";
 		};
 		E813A6C4217D5DE4005E6F81 /* CoreDataNS Objects */ = {
@@ -574,12 +645,9 @@
 		E84114C421721C5600C5E9D9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6A3BF0E421AB12DF00CA0A71 /* TRASH */,
-				E8C2A9A8217A03B90032EED5 /* To Develop */,
-				E841152B2175A4B900C5E9D9 /* Demos */,
+				6A3BF0E621AB1C9600CA0A71 /* experimental helpers */,
+				6AC48DEB21D3DBC700C16C1D /* Archive */,
 				E84115292175A4B300C5E9D9 /* Assets.xcassets */,
-				E82E17992176A7D400F57761 /* Gradients */,
-				E84115012175A1DF00C5E9D9 /* FoldingCell.swift */,
 				E84114B3217210DE00C5E9D9 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
@@ -592,13 +660,6 @@
 				E822211F217D525D00CEE16C /* KKarlaDatabaseV1.xcdatamodeld */,
 			);
 			path = CoreDataModels;
-			sourceTree = "<group>";
-		};
-		E84114C821721CC500C5E9D9 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		E841150C2175A38F00C5E9D9 /* Fonts */ = {
@@ -622,7 +683,6 @@
 			isa = PBXGroup;
 			children = (
 				E859A7872182B21C007BF751 /* Segmentio */,
-				E84114C821721CC500C5E9D9 /* Views */,
 				E84115042175A38F00C5E9D9 /* DemoCell.swift */,
 				E84114C521721C8200C5E9D9 /* CardsStackViewController.swift */,
 				E84115052175A38F00C5E9D9 /* MainTableViewController.swift */,
@@ -712,12 +772,8 @@
 		E8C84C99217FC50200D77649 /* PatientsTab */ = {
 			isa = PBXGroup;
 			children = (
-				6A534ACC21D26DE400555993 /* old To disable */,
-				6A3BF0E621AB1C9600CA0A71 /* PtTabHelpers */,
 				E84114C321721C3900C5E9D9 /* Coordinators */,
 				6A8E377321AAE130004F1EFF /* Views */,
-				6A3BF0E521AB161D00CA0A71 /* View Controllers */,
-				6A3BF0E321AB11C900CA0A71 /* Forms Controllers */,
 				6A3BF0E221AB11A600CA0A71 /* Models */,
 			);
 			path = PatientsTab;
