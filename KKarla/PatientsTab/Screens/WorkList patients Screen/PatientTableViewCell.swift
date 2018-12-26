@@ -64,7 +64,7 @@ class PatientTableViewCell: UITableViewCell {
         
         for case let buttonView? in [addActButton, showFullButton, signoffTxButton]{
             self.stickerMaker.setupSticker(view: buttonView, backgroundLayer: nil, backgroundColor: nil, cornerRadius: 0, borderWidth: 0, masksToBounds: true)
-//            buttonView.setTitleColor(.white, for: .normal)
+            buttonView.setTitleColor(.darkGray, for: .normal)
         }
         for case let buttonView? in [topRightButton]{
             self.stickerMaker.setupSticker(view: buttonView, backgroundLayer: nil, backgroundColor:  #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1), cornerRadius: 3, borderWidth: 0, masksToBounds: true)
@@ -80,10 +80,10 @@ class PatientTableViewCell: UITableViewCell {
     
     private func setupCardsView(){
         for case let view? in [cardBackgroundView] {
-            self.stickerMaker.setupSticker(view: view, backgroundLayer: nil, backgroundColor: .white, cornerRadius: 5, borderWidth: 0, masksToBounds: false, shadowColor: UIColor.darkGray.cgColor, shadowOffset: CGSize(width: 2, height: 5), shadowRadius: 8, shadowOpacity: 0.3)
+            self.stickerMaker.setupSticker(view: view, backgroundLayer: nil, backgroundColor: .white, cornerRadius: 5, borderWidth: 0, masksToBounds: true, shadowColor: UIColor.darkGray.cgColor, shadowOffset: CGSize(width: 2, height: 5), shadowRadius: 8, shadowOpacity: 0.3)
         }
         
-        stickerMaker.setupSticker(view: idCardView, backgroundLayer: nil, backgroundColor: .white, cornerRadius: 3, borderWidth: 0, masksToBounds: false, shadowColor: UIColor.darkGray.cgColor, shadowOffset: CGSize(width: 2, height: 2), shadowRadius: 3, shadowOpacity: 0.2)
+//        stickerMaker.setupSticker(view: idCardView, backgroundLayer: nil, backgroundColor: .white, cornerRadius: 3, borderWidth: 0, masksToBounds: false, shadowColor: UIColor.darkGray.cgColor, shadowOffset: CGSize(width: 2, height: 2), shadowRadius: 3, shadowOpacity: 0.2)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
