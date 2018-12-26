@@ -419,7 +419,7 @@
 			path = "old To disable";
 			sourceTree = "<group>";
 		};
-		6A8E377321AAE130004F1EFF /* Views */ = {
+		6A8E377321AAE130004F1EFF /* Screens */ = {
 			isa = PBXGroup;
 			children = (
 				6AC48DE321D3D8D500C16C1D /* Home screen */,
@@ -432,7 +432,7 @@
 				6AC48DEA21D3DB1100C16C1D /* Act Form and views */,
 				6AC48DE821D3DA5000C16C1D /* Dx episode form and view */,
 			);
-			path = Views;
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		6ABB314421CF04F7001EA57E /* Prior Iterations */ = {
@@ -773,7 +773,7 @@
 			isa = PBXGroup;
 			children = (
 				E84114C321721C3900C5E9D9 /* Coordinators */,
-				6A8E377321AAE130004F1EFF /* Views */,
+				6A8E377321AAE130004F1EFF /* Screens */,
 				6A3BF0E221AB11A600CA0A71 /* Models */,
 			);
 			path = PatientsTab;
