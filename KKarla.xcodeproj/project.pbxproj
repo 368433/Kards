@@ -78,6 +78,7 @@
 		6AC48DDC21D29DB100C16C1D /* PatientTableCell7.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AC48DDB21D29DB100C16C1D /* PatientTableCell7.xib */; };
 		6AC48DDE21D29DD100C16C1D /* PatientTableViewCell6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC48DDD21D29DD100C16C1D /* PatientTableViewCell6.swift */; };
 		6AC48DE021D2AD4200C16C1D /* VignetteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC48DDF21D2AD4200C16C1D /* VignetteButton.swift */; };
+		6AC48DE221D2FD6000C16C1D /* SegmentedControlOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC48DE121D2FD6000C16C1D /* SegmentedControlOptions.swift */; };
 		6ADCB59021AAFE320005BBE3 /* PatientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADCB58F21AAFE320005BBE3 /* PatientTableViewCell.swift */; };
 		6D84F2CB1929288333473509 /* Pods_KKarla.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E043F8B2F0E2DF630E4C3B97 /* Pods_KKarla.framework */; };
 		E822210C217CF73000CEE16C /* ClinicalListForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822210B217CF73000CEE16C /* ClinicalListForm.swift */; };
@@ -234,6 +235,7 @@
 		6AC48DDB21D29DB100C16C1D /* PatientTableCell7.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatientTableCell7.xib; sourceTree = "<group>"; };
 		6AC48DDD21D29DD100C16C1D /* PatientTableViewCell6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientTableViewCell6.swift; sourceTree = "<group>"; };
 		6AC48DDF21D2AD4200C16C1D /* VignetteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VignetteButton.swift; sourceTree = "<group>"; };
+		6AC48DE121D2FD6000C16C1D /* SegmentedControlOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlOptions.swift; sourceTree = "<group>"; };
 		6ADCB58F21AAFE320005BBE3 /* PatientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewCell.swift; sourceTree = "<group>"; };
 		E043F8B2F0E2DF630E4C3B97 /* Pods_KKarla.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KKarla.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E822210B217CF73000CEE16C /* ClinicalListForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicalListForm.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 				6A58514621AF551500EE6943 /* BaseTagsListTVC.swift */,
 				6A36B04D21AB972300C4F9A8 /* BaseWorkListsListTVC.swift */,
 				6A2884E921CABAAD00775C4C /* ActiveListPatientsVC2.swift */,
+				6AC48DE121D2FD6000C16C1D /* SegmentedControlOptions.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -948,6 +951,7 @@
 				E82E17A12176A7D400F57761 /* Direction.swift in Sources */,
 				E8782418217A8C9B001258C5 /* TagStackList.swift in Sources */,
 				E859A79F2182B21C007BF751 /* SegmentioCellWithImage.swift in Sources */,
+				6AC48DE221D2FD6000C16C1D /* SegmentedControlOptions.swift in Sources */,
 				6A32F92321B458F600BB1234 /* ASTSegment.swift in Sources */,
 				6A36B05021AB97BE00C4F9A8 /* ClinicalListTVC.swift in Sources */,
 				6A533A9921AB7871000FB93E /* ClinicalListModel.swift in Sources */,

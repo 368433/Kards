@@ -38,14 +38,15 @@ class LandingCardVC: UIViewController, Storyboarded{
         self.navigationController?.navigationBar.prefersLargeTitles = true
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 55
+        tableView.rowHeight = 50
         tableView.tableFooterView = UIView()
         tableView.isScrollEnabled = false
         tableView.backgroundColor = .clear
-        
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
 
-        self.view.backgroundColor = UIColor.groupTableViewBackground
+//        self.view.backgroundColor = UIColor.groupTableViewBackground
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.view.backgroundColor = .white
         self.tableCardView.backgroundColor = .clear
         stickerMaker.setupSticker(view: tableCardView, backgroundLayer: nil, cornerRadius: 0, borderWidth: 0, masksToBounds: false, shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 10), shadowRadius: 20, shadowOpacity: 0.2)
         stickerMaker.setupSticker(view: contributionCardView, backgroundLayer: nil, cornerRadius: 5, borderWidth: 0, masksToBounds: false, shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 10), shadowRadius: 20, shadowOpacity: 0.2)

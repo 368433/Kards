@@ -13,25 +13,20 @@ class PatientTableViewCell: UITableViewCell {
     
     // MARK: IBOUTLETS
     
-    @IBOutlet weak var actBedNumber: UILabel!
-    @IBOutlet weak var patientNameLabel: UILabel!
-    @IBOutlet weak var tagListStack: UIStackView!
     
+    @IBOutlet weak var tagListStack: UIStackView!
     
     @IBOutlet weak var diagnosisLabel: UILabel!
     @IBOutlet weak var caseDescriptionLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
-    
+    @IBOutlet weak var patientNameLabel: UILabel!
     @IBOutlet weak var genderImage: UIImageView!
-    
-    @IBOutlet weak var sideView: UIView!
     
     //VIEWS TURNED STICKERS
     @IBOutlet weak var buttonsCardView: UIView!
     @IBOutlet weak var idCardView:UIView!
     @IBOutlet weak var mainDataCardView:UIView!
     @IBOutlet weak var cardBackgroundView: UIView!
-    
     
     //BUTTONS TOTAL 3
     @IBOutlet weak var addActButton: UIButton!
@@ -42,10 +37,8 @@ class PatientTableViewCell: UITableViewCell {
     // MARK: other variables:
     var patient: Patient?
     var coordinator : PatientsCoordinator?
-    
     static var nibName = "PatientTableCell7"
     static var reuseID = "cell"
-    static var cellHeight: CGFloat = 403
     let stickerMaker = StickerMaker()
     
     override func awakeFromNib() {
@@ -65,26 +58,24 @@ class PatientTableViewCell: UITableViewCell {
     }
     
     private func setupButtons(){
-        for case let button? in [addActButton, showFullButton, signoffTxButton]{
-            button.contentEdgeInsets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
-            button.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
-            button.setTitleColor(.white, for: .normal)
-        }
         self.addActButton.addTarget(self, action: #selector(showActForm), for: .touchUpInside)
         self.showFullButton.addTarget(self, action: #selector(showFullPatientDetails), for: .touchUpInside)
-        
-        // SETUP TOPRIGHT BUTTON
-        for case let button? in [topRightButton]{
-            button.backgroundColor = #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)
-            button.setTitleColor(.white, for: .normal)
-        }
+        let title = patient?.activeDiagnosticEpisode?.getLatestAct()?.actBednumber
+        topRightButton.setTitle(title, for: .normal)
     }
     
     private func setupCardsView(){
-        for case let cardView? in [addActButton, showFullButton, signoffTxButton, idCardView, topRightButton, mainDataCardView]{
-            self.stickerMaker.setupSticker(view: cardView, backgroundLayer: nil, backgroundColor: .white, cornerRadius: 3, borderWidth: 0, masksToBounds: false, shadowColor: UIColor.darkGray.cgColor, shadowOffset: CGSize(width: 2, height: 5), shadowRadius: 10, shadowOpacity: 0.1)
+        for case let buttonView? in [addActButton, showFullButton, signoffTxButton, topRightButton]{
+            self.stickerMaker.setupSticker(view: buttonView, backgroundLayer: nil, backgroundColor: #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1), cornerRadius: 3, borderWidth: 0, masksToBounds: true, shadowColor: UIColor.darkGray.cgColor, shadowOffset: CGSize(width: 2, height: 5), shadowRadius: 10, shadowOpacity: 0.1)
+            buttonView.setTitleColor(.white, for: .normal)
+            if buttonView === topRightButton { buttonView.backgroundColor =  #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)}
+            let inset: CGFloat = 8
+            buttonView.contentEdgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
         }
-        self.stickerMaker.setupSticker(view: cardBackgroundView, backgroundLayer: nil, backgroundColor: .white, cornerRadius: 5, borderWidth: 0, masksToBounds: true, shadowColor: UIColor.darkGray.cgColor, shadowOffset: CGSize(width: 2, height: 5), shadowRadius: 10, shadowOpacity: 0.1)
+        
+        for case let view? in [idCardView, cardBackgroundView, mainDataCardView] {
+            self.stickerMaker.setupSticker(view: view, backgroundLayer: nil, backgroundColor: .white, cornerRadius: 5, borderWidth: 0, masksToBounds: false, shadowColor: UIColor.darkGray.cgColor, shadowOffset: CGSize(width: 2, height: 5), shadowRadius: 10, shadowOpacity: 0.3)
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -100,7 +91,6 @@ class PatientTableViewCell: UITableViewCell {
         self.diagnosisLabel.text = patient.activeDiagnosticEpisode?.primaryDiagnosis
         self.caseDescriptionLabel.text = patient.summaryBlurb ?? "No description"
         self.ageLabel.text = "\(patient.age)"
-        self.actBedNumber.text = patient.activeDiagnosticEpisode?.getLatestAct()?.actBednumber
         self.genderImage.image = patient.gender.genderIconImage
     }
     

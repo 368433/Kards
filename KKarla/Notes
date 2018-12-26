@@ -15,6 +15,9 @@ later:
 encrypt patient NAM
 optimize database
 
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+
+
 //    let backgroundLayer = Gradients.frozenDreams.layer
 //    let backgroundLayer = Gradients.cloudyKnoxville.layer
 let backgroundLayer = Gradients.saintPetersburg.layer

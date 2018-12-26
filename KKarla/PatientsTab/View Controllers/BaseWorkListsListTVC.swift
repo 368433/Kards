@@ -29,8 +29,7 @@ class BaseWorkListsListTVC: UITableViewController, Storyboarded{
         self.tableView.register(UINib(nibName: ClinicalListTVC.nibName, bundle: nil), forCellReuseIdentifier: ClinicalListTVC.reuseID)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(createList))
         self.tableView.tableFooterView = UIView(frame: .zero)
-//        self.tableView.rowHeight = UITableView.automaticDimension
-//        self.tableView.rowHeight = 44
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

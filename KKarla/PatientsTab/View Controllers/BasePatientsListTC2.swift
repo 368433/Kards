@@ -28,7 +28,7 @@ class BasePatientsListTC2: UITableViewController, Storyboarded{
     init(searchCriteria: NSPredicate? = nil, coordinator: PatientsCoordinator? = nil, title: String? = nil){
         super.init(nibName: "BasePatientListView", bundle:nil)
         self.searchCriteria = searchCriteria
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.title = title
         self.coordinator = coordinator
     }
@@ -57,7 +57,6 @@ class BasePatientsListTC2: UITableViewController, Storyboarded{
         self.tableView.rowHeight = UITableView.automaticDimension
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNew))
-        self.navigationController?.navigationBar.shadowImage = UIImage()
         
         self.tabBarController?.tabBar.isHidden = false
         
@@ -113,6 +112,4 @@ extension BasePatientsListTC2{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         coordinator?.showDetailedPatientForm(patient: model.resultController.object(at: indexPath))
     }
-    
-    
 }
