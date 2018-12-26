@@ -17,9 +17,9 @@ class PatientTableViewCell: UITableViewCell {
     @IBOutlet weak var tagListStack: UIStackView!
     
     @IBOutlet weak var diagnosisLabel: UILabel!
-    @IBOutlet weak var caseDescriptionLabel: UILabel!
+//    @IBOutlet weak var caseDescriptionLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
-    @IBOutlet weak var patientNameLabel: UILabel!
+//    @IBOutlet weak var patientNameLabel: UILabel!
     
     // IMAGEVIEWS
     @IBOutlet weak var genderImage: UIImageView!
@@ -63,16 +63,12 @@ class PatientTableViewCell: UITableViewCell {
     private func setupButtons(){
         
         for case let buttonView? in [addActButton, showFullButton, signoffTxButton]{
-            self.stickerMaker.setupSticker(view: buttonView, backgroundLayer: nil, backgroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), cornerRadius: 3, borderWidth: 0, masksToBounds: true)
-//            buttonView.setTitleColor(.darkText, for: .normal)
-//            let inset: CGFloat = 8
-//            buttonView.contentEdgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+            self.stickerMaker.setupSticker(view: buttonView, backgroundLayer: nil, backgroundColor: nil, cornerRadius: 0, borderWidth: 0, masksToBounds: true)
+//            buttonView.setTitleColor(.white, for: .normal)
         }
         for case let buttonView? in [topRightButton]{
             self.stickerMaker.setupSticker(view: buttonView, backgroundLayer: nil, backgroundColor:  #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1), cornerRadius: 3, borderWidth: 0, masksToBounds: true)
             buttonView.setTitleColor(.white, for: .normal)
-            let inset: CGFloat = 8
-            buttonView.contentEdgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
             let title = patient?.activeDiagnosticEpisode?.getLatestAct()?.actBednumber
             buttonView.setTitle(title ?? "Bed", for: .normal)
         }
@@ -87,7 +83,7 @@ class PatientTableViewCell: UITableViewCell {
             self.stickerMaker.setupSticker(view: view, backgroundLayer: nil, backgroundColor: .white, cornerRadius: 5, borderWidth: 0, masksToBounds: false, shadowColor: UIColor.darkGray.cgColor, shadowOffset: CGSize(width: 2, height: 5), shadowRadius: 8, shadowOpacity: 0.3)
         }
         
-        stickerMaker.setupSticker(view: emptyPhotoImageView, backgroundLayer: nil, backgroundColor: nil, cornerRadius: 0, borderWidth: 0, masksToBounds: false, shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 2, height: 2), shadowRadius: 5, shadowOpacity: 0.2)
+        stickerMaker.setupSticker(view: idCardView, backgroundLayer: nil, backgroundColor: .white, cornerRadius: 3, borderWidth: 0, masksToBounds: false, shadowColor: UIColor.darkGray.cgColor, shadowOffset: CGSize(width: 2, height: 2), shadowRadius: 3, shadowOpacity: 0.2)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -99,9 +95,8 @@ class PatientTableViewCell: UITableViewCell {
 
         guard let patient = patient else {fatalError("patient not initialized")}
         
-        self.patientNameLabel.text = patient.name
+//        self.patientNameLabel.text = patient.name
         self.diagnosisLabel.text = patient.activeDiagnosticEpisode?.primaryDiagnosis ?? "No Diagnosis"
-        self.caseDescriptionLabel.text = patient.summaryBlurb ?? "No description"
         self.ageLabel.text = "\(patient.age)"
         self.genderImage.image = patient.gender.genderIconImage
     }
@@ -112,7 +107,7 @@ class PatientTableViewCell: UITableViewCell {
         let tagStackList = ButtonTagStackList(stack: tagListStack)
         tagStackList.tagStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
         let tagsTitlesList = patient.tags?.compactMap { ($0 as! Tag).tagTitle }
-        let labelsList = tagsTitlesList?.compactMap { (LabelType.tagLabel, $0) }
+        let labelsList = tagsTitlesList?.compactMap { (LabelType.cardLabel, $0) }
         if let labelsList = labelsList {
             tagStackList.setLabels(for: labelsList)
         }

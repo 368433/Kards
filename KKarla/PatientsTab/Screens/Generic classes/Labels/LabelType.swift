@@ -19,21 +19,13 @@ enum LabelType: String {
     case tagLabel
     case genericLabel
     case fullBg
+    case cardLabel
     
     func formattedStringForLabel(label: String) -> String {
         return label.lowercased()
     }
     
-    var backgroundColorForLabel: UIColor {
-        switch self {
-        case .tagLabel:
-            return UIColor.groupTableViewBackground
-        case .fullBg:
-            return self.borderColorForLabel
-        default:
-            return UIColor.clear
-        }
-    }
+    
     
     var labelCALayer: CALayer {
         let layer = CALayer()
@@ -63,8 +55,21 @@ enum LabelType: String {
         switch self {
         case .tagLabel:
             return .lightGray
+        case .cardLabel:
+            return .lightGray
         default:
             return .white
+        }
+    }
+    
+    var backgroundColorForLabel: UIColor {
+        switch self {
+        case .tagLabel:
+            return UIColor.groupTableViewBackground
+        case .fullBg:
+            return self.borderColorForLabel
+        default:
+            return UIColor.clear
         }
     }
     
@@ -82,10 +87,10 @@ enum LabelType: String {
             return UIColor(hue:0.09, saturation:1, brightness:0.91, alpha:1)
         case .diagnosisLabel:
             return UIColor(hue:0.53, saturation:1, brightness:0.91, alpha:1)
-        case .tagLabel:
-            return .clear
         case .genericLabel, .fullBg:
             return UIColor(hue:0, saturation:0, brightness:0.69, alpha:1)
+        default:
+            return .clear
         }
     }
 }
