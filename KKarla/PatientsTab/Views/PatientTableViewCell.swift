@@ -61,7 +61,7 @@ class PatientTableViewCell: UITableViewCell {
         self.addActButton.addTarget(self, action: #selector(showActForm), for: .touchUpInside)
         self.showFullButton.addTarget(self, action: #selector(showFullPatientDetails), for: .touchUpInside)
         let title = patient?.activeDiagnosticEpisode?.getLatestAct()?.actBednumber
-        topRightButton.setTitle(title, for: .normal)
+        topRightButton.setTitle(title ?? "Bed", for: .normal)
     }
     
     private func setupCardsView(){
@@ -73,7 +73,7 @@ class PatientTableViewCell: UITableViewCell {
             buttonView.contentEdgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
         }
         
-        for case let view? in [idCardView, cardBackgroundView, mainDataCardView] {
+        for case let view? in [idCardView, cardBackgroundView] {
             self.stickerMaker.setupSticker(view: view, backgroundLayer: nil, backgroundColor: .white, cornerRadius: 5, borderWidth: 0, masksToBounds: false, shadowColor: UIColor.darkGray.cgColor, shadowOffset: CGSize(width: 2, height: 5), shadowRadius: 10, shadowOpacity: 0.3)
         }
     }
