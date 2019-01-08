@@ -438,10 +438,6 @@
 		6ABB314421CF04F7001EA57E /* Prior Iterations */ = {
 			isa = PBXGroup;
 			children = (
-				6A32F93021B5F7CC00BB1234 /* ActTableViewCell.swift */,
-				6A32F93121B5F7CC00BB1234 /* ActTableViewCell.xib */,
-				6A32F93621B6088D00BB1234 /* DiagnosticEpisodeTableViewCell.swift */,
-				6A32F93721B6088D00BB1234 /* DiagnosticEpisodeTableViewCell.xib */,
 				6AC48DDD21D29DD100C16C1D /* PatientTableViewCell6.swift */,
 				6A44BD1F21C9F2EE00079152 /* PatientTableCell6.xib */,
 				6A8E377421AAE166004F1EFF /* PatientTableCell.xib */,
@@ -523,6 +519,10 @@
 		6AC48DE921D3DA8F00C16C1D /* Detailed Patient Form */ = {
 			isa = PBXGroup;
 			children = (
+				6A32F93021B5F7CC00BB1234 /* ActTableViewCell.swift */,
+				6A32F93121B5F7CC00BB1234 /* ActTableViewCell.xib */,
+				6A32F93621B6088D00BB1234 /* DiagnosticEpisodeTableViewCell.swift */,
+				6A32F93721B6088D00BB1234 /* DiagnosticEpisodeTableViewCell.xib */,
 				6A32F92621B46DA900BB1234 /* QuickParser.swift */,
 				E8D98666217D7DF900EFE369 /* PatientForm.swift */,
 				6A4ED3D321B84D7B00935C0A /* PatientFormDelegate.swift */,
