@@ -26,7 +26,6 @@
 		6A32F93321B5F7CC00BB1234 /* ActTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A32F93121B5F7CC00BB1234 /* ActTableViewCell.xib */; };
 		6A32F93521B6076A00BB1234 /* DiagnosticEpisodeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A32F93421B6076A00BB1234 /* DiagnosticEpisodeListModel.swift */; };
 		6A32F93821B6088D00BB1234 /* DiagnosticEpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A32F93621B6088D00BB1234 /* DiagnosticEpisodeTableViewCell.swift */; };
-		6A32F93921B6088D00BB1234 /* DiagnosticEpisodeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A32F93721B6088D00BB1234 /* DiagnosticEpisodeTableViewCell.xib */; };
 		6A32F93B21B6119700BB1234 /* BorderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A32F93A21B6119700BB1234 /* BorderExtension.swift */; };
 		6A32F93D21B687C600BB1234 /* DiagnosticEpisodeFormView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A32F93C21B687C600BB1234 /* DiagnosticEpisodeFormView.xib */; };
 		6A36B04C21AB95CA00C4F9A8 /* TagsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A36B04B21AB95CA00C4F9A8 /* TagsListModel.swift */; };
@@ -72,6 +71,7 @@
 		6A868E9221C7810500ECA7BD /* PatientTableCell4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A868E9121C7810500ECA7BD /* PatientTableCell4.xib */; };
 		6A868E9721C7F88F00ECA7BD /* BasePatientTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A868E9621C7F88F00ECA7BD /* BasePatientTableCell.xib */; };
 		6A868E9921C7F93500ECA7BD /* BasePatientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A868E9821C7F93500ECA7BD /* BasePatientTableViewCell.swift */; };
+		6A8AA94A21E5B8B900BD4AE5 /* DiagnosticEpisodeFormView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A8AA94921E5B8B900BD4AE5 /* DiagnosticEpisodeFormView.xib */; };
 		6A8E377521AAE166004F1EFF /* PatientTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A8E377421AAE166004F1EFF /* PatientTableCell.xib */; };
 		6AADF72821C0B5EC00DFD0B9 /* PatientTableCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AADF72721C0B5EC00DFD0B9 /* PatientTableCell3.xib */; };
 		6AC48DDA21D291F000C16C1D /* BasePatientsListTC2backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC48DD921D291F000C16C1D /* BasePatientsListTC2backup.swift */; };
@@ -183,7 +183,6 @@
 		6A32F93121B5F7CC00BB1234 /* ActTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActTableViewCell.xib; sourceTree = "<group>"; };
 		6A32F93421B6076A00BB1234 /* DiagnosticEpisodeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticEpisodeListModel.swift; sourceTree = "<group>"; };
 		6A32F93621B6088D00BB1234 /* DiagnosticEpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticEpisodeTableViewCell.swift; sourceTree = "<group>"; };
-		6A32F93721B6088D00BB1234 /* DiagnosticEpisodeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiagnosticEpisodeTableViewCell.xib; sourceTree = "<group>"; };
 		6A32F93A21B6119700BB1234 /* BorderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderExtension.swift; sourceTree = "<group>"; };
 		6A32F93C21B687C600BB1234 /* DiagnosticEpisodeFormView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiagnosticEpisodeFormView.xib; sourceTree = "<group>"; };
 		6A36B04B21AB95CA00C4F9A8 /* TagsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsListModel.swift; sourceTree = "<group>"; };
@@ -229,6 +228,7 @@
 		6A868E9121C7810500ECA7BD /* PatientTableCell4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatientTableCell4.xib; sourceTree = "<group>"; };
 		6A868E9621C7F88F00ECA7BD /* BasePatientTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasePatientTableCell.xib; sourceTree = "<group>"; };
 		6A868E9821C7F93500ECA7BD /* BasePatientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePatientTableViewCell.swift; sourceTree = "<group>"; };
+		6A8AA94921E5B8B900BD4AE5 /* DiagnosticEpisodeFormView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiagnosticEpisodeFormView.xib; sourceTree = "<group>"; };
 		6A8E377421AAE166004F1EFF /* PatientTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PatientTableCell.xib; sourceTree = "<group>"; };
 		6AADF72721C0B5EC00DFD0B9 /* PatientTableCell3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatientTableCell3.xib; sourceTree = "<group>"; };
 		6AC48DD921D291F000C16C1D /* BasePatientsListTC2backup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePatientsListTC2backup.swift; sourceTree = "<group>"; };
@@ -522,7 +522,7 @@
 				6A32F93021B5F7CC00BB1234 /* ActTableViewCell.swift */,
 				6A32F93121B5F7CC00BB1234 /* ActTableViewCell.xib */,
 				6A32F93621B6088D00BB1234 /* DiagnosticEpisodeTableViewCell.swift */,
-				6A32F93721B6088D00BB1234 /* DiagnosticEpisodeTableViewCell.xib */,
+				6A8AA94921E5B8B900BD4AE5 /* DiagnosticEpisodeFormView.xib */,
 				6A32F92621B46DA900BB1234 /* QuickParser.swift */,
 				E8D98666217D7DF900EFE369 /* PatientForm.swift */,
 				6A4ED3D321B84D7B00935C0A /* PatientFormDelegate.swift */,
@@ -850,7 +850,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A32F93921B6088D00BB1234 /* DiagnosticEpisodeTableViewCell.xib in Resources */,
 				6A82B7F921C99B2A0035ED0D /* PatientTableCell5.xib in Resources */,
 				6A534ACE21D2753900555993 /* BasePatientListView.xib in Resources */,
 				E859A7A82182B21C007BF751 /* BadgeWithCounterViewStandardSized.xib in Resources */,
@@ -870,6 +869,7 @@
 				6A58514B21AF55AF00EE6943 /* TagsListTableViewCell.xib in Resources */,
 				6A82B7F621C973210035ED0D /* DetailedPatientForm.xib in Resources */,
 				6A534AB921D117EB00555993 /* LandingCardVC.xib in Resources */,
+				6A8AA94A21E5B8B900BD4AE5 /* DiagnosticEpisodeFormView.xib in Resources */,
 				E84115272175A38F00C5E9D9 /* OpenSans-BoldItalic.ttf in Resources */,
 				E84114B0217210DC00C5E9D9 /* Main.storyboard in Resources */,
 				6A4ED3D721BDB49800935C0A /* PatientTableCell2.xib in Resources */,
